@@ -4,7 +4,7 @@
 # IMPORTANT: Set the URL of your site.
 # Set to https://<username>.github.io when hosting on GitHub Pages
 # (unless you are using a custom domain).
-url:                   https://domain.tld
+url:                   https://mbaltieri.github.io/
 
 # IMPORTANT: Set The "base URL" of your site.
 # When your site sits in a subdirectory, set to /<name of directory>
@@ -19,18 +19,18 @@ baseurl:               ''
 lang:                  en
 
 # The title of your blog. Used in the sidebar and the browser tab.
-title:                 Hydejack
+title:                 Manuel Baltieri
 
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  "Best Jekyll Theme by a Mile".
-  **Hydejack** is your presence on the web, featuring a blog, portfolio, and resume.
+  Postdoc at the University of Sussex (soon joining RIKEN CBS).
 
 # A shorter description for the sidebar.
 tagline:               >
-  "Best Jekyll Theme by a Mile".
-  Open `_config.yml` to edit this text.
+  Mathematics and physics of life and cognition
+
+  Postdoc at the University of Sussex (soon joining RIKEN CBS)
 
 # A list of keywords for your blog
 keywords:              []
@@ -38,23 +38,28 @@ keywords:              []
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
-logo:                  /assets/icons/icon.png
+logo:                  assets/img/AlifeMe.jpg
 
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
-  name:                <firstname> <lastname>
-  email:               <mail@domain.tld>
+  name:                Manuel Baltieri
+  email:               m.baltieri@sussex.ac.uk
   # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
+
 # Add links to the sidebar.
 menu:
-  - title:             Hydejack
-    url:               /hydejack/
-  - title:             Hyde
-    url:               /hyde/
-  - title:             Documentation
-    url:               /docs/
+  # - title:             Hydejack
+  #   url:               /hydejack/
+  # - title:             Hyde
+  #   url:               /hyde/
+  - title:             Projects
+    url:               /work/
+  - title:             Publications
+    url:               /publications/
+  # - title:             Documentation
+  #   url:               /docs/
   - title:             About
     url:               /about/
 
@@ -67,7 +72,7 @@ menu:
 #     url:               /cookies-policy/
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2018. All rights reserved.
+copyright:             © 2019. All rights reserved.
 
 # Format of the permalinks
 permalink:             /:categories/:year-:month-:day-:title/
@@ -294,7 +299,7 @@ plugins:
 
 # Used for Twitter cards
 # twitter:
-#   username:            <shortname>
+#   username:            manuelbaltieri
 
 # Used for Facebook open graph
 # facebook:
@@ -302,12 +307,12 @@ plugins:
 #   publisher:           <id>
 #   admins:              <id>
 
-# Used on index and about sites
+# Used on index and about sites
 # social:
-#   name:                <firstname> <lastname>
+#   name:                Manuel Baltieri
 #   links:
-#     - https://twitter.com/<username>
-#     - https://github.com/<username>
+#     - https://twitter.com/manuelbaltieri
+#     - https://github.com/mbaltieri
 
 
 # Other Plugins

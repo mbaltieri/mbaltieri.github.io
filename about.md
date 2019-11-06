@@ -1,184 +1,25 @@
 ---
-image: /assets/img/blog/hydejack-8.png
+layout: page
+[//]: # (title: About Manuel)
+tags: [about, manuel, life, cognition]
+date: 2019-10-03
+comments: false
 ---
 
-# About
+## The origins of Manuel
+Born and bred in the Italian countryside. He lived in a tiny village (less than 1500 people) surrounded by vineyards for most of his life. He studied accounting before realising that his place was not at a desk filling in forms for double entry bookkeeping.
 
-The "Best Jekyll Theme by a Mile".
-{:.lead}
+He thus shifted to computer engineering (and business administration), graduating from the University of Trento, Italy, and later studied artificial intelligence and cognitive science at the University of Sussex in Brighton, UK. At Sussex, he also completed a PhD in informatics and artificial intelligence, under the supervision of [Chris Buckley](https://christopherlbuckley.com/), working on ideas of variational free energy minimisation and active inference as models of sensorimotor loops in the context of embodied and enactive cognitive science.
 
-![Screenshot](assets/img/blog/hydejack-8.png){:.lead srcset="/assets/img/blog/hydejack-8.png 1920w, /assets/img/blog/hydejack-8@0,5x.png 960w, /assets/img/blog/hydejack-8@0,25x.png 480w" data-width="1920" data-height="1080"}
-Hydejack's cover page on a variety of screens.
-{:.figure}
+Following his PhD, he collaborated with Chris, [Anil Seth](https://www.anilseth.com/) and [Warrick Roseboom](http://www.warrickroseboom.com/) on the application of active inference to robotics (Chris) and modelling of responses in psychophysics (Anil and Warrick). In November 2019, Manuel is joining RIKEN CBS, Tokyo, Japan, to work with [Taro Toyoizumi](http://toyoizumilab.brain.riken.jp/) on models of uncertainty for human behaviour and perception.
 
-**Hydejack** is your presence on the web. It gives you a *blog* that is suitable for both prose and technical documentation, a *portfolio* to showcase your projects, and a beautiful *resume* template that looks amazing on the web and in print.
+Manuel is overall interested in any formal, ideally mathematical, definition of (or attempt to define) life and cognition. Specifically in questions regarding the differences between living and non-living systems, and cognitive and non-cognitive architectures. Are these distinctions meaningful? What theories can we develop to highlight such diversity? If there's no real distintion, why do some organisms appear to be qualitatively different?
 
-> Your presence on the web — A [blog], a [portfolio], and a [resume].
-{:.lead}
-
-There are two versions of **Hydejack**: The base version is free, while features that are specific to *professionals* are a payed upgrade.
-
-|                        | Free           | PRO      |
-|:-----------------------|:--------------:|:--------:|
-| Blog                   | &#x2714;       | &#x2714; |
-| [Features]             | &#x2714;       | &#x2714; |
-| [Portfolio]            |                | &#x2714; |
-| [Resume]               |                | &#x2714; |
-| [Welcome]              |                | &#x2714; |
-| [Newsletter Box][news] |                | &#x2714; |
-| [Custom Forms][forms]  |                | &#x2714; |
-| [Dark Mode][darkm]     |                | &#x2714; |
-| [Offline Support][ofln]|                | &#x2714; |
-| Cookie Banner          |                | &#x2714; |
-| No Hydejack Branding   |                | &#x2714; |
-| License                | [GPL-3.0][lic] | [PRO]    |
-| Source                 | [GitHub][src]  | Included |
-| Support[^1]            | No             | No       |
-| Price                  | Free           | $59      |
-| | [**Download**][kit] <br/>-- or --<br/> [![Deploy to Netlify][dtn]{:data-ignore=""}][nfy]{:.no-hover.no-mark} | [**Buy PRO** --- $59][buy]{:.btn.btn-primary.btn-lg.heading} |
-{:.stretch-table.dl-table}
+These interests are inevitably tied to the definition of agents and observers, with ideas partially inspired by autopoietic proposals in theoretical biology and cognitive science. What can be defined as a *system*, or an agent, to be studied? How can we ensure that an observer's (a scientist's) influence on a system is not drastically changing its behaviour?
 
 
-## A Free Blogging Theme
-**Hydejack** started out as a free blogging theme for Jekyll — and continues to be so.
+## The origins of life
+Manuel worked for a short period at [EON](http://eon.elsi.jp/) (ELSI Origins of life Network) at Tokyo Tech. There, he worked on theories of the origins of life (Ool), with a special interest for proposals attempting to link Ool to information and control theory. Is homeostasis a good explanation of the difference between living and non-living systems? Does control theory provide the right set of tools to study homeostasis? Can information theory be used to define a useful (intrinsic) notion of information for living systems? For a brief overview: [blogpost for EON](http://eon.elsi.jp/information-and-regulation-at-the-origins-of-life/). In his spare time: trying to figure out what life is all about.
 
-<!--posts-->
-
-
-## An Impressive Portfolio
-A portfolio that's guaranteed to be impressive — no matter what you put into it.
-
-<!--projects-->
-
-
-## A Printable Resume
-Get a resume that's consistent across the board — whether it's on the web, mobile, print, or [PDF](assets/Resume.pdf).
-
-![Resume PDF](assets/img/blog/resume.png){: data-width="1867" data-height="1389"}
-Front and center page of a print resume generated by Hydejack.
-{:.figure}
-
-
-## Just Markup
-**Hydejack** boasts a plethora of modern JavaScript, but make no mistake: It's still a plain old *web page* at its core. It works without JavaScript, and you can even view it in a text-based browser like `w3m`:
-
-![w3m Screenshot](assets/img/blog/w3m.png){:data-width="1920" data-height="1260"}
-The Hydejack blog, as seen by the text browser `w3m`.
-{:.figure}
-
-
-## Syntax Highlighting
-**Hydejack** features syntax highlighting, powered by [Rouge].
-
-```js
-document.getElementsByTagName("hy-push-state")[0].addEventListener("hy-push-state-load", function() {
-  // <your init code>
-});
-```
-
-
-## Beautiful Math
-They say math is beautiful — and with **Hydejack**'s [math support][latex] it's also guaranteed to *look* beautiful.
-
-![Math Screenshot](assets/img/blog/example-content-iii.jpg){:data-width="1060" data-height="596"}
-Hydejack uses KaTeX to efficiently render math.
-{:.figure}
-
-
-## Build an Audience
-The PRO version has built-in support for customizable [Tinyletter] newsletter subscription boxes.
-
-If you are using a different service like MailChimp, you can build a custom newsletter subscription box using [Custom Forms][forms].
-
-
-## A Personal Site That Belongs to You
-**Hydejack** is 100% built on Open Source software, and is Open Source itself, save for parts of the PRO version. The PRO version is a one-time payment that gives you the right to use it forever.
-
-
-## Features
-An incomplete list of features included in all versions of **Hydejack**:
-
-* Full in-app page loading, powered by [hy-push-state]{:.external}
-* Customizable sidebar and touch-enabled drawer menu, powered by [hy-drawer]{:.external}
-* Lazy image loading with cancellation and placeholder, powered by [hy-img]{:.external}
-* Advanced FLIP animations, inspired by Material Design
-* 99/100 [Google PageSpeed Score][gpss][^2]
-* [Syntax highlighting][syntax], powered by [Rouge]
-* [LaTeX math blocks][latex], powered by [KaTeX]
-* Change the wording of built-in strings and possibly translate in other languages
-* Support for categories and tags
-* Built-in icons for many social networks
-* Simple and semantic HTML
-* Structured Data for core entities
-* Author section below each article and support for multiple authors
-* Google Analytics and Google Fonts support
-
-
-## Download
-There are two versions of **Hydejack**: The *free version* includes basic blogging functionality, as did previous versions of the theme.
-The *PRO version* includes additional features for professionals:
-A [portfolio], a [resume] layout, and a [welcome] page to highlight your favorite projects and posts.
-
-This table below shows what's included in each version:
-
-|                        | Free           | PRO      |
-|:-----------------------|:--------------:|:--------:|
-| Blog                   | &#x2714;       | &#x2714; |
-| [Features]             | &#x2714;       | &#x2714; |
-| [Portfolio]            |                | &#x2714; |
-| [Resume]               |                | &#x2714; |
-| [Welcome]              |                | &#x2714; |
-| [Newsletter Box][news] |                | &#x2714; |
-| [Custom Forms][forms]  |                | &#x2714; |
-| [Dark Mode][darkm]     |                | &#x2714; |
-| [Offline Support][ofln]|                | &#x2714; |
-| Cookie Banner          |                | &#x2714; |
-| No Hydejack Branding   |                | &#x2714; |
-| License                | [GPL-3.0][lic] | [PRO]    |
-| Source                 | [GitHub][src]  | Included |
-| Support[^1]            | No             | No       |
-| Price                  | Free           | $59      |
-| | [**Download**][kit] <br/>-- or --<br/> [![Deploy to Netlify][dtn]{:data-ignore=""}][nfy]{:.no-hover.no-mark} | [**Buy PRO** --- $59][buy]{:.btn.btn-primary.btn-lg.heading} |
-{:.stretch-table.dl-table}
-
-
-
-[^1]: You MAY open an issue on GitHub, but no response and/or fix is guaranteed.
-      You understand that using Jekyll requires technical know-how and is not comparable to Wordpress in terms of ease of use. Please use the free version to confirm that Hydejack works for you. For details, see the [PRO] license.
-
-[^2]: Actual page load speed depends on your hosting provider, resolution of embedded images and usage of 3rd party plugins.
-
-[blog]: https://hydejack.com/blog/
-[portfolio]: https://hydejack.com/projects/
-[resume]: https://hydejack.com/resume/
-[download]: https://hydejack.com/download/
-[welcome]: https://hydejack.com/
-[forms]: https://hydejack.com/forms-by-example/
-
-[features]: #features
-[news]: #build-an-audience
-[syntax]: #syntax-highlighting
-[latex]: hydejack/_posts/2018-06-01-example-content-iii.md#math
-[darkm]: hydejack/_posts/2018-09-01-introducing-dark-mode.md
-
-[lic]: LICENSE.md
-[pro]: licenses/PRO.md
-[docs]: docs/README.md
-[ofln]: docs/advanced.md#enabling-offline-support
-
-[kit]: https://github.com/qwtel/hydejack-starter-kit/archive/v8.5.0.zip
-[src]: https://github.com/qwtel/hydejack
-[gem]: https://rubygems.org/gems/jekyll-theme-hydejack
-[buy]: https://app.simplegoods.co/i/NATYVLYT
-[nfy]: https://app.netlify.com/start/deploy?repository=https://github.com/qwtel/hydejack-starter-kit
-[dtn]: https://www.netlify.com/img/deploy/button.svg
-
-[gpss]: https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fhydejack.com%2F
-[hy-push-state]: https://qwtel.com/hy-push-state/
-[hy-drawer]: https://qwtel.com/hy-drawer/
-[hy-img]: https://qwtel.com/hy-img/
-[rouge]: http://rouge.jneen.net
-[katex]: https://khan.github.io/KaTeX/
-[tinyletter]: https://tinyletter.com/
-
-*[FLIP]: First-Last-Invert-Play. A coding technique to achieve performant page transition animations.
+## The origins of cognition
+Manuel is interested in (minimal) models of cognition. Where does it come from and why is it potentially (evolutionarily) advantegeous? His approach mainly entails trying to link basic definitions of cognitive processes, in particular action and perception, to simple mathematical models of sensorimotor loops in the context of coupled agent-environment systems. During his PhD, he focused on a mix of information theoretic and dynamical systems derived approaches, combining ideas of uncertainty inherent in information and estimation theory, with an understanding of time-evolving trajectories and phase spaces in dynamical systems. Somewhat unsure about (but attracted by the idea of) a life-mind continuity thesis.
