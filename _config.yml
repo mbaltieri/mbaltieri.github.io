@@ -60,6 +60,8 @@ menu:
     url:               /publications/
   # - title:             Documentation
   #   url:               /docs/
+  - title:             Vision
+    url:               /vision/
   - title:             About
     url:               /about/
 
