@@ -11,7 +11,7 @@ comments: false
 - **A ladder of uncertainty: models of perception and behaviour for increasingly complex environments**, Baltieri M., Seth. A.K., Roseboom W. (in prep.)
 
 ## Pre-prints
-- **[Scaling active inference](https://arxiv.org/abs/1911.10601)**, Tschantz A., Baltieri M., Seth A. K., Buckley C. L., *arXiv pre-print arXiv:1911.10601*
+- **[Scaling active inference](https://arxiv.org/abs/1911.10601)**, Tschantz A., Baltieri M., Seth A. K., Buckley C. L., *arXiv pre-print arXiv:1911.10601 (2019)*
 
 ## Journal publications
 - **[PID control as a process of active inference with linear generative models](https://www.mdpi.com/1099-4300/21/3/257)**, Baltieri M. and Buckley C. L., *Entropy 21 (3), 257 (2019)*
@@ -26,4 +26,4 @@ comments: false
 - **[An active inference implementation of phototaxis](https://www.mitpressjournals.org/doi/abs/10.1162/isal_a_011)**, Baltieri M. and Buckley C. L., *Proceedings of the European Conference on Artificial Life, 2017*
 
 ## Other publications
-- **Generative models as parsimonious descriptions of sensorimotor loops**, Baltieri M. and Buckley C. L., (Commentary to Brette (2019): Is coding a relevant metaphor for the brain?) *Behavioral and Brain Sciences*, (in press.)
+- **[Generative models as parsimonious descriptions of sensorimotor loops](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/generative-models-as-parsimonious-descriptions-of-sensorimotor-loops/0345874F123418BEE102A90E4ADA5E5B)**, Baltieri M. and Buckley C. L., *Behavioral and Brain Sciences 42, 218 (2019)* (Commentary to Brette (2019): [Is coding a relevant metaphor for the brain?](cambridge.org/core/journals/behavioral-and-brain-sciences/article/is-coding-a-relevant-metaphor-for-the-brain/D578626E4888193FFFAE5B6E2C37E052))
