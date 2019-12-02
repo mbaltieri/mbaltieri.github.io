@@ -6,9 +6,9 @@ date: 2019-11-03
 comments: false
 ---
 
-## Currently in preparation
+<!-- ## Currently in preparation
 - **Modularity, the separation principle and active inference**, Baltieri M. and Buckley C. L., (in prep.) 
-- **A ladder of uncertainty: models of perception and behaviour for increasingly complex environments**, Baltieri M., Seth. A.K., Roseboom W. (in prep.)
+- **A ladder of uncertainty: models of perception and behaviour for increasingly complex environments**, Baltieri M., Seth. A.K., Roseboom W. (in prep.) -->
 
 ## Pre-prints
 - **[Scaling active inference](https://arxiv.org/abs/1911.10601)**, Tschantz A., Baltieri M., Seth A. K., Buckley C. L., *arXiv pre-print arXiv:1911.10601 (2019)*
