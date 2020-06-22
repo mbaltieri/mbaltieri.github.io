@@ -2,7 +2,7 @@
 layout: page
 title: List of publications
 tags: [publications, manuel]
-date: 2019-11-03
+date: 2020-06-22
 comments: false
 ---
 
@@ -11,13 +11,16 @@ comments: false
 - **A ladder of uncertainty: models of perception and behaviour for increasingly complex environments**, Baltieri M., Seth. A.K., Roseboom W. (in prep.) -->
 
 ## Pre-prints
-- **[Scaling active inference](https://arxiv.org/abs/1911.10601)**, Tschantz A., Baltieri M., Seth A. K., Buckley C. L., *arXiv pre-print arXiv:1911.10601 (2019)*
+- **[On Kalman-Bucy filters, linear quadratic control and active inference](https://arxiv.org/abs/2005.06269)**, Baltieri M. and Buckley C. L., *arXiv pre-print arXiv:2005.06269 (2020)*
 
 ## Journal publications
 - **[PID control as a process of active inference with linear generative models](https://www.mdpi.com/1099-4300/21/3/257)**, Baltieri M. and Buckley C. L., *Entropy 21 (3), 257 (2019)*
 
 
 ## Conference proceedings
+- **Predictions in the eye of the beholder: an active inference implementation of the Watt governor**, Baltieri M., Buckley C. L. and Bruineberg, J., *Accepted at the conference on Artificial Life, Montreal, Canada, 2020* 
+- **[A Bayesian perspective on classical control](https://arxiv.org/abs/2004.10288)**, Baltieri M., *Accepted at the World Congress on Computational Intelligence (WCCI 2020), Glasgow, UK, 2020* 
+- **[Scaling active inference](https://arxiv.org/abs/1911.10601)**, Tschantz A., Baltieri M., Seth A. K., Buckley C. L., *Accepted at the World Congress on Computational Intelligence (WCCI 2020), Glasgow, UK, 2020* 
 - **[Active Inference: Computational Models of Motor Control without Efference Copy](https://ccneuro.org/2019/Papers/ViewPapers.asp?PaperNum=1144)**, Baltieri M. and Buckley C. L., *Proceedings of the Conference on Cognitive Computational Neuroscience, Berlin, Germany, 2019*
 - **[The dark room problem in predictive processing and active inference, a legacy of cognitivism?](https://www.mitpressjournals.org/doi/abs/10.1162/isal_a_00137)**, Baltieri M. and Buckley C. L., *Proceedings of the International Conference on Artificial Life, Newcastle, UK, 2019*
 - **[Nonmodular architectures of cognitive systems based on active inference](https://ieeexplore.ieee.org/document/8852048)**, Baltieri M. and Buckley C. L., *Proceedings of the International Joint Conference on Neural Networks, Budapest, Humgary, 2019*
