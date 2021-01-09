@@ -23,7 +23,7 @@ Our manuscript, discussing the role of Markov blankets in cognitive science, is 
 - **The Emperor's New Markov Blankets**, Bruineberg J., Dolega K., Dewhurst J. and Baltieri, M., *A Preprint, 2020*
 
 
-{% pdf "/assets/pdf/Emperor.pdf" no_link %}
+<!-- {% pdf "/assets/pdf/Emperor.pdf" no_link %} -->
 
 &nbsp;
 &nbsp;
