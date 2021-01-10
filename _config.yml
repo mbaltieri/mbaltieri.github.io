@@ -279,7 +279,6 @@ plugins:
   - jekyll-sitemap
   - jekyll-titles-from-headings
   - jekyll-replace-img
-  - jekyll-pdf-embed
 
 # Theme
 # ---------------------------------------------------------------------------------------
