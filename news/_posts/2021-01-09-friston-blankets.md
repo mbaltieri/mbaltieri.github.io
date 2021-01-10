@@ -18,10 +18,9 @@ comments: true
 ---
 
 # The Emperor's New Markov Blankets
-Our manuscript, discussing the role of Markov blankets in cognitive science, is now available as a preprint here. Work led by Jelle Bruineberg, with Krzysztof Dolega, Joe Dewhurst and myself.
+Our manuscript, discussing the role of Markov blankets in cognitive science, is now available as a preprint [here](/assets/pdf/Emperor.pdf). Work led by Jelle Bruineberg, with Krzysztof Dolega, Joe Dewhurst and myself.
 
 - **The Emperor's New Markov Blankets**, Bruineberg J., Dolega K., Dewhurst J. and Baltieri, M., *A Preprint, 2020*
-
 
 
 &nbsp;

@@ -42,7 +42,7 @@ logo:                  assets/img/AlifeMe.jpg
 # This should be the same author as first entry in `_data/authors.yml`.
 author:
   name:                Manuel Baltieri
-  email:               m.baltieri@sussex.ac.uk
+  email:               manuel.baltieri@riken.jp
   # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
