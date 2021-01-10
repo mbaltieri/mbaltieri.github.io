@@ -22,8 +22,8 @@ Our manuscript, discussing the role of Markov blankets in cognitive science, is 
 
 - **The Emperor's New Markov Blankets**, Bruineberg J., Dolega K., Dewhurst J. and Baltieri, M., *A Preprint, 2020*
 
-
-<!-- {% pdf "/assets/pdf/Emperor.pdf" no_link %} -->
+<!-- 
+{% pdf "/assets/pdf/Emperor.pdf" no_link %}
 
 &nbsp;
 &nbsp;
@@ -50,4 +50,4 @@ Our work follows some recent relevant contributions including
 3. Fernando Rosas et al.’s [“Causal Blankets: Theory and algorithmic framework”](https://arxiv.org/abs/2008.12568)
 4. Martin Biehl et al.'s [“A technical critique of the free energy principle as presented in "Life as we know it" and related works”](https://arxiv.org/abs/2001.06408)
 
-(The last two, in particular, provide some of the technical background required to understand and evaluate whether Friston blankets are a well defined concept, one that can be used in the future to support the metaphysical claims in the FEP literature.)
+(The last two, in particular, provide some of the technical background required to understand and evaluate whether Friston blankets are a well defined concept, one that can be used in the future to support the metaphysical claims in the FEP literature.) -->
