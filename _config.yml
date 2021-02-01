@@ -61,6 +61,8 @@ menu:
   #   url:               /docs/
   - title:             Vision
     url:               /vision/
+  # - title:             Resume
+  #   url:               /resume/
   - title:             About
     url:               /about/
 
@@ -284,6 +286,7 @@ plugins:
 # ---------------------------------------------------------------------------------------
 
 # theme: jekyll-theme-hydejack
+# remote_theme: hydecorp/hydejack@v9.0.5
 # remote_theme: qwtel/hydejack@gem
 
 # SEO Tag

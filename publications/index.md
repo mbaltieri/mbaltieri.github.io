@@ -10,13 +10,13 @@ comments: false
 - **Modularity, the separation principle and active inference**, Baltieri M. and Buckley C. L., (in prep.) 
 - **A ladder of uncertainty: models of perception and behaviour for increasingly complex environments**, Baltieri M., Seth. A.K., Roseboom W. (in prep.) -->
 
-## Pre-prints
+## Preprints
 - **The Emperor’s New Markov Blankets**, Bruineberg J., Dolega K., Dewhurst J. and Baltieri, M., *A Preprint, (2020)* &emsp; [[preprint]](http://philsci-archive.pitt.edu/18467/)
-- **Embodied Skillful Performance: Where the Action Is**, Hipolito, I., Baltieri M., Friston K. J. and Ramstead M. J., *A preprint (2020)* &emsp; [[preprint]](http://philsci-archive.pitt.edu/18121/)
 - **On Kalman-Bucy filters, linear quadratic control and active inference**, Baltieri M. and Buckley C. L., *arXiv pre-print arXiv:2005.06269 (2020)* &emsp; [[preprint]](https://arxiv.org/abs/2005.06269)
 - **A minimal active inference agent**, McGregor S., Baltieri M. and Buckley C. L., *arXiv pre-print arXiv:1503.04187 (2015)* &emsp; [[preprint]](https://arxiv.org/pdf/1503.04187.pdf)
 
 ## Journal publications
+- **Embodied Skillful Performance: Where the Action Is**, Hipolito, I., Baltieri M., Friston K. J. and Ramstead M. J., *Synthese (2021)* &emsp; [[link]](https://link.springer.com/article/10.1007/s11229-020-02986-5) [[preprint]](http://philsci-archive.pitt.edu/18121/)
 - **PID control as a process of active inference with linear generative models**, Baltieri M. and Buckley C. L., *Entropy 21 (3), 257 (2019)* &emsp; [[link]](https://www.mdpi.com/1099-4300/21/3/257)
 
 
