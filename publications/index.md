@@ -16,7 +16,7 @@ comments: false
 
 ## Journal publications
 - **The Emperor’s New Markov Blankets**, Bruineberg J., Dolega K., Dewhurst J. and Baltieri, M., *A Preprint, (2020)* (accepted) &emsp; [[preprint]](http://philsci-archive.pitt.edu/18467/)
-- **Active inference through whiskers**, Mannella, F., Maggiore, F., Baltieri, M and Pezzulo, G. (accepted in Neural Networks)
+- **Active inference through whiskers**, Mannella, F., Maggiore, F., Baltieri, M and Pezzulo, G. *Neural Networks (2021)* &emsp; [[link]](https://www.sciencedirect.com/science/article/abs/pii/S0893608021003506) [[preprint]](https://www.biorxiv.org/content/10.1101/2021.07.16.452665v2)
 - **Embodied Skillful Performance: Where the Action Is**, Hipolito, I., Baltieri M., Friston K. J. and Ramstead M. J., *Synthese (2021)* &emsp; [[link]](https://link.springer.com/article/10.1007/s11229-020-02986-5) [[preprint]](http://philsci-archive.pitt.edu/18121/)
 - **PID control as a process of active inference with linear generative models**, Baltieri M. and Buckley C. L., *Entropy 21 (3), 257 (2019)* &emsp; [[link]](https://www.mdpi.com/1099-4300/21/3/257)
 

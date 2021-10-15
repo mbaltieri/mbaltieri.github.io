@@ -6,7 +6,7 @@ date: 2019-10-03
 comments: false
 ---
 
-Manuel is interested in any formal, ideally mathematical, definition of (or attempt to define) life and cognition. Specifically in questions regarding the differences between living and non-living systems, and cognitive and non-cognitive architectures. Are these distinctions meaningful? What theories can we develop to highlight such diversity? If there's no real distintion, why do some organisms appear to be qualitatively different?
+Manuel is interested in any formal, ideally mathematical, definition of (or attempt to define) life and cognition. Specifically in questions regarding the differences between living and non-living systems, and cognitive and non-cognitive architectures. Are these distinctions meaningful? What theories can we develop to highlight such diversity? If there's no real distinction, why do some organisms appear to be qualitatively different?
 
 These interests are inevitably tied to the definition of agents and observers, with ideas partially inspired by autopoietic proposals in theoretical biology and cognitive science. What can we define as a *system*, or an agent, to be studied? How can we ensure that an observer's (a scientist's) influence on a system is not drastically changing the system itself, or its behaviour?
 
