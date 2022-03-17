@@ -51,8 +51,8 @@ author:
 menu:
   # - title:             Hydejack
   #   url:               /hydejack/
-  - title:             News
-    url:               /news/
+  # - title:             News
+  #   url:               /news/
   - title:             Projects
     url:               /research/
   - title:             Publications

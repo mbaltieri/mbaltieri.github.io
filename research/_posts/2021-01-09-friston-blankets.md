@@ -3,7 +3,7 @@ layout: post
 title:  "The Emperor's New Markov Blankets"
 <!-- image: /assets/img/blog/HybridLife.png -->
 date:   2021-01-09
-excerpt: "New preprint: The Emperor's New Markov Blankets"
+excerpt: "The Emperor's New Markov Blankets"
 tag:
 - active inference
 - Bayesian inference
@@ -14,11 +14,11 @@ tag:
 - cognitive science
 comments: true
 <!-- description: >
-  How can we best understand life and cognition? How can we combine the results of different technological advances with natural organisms? -->
+  Do Markov blankets in the free energy principle demarkate minds and living systems? -->
 ---
 
 # The Emperor's New Markov Blankets
-Our manuscript, discussing the role of Markov blankets in cognitive science, is now available as a preprint [here](/assets/pdf/Emperor.pdf). Work led by Jelle Bruineberg, with Krzysztof Dolega, Joe Dewhurst and myself.
+Our manuscript, discussing the role of Markov blankets in cognitive science, is now available as a preprint [here](/assets/pdf/EmperorMarkovBlankets_preprint.pdf). Work led by Jelle Bruineberg, with Krzysztof Dolega, Joe Dewhurst and myself.
 
 - **The Emperor's New Markov Blankets**, Bruineberg J., Dolega K., Dewhurst J. and Baltieri, M., *A Preprint, 2020*
 

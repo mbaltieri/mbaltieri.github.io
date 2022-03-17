@@ -3,12 +3,12 @@
 # Change `author1` to your shortname.
 author1:
   name:              Manuel Baltieri
-  email:             m.baltieri@sussex.ac.uk
+  email:             manuel_baltieri@araya.org
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    Manuel is a postdoctoral researcher at RIKEN CBS, currently working on mathematical models of uncertainty in cognitive science.
+    Manuel is an interdisciplinary researcher at Araya, Inc.
 
   # This photo will be used in the about section
   picture:
@@ -22,7 +22,7 @@ author1:
   # Comment/uncommet to show/hide
   # Rearrange to change the order in which they appear
   social:
-    email:           manuel.baltieri@riken.jp
+    email:           manuel_baltieri@araya.org
     twitter:         manuelbaltieri
     github:          mbaltieri
     # rss:             https://<url>/feed.xml
