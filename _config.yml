@@ -63,6 +63,8 @@ menu:
     url:               /vision/
   # - title:             Resume
   #   url:               /resume/
+  # - title:             CV
+  #   url:               /resume/
   - title:             About
     url:               /about/
 
