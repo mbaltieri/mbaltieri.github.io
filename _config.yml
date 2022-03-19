@@ -46,6 +46,9 @@ author:
   # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
+# Resume info
+resume_contact_telephone: +81 (0)80 9401 4940
+
 
 # Add links to the sidebar.
 menu:
@@ -63,8 +66,8 @@ menu:
     url:               /vision/
   # - title:             Resume
   #   url:               /resume/
-  # - title:             CV
-  #   url:               /resume/
+  - title:             CV
+    url:               /resume/
   - title:             About
     url:               /about/
 
