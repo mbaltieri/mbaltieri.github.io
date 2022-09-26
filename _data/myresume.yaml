@@ -3,48 +3,113 @@
 # See also: <https://jsonresume.org/>.
 basics:
   name: "Manuel Baltieri"
-  label: "Researcher"
+  label: "Interdisciplinary researcher, mathematical modeller, coder."
   picture: "/assets/icons/icon.png"
-  email: ""
-  phone: "(912) 555-4321"
+  email: "manuel_baltieri@araya.org"
+  phone: "+81 (0)80 9401 4940"
   website: "https://www.manuelbaltieri.com"
   summary: >
-    Richard hails from Tulsa.
-    He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!)
-    Before starting Pied Piper, he worked for Hooli as a part time software developer.
-    While his work focuses on applied information theory,
-    mostly optimizing lossless compression schema of both the length-limited and adaptive variants,
-    his non-work interests range widely,
-    everything from quantum computing to chaos theory.
-    He could tell you about it, but THAT would NOT be a “length-limited” conversation!
-    Open `_data/resume.yml` to edit this text.
+    Interdisciplinary researcher synthesizing common threads across artificial life, neuroscience and artificial intelligence.
+    Computational modeller turning abstract problems into mathematical form. 
+    Proficient coder working on simulations of complex systems in artificial worlds, biology and cognitive science.
   location:
     address: "2712 Broadway St"
-    postalCode: "CA 94115"
-    city: "San Francisco"
-    countryCode: "US"
-    region: "California"
+    postalCode: "1640001"
+    city: "Nakano"
+    countryCode: "Japan"
+    region: "Tokyo"
   profiles:
     - network: "Twitter"
-      username: "RHendricksCEO"
-      url: ""
+      username: "manuelbaltieri"
+      url: "https://twitter.com/manuelbaltieri"
     - network: "LinkedIn"
-      username: "Richard Hendricks"
-      url: ""
+      username: "Manuel Baltieri"
+      url: "https://www.linkedin.com/in/manuelbaltieri/"
 work:
-  - company: "Pied Piper"
-    position: "CEO/President"
-    website: "https://piedpiper.com"
-    startDate: "2013-12-01"
+  - company: "Araya Inc."
+    position: "Researcher"
+    website: "https://www.araya.org/en/"
+    startDate: "2021-11-01"
     endDate: ""
     summary: >
-      Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has
-      consistently fielded high Weisman Scores™ that are not merely competitive,
-      but approach the theoretical limit of lossless compression.
+      Working on deep learning approaches to program synthesis and understanding, 
+      and models of decision making and reinforcement learning for general AI.
     highlights:
-      - "Build an algorithm for artist to detect if their music was violating copy right infringement laws"
-      - "Successfully won Techcrunch Disrupt"
-      - "Optimized an algorithm that holds the current world record for Weisman Scores"
+      # - "Build an algorithm for artist to detect if their music was violating copy right infringement laws"
+      # - "Successfully won Techcrunch Disrupt"
+      # - "Optimized an algorithm that holds the current world record for Weisman Scores"
+  - company: "Nested Minds Inc."
+    position: "Research Consultant and Developer"
+    website: "https://www.nestedminds.org/"
+    startDate: "2021-09-01"
+    endDate: "2021-10-31"
+    summary: >
+      Producing Jax and (Num)Pyro code to support python development of active inference models, 
+      with applications to machine learning, robotics, economics and finance.
+    highlights:
+  - company: "RIKEN Center for Brain Science"
+    position: "Postdoctoral Researcher (JSPS/Royal Society)"
+    website: "https://cbs.riken.jp/en/"
+    startDate: "2019-11-15"
+    endDate: "2021-10-31"
+    summary: >
+      Modelling brains in artificial and biological agents with Bayesian inference. 
+      Implementing collective intelligence and active matter simulations for perception of agency. 
+      Coding <a https://github.com/mbaltieri/GeneralisedFiltering">Generalised Filtering</a> 
+      in Pytorch for active inference and control in continuous time. 
+      Creating string diagrams for Bayesian computation in applied category theory
+    highlights:
+  - company: "University of Sussex"
+    position: "Visiting Research Fellow in Informatics"
+    website: "https://www.sussex.ac.uk/"
+    startDate: "2019-11-15"
+    endDate: ""
+    summary: >
+      Working on models on psychophysics experiments and supervising Master students.
+    highlights:
+  - company: "University of Sussex"
+    position: "Postdoctoral Research Fellow"
+    website: "https://www.sussex.ac.uk/"
+    startDate: "2019-03-01"
+    endDate: "2019-11-14"
+    summary: >
+      Implementing control as inference and active inference with Bayesian neural networks on robots. 
+      Coding models of uncertainty for psychophysics experiments.
+    highlights:
+  - company: "University of Sussex"
+    position: "Lecturer in Machine Learning (Fixed term)"
+    website: "https://www.sussex.ac.uk/"
+    startDate: "2019-02-22"
+    endDate: "2019-06-30"
+    summary: >
+      Lecturer in Machine Learning (Fixed term).
+      - Neural Networks
+      - Fundamentals of Machine Learning
+    highlights:
+  - company: "University of Sussex"
+    position: "Teaching Assistant"
+    website: "https://www.sussex.ac.uk/"
+    startDate: "2015-10-01"
+    endDate: "2019-06-30"
+    summary: >
+      Data Science Research Methods, Computer Vision, Artificial life, Further Programming, Mathematical concepts.
+    highlights:
+  - company: "University of Sussex"
+    position: "Research Assistant"
+    website: "https://www.sussex.ac.uk/"
+    startDate: "2015-01-01"
+    endDate: "2015-09-30"
+    summary: >
+      Building active inference generative models of suboptimal embodied artificial agents.
+    highlights:
+# \textbf{Visiting Graduate Researcher} \hfill {Dec 2017 - Jan 2018}
+# \begin{innerlist}
+#     \item[] Earth-Life Science Institute (ELSI), Japan, with Olaf Witkowski, Nathaniel Virgo
+#     \begin{innerlist}
+#         \item[] {\small Modelling origins of life with reaction diffusion systems, swarm chemistry and cellular automata. Analysing self-organising patterns with information theoretic measures.} \\ \halfblankline
+#     \end{innerlist}
+# \end{innerlist}
+
 volunteer:
   - organization: "CoderDojo"
     position: "Teacher"
@@ -55,15 +120,25 @@ volunteer:
     highlights:
       - "Awarded 'Teacher of the Month'"
 education:
-  - institution: "University of Oklahoma"
-    area: "Information Technology"
-    studyType: "Bachelor"
-    startDate: "2011-06-01"
-    endDate: "2014-01-01"
-    gpa: "4.0"
-    courses:
-      - "DB1101 - Basic SQL"
-      - "CS2011 - Java Introduction"
+  - institution: "University of Sussex, Uk"
+    degree: "Artificial Intelligence and Cognitive Science"
+    studyType: "Ph.D."
+    startDate: "2015-10-01"
+    endDate: "2019-07-21"
+    # gpa: "4.0"
+    # courses:
+    #   - "DB1101 - Basic SQL"
+    #   - "CS2011 - Java Introduction"
+  - institution: "University of Sussex, UK"
+    degree: "Evolutionary and Adaptive Systems"
+    studyType: "MSc"
+    startDate: "2013-10-01"
+    endDate: "2014-09-30"
+  - institution: "University of Trento, Italy"
+    degree: "Information and Business Organisation Engineering"
+    studyType: "BEng"
+    startDate: "2009-10-01"
+    endDate: "2012-09-30"
 awards:
   - title: "Digital Compression Pioneer Award"
     date: "2014-11-01"
