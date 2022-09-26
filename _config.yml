@@ -47,7 +47,8 @@ author:
   # twitter:             <username>
 
 # Resume info
-resume_contact_telephone: +81 (0)80 9401 4940
+resume_section_experience:    true
+resume_section_education:     true
 
 
 # Add links to the sidebar.
