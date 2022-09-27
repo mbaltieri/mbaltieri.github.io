@@ -1,0 +1,19 @@
+I"�<p>Together with a stellar team of guest editors, I will be co-editing a special issue on “Emerging Methods in Active Inference” in <a href="https://www.mdpi.com/journal/entropy">Entropy</a> (MDPI).</p>
+
+<h3 id="scope">Scope</h3>
+<p>Active inference is a formal approach for characterizing behavior. Although originally developed in theoretical neurobiology, it has found a diverse range of applications—from morphogenesis to robotics. Over the last few years, this range of applications has been matched with novel implementations of active inference. These vary along several dimensions. They exist for discrete or continuous time, as well as for continuous or categorical variables. Some versions use factor-graph-based message passing and variational inference, employing mean field or Bethe approximations. Others use Monte Carlo sampling schemes. Some focus on the underlying physics and Fokker–Planck formalisms. Others exploit technologies developed in deep learning and machine learning—such as the variational autoencoder—to facilitate application to large scale problems. This Special Issue aims to showcase the emerging spectrum of methods for active inference, as well as the kinds of questions they are designed to address.</p>
+
+<h3 id="guest-editors-team">Guest editors team</h3>
+
+<ul>
+  <li>Dr. Thomas Parr</li>
+  <li>Dr. Manuel Baltieri</li>
+  <li>Dr. Thijs van de Laar</li>
+  <li>Dr. Kai Ueltzhöffer</li>
+  <li>Prof. Dr. Karl Friston</li>
+  <li>Ms. Noor Sajid</li>
+</ul>
+
+<h3 id="submission">Submission</h3>
+<p>For submissions and more info, please visit <a href="https://www.mdpi.com/journal/entropy/special_issues/active_inference">https://www.mdpi.com/journal/entropy/special_issues/active_inference</a>.</p>
+:ET
