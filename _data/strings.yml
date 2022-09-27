@@ -130,12 +130,12 @@ resume:
   volunteer:           Volunteer
   volunteer_title:     <!--position--> at <!--organization-->
   education:           Education
-  education_title:     <!--study_type--> in <!--area--> from <!--institution--> with GPA of <!--gpa-->
+  education_title:     <!--study_type--> in <!--area--> from <!--institution--> # with GPA of <!--gpa-->
   courses:             Courses
   awards:              Awards
   awards_title:        <!--title--> from <!--awarder-->
   publications:        Publications
-  publications_title:  <!--name--> by <!--publisher-->
+  publications_title:  <!--name--> # by <!--publisher-->
   references:          References
   languages:           Languages
   fluency:             Fluency
@@ -144,8 +144,8 @@ resume:
   interests:           Interests
   summary:             Summary
   keywords:            Keywords
-  print:               Print
-  download_pdf:        PDF
+  print:               Print resume
+  download_pdf:        Full CV
   download_vcf:        vCard
   download_json:       JSON
   icons:

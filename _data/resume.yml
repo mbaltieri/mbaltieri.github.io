@@ -5,14 +5,14 @@ basics:
   name: "Manuel Baltieri"
   label: "Interdisciplinary researcher. Mathematical modeller. Coder."
   picture: "/assets/img/AlifeMe.jpg"
-  email: "manuel_baltieri@araya.org"
+  email: ""
   phone: ""
-  website: "www.manuelbaltieri.com"
+  website: ""
   summary: >
     - Interdisciplinary researcher synthesizing common threads across artificial life, neuroscience and artificial intelligence.
 
     - Computational modeller turning abstract contexts into mathematical objects. 
-    
+
     - Proficient coder developing simulations of complex systems in artificial worlds, biology and cognitive science starting from mathematical models.
   location:
     # address: "Nakano"
@@ -20,13 +20,13 @@ basics:
     city: "Tokyo"
     countryCode: "JP"
     # region: "California"
-  profiles:
-    - network: "Twitter"
-      username: "manuelbaltieri"
-      url: "https://twitter.com/manuelbaltieri"
-    - network: "LinkedIn"
-      username: "manuelbaltieri"
-      url: "https://www.linkedin.com/in/manuelbaltieri/"
+  # profiles:
+    # - network: "Twitter"
+    #   username: "manuelbaltieri"
+    #   url: "https://twitter.com/manuelbaltieri"
+    # - network: "LinkedIn"
+    #   username: "manuelbaltieri"
+    #   url: "https://www.linkedin.com/in/manuelbaltieri/"
 work:
   - company: "Araya Inc."
     position: "Researcher"
@@ -34,55 +34,126 @@ work:
     startDate: "2021-11-01"
     endDate: ""
     summary: >
-      Araya's mission is 1. to understand the biological functions and mathematical basis of consciousness and intelligence, and to apply this knowledge to develop conscious, intelligent machines, and
-      2. to develop brain-machine interfaces to connect the brain to the Internet, AI, and other brains.
-    highlights:
-      - "Implementing deep learning approaches to program synthesis and understanding, models of decision making and reinforcement learning for general AI"
-      - "Working on mathematical theories of agent-environment interactions"
-      - "Building string diagrams of dynamical systems and control systems in applied category theory."
-volunteer:
-  - organization: "CoderDojo"
-    position: "Teacher"
-    website: "https://coderdojo.com/"
-    startDate: "2012-01-01"
-    endDate: "2013-01-01"
-    summary: "Global movement of free coding clubs for young people."
-    highlights:
-      - "Awarded 'Teacher of the Month'"
+      Implementing deep learning approaches to program synthesis and understanding, models of decision making and reinforcement learning for general AI.
+      Working on mathematical theories of agent-environment interactions. 
+      Building string diagrams of dynamical systems and control systems in applied category theory.
+#      Araya's mission is 1. to understand the biological functions and mathematical basis of consciousness and intelligence, and to apply this knowledge to develop conscious, intelligent machines, and
+#      2. to develop brain-machine interfaces to connect the brain to the Internet, AI, and other brains.
+    # highlights:
+      # - "Implementing deep learning approaches to program synthesis and understanding, models of decision making and reinforcement learning for general AI"
+      # - "Working on mathematical theories of agent-environment interactions"
+      # - "Building string diagrams of dynamical systems and control systems in applied category theory."
+  - company: "University of Sussex"
+    position: "Visiting Research Fellow"
+    website: "https://www.sussex.ac.uk/informatics/"
+    startDate: "2020-01-01"
+    endDate: ""
+    summary: >
+      Working on models on psychophysics experiments for uncertainty estimation and decision making. Supervising Master students in neuroscience and machine learning.
+  - company: "Nested Minds Network Ltd."
+    position: "Research Consultant and Developer"
+    website: ""
+    startDate: "2021-09-01"
+    endDate: "2021-10-31"
+    summary: >
+      Writing Jax and (Num)Pyro code to support python development of active inference models. 
+      Applying active inference to machine learning, robotics, economics and finance.
+  - company: "RIKEN Centre for Brain Science"
+    position: "JSPS/Royal Society Postdoctoral Research Fellow"
+    website: "https://cbs.riken.jp/en/"
+    startDate: "2019-11-15"
+    endDate: "2021-10-31"
+    summary: >
+      Modelling brains in artificial and biological agents with Bayesian inference. 
+      Implementing collective intelligence and active matter simulations for perception of agency. 
+      Coding `Generalised Filtering' in Pytorch for active inference, learning and control.
+  - company: "University of Sussex"
+    position: "Postdoctoral Research Fellow"
+    website: "https://www.sussex.ac.uk/informatics/"
+    startDate: "2019-03-01"
+    endDate: "2019-10-31"
+    summary: >
+      Implementing control as inference and active inference with Bayesian neural networks on robots. 
+      Coding models of uncertainty for psychophysics experiments.
+  - company: "University of Sussex"
+    position: "Lecturer in Machine Learning (Fixed term)"
+    website: "https://www.sussex.ac.uk/informatics/"
+    startDate: "2019-02-01"
+    endDate: "2019-06-30"
+    summary: >
+      Teaching courses in Neural Networks and Fundamentals of Machine Learning.
+
+# volunteer:
+#   - organization: "CoderDojo"
+#     position: "Teacher"
+#     website: "https://coderdojo.com/"
+#     startDate: "2012-01-01"
+#     endDate: "2013-01-01"
+#     summary: "Global movement of free coding clubs for young people."
+#     highlights:
+#       - "Awarded 'Teacher of the Month'"
 education:
   - institution: "University of Sussex"
     area: "Informatics and Artificial Intelligence"
     studyType: "Ph.D."
     startDate: "2015-10-01"
     endDate: "2019-07-24"
+  - institution: "University of Sussex"
+    area: "Evolutionary and Adaptive Systems"
+    studyType: "MSc"
+    startDate: "2013-10-01"
+    endDate: "2014-09-30"
+  - institution: "University of Trento"
+    area: "Information and Business Organisation Engineering"
+    studyType: "BEng"
+    startDate: "2009-10-01"
+    endDate: "2012-09-30"
     # gpa: "4.0"
     # courses:
     #   - "DB1101 - Basic SQL"
     #   - "CS2011 - Java Introduction"
-awards:
-  - title: "Digital Compression Pioneer Award"
-    date: "2014-11-01"
-    awarder: "Techcrunch"
-    summary: "There is no spoon."
+# awards:
+#   - title: "Digital Compression Pioneer Award"
+#     date: "2014-11-01"
+#     awarder: "Techcrunch"
+#     summary: "There is no spoon."
 publications:
-  - name: "Video compression for 3d media"
+  - name: See the complete list here
     publisher: "Hooli"
-    releaseDate: "2014-10-01"
-    website: "https://en.wikipedia.org/wiki/Silicon_Valley_(TV_series)"
-    summary: "Innovative middle-out compression algorithm that changes the way we store data."
+    # releaseDate: "2014-10-01"
+    website: "https://manuelbaltieri.com/publications/"
+    # summary: "Innovative middle-out compression algorithm that changes the way we store data."
 skills:
-  - name: "Web Development"
+  # - name: "Artificial Life and Intelligence"
+  #   level: "Master"
+  #   keywords:
+  #     - "Agent-environment interactions"
+  #     - "Goal-directed behaviour"
+  #     - "Cognitive architectures"
+  - name: "Mathematics"
     level: "Master"
     keywords:
-      - "HTML"
-      - "CSS"
-      - "Javascript"
-  - name: "Compression"
+      - "Probability theory"
+      - "Stochastic processes"
+      - "Applied category theory"
+  - name: "AI and ALife"
     level: "Master"
     keywords:
-      - "Mpeg"
-      - "MP4"
-      - "GIF"
+      - "Systems thinking"
+      - "Complex systems"
+      - "Agent-based systems"
+  - name: "Neuroscience"
+    level: "Master"
+    keywords:
+      - "Mathematical Neuroscience"
+      - "Motor Neuroscience"
+      - "Decision making"
+  - name: "Computing"
+    level: "Master"
+    keywords:
+      - "Computational modelling"
+      - "Machine learning"
+      - "Python (Pytorch/JAX)"
 languages:
   - language: "Venetian"
     fluency: "Native speaker"
@@ -97,12 +168,21 @@ languages:
   - language: "French"
     fluency: "Limited working proficiency"
 interests:
-  - name: "Wildlife"
+  - name: "Exploring"
     keywords:
-      - "Ferrets"
-      - "Unicorns"
-references:
-  - name: "Erlich Bachman"
-    reference: >
-      It is my pleasure to recommend Richard, his performance working as a consultant for Main St.
-      Company proved that he will be a valuable addition to any company.
+      - "Travelling"
+  - name: "Land sports"
+    keywords:
+      - "Kickboxing"
+      - "Cycling"
+  - name: "Water sports"
+    keywords:
+      - "Kayaking"
+      - "Canyoning"
+      - "Rafting"
+      - "Snorkelling"
+# references:
+#   - name: "Erlich Bachman"
+#     reference: >
+#       It is my pleasure to recommend Richard, his performance working as a consultant for Main St.
+#       Company proved that he will be a valuable addition to any company.
