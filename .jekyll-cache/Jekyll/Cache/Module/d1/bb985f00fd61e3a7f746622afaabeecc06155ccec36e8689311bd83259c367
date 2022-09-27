@@ -1,0 +1,61 @@
+I"8
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<article
+  class="project-card"
+  vocab="http://schema.org/" typeof="CreativeWork" resource="/projects/hydejack-site/#project"
+  >
+  <meta property="name" content="Hydejack Site"/>
+  <meta property="image" content="/assets/img/projects/hydejack-site.jpg"/>
+
+  <a href="/projects/hydejack-site/" class="no-hover no-print-link flip-project" tabindex="-1">
+    <div class="project-card-img aspect-ratio sixteen-nine flip-project-img ">
+      
+        
+
+
+<img
+  
+    src="/assets/img/projects/hydejack-site.jpg"
+    srcset="/assets/img/projects/hydejack-site.jpg 1920w,/assets/img/projects/hydejack-site@0,5x.jpg 960w,/assets/img/projects/hydejack-site@0,25x.jpg 480w"
+    sizes="(min-width:86em)27.5rem,(min-width:54em)24.5rem,(min-width:42em)21.5rem,42rem"
+  
+  alt="Hydejack Site"
+  
+  
+  width="864"
+  height="486"
+  loading="lazy"
+/>
+
+      
+    </div>
+  </a>
+  <h3 class="project-card-title flip-project-title">
+    <a href="/projects/hydejack-site/" class="flip-title" property="mainEntityOfPage">Hydejack Site</a>
+  </h3>
+  
+    <p class="project-card-text fine" property="disambiguatingDescription">
+      Dogfooding Hydejack to sell Hydejack.
+
+    </p>
+  
+  
+  <a class="fill-card no-hover" href="/projects/hydejack-site/" tabindex="-1"><span class="sr-only">Continue reading Hydejack Site
+</span></a>
+</article>
+:ET

@@ -1,0 +1,14 @@
+I"�<p>For my personal site I’ve toned it down a bit. Instead of a flashy sidebar image, I chose a solid background color.
+However, I’ve given <a href="https://qwtel.com/projects/ducky-hunting/">certain</a> <a href="https://qwtel.com/projects/blocky-blocks/">pages</a> big sidebar images, and let Hydejack blend back to normal when the user navigates away.</p>
+
+<p>While I love the font used for Hydejack’s headings, for my personal site I felt less of a need to control the typesetting.
+That’s why I’m not using Google Fonts, and instead use whatever is the default for the reader’s operating system.</p>
+
+<div class="language-yml highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="na">google_fonts</span><span class="pi">:</span> <span class="no">false</span>
+<span class="na">font</span><span class="pi">:</span>         <span class="no">false</span>
+<span class="na">font_heading</span><span class="pi">:</span> <span class="no">false</span>
+<span class="na">font_code</span><span class="pi">:</span>    <span class="no">false</span>
+</code></pre></div></div>
+
+<p class="figcaption">The configuration I use to enable the system font on my site. Feel free to copy!</p>
+:ET

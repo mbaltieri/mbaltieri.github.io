@@ -1,0 +1,17 @@
+I"ç
+
+
+<img
+  
+    src="/assets/img/projects/hydejack-site.jpg"
+    srcset="/assets/img/projects/hydejack-site.jpg 1920w,/assets/img/projects/hydejack-site@0,5x.jpg 960w,/assets/img/projects/hydejack-site@0,25x.jpg 480w"
+    sizes="(min-width:90em)48rem,(min-width:54em)42rem,(min-width:42em)38rem,100vw"
+  
+  alt="Hydejack Site"
+  
+  property="image"
+  width="864"
+  height="486"
+  loading="lazy"
+/>
+:ET
