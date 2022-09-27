@@ -2,49 +2,44 @@
 # If you don't have a JSON Resume you can just edit this YAML file instead.
 # See also: <https://jsonresume.org/>.
 basics:
-  name: "Richard Hendricks"
-  label: "Programmer"
-  picture: "/assets/icons/icon.png"
-  email: ""
-  phone: "(912) 555-4321"
-  website: "https://piedpiper.com"
+  name: "Manuel Baltieri"
+  label: "Interdisciplinary researcher. Mathematical modeller. Coder."
+  picture: "/assets/img/AlifeMe.jpg"
+  email: "manuel_baltieri@araya.org"
+  phone: ""
+  website: "www.manuelbaltieri.com"
   summary: >
-    Richard hails from Tulsa.
-    He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!)
-    Before starting Pied Piper, he worked for Hooli as a part time software developer.
-    While his work focuses on applied information theory,
-    mostly optimizing lossless compression schema of both the length-limited and adaptive variants,
-    his non-work interests range widely,
-    everything from quantum computing to chaos theory.
-    He could tell you about it, but THAT would NOT be a “length-limited” conversation!
-    Open `_data/resume.yml` to edit this text.
+    - Interdisciplinary researcher synthesizing common threads across artificial life, neuroscience and artificial intelligence.
+
+    - Computational modeller turning abstract contexts into mathematical objects. 
+    
+    - Proficient coder developing simulations of complex systems in artificial worlds, biology and cognitive science starting from mathematical models.
   location:
-    address: "2712 Broadway St"
-    postalCode: "CA 94115"
-    city: "San Francisco"
-    countryCode: "US"
-    region: "California"
+    # address: "Nakano"
+    # postalCode: "CA 94115"
+    city: "Tokyo"
+    countryCode: "JP"
+    # region: "California"
   profiles:
     - network: "Twitter"
-      username: "RHendricksCEO"
-      url: ""
+      username: "manuelbaltieri"
+      url: "https://twitter.com/manuelbaltieri"
     - network: "LinkedIn"
-      username: "Richard Hendricks"
-      url: ""
+      username: "manuelbaltieri"
+      url: "https://www.linkedin.com/in/manuelbaltieri/"
 work:
-  - company: "Pied Piper"
-    position: "CEO/President"
-    website: "https://piedpiper.com"
-    startDate: "2013-12-01"
+  - company: "Araya Inc."
+    position: "Researcher"
+    website: "https://research.araya.org/"
+    startDate: "2021-11-01"
     endDate: ""
     summary: >
-      Pied Piper is a multi-platform technology based on a proprietary universal compression algorithm that has
-      consistently fielded high Weisman Scores™ that are not merely competitive,
-      but approach the theoretical limit of lossless compression.
+      Araya's mission is 1. to understand the biological functions and mathematical basis of consciousness and intelligence, and to apply this knowledge to develop conscious, intelligent machines, and
+      2. to develop brain-machine interfaces to connect the brain to the Internet, AI, and other brains.
     highlights:
-      - "Build an algorithm for artist to detect if their music was violating copy right infringement laws"
-      - "Successfully won Techcrunch Disrupt"
-      - "Optimized an algorithm that holds the current world record for Weisman Scores"
+      - "Implementing deep learning approaches to program synthesis and understanding, models of decision making and reinforcement learning for general AI"
+      - "Working on mathematical theories of agent-environment interactions"
+      - "Building string diagrams of dynamical systems and control systems in applied category theory."
 volunteer:
   - organization: "CoderDojo"
     position: "Teacher"
@@ -55,15 +50,15 @@ volunteer:
     highlights:
       - "Awarded 'Teacher of the Month'"
 education:
-  - institution: "University of Oklahoma"
-    area: "Information Technology"
-    studyType: "Bachelor"
-    startDate: "2011-06-01"
-    endDate: "2014-01-01"
-    gpa: "4.0"
-    courses:
-      - "DB1101 - Basic SQL"
-      - "CS2011 - Java Introduction"
+  - institution: "University of Sussex"
+    area: "Informatics and Artificial Intelligence"
+    studyType: "Ph.D."
+    startDate: "2015-10-01"
+    endDate: "2019-07-24"
+    # gpa: "4.0"
+    # courses:
+    #   - "DB1101 - Basic SQL"
+    #   - "CS2011 - Java Introduction"
 awards:
   - title: "Digital Compression Pioneer Award"
     date: "2014-11-01"
@@ -89,8 +84,18 @@ skills:
       - "MP4"
       - "GIF"
 languages:
-  - language: "English"
+  - language: "Venetian"
     fluency: "Native speaker"
+  - language: "Italian"
+    fluency: "Native speaker"
+  - language: "English"
+    fluency: "Native or bilingual proficiency"
+  - language: "Spanish"
+    fluency: "Professional working proficiency"
+  - language: "Japanese"
+    fluency: "Limited working proficiency"
+  - language: "French"
+    fluency: "Limited working proficiency"
 interests:
   - name: "Wildlife"
     keywords:
