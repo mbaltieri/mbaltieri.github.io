@@ -16,6 +16,7 @@ comments: false
 - **A minimal active inference agent**, McGregor S., Baltieri M. and Buckley C. L., *arXiv pre-print arXiv:1503.04187 (2015)* &emsp; [[preprint]](https://arxiv.org/pdf/1503.04187.pdf)
 
 ## Journal publications
+- **The Emperor is Naked: Replies to the commentaries on the target article.**, Bruineberg J., Dolega K., Dewhurst J. and Baltieri, M., *Behavioral and Brain Science (2022)*
 - **The Emperor’s New Markov Blankets**, Bruineberg J., Dolega K., Dewhurst J. and Baltieri, M., *Behavioral and Brain Science (2021)* &emsp; [[link]](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/emperors-new-markov-blankets/715C589A73DDF861DCF8997271DE0B8C) [[accepted - 2021]](/assets/pdf/EmperorMarkovBlankets.pdf) [[preprint - 2020]](https://www.researchgate.net/publication/346560958_The_Emperor's_New_Markov_Blankets)
 - **Active inference through whiskers**, Mannella, F., Maggiore, F., Baltieri, M. and Pezzulo, G. *Neural Networks (2021)* &emsp; [[link]](https://www.sciencedirect.com/science/article/abs/pii/S0893608021003506) [[preprint]](https://www.biorxiv.org/content/10.1101/2021.07.16.452665v2)
 - **Embodied Skillful Performance: Where the Action Is**, Hipolito, I., Baltieri M., Friston K. J. and Ramstead M. J., *Synthese (2021)* &emsp; [[link]](https://link.springer.com/article/10.1007/s11229-020-02986-5) [[preprint]](http://philsci-archive.pitt.edu/18121/)

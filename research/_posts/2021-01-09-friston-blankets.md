@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "The Emperor's New Markov Blankets"
-<!-- image: /assets/img/blog/HybridLife.png -->
+image: /assets/img/blog/blankets.jpg
 date:   2021-01-09
 excerpt: "The Emperor's New Markov Blankets"
 tag:

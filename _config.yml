@@ -62,7 +62,7 @@ menu:
   # - title:             About
   #   url:               /about/
   - title:             News
-    url:               /blog/
+    url:               /news/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -78,7 +78,7 @@ menu:
 copyright:             © 2022. All rights reserved.
 
 # Format of the permalinks
-permalink:             /blog/:categories/:year-:month-:day-:title/
+permalink:             /:categories/:year-:month-:day-:title/
 
 # Pagination configuration (used by the `blog` layout)
 paginate:              10
