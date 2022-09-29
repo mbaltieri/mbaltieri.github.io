@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Topic editor for Entropy"
-# image: /assets/img/blog/entropy-logo.webp
+image: /assets/img/blog/entropy-logo-social.webp
 date:   2021-05-20
 # excerpt: "Joining "
 tag:
