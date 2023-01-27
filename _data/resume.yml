@@ -28,6 +28,15 @@ basics:
     #   username: "manuelbaltieri"
     #   url: "https://www.linkedin.com/in/manuelbaltieri/"
 work:
+
+  - company: "Center for Human Nature, Artificial Intelligence, and Neuroscience (CHAIN) - Hokkaido University, JP"
+    position:
+      Lecturer (part-time)
+    website: "https://research.araya.org/"
+    startDate: "2022-10-01"
+    endDate: ""
+    summary: >
+      Teaching a course on formal theories to agency for the [CHAIN 2023 Winter Graduate School](https://www.chain.hokudai.ac.jp/en/events/3101/).
   - company: "Araya Inc."
     position:
       Chief Researcher
