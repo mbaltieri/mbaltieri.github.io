@@ -32,19 +32,19 @@ work:
   - company: "Center for Human Nature, Artificial Intelligence, and Neuroscience (CHAIN) - Hokkaido University, JP"
     position:
       Lecturer (part-time)
-    website: "https://research.araya.org/"
-    startDate: "2022-10-01"
+    website: "https://www.chain.hokudai.ac.jp/"
+    startDate: "2022-12-01"
     endDate: ""
-    summary: >
-      Teaching a course on formal theories to agency for the [CHAIN 2023 Winter Graduate School](https://www.chain.hokudai.ac.jp/en/events/3101/).
+    # summary: >
+      # Teaching a course on formal approached to the study of agency for the [CHAIN 2023 Winter Graduate School: Minimal Cognition and Agency](https://www.chain.hokudai.ac.jp/en/events/3101/).
   - company: "Araya Inc."
     position:
       Chief Researcher
     website: "https://research.araya.org/"
     startDate: "2022-10-01"
     endDate: ""
-    summary: >
-      Studying agency and agent-environment interactions. Building string diagrams of dynamical systems and control systems in applied category theory.
+    # summary: >
+    #   Studying agency and agent-environment interactions. Building string diagrams of dynamical systems and control systems in applied category theory.
 #      Araya's mission is 1. to understand the biological functions and mathematical basis of consciousness and intelligence, and to apply this knowledge to develop conscious, intelligent machines, and
 #      2. to develop brain-machine interfaces to connect the brain to the Internet, AI, and other brains.
     # highlights:
@@ -57,48 +57,48 @@ work:
     website: "https://research.araya.org/"
     startDate: "2021-11-01"
     endDate: "2022-09-30"
-    summary: >
-      Implementing deep learning approaches to program synthesis and understanding, models of decision making and reinforcement learning for general AI.
-      Working on mathematical theories of agent-environment interactions.
+    # summary: >
+    #   Implementing deep learning approaches to program synthesis and understanding, models of decision making and reinforcement learning for general AI.
+    #   Working on mathematical theories of agent-environment interactions.
   - company: "University of Sussex"
     position: "Visiting Research Fellow"
     website: "https://www.sussex.ac.uk/informatics/"
     startDate: "2020-01-01"
     endDate: ""
-    summary: >
-      Working on models on psychophysics experiments for uncertainty estimation and decision making. Supervising Master students in neuroscience and machine learning.
+    # summary: >
+    #   Working on models on psychophysics experiments for uncertainty estimation and decision making. Supervising Master students in neuroscience and machine learning.
   - company: "Nested Minds Network Ltd."
     position: "Research Consultant and Developer"
     website: ""
     startDate: "2021-09-01"
     endDate: "2021-10-31"
-    summary: >
-      Writing Jax and (Num)Pyro code to support python development of active inference models. 
-      Applying active inference to machine learning, robotics, economics and finance.
+    # summary: >
+    #   Writing Jax and (Num)Pyro code to support python development of active inference models. 
+    #   Applying active inference to machine learning, robotics, economics and finance.
   - company: "RIKEN Centre for Brain Science"
     position: "JSPS/Royal Society Postdoctoral Research Fellow"
     website: "https://cbs.riken.jp/en/"
     startDate: "2019-11-15"
     endDate: "2021-10-31"
-    summary: >
-      Modelling brains in artificial and biological agents with Bayesian inference. 
-      Implementing collective intelligence and active matter simulations for perception of agency. 
-      Coding `Generalised Filtering' in Pytorch for active inference, learning and control.
+    # summary: >
+    #   Modelling brains in artificial and biological agents with Bayesian inference. 
+    #   Implementing collective intelligence and active matter simulations for perception of agency. 
+    #   Coding `Generalised Filtering' in Pytorch for active inference, learning and control.
   - company: "University of Sussex"
     position: "Postdoctoral Research Fellow"
     website: "https://www.sussex.ac.uk/informatics/"
     startDate: "2019-03-01"
     endDate: "2019-10-31"
-    summary: >
-      Implementing control as inference and active inference with Bayesian neural networks on robots. 
-      Coding models of uncertainty for psychophysics experiments.
+    # summary: >
+    #   Implementing control as inference and active inference with Bayesian neural networks on robots. 
+    #   Coding models of uncertainty for psychophysics experiments.
   - company: "University of Sussex"
     position: "Lecturer in Machine Learning (Fixed term)"
     website: "https://www.sussex.ac.uk/informatics/"
     startDate: "2019-02-01"
     endDate: "2019-06-30"
-    summary: >
-      Teaching courses in Neural Networks and Fundamentals of Machine Learning.
+    # summary: >
+    #   Teaching courses in Neural Networks and Fundamentals of Machine Learning.
 
 # volunteer:
 #   - organization: "CoderDojo"
