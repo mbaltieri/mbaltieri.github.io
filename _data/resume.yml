@@ -28,38 +28,37 @@ basics:
     #   username: "manuelbaltieri"
     #   url: "https://www.linkedin.com/in/manuelbaltieri/"
 work:
-
-  - company: "Center for Human Nature, Artificial Intelligence, and Neuroscience (CHAIN) - Hokkaido University, JP"
-    position:
-      Lecturer (part-time)
-    website: "https://www.chain.hokudai.ac.jp/"
-    startDate: "2022-12-01"
-    endDate: ""
-    # summary: >
-      # Teaching a course on formal approached to the study of agency for the [CHAIN 2023 Winter Graduate School: Minimal Cognition and Agency](https://www.chain.hokudai.ac.jp/en/events/3101/).
   - company: "Araya Inc."
     position:
       Chief Researcher
     website: "https://research.araya.org/"
     startDate: "2022-10-01"
     endDate: ""
-    # summary: >
-    #   Studying agency and agent-environment interactions. Building string diagrams of dynamical systems and control systems in applied category theory.
+    summary: >
+      Creating string diagrams of dynamical systems and control systems in applied category theory for models of decision making and reinforcement learning in general AI and mathematical theories of agent-environment interactions.
+#      (OLD) Studying agency and agent-environment interactions. Building string diagrams of dynamical systems and control systems in applied category theory.
 #      Araya's mission is 1. to understand the biological functions and mathematical basis of consciousness and intelligence, and to apply this knowledge to develop conscious, intelligent machines, and
 #      2. to develop brain-machine interfaces to connect the brain to the Internet, AI, and other brains.
     # highlights:
       # - "Implementing deep learning approaches to program synthesis and understanding, models of decision making and reinforcement learning for general AI"
       # - "Working on mathematical theories of agent-environment interactions"
       # - "Building string diagrams of dynamical systems and control systems in applied category theory."
+  - company: "Center for Human Nature, Artificial Intelligence, and Neuroscience (CHAIN) - Hokkaido University, JP"
+    position:
+      Lecturer (part-time)
+    website: "https://www.chain.hokudai.ac.jp/"
+    startDate: "2022-12-01"
+    endDate: "2023-02-28"
+    summary: >
+      Teaching a course on formal approached to the study of agency for the [CHAIN 2023 Winter Graduate School: Minimal Cognition and Agency](https://www.chain.hokudai.ac.jp/en/events/3101/).
   - company: "Araya Inc."
     position:
       Researcher
     website: "https://research.araya.org/"
     startDate: "2021-11-01"
     endDate: "2022-09-30"
-    # summary: >
-    #   Implementing deep learning approaches to program synthesis and understanding, models of decision making and reinforcement learning for general AI.
-    #   Working on mathematical theories of agent-environment interactions.
+    summary: >
+      Working on deep learning approaches to program synthesis and understanding. Focusing on Large Language Models (LLMs): architecture optimisation, fine-tuning, prompt engineering and performance metrics.
   - company: "University of Sussex"
     position: "Visiting Research Fellow"
     website: "https://www.sussex.ac.uk/informatics/"
@@ -159,17 +158,18 @@ skills:
       - "Systems thinking"
       - "Complex systems"
       - "Agent-based modelling"
+      - "Computational modelling"
   - name: "Neuroscience"
     level: "Master"
     keywords:
       - "Mathematical Neuroscience"
       - "Motor Neuroscience"
       - "Decision making"
-  - name: "Computing"
+  - name: "Machine learning"
     level: "Master"
     keywords:
-      - "Computational modelling"
-      - "Machine learning"
+      - "Deep learning"
+      - "Large Language Models (LLMs)"
       - "Python (Pytorch/JAX)"
 languages:
   - language: "Venetian"
