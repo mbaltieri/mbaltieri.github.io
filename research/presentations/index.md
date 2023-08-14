@@ -42,7 +42,7 @@ Minor updates have been implemented whenever necessary (missing references, typo
 
 - The dark room problem in predictive processing and active inference, a legacy of cognitivism?, International Conference on Artificial Life (ALIFE) 2019, Newcastle, UK - Jul 2019
 
-- Nonmodular architectures of cognitive systems based on active inference, International Joint Conference on Neural Networks (IJCNN) 2019, Budapest, Hungary - Jul 2019
+- Nonmodular architectures of cognitive systems based on active inference, International Joint Conference on Neural Networks (IJCNN) 2019, Budapest, Hungary - Jul 2019 &emsp; [pdf](/assets/pdf/presentations/IJCNN2019.pdf)
 
 - Action-oriented models for active inference: examples and connections to 4E ideas, Alergic seminars, University of Sussex, Brighton, UK - May 2019
 
