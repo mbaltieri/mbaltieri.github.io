@@ -29,6 +29,6 @@ The main focus of artificial life (ALife) research is the study of natural syste
 - a study of coupled heterogenious (biological-artificial) systems that can shed light on the importance of interactions among different types of systems, such as in the fields of human- or animal-computer interaction, virtual and augmented reality systems, etc.
 
 For more info check:
-- our [review paper](https://arxiv.org/abs/2212.00285)
+- our [review paper](https://wires.onlinelibrary.wiley.com/doi/full/10.1002/wcs.1662)
 - our [website](https://sites.google.com/view/hybridlife), and
 - our [social media](https://twitter.com/HybridALife).
