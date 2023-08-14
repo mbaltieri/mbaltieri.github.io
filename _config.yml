@@ -55,8 +55,15 @@ menu:
     url:               /research/
   # - title:             Resume
   #   url:               /index/
-  - title:             Publications
-    url:               /publications/
+  - title:             Research output
+    # url:               /publications/
+    menu:
+    - title:            Publications
+      url:              /research/publications/
+    - title:            Edited issues
+      url:              /research/editing/
+    - title:            Presentations
+      url:              /research/presentations/
   # - title:             Documentation
   #   url:               /docs/
   # - title:             About
@@ -145,10 +152,10 @@ defaults:
       sitemap:         false
 
   # # You can use the following to enable comments on all posts.
-  # - scope:
-  #     type:            posts
-  #   values:
-  #     comments:        true
+  - scope:
+      type:            posts
+    values:
+      comments:        true
 
   # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
   # but we want them to be `WebPage`s:
@@ -183,7 +190,7 @@ kramdown:
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
-# disqus:                <username>
+disqus:                manuelbaltieri
 
 # Setting a tinyletter username will enable the newsletter subscription box.
 # PRO version only!
