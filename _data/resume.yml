@@ -135,9 +135,9 @@ education:
 #     summary: "There is no spoon."
 publications:
   - name: See the complete list here
-    publisher: "Hooli"
+    # publisher: "Hooli"
     # releaseDate: "2014-10-01"
-    website: "https://manuelbaltieri.com/publications/"
+    website: "https://manuelbaltieri.com/research/publications/"
     # summary: "Innovative middle-out compression algorithm that changes the way we store data."
 skills:
   # - name: "Artificial Life and Intelligence"
