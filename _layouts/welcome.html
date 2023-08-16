@@ -1,17 +1,12 @@
 ---
 # Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
-layout: about
+layout: base
 ---
 
-{% assign version = jekyll.version | split:'.' %}
-{% assign major = version[0] | plus:0 %}
-{% assign minor = version[1] | plus:0 %}
-{% assign patch = version[2] | plus:0 %}
+{% assign resume = page.resume | default:site.data.resume %}
+{% assign basics = resume.basics %}
+{% include pro/resume/header.html %}
 
-{% assign strings = site.data.strings %}
-{% assign no_third_column = page.no_third_column | default:site.hydejack.no_third_column | default:false %}
-
-{% assign nodes = site.html_pages | concat: site.documents %}
 
 {% if content contains "<!--projects-->" %}
 {% capture projects_x %}
