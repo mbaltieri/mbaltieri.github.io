@@ -29,8 +29,7 @@ basics:
     #   url: "https://www.linkedin.com/in/manuelbaltieri/"
 work:
   - company: "Araya Inc."
-    position:
-      Chief Researcher
+    position: "Chief Researcher"
     website: "https://research.araya.org/"
     startDate: "2022-10-01"
     endDate: ""
@@ -137,7 +136,8 @@ publications:
   - name: See the complete list here
     # publisher: "Hooli"
     # releaseDate: "2014-10-01"
-    website: "https://manuelbaltieri.com/research/publications/"
+    # website: "https://manuelbaltieri.com/research/publications/"
+    url: /research/publications/
     # summary: "Innovative middle-out compression algorithm that changes the way we store data."
 skills:
   # - name: "Artificial Life and Intelligence"
