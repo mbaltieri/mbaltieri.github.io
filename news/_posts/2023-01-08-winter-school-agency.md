@@ -24,3 +24,5 @@ description: >
 The Center for Human Nature, Artificial Intelligence, and Neuroscience (CHAIN) - Hokkaido University, JP will host its annual [Winter School](https://www.chain.hokudai.ac.jp/en/events/3101/) in February 2023, 5th-10th, centred around the topics of minimal cognition and agency.
 
 Manuel was invited to be a lecturer for the 2023 edition of the Winter School, where he will cover approaches to the study of agency and first-principles mathematical theories of what it means to be an agent.
+
+Presentation material (PDFs and recordings) available in the ["Presentations" page](/research/presentations).

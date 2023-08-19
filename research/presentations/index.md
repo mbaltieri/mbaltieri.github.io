@@ -17,9 +17,9 @@ Minor updates have been implemented whenever necessary (missing references, typo
 - Inference with and within a model, CHAIN Academic Seminars, Hokkaido University, Sapporo, Japan - Feb 2023 &emsp; [recording](https://www.youtube.com/watch?v=yA-d1atSzWs&t=371s&ab_channel=%E5%8C%97%E6%B5%B7%E9%81%93%E5%A4%A7%E5%AD%A6%E4%BA%BA%E9%96%93%E7%9F%A5%E3%83%BB%E8%84%B3%E3%83%BBAI%E7%A0%94%E7%A9%B6%E6%95%99%E8%82%B2%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%28CHAIN%29)
 
 - [CHAIN Winter School](https://www.chain.hokudai.ac.jp/events/3101/) on Minimal Cognition and Agency, Hokkaido University, Sapporo, Japan - Feb 2023
-	- Lecture 1 - Defining agency &emsp; [pdf](/assets/pdf/presentations/Lecture1_Baltieri.pdf)
-	- Lecture 2 - A history of studies of agency &emsp; [pdf](/assets/pdf/presentations/Lecture2_Baltieri.pdf)
-	- Lecture 3 - First-principles definitions of agents &emsp; [pdf](/assets/pdf/presentations/Lecture3_Baltieri.pdf)
+	- Lecture 1 - Defining agency &emsp; [pdf](/assets/pdf/presentations/Lecture1_Baltieri.pdf) &emsp; [recording](https://youtu.be/h3odndlkDoc?t=1761)
+	- Lecture 2 - A history of studies of agency &emsp; [pdf](/assets/pdf/presentations/Lecture2_Baltieri.pdf) &emsp; [recording](https://www.youtube.com/watch?v=HE9c9XoZ7vQ&list=PLWkKadjdO-Xa17EjsKrc-IyhW-2XW8g36&index=3&ab_channel=%E5%8C%97%E6%B5%B7%E9%81%93%E5%A4%A7%E5%AD%A6%E4%BA%BA%E9%96%93%E7%9F%A5%E3%83%BB%E8%84%B3%E3%83%BBAI%E7%A0%94%E7%A9%B6%E6%95%99%E8%82%B2%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%28CHAIN%29)
+	- Lecture 3 - First-principles definitions of agents &emsp; [pdf](/assets/pdf/presentations/Lecture3_Baltieri.pdf) &emsp; [recording](https://www.youtube.com/watch?v=7h3jk4U3f9k&list=PLWkKadjdO-Xa17EjsKrc-IyhW-2XW8g36&index=5&ab_channel=%E5%8C%97%E6%B5%B7%E9%81%93%E5%A4%A7%E5%AD%A6%E4%BA%BA%E9%96%93%E7%9F%A5%E3%83%BB%E8%84%B3%E3%83%BBAI%E7%A0%94%E7%A9%B6%E6%95%99%E8%82%B2%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%28CHAIN%29)
 
 - Inference with and within a model, Consciousness Club, Tokyo, Japan - July 2022 &emsp; [pdf](/assets/pdf/presentations/CC_Tokyo.pdf) &emsp; [recording](https://www.youtube.com/watch?v=ascyxuJ6lIk&ab_channel=ConsciousnessClubTokyo)
 
