@@ -16,7 +16,7 @@ comments: false
 - **A minimal active inference agent**, McGregor, S., Baltieri, M., & Buckley, C. L., *arXiv pre-print arXiv:1503.04187 (2015)*. &emsp; [[preprint]](https://arxiv.org/pdf/1503.04187.pdf)
 
 ## Journal publications
-- **Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems**. Baltieri, M., Iizuka, H., Witkowski, O., Sinapayen, L., & Suzuki, K., *arXiv preprint arXiv:2212.00285. (2023)*. &emsp; [[preprint]](https://arxiv.org/abs/2212.00285) &emsp; [[pdf]](/assets/pdf/HybridLifeWIREs.pdf)
+- **Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems**. Baltieri, M., Iizuka, H., Witkowski, O., Sinapayen, L., & Suzuki, K., *WIREs Cognitive Science (2023)*. &emsp; [[preprint]](https://arxiv.org/abs/2212.00285) &emsp; [[pdf]](/assets/pdf/HybridLifeWIREs.pdf)
 - **The Emperor is Naked: Replies to the commentaries on the target article.**, Bruineberg, J., Dolega, K., Dewhurst, J., & Baltieri, M., *Behavioral and Brain Science (2022)*. &emsp; [[link]](https://doi.org/10.1017/S0140525X22000656) &emsp; [[pdf]](/assets/pdf/EmperorNaked.pdf)
 - **The Emperor’s New Markov Blankets**, Bruineberg, J., Dolega, K., Dewhurst, J., & Baltieri, M., *Behavioral and Brain Science (2021)*. &emsp; [[link]](https://doi.org/10.1017/S0140525X21002351) &emsp; [[pdf]](/assets/pdf/EmperorMarkovBlankets.pdf) &emsp; [[preprint - 2020]](https://www.researchgate.net/publication/346560958_The_Emperor's_New_Markov_Blankets)
 - **Active inference through whiskers**, Mannella, F., Maggiore, F., Baltieri, M., & Pezzulo, G. *Neural Networks (2021)*. &emsp; [[link]](https://www.sciencedirect.com/science/article/abs/pii/S0893608021003506) &emsp; [[preprint]](https://www.biorxiv.org/content/10.1101/2021.07.16.452665v2)
