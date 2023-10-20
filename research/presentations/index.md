@@ -14,6 +14,12 @@ Minor updates have been implemented whenever necessary (missing references, typo
 
 ## Invited presentations
 
+- The Emperor's New Markov Blankets, COGS Academic Seminars, University of Sussex, Brighton, UK - Oct 2023 &emsp; [pdf](/assets/pdf/presentations/COGSBrighton2023.pdf)
+
+- Minimal agency, Agent Foundations for Alignment: Clear Thinking for Messy Minds, Oxford, UK - Oct 2023 &emsp; [pdf](/assets/pdf/presentations/MinimalAgencyOxford2023.pdf)
+
+- The free energy principle and the internal model principle: A guide for the study of agents?, Active Inference meets AI Alignment, Oxford, UK - Oct 2023 &emsp; [pdf](/assets/pdf/presentations/AIAlignmentActiveInferenceOxford2023.pdf)
+
 - Inference with and within a model, CHAIN Academic Seminars, Hokkaido University, Sapporo, Japan - Feb 2023 &emsp; [recording](https://www.youtube.com/watch?v=yA-d1atSzWs&t=371s&ab_channel=%E5%8C%97%E6%B5%B7%E9%81%93%E5%A4%A7%E5%AD%A6%E4%BA%BA%E9%96%93%E7%9F%A5%E3%83%BB%E8%84%B3%E3%83%BBAI%E7%A0%94%E7%A9%B6%E6%95%99%E8%82%B2%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%28CHAIN%29)
 
 - [CHAIN Winter School](https://www.chain.hokudai.ac.jp/events/3101/) on Minimal Cognition and Agency, Hokkaido University, Sapporo, Japan - Feb 2023
@@ -33,6 +39,8 @@ Minor updates have been implemented whenever necessary (missing references, typo
 
 
 ## Contributed presentations
+
+- A relational theory of agency (and goals?), Japan AI Alignment Conference 2023, Tokyo, Mar 2023 &emsp; [pdf](/assets/pdf/presentations/AgencyAlignmentTokyo2023.pdf)
 
 - The Emperor's New Markov Blankets, Annual meeting of the Association of Scientific Studies of Consciousness (ASSC 25) 2022, Amsterdam, Netherlands -  Jul 2022
 
