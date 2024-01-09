@@ -28,6 +28,12 @@ basics:
     #   username: "manuelbaltieri"
     #   url: "https://www.linkedin.com/in/manuelbaltieri/"
 work:
+  - company: "International Society for Artificial Life"
+    position: "Board of Directors"
+    website: "https://alife.org/"
+    startDate: "2023-11-01"
+    endDate: ""
+    # summary: >
   - company: "Araya Inc."
     position: "Chief Researcher"
     website: "https://research.araya.org/"
