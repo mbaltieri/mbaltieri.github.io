@@ -13,6 +13,7 @@ Minor updates have been implemented whenever necessary (missing references, typo
 [^1]: In some cases sharing was/is not allowed, (but do expect more PDFs over time). Sometimes a (virtually) identical presentation was given in multiple occasions so no PDFs will be included, this is especially true for presentations with the same title.
 
 ## Invited presentations
+- LLMs beyond Transformers (panel discussion), Tokyo AI Talks @ GHOVC, Tokyo, Japan - Jan 2024
 
 - The Emperor's New Markov Blankets, COGS Academic Seminars, University of Sussex, Brighton, UK - Oct 2023 &emsp; [pdf](/assets/pdf/presentations/COGSBrighton2023.pdf)
 
