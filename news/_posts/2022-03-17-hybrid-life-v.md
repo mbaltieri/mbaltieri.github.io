@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Hybrid life V"
+title:  "Organising Hybrid Life V"
 image: /assets/img/blog/HybridLifeNew.jpg
 date:   2022-03-17
-excerpt: "Approaches to integrate biological, artificial and cognitive systems."
+excerpt: "Organising Hybrid Life V"
 tag:
 - hybrid
 - life
@@ -18,8 +18,9 @@ description: >
 ---
 
 
-## Hybrid life V - special session accepted at ALife 2022, Trento, Italy (Update: online)
-### Organisers: Manuel Baltieri, Keisuke Suzuki, Olaf Witkowski
+## Organising Hybrid Life V
+### Hybrid life V - special session accepted at ALIFE 2022, Trento, Italy (update: online)
+#### Organisers: Manuel Baltieri, Keisuke Suzuki, Olaf Witkowski
 I'm happy to announce that our special session has been accepted at ALife 2022!
 
 For more info:

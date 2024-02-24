@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Hybrid life IV"
+title:  "Organising Hybrid Life IV"
 image: /assets/img/blog/HybridLifeNew.jpg
 date:   2021-02-14
-excerpt: "Approaches to integrate biological, artificial and cognitive systems."
+excerpt: "Organising Hybrid Life IV"
 tag:
 - hybrid
 - life
@@ -18,10 +18,11 @@ description: >
   How can we best understand life and cognition? How can we combine the results of different technological advances with natural organisms?
 ---
 
+## Organising Hybrid Life IV
+### Hybrid life IV - special session accepted at ALIFE 2021, Prague, Czech Republic (update: online)
+#### Organisers: Manuel Baltieri, Hiroyuki Iizuka, Keisuke Suzuki, Olaf Witkowski, Lana Sinapayen
 
-## Hybrid life IV - special session accepted at ALife 2021, Prague, Czech Republic (Update: online)
-### Organisers: Manuel Baltieri, Hiroyuki Iizuka, Keisuke Suzuki, Olaf Witkowski, Lana Sinapayen
-I'm happy to announce that our special session has been accepted at ALife 2021!
+I'm happy to announce that our special session has been accepted at ALIFE 2021!
 
 For more info:
 

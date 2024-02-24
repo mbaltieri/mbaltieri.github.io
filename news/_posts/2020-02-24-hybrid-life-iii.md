@@ -1,9 +1,9 @@
 ---
 layout: post
-title:  "Hybrid life III"
+title:  "Organising Hybrid Life III"
 image: /assets/img/blog/HybridLife.png
 date:   2020-02-24
-excerpt: "Approaches to integrate biological, artificial and cognitive systems."
+excerpt: "Organising Hybrid life III"
 tag:
 - hybrid
 - life
@@ -18,10 +18,11 @@ description: >
   How can we best understand life and cognition? How can we combine the results of different technological advances with natural organisms?
 ---
 
-
-## Hybrid life III - special session accepted at ALife 2020, Montreal, Canada
+## Organising Hybrid Life III
+### Hybrid Life III - special session accepted at ALIFE 2020, Montreal, Canada (update: online)
 ### Organisers: Manuel Baltieri, Hiroyuki Iizuka, Keisuke Suzuki, Olaf Witkowski, Lana Sinapayen
-I'm happy to announce that our special session has been accepted at ALife 2020!
+
+I'm happy to announce that our special session has been accepted at ALIFE 2020!
 
 For more info:
 
