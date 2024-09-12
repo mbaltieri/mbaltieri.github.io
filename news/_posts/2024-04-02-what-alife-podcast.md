@@ -18,7 +18,7 @@ description: >
 ---
 
 
-## Podcast on agency
+## Podcast on foundations of agency for ALife
 [What ALife! Podcast](https://open.spotify.com/show/3u2WswlGc9tThXCYHonUGy) is a podcast series ran by [Imy Khan](https://sites.google.com/view/imykhan/podcast).
 
 On April 2nd, the third episode featured Manuel, discussing some of his work on agency, see this [blogpost]({{ site.baseurl }}{% link _projects/2022-06-18-theories-of-agency.md %}).
