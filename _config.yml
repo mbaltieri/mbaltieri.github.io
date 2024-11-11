@@ -25,7 +25,7 @@ title:                 Manuel Baltieri
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  Researcher at Araya Inc.
+  Chief Researcher at Araya Inc.
 
 # A shorter description for the sidebar.
 tagline:               Chief Researcher in Foundations of Agency, Life and Cognition
@@ -88,8 +88,8 @@ copyright:             © 2023. All rights reserved.
 permalink:             /:categories/:year-:month-:day-:title/
 
 # Pagination configuration (used by the `blog` layout)
-paginate:              10
-paginate_path:         /blog/:num/
+# paginate:              10
+# paginate_path:         /blog/:num/
 
 
 # Theme
@@ -343,7 +343,7 @@ plugins:
   - jekyll-default-layout
   - jekyll-feed
   - jekyll-optional-front-matter
-  - jekyll-paginate
+  # - jekyll-paginate
   - jekyll-readme-index
   - jekyll-redirect-from
   - jekyll-relative-links
