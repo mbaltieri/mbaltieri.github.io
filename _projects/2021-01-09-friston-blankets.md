@@ -20,7 +20,12 @@ comments: true
 # The Emperor's New Markov Blankets
 Our manuscript, discussing the role of Markov blankets in cognitive science, is now available as a preprint [here](/assets/pdf/EmperorMarkovBlankets_preprint.pdf). Work led by Jelle Bruineberg, with Krzysztof Dolega, Joe Dewhurst and myself.
 
-- **The Emperor's New Markov Blankets**, Bruineberg J., Dolega K., Dewhurst J. and Baltieri, M., *A Preprint, 2020*
+- **The Emperor's New Markov Blankets**, Bruineberg J., Dolega K., Dewhurst J. and Baltieri, M., *A Preprint, 2020*.
+
+UPDATE: In the meantime, a heavily revised version was published on *Behavioral and Brain Sciences* in 2022 (available online in 2021), with a PDF inclduding our target article, various insightful commentaries and our reply to those commentaries [here](/assets/pdf/EmperorMarkovBlankets.pdf).
+
+- **The Emperor is Naked: Replies to the commentaries on the target article.**, Bruineberg, J., Dolega, K., Dewhurst, J., & Baltieri, M., *Behavioral and Brain Science (2022)*.
+- **The Emperor’s New Markov Blankets**, Bruineberg, J., Dolega, K., Dewhurst, J., & Baltieri, M., *Behavioral and Brain Science (2021)*.
 
 
 &nbsp;
