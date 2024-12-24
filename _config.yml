@@ -55,15 +55,17 @@ menu:
     url:               /projects/
   - title:             Resume
     url:               /resume/
-  - title:             Research output
-    # url:               /publications/
-    menu:
-    - title:             Publications
-      url:               /research/publications/
-    - title:             Edited issues
-      url:               /research/editing/
-    - title:             Presentations
-      url:               /research/presentations/
+  - title:             Publications
+    url:               /research/publications/
+  - title:             Talks
+    url:               /research/presentations/
+    # menu:
+    # - title:             Publications
+    #   url:               /research/publications/
+    # - title:             Edited issues
+    #   url:               /research/editing/
+    # - title:             Presentations
+    #   url:               /research/presentations/
   # - title:             Documentation
   #   url:               /docs/
   # - title:             About

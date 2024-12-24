@@ -43,3 +43,10 @@ comments: false
 
 ## Other publications
 - **Thinking about robots**, Baltieri, M., *A contributed chapter to Robot 100 (2021)* [[Robot 100]]((https://www.robot100.cz/book))
+
+## Editing
+- **ALIFE 2023 - Ghost in the Machine: Proceedings of the 2023 Artificial Life Conference**, Iizuka, H., Suzuki, K., Uno, R., Damiano, L., Spychala, N., Aguilera, M., Izquierdo, E., Suzuki, R., & Baltieri, M., MIT Press (2023) &emsp; [[link]](https://direct.mit.edu/isal/isal/volume/35)
+
+
+## Guest Editing
+- **Special Issue - Emerging Methods in Active Inference**, Iizuka, H., Suzuki, K., Uno, R., Damiano, L., Spychala, N., Aguilera, M., Izquierdo, E., Suzuki, R., & Baltieri, M., Entropy (2022), MDPI &emsp; [[link]](https://www.mdpi.com/journal/entropy/special_issues/active_inference)

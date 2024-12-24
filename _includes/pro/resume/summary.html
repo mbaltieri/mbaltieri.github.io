@@ -1,5 +1,0 @@
-{% if basics.summary.size > 0 %}
-  <p class="note p-note" property="description">
-    {{ basics.summary | markdownify | replace:'<p>','' | replace:'</p>','' }}
-  </p>
-{% endif %}
