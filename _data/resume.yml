@@ -3,17 +3,17 @@
 # See also: <https://jsonresume.org/>.
 basics:
   name: "Manuel Baltieri"
-  label: "Interdisciplinary researcher. Mathematical modeller. Coder."
+  label: "Cybernetics and ALife/AI researcher. Mathematical modeller. Coder."
   picture: "/assets/img/AlifeMe.jpg"
   email: ""
   phone: ""
   website: ""
   summary: >
-    - Interdisciplinary researcher synthesizing common threads across artificial life, neuroscience and artificial intelligence.
+    - Cross-disciplinary researcher developing foundations of intelligent behaviour for agency in cybernetics, AI, ALife, and cognitive science.
 
-    - Computational modeller turning abstract contexts into mathematical objects. 
+    - Building mathematical models for AI systems that are interpretable and safe for society.
 
-    - Proficient coder developing simulations of complex systems in artificial worlds, biology and cognitive science starting from mathematical models.
+    - Coding of complex systems and embodied agents driven by mathematically sound, and safe, definitions and models.
   location:
     # address: "Nakano"
     # postalCode: "CA 94115"
@@ -73,7 +73,7 @@ work:
     #   Working on models on psychophysics experiments for uncertainty estimation and decision making. Supervising Master students in neuroscience and machine learning.
   - company: "Nested Minds Network Ltd."
     position: "Research Consultant and Developer"
-    website: ""
+    website: "https://nestedminds.pubpub.org"
     startDate: "2021-09-01"
     endDate: "2021-10-31"
     # summary: >
@@ -121,12 +121,12 @@ education:
     endDate: "2019-07-24"
   - institution: "University of Sussex"
     area: "Evolutionary and Adaptive Systems"
-    studyType: "MSc"
+    studyType: "M.Sc."
     startDate: "2013-10-01"
     endDate: "2014-09-30"
   - institution: "University of Trento"
     area: "Information and Business Organisation Engineering"
-    studyType: "BEng"
+    studyType: "B.Eng."
     startDate: "2009-10-01"
     endDate: "2012-09-30"
     # gpa: "4.0"
@@ -139,11 +139,11 @@ education:
 #     awarder: "Techcrunch"
 #     summary: "There is no spoon."
 publications:
-  - name: See the complete list here
+  - name: "See a complete list here"
     # publisher: "Hooli"
     # releaseDate: "2014-10-01"
-    # website: "https://manuelbaltieri.com/research/publications/"
-    url: /research/publications/
+    website: "https://manuelbaltieri.com/research/publications/"
+    # url: /research/publications/
     # summary: "Innovative middle-out compression algorithm that changes the way we store data."
 skills:
   # - name: "Artificial Life and Intelligence"
@@ -174,7 +174,7 @@ skills:
   - name: "Machine learning"
     level: "Master"
     keywords:
-      - "Deep learning"
+      - "(Geometric) Deep learning"
       - "Large Language Models (LLMs)"
       - "Python (Pytorch/JAX)"
 languages:

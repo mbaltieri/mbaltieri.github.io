@@ -23,8 +23,9 @@ author1:
   # Rearrange to change the order in which they appear
   social:
     email:           manuel_baltieri@araya.org
+    bluesky:         manuelbaltieri.bsky.social
     twitter:         manuelbaltieri
-    github:          mbaltieri
+    # github:          mbaltieri
     # rss:             https://<url>/feed.xml
     # facebook:        <username>
     # google:          <number>
@@ -60,6 +61,21 @@ author1:
     # stumbleupon:     <username>
     # paypal:          <username>
     # download:        <url>
+    # keybase:         <username>
+    # signal:          <group-invite-code>
+    # threads:         @<username>
+    # playstation:     https://<url>
+    # messenger:       https://<url>
+    # stripe:          https://<url>
+    # slack:           https://<url>
+    # gitlab:          <username>
+    # line:            <username>
+    # medium:          <path>
+    # xbox:            <gamer-tag>
+    # wechat:          https://<url>
+    # discord:         <invite-code>
+    mastodon:        https://mathstodon.xyz/@manuelbaltieri
+    # x:               <username>
 
 # Another author (optional)
 author2:
