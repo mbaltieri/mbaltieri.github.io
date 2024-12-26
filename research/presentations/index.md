@@ -15,6 +15,8 @@ Minor updates have been implemented whenever necessary (missing references, typo
 ## Invited presentations
 - Using goals to compress models, effects of bisimulations for (PO)MDPs on embodied agents, Theoretical and Experimental Approaches to Goal-Directed Behaviour, BCAM, Bilbao, Spain - Oct 2024
 
+- Foundations of AI: building reliable, trustworthy and agentic systems, FUTURA @ Italian Chamber of Commerce in Japan, Tokyo, Japan - Oct 2024 &emsp; [pdf](/assets/pdf/presentations/ICCJ2024.pdf)
+
 - The Role of the Free Energy Principle in AI Safety: Markov Blankets and Beyond, Technical AI Safety Conference, Tokyo, Apr 2024 &emsp; [pdf](/assets/pdf/presentations/TAIS2024.pdf) &emsp; [recording](https://www.youtube.com/watch?v=qYyzdOEGNIM)
 
 - LLMs beyond Transformers (panel discussion), Tokyo AI Talks @ GHOVC, Tokyo, Japan - Jan 2024
