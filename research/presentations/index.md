@@ -15,7 +15,7 @@ Minor updates have been implemented whenever necessary (missing references, typo
 ## Invited presentations
 - Using goals to compress models, effects of bisimulations for (PO)MDPs on embodied agents, Theoretical and Experimental Approaches to Goal-Directed Behaviour, BCAM, Bilbao, Spain - Oct 2024
 
-- The Role of the Free Energy Principle in AI Safety: Markov Blankets and Beyond, TAIS - Technical AI Safety Conference, Tokyo, Japan -  Apr 2024
+- The Role of the Free Energy Principle in AI Safety: Markov Blankets and Beyond, Technical AI Safety Conference, Tokyo, Apr 2024 &emsp; [pdf](/assets/pdf/presentations/TAIS2024.pdf) &emsp; [recording](https://www.youtube.com/watch?v=qYyzdOEGNIM)
 
 - LLMs beyond Transformers (panel discussion), Tokyo AI Talks @ GHOVC, Tokyo, Japan - Jan 2024
 
@@ -45,8 +45,6 @@ Minor updates have been implemented whenever necessary (missing references, typo
 
 ## Contributed presentations
 - A mathematical perspective on the role of embodiment in predictive coding frameworks, Aware and Alive Workshop, Sapporo, Jul 2024 &emsp; [pdf](/assets/pdf/presentations/AwareAndAlive2024.pdf) &emsp; [recording](https://www.youtube.com/watch?v=LrH5KQE7iBY&list=PLWkKadjdO-XbMBFF5U__pdS2kl_U-dfYR&index=6)
-
-- The Role of the Free Energy Principle in AI Safety: Markov Blankets and Beyond, Technical AI Safety Conference, Tokyo, Apr 2024 &emsp; [pdf](/assets/pdf/presentations/TAIS2024.pdf) &emsp; [recording](https://www.youtube.com/watch?v=qYyzdOEGNIM)
 
 - A relational theory of agency (and goals?), Japan AI Alignment Conference 2023, Tokyo, Mar 2023 &emsp; [pdf](/assets/pdf/presentations/AgencyAlignmentTokyo2023.pdf)
 
