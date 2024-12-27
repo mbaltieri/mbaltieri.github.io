@@ -13,7 +13,7 @@ Minor updates have been implemented whenever necessary (missing references, typo
 [^1]: In some cases sharing was/is not allowed, (but do expect more PDFs over time). Sometimes a (virtually) identical presentation was given in multiple occasions so no PDFs will be included, this is especially true for presentations with the same title.
 
 ## Invited presentations
-- Using goals to compress models, effects of bisimulations for (PO)MDPs on embodied agents, Theoretical and Experimental Approaches to Goal-Directed Behaviour, BCAM, Bilbao, Spain - Oct 2024
+- Using goals to compress models, effects of bisimulations for (PO)MDPs on embodied agents, Theoretical and Experimental Approaches to Goal-Directed Behaviour, BCAM, Bilbao, Spain - Oct 2024 &emsp; [pdf](/assets/pdf/presentations/GoalOrientedness2024.pdf)
 
 - Foundations of AI: building reliable, trustworthy and agentic systems, FUTURA @ Italian Chamber of Commerce in Japan, Tokyo, Japan - Oct 2024 &emsp; [pdf](/assets/pdf/presentations/ICCJ2024.pdf)
 
