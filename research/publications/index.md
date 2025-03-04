@@ -10,6 +10,11 @@ comments: false
 - **Modularity, the separation principle and active inference**, Baltieri M. and Buckley C. L., (in prep.) 
 - **A ladder of uncertainty: models of perception and behaviour for increasingly complex environments**, Baltieri M., Seth. A.K., Roseboom W. (in prep.) -->
 
+## Preprints
+- **A Bayesian Interpretation of the Internal Model Principle**, Baltieri, M., Biehl, M., Capucci, M., & Virgo, N., *arXiv pre-print arXiv:2503.00511 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2503.00511)
+- **Kalman filters as the steady-state solution of gradient descent on variational free energy**, Baltieri, M., & Isomura, T., *arXiv pre-print arXiv:2111.10530 (2021)*. &emsp; [[preprint]](https://arxiv.org/abs/2111.10530)
+- **On Kalman-Bucy filters, linear quadratic control and active inference**, Baltieri, M., & Buckley, C. L., *arXiv pre-print arXiv:2005.06269 (2020)*. &emsp; [[preprint]](https://arxiv.org/abs/2005.06269)
+- **A minimal active inference agent**, McGregor, S., Baltieri, M., & Buckley, C. L., *arXiv pre-print arXiv:1503.04187 (2015)*. &emsp; [[preprint]](https://arxiv.org/pdf/1503.04187.pdf)
 
 ## Journal publications
 - **Disentangled Representations for Causal Cognition**, Torresan, F. & Baltieri, M., *Physics of Life Reviews* (2024). &emsp; [[link]](https://doi.org/10.1016/j.plrev.2024.10.003) &emsp; [[pdf]](/assets/pdf/DisentanglementCausalCognition.pdf) &emsp; [[preprint]](https://arxiv.org/abs/2407.00744)
@@ -19,11 +24,6 @@ comments: false
 - **Active inference through whiskers**, Mannella, F., Maggiore, F., Baltieri, M., & Pezzulo, G. *Neural Networks (2021)*. &emsp; [[link]](https://www.sciencedirect.com/science/article/abs/pii/S0893608021003506) &emsp; [[preprint]](https://www.biorxiv.org/content/10.1101/2021.07.16.452665v2)
 - **Embodied Skillful Performance: Where the Action Is**, Hipolito, I., Baltieri, M., Friston, K. J., & Ramstead, M. J., *Synthese (2021)*. &emsp; [[link]](https://link.springer.com/article/10.1007/s11229-020-02986-5) &emsp; [[preprint]](http://philsci-archive.pitt.edu/18121/)
 - **PID control as a process of active inference with linear generative models**, Baltieri, M., & Buckley, C. L., *Entropy 21 (3), 257 (2019)*. &emsp; [[link]](https://www.mdpi.com/1099-4300/21/3/257)
-
-## Preprints
-- **Kalman filters as the steady-state solution of gradient descent on variational free energy**, Baltieri, M., & Isomura, T., *arXiv pre-print arXiv:2111.10530 (2021)*. &emsp; [[preprint]](https://arxiv.org/abs/2111.10530)
-- **On Kalman-Bucy filters, linear quadratic control and active inference**, Baltieri, M., & Buckley, C. L., *arXiv pre-print arXiv:2005.06269 (2020)*. &emsp; [[preprint]](https://arxiv.org/abs/2005.06269)
-- **A minimal active inference agent**, McGregor, S., Baltieri, M., & Buckley, C. L., *arXiv pre-print arXiv:1503.04187 (2015)*. &emsp; [[preprint]](https://arxiv.org/pdf/1503.04187.pdf)
 
 
 ## Conference proceedings
