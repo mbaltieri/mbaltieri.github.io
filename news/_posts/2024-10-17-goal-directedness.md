@@ -21,4 +21,4 @@ Manuel was invited to the workshop on [Theoretical and Experimental Approaches t
 
 Here he gave a talk about some WIP on describing compressed world models using bisimulations of (PO)MDPs.
 
-Presentation material (PDF) available in the ["Presentations" page](/research/presentations).
+Presentation material (PDF) available in the ["Talks" page](/research/presentations).

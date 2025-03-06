@@ -2,7 +2,7 @@
 layout: post
 title:  "Lecturer for the CHAIN Winter School on Minimal Cognition and Agency"
 image: /assets/img/blog/agent.png
-date:   2023-01-15
+date:   2023-02-10
 excerpt: "Lecturer for the CHAIN Winter School on Minimal Cognition and Agency"
 tag:
 - agency
@@ -25,4 +25,4 @@ The Center for Human Nature, Artificial Intelligence, and Neuroscience (CHAIN) -
 
 Manuel was invited to be a lecturer for the 2023 edition of the Winter School, where he will cover approaches to the study of agency and first-principles mathematical theories of what it means to be an agent.
 
-Presentation material (PDFs and recordings) available in the ["Presentations" page](/research/presentations).
+Presentation material (PDFs and recordings) available in the ["Talks" page](/research/presentations).
