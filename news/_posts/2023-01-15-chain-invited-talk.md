@@ -2,7 +2,7 @@
 layout: post
 title:  "Seminar at CHAIN, Hokkaido University"
 image: /assets/img/blog/chain-front.jpeg
-date:   2023-01-15
+date:   2023-02-17
 excerpt: "Seminar at CHAIN, Hokkaido University"
 tag:
 - consciousness
