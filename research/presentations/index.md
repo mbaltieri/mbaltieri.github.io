@@ -13,6 +13,8 @@ Minor updates have been implemented whenever necessary (missing references, typo
 [^1]: In some cases sharing was/is not allowed, (but do expect more PDFs over time). Sometimes a (virtually) identical presentation was given in multiple occasions so no PDFs will be included, this is especially true for presentations with the same title.
 
 ## Invited presentations
+- When does a system model another system?, Internet of Brains Event, Tokyo, Japan - Mar 2025 &emsp; [pdf](/assets/pdf/presentations/IMPBayesian2025.pdf)
+
 - What do Braitenberg vehicles believe?, Computational Agency Workshop, CHAIN, Hokkaido University, Sapporo, Japan - Jan 2025 &emsp; [pdf](/assets/pdf/presentations/BraitenbergBeliefs2025.pdf)
 
 - Using goals to compress models, effects of bisimulations for (PO)MDPs on embodied agents, Theoretical and Experimental Approaches to Goal-Directed Behaviour, BCAM, Bilbao, Spain - Oct 2024 &emsp; [pdf](/assets/pdf/presentations/GoalOrientedness2024.pdf)
