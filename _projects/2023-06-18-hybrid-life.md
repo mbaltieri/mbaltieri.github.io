@@ -5,7 +5,7 @@ image: /assets/img/blog/HybridLifeNew.jpg
 date:   2023-06-18
 excerpt: "Approaches to integrate biological, artificial and cognitive systems."
 tag:
-- hybrid
+- hybrid life
 - life
 - research
 - riken
