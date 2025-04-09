@@ -11,6 +11,7 @@ comments: false
 - **A ladder of uncertainty: models of perception and behaviour for increasingly complex environments**, Baltieri M., Seth. A.K., Roseboom W. (in prep.) -->
 
 ## Preprints
+- **AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability**, Rosas, F., Boyd, A. & Baltieri, M., *arXiv pre-print arXiv:2503.00511 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2504.04608)
 - **A Bayesian Interpretation of the Internal Model Principle**, Baltieri, M., Biehl, M., Capucci, M., & Virgo, N., *arXiv pre-print arXiv:2503.00511 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2503.00511)
 - **Kalman filters as the steady-state solution of gradient descent on variational free energy**, Baltieri, M., & Isomura, T., *arXiv pre-print arXiv:2111.10530 (2021)*. &emsp; [[preprint]](https://arxiv.org/abs/2111.10530)
 - **On Kalman-Bucy filters, linear quadratic control and active inference**, Baltieri, M., & Buckley, C. L., *arXiv pre-print arXiv:2005.06269 (2020)*. &emsp; [[preprint]](https://arxiv.org/abs/2005.06269)
