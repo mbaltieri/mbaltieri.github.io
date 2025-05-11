@@ -11,13 +11,13 @@ comments: false
 - **A ladder of uncertainty: models of perception and behaviour for increasingly complex environments**, Baltieri M., Seth. A.K., Roseboom W. (in prep.) -->
 
 ## Preprints
-- **AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability**, Rosas, F., Boyd, A. & Baltieri, M., *arXiv pre-print arXiv:2503.00511 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2504.04608)
 - **A Bayesian Interpretation of the Internal Model Principle**, Baltieri, M., Biehl, M., Capucci, M., & Virgo, N., *arXiv pre-print arXiv:2503.00511 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2503.00511)
 - **Kalman filters as the steady-state solution of gradient descent on variational free energy**, Baltieri, M., & Isomura, T., *arXiv pre-print arXiv:2111.10530 (2021)*. &emsp; [[preprint]](https://arxiv.org/abs/2111.10530)
 - **On Kalman-Bucy filters, linear quadratic control and active inference**, Baltieri, M., & Buckley, C. L., *arXiv pre-print arXiv:2005.06269 (2020)*. &emsp; [[preprint]](https://arxiv.org/abs/2005.06269)
 - **A minimal active inference agent**, McGregor, S., Baltieri, M., & Buckley, C. L., *arXiv pre-print arXiv:1503.04187 (2015)*. &emsp; [[preprint]](https://arxiv.org/pdf/1503.04187.pdf)
 
 ## Journal publications
+- **Editorial Introduction to the 2023 Conference on Artificial Life Special Issue**, Iizuka, H., Suzuki, K., Suzuki, R., Izuierdo, E.J. & Baltieri, M., *Artificial Life* (2025). &emsp; [[link]](https://doi.org/10.1162/artl_e_00474) &emsp; [[pdf]](/assets/pdf/EditorialALIFE2023.pdf)
 - **Disentangled Representations for Causal Cognition**, Torresan, F. & Baltieri, M., *Physics of Life Reviews* (2024). &emsp; [[link]](https://doi.org/10.1016/j.plrev.2024.10.003) &emsp; [[pdf]](/assets/pdf/DisentanglementCausalCognition.pdf) &emsp; [[preprint]](https://arxiv.org/abs/2407.00744)
 - **Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems**. Baltieri, M., Iizuka, H., Witkowski, O., Sinapayen, L., & Suzuki, K., *WIREs Cognitive Science (2023)*. &emsp; [[link]](https://doi.org/10.1002/wcs.1662) &emsp; [[pdf]](/assets/pdf/HybridLifeWIREs.pdf) &emsp; [[preprint]](https://arxiv.org/abs/2212.00285)
 - **The Emperor is Naked: Replies to the commentaries on the target article.**, Bruineberg, J., Dolega, K., Dewhurst, J., & Baltieri, M., *Behavioral and Brain Science (2022)*. &emsp; [[link]](https://doi.org/10.1017/S0140525X22000656) &emsp; [[pdf]](/assets/pdf/EmperorNaked.pdf)
@@ -28,6 +28,7 @@ comments: false
 
 
 ## Conference proceedings
+- **AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability**, Rosas, F., Boyd, A. & Baltieri, M., *Reinforcement Learning Conference (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2504.04608)
 - **Predictions in the eye of the beholder: an active inference implementation of the Watt governor**, Baltieri, M., Buckley, C. L., & Bruineberg, J., *Artificial Life Conference, 2020*. &emsp; [[link]](https://www.mitpressjournals.org/doi/abs/10.1162/isal_a_00288) &emsp; [[preprint]](https://arxiv.org/abs/2006.11495)
 - **A Bayesian perspective on classical control**, Baltieri, M., *2020 International Joint Conference on Neural Networks (IJCNN), 2020*. &emsp; [[link]](https://ieeexplore.ieee.org/document/9206617) &emsp; [[preprint]](https://arxiv.org/abs/2004.10288)
 - **Scaling active inference**, Tschantz, A., Baltieri, M., Seth, A. K. & Buckley, C. L., *2020 International Joint Conference on Neural Networks (IJCNN), 2020*. &emsp; [[link]](https://ieeexplore.ieee.org/document/9207382) &emsp; [[preprint]](https://arxiv.org/abs/1911.10601)
