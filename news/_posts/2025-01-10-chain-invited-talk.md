@@ -21,4 +21,4 @@ description: >
 ## Seminar at CHAIN, Hokkaido University
 
 Manuel was invited to give a seminar on January 8th for the Computational Agency workshop at CHAIN, organised by Keisuke Suzuki. 
-He introduced some of his recent work in progress on evaluating what beliefs can be attributed to Braitenberg vehicles, slides can be found in the ["Talks" page](/research/presentations).
+He introduced some of his recent work in progress on evaluating what beliefs can be attributed to Braitenberg vehicles, slides can be found [here](/assets/pdf/presentations/BraitenbergBeliefs2025.pdf).

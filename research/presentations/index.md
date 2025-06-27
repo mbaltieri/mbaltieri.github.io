@@ -13,6 +13,10 @@ Minor updates have been implemented whenever necessary (missing references, typo
 [^1]: In some cases sharing was/is not allowed, (but do expect more PDFs over time). Sometimes a (virtually) identical presentation was given in multiple occasions so no PDFs will be included, this is especially true for presentations with the same title.
 
 ## Invited presentations
+- A structural view of predictive coding, Development and validation of a unified theory of prediction and action, Institute of Science, Tokyo, Japan - May 2025 &emsp; [pdf](/assets/pdf/presentations/UnifiedTheory2025.pdf)
+
+- Life and its relatives, Breakthrough Initiatives, Oxford, UK - Apr 2025 &emsp; [pdf](/assets/pdf/presentations/BreakthroughInitiatives2025.pdf)  &emsp; [recording](https://www.youtube.com/watch?v=-wuzt7JgRuM)
+
 - When does a system model another system?, Internet of Brains Event, Tokyo, Japan - Mar 2025 &emsp; [pdf](/assets/pdf/presentations/IMPBayesian2025.pdf)
 
 - What do Braitenberg vehicles believe?, Computational Agency Workshop, CHAIN, Hokkaido University, Sapporo, Japan - Jan 2025 &emsp; [pdf](/assets/pdf/presentations/BraitenbergBeliefs2025.pdf)
@@ -31,7 +35,7 @@ Minor updates have been implemented whenever necessary (missing references, typo
 
 - The free energy principle and the internal model principle: A guide for the study of agents?, Active Inference meets AI Alignment, Oxford, UK - Oct 2023 &emsp; [pdf](/assets/pdf/presentations/AIAlignmentActiveInferenceOxford2023.pdf)
 
-- Inference with and within a model, CHAIN Academic Seminars, Hokkaido University, Sapporo, Japan - Feb 2023 &emsp; [recording](https://www.youtube.com/watch?v=yA-d1atSzWs&t=371s&ab_channel=%E5%8C%97%E6%B5%B7%E9%81%93%E5%A4%A7%E5%AD%A6%E4%BA%BA%E9%96%93%E7%9F%A5%E3%83%BB%E8%84%B3%E3%83%BBAI%E7%A0%94%E7%A9%B6%E6%95%99%E8%82%B2%E3%82%BB%E3%83%B3%E3%82%BF%E3%83%BC%28CHAIN%29)
+- Inference with and within a model, CHAIN Academic Seminars, Hokkaido University, Sapporo, Japan - Feb 2023 &emsp; [pdf](/assets/pdf/presentations/CC_Tokyo.pdf) &emsp; [recording](https://youtu.be/yA-d1atSzWs?si=HlO4g3CrjQyvWrKv)
 
 - [CHAIN Winter School](https://www.chain.hokudai.ac.jp/events/3101/) on Minimal Cognition and Agency, Hokkaido University, Sapporo, Japan - Feb 2023
 	- Lecture 1 - Defining agency &emsp; [pdf](/assets/pdf/presentations/Lecture1_Baltieri.pdf) &emsp; [recording](https://youtu.be/h3odndlkDoc?t=1761)

@@ -28,7 +28,7 @@ comments: false
 
 
 ## Conference proceedings
-- **AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability**, Rosas, F., Boyd, A. & Baltieri, M., *Reinforcement Learning Conference (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2504.04608)
+- **AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability**, Rosas, F., Boyd, A. & Baltieri, M., *Reinforcement Learning Conference (RLC), 2025*. &emsp; [[preprint]](https://arxiv.org/abs/2504.04608)
 - **Predictions in the eye of the beholder: an active inference implementation of the Watt governor**, Baltieri, M., Buckley, C. L., & Bruineberg, J., *Artificial Life Conference, 2020*. &emsp; [[link]](https://www.mitpressjournals.org/doi/abs/10.1162/isal_a_00288) &emsp; [[preprint]](https://arxiv.org/abs/2006.11495)
 - **A Bayesian perspective on classical control**, Baltieri, M., *2020 International Joint Conference on Neural Networks (IJCNN), 2020*. &emsp; [[link]](https://ieeexplore.ieee.org/document/9206617) &emsp; [[preprint]](https://arxiv.org/abs/2004.10288)
 - **Scaling active inference**, Tschantz, A., Baltieri, M., Seth, A. K. & Buckley, C. L., *2020 International Joint Conference on Neural Networks (IJCNN), 2020*. &emsp; [[link]](https://ieeexplore.ieee.org/document/9207382) &emsp; [[preprint]](https://arxiv.org/abs/1911.10601)
