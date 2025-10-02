@@ -11,10 +11,13 @@ comments: false
 - **A ladder of uncertainty: models of perception and behaviour for increasingly complex environments**, Baltieri M., Seth. A.K., Roseboom W. (in prep.) -->
 
 ## Preprints
-- **A Bayesian Interpretation of the Internal Model Principle**, Baltieri, M., Biehl, M., Capucci, M., & Virgo, N., *arXiv pre-print arXiv:2503.00511 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2503.00511)
-- **Kalman filters as the steady-state solution of gradient descent on variational free energy**, Baltieri, M., & Isomura, T., *arXiv pre-print arXiv:2111.10530 (2021)*. &emsp; [[preprint]](https://arxiv.org/abs/2111.10530)
-- **On Kalman-Bucy filters, linear quadratic control and active inference**, Baltieri, M., & Buckley, C. L., *arXiv pre-print arXiv:2005.06269 (2020)*. &emsp; [[preprint]](https://arxiv.org/abs/2005.06269)
-- **A minimal active inference agent**, McGregor, S., Baltieri, M., & Buckley, C. L., *arXiv pre-print arXiv:1503.04187 (2015)*. &emsp; [[preprint]](https://arxiv.org/pdf/1503.04187.pdf)
+- **A coalgebraic perspective on predictive processing**, Baltieri, M., Torresan, F. & Nakai, T., *arXiv preprint arXiv:2508.16877 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2508.16877)
+- **Active inference for action-unaware agents**, Torresan, F., Suzuki, K., Kanai, R. & Baltieri, M., *arXiv preprint arXiv:2508.12027 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2508.12027)
+- **A "good regulator theorem" for embodied agents**, Virgo, N., Baltieri, M., Biehl, M. & Capucci, M., *arXiv preprint arXiv:2508.06326 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2508.06326)
+- **A Bayesian Interpretation of the Internal Model Principle**, Baltieri, M., Biehl, M., Capucci, M., & Virgo, N., *arXiv preprint arXiv:2503.00511 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2503.00511)
+- **Kalman filters as the steady-state solution of gradient descent on variational free energy**, Baltieri, M., & Isomura, T., *arXiv preprint arXiv:2111.10530 (2021)*. &emsp; [[preprint]](https://arxiv.org/abs/2111.10530)
+- **On Kalman-Bucy filters, linear quadratic control and active inference**, Baltieri, M., & Buckley, C. L., *arXiv preprint arXiv:2005.06269 (2020)*. &emsp; [[preprint]](https://arxiv.org/abs/2005.06269)
+- **A minimal active inference agent**, McGregor, S., Baltieri, M., & Buckley, C. L., *arXiv preprint arXiv:1503.04187 (2015)*. &emsp; [[preprint]](https://arxiv.org/pdf/1503.04187.pdf)
 
 ## Journal publications
 - **Editorial Introduction to the 2023 Conference on Artificial Life Special Issue**, Iizuka, H., Suzuki, K., Suzuki, R., Izuierdo, E.J. & Baltieri, M., *Artificial Life* (2025). &emsp; [[link]](https://doi.org/10.1162/artl_e_00474) &emsp; [[pdf]](/assets/pdf/EditorialALIFE2023.pdf)
