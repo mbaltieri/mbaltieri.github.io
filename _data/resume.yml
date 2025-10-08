@@ -28,6 +28,13 @@ basics:
     #   username: "manuelbaltieri"
     #   url: "https://www.linkedin.com/in/manuelbaltieri/"
 work:
+  - company: "Araya Inc."
+    position: "Team Leader in Agent Foundations"
+    website: "https://research.araya.org/"
+    startDate: "2025-10-01"
+    endDate: ""
+    summary: >
+      Leading basic science unit, with a focus on Agent Foundations research.
   - company: "International Society for Artificial Life"
     position: "Board of Directors"
     website: "https://alife.org/"
