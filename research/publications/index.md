@@ -12,7 +12,6 @@ comments: false
 
 ## Preprints
 - **Mathematical approaches to the study of agents**, Baltieri, M., & Suzuki, K., *A preprint (2025)*. &emsp; [[preprint]](/assets/pdf/MathematicalApproachesAgency.pdf)
-- **Steam-engine naturalism**, Baltieri, M., & Kanai, R., *PsyArXiv (2025)*. &emsp; [[preprint]](https://osf.io/preprints/psyarxiv/m4gk3_v1)
 - **The Stream of Computation: Temporal Continuity as a Missing Ingredient for Artificial Consciousness**, Kanai, R., Sun, Y., & Baltieri, M., *PsyArXiv (2025)*. &emsp; [[preprint]](https://osf.io/preprints/psyarxiv/c6jnd_v1)
 - **A coalgebraic perspective on predictive processing**, Baltieri, M., Torresan, F., & Nakai, T., *arXiv preprint arXiv:2508.16877 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2508.16877)
 - **Active inference for action-unaware agents**, Torresan, F., Suzuki, K., Kanai, R. & Baltieri, M., *arXiv preprint arXiv:2508.12027 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2508.12027)
@@ -46,6 +45,7 @@ comments: false
 - **An active inference implementation of phototaxis**, Baltieri, M., & Buckley, C. L., *European Conference on Artificial Life, 2017*. &emsp; [[link]](https://www.mitpressjournals.org/doi/abs/10.1162/isal_a_011) &emsp; [[preprint]](https://arxiv.org/abs/1707.01806)
 
 ## Commentaries
+- **Steam-engine naturalism**, Baltieri, M., & Kanai, R., *PsyArXiv (2025)*. &emsp; [[preprint]](https://osf.io/preprints/psyarxiv/m4gk3_v1)
 - **Generative models as parsimonious descriptions of sensorimotor loops**, Baltieri, M., & Buckley, C. L., *Behavioral and Brain Sciences 42, 218 (2019)* (Target article: **[Is coding a relevant metaphor for the brain?](cambridge.org/core/journals/behavioral-and-brain-sciences/article/is-coding-a-relevant-metaphor-for-the-brain/D578626E4888193FFFAE5B6E2C37E052)**, Brette, R., *Behavioral and Brain Sciences 42, 218 (2019)*). &emsp; [[link]]((https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/generative-models-as-parsimonious-descriptions-of-sensorimotor-loops/0345874F123418BEE102A90E4ADA5E5B)) &emsp; [[preprint]](https://arxiv.org/abs/1904.12937)
 
 
