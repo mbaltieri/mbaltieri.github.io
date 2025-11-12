@@ -11,7 +11,10 @@ comments: false
 - **A ladder of uncertainty: models of perception and behaviour for increasingly complex environments**, Baltieri M., Seth. A.K., Roseboom W. (in prep.) -->
 
 ## Preprints
-- **A coalgebraic perspective on predictive processing**, Baltieri, M., Torresan, F. & Nakai, T., *arXiv preprint arXiv:2508.16877 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2508.16877)
+- **Mathematical approaches to the study of agents**, Baltieri, M., & Suzuki, K., *A preprint (2025)*. &emsp; [[preprint]](/assets/pdf/MathematicalApproachesAgency.pdf)
+- **Steam-engine naturalism**, Baltieri, M., & Kanai, R., *PsyArXiv (2025)*. &emsp; [[preprint]](https://osf.io/preprints/psyarxiv/m4gk3_v1)
+- **The Stream of Computation: Temporal Continuity as a Missing Ingredient for Artificial Consciousness**, Kanai, R., Sun, Y., & Baltieri, M., *PsyArXiv (2025)*. &emsp; [[preprint]](https://osf.io/preprints/psyarxiv/c6jnd_v1)
+- **A coalgebraic perspective on predictive processing**, Baltieri, M., Torresan, F., & Nakai, T., *arXiv preprint arXiv:2508.16877 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2508.16877)
 - **Active inference for action-unaware agents**, Torresan, F., Suzuki, K., Kanai, R. & Baltieri, M., *arXiv preprint arXiv:2508.12027 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2508.12027)
 - **A "good regulator theorem" for embodied agents**, Virgo, N., Baltieri, M., Biehl, M. & Capucci, M., *arXiv preprint arXiv:2508.06326 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2508.06326)
 - **A Bayesian Interpretation of the Internal Model Principle**, Baltieri, M., Biehl, M., Capucci, M., & Virgo, N., *arXiv preprint arXiv:2503.00511 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2503.00511)
