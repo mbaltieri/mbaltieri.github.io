@@ -13,6 +13,8 @@ Minor updates have been implemented whenever necessary (missing references, typo
 [^1]: In some cases sharing was/is not allowed, (but do expect more PDFs over time). Sometimes a (virtually) identical presentation was given in multiple occasions so no PDFs will be included, this is especially true for presentations with the same title.
 
 ## Invited presentations
+- “What is it like to be a Braitenberg vehicle?”? (selected as a Showcase Talk), Models of Consciousness, Hokkaido University, Sapporo, Japan - Oct 2025 &emsp; [pdf](/assets/pdf/presentations/BraitenbergMoC2025.pdf)
+
 - A structural view of predictive coding, Development and validation of a unified theory of prediction and action, Institute of Science, Tokyo, Japan - May 2025 &emsp; [pdf](/assets/pdf/presentations/UnifiedTheory2025.pdf)
 
 - Life and its relatives, Breakthrough Initiatives, Oxford, UK - Apr 2025 &emsp; [pdf](/assets/pdf/presentations/BreakthroughInitiatives2025.pdf)  &emsp; [recording](https://www.youtube.com/watch?v=-wuzt7JgRuM)
