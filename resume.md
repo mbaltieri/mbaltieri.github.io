@@ -1,7 +1,7 @@
 ---
 layout: resume
 title: Resume
-cover:  true
+cover:  false
 description: >
   Manuel Baltieri's resume.
   # You'll probably want to modify it in `resume.md`, and maybe set `hide_description` to `true` in the front matter.

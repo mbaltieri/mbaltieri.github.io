@@ -83,36 +83,131 @@ The snippet below will run the code on every `hy-push-state-load` event instead.
 })();
 </script>
 
-<!-- Fade-in animation for homepage cover page -->
+<!-- Fade-in animation for all pages on every load/reload -->
 <script>
 (function() {
-  var hasTriggered = false;
+  // Track if this script has already run (to avoid running on push-state navigation)
+  var hasRun = false;
   
   function triggerFadeIn() {
-    if (hasTriggered) return;
+    // Only run on full page loads, not on push-state navigation
+    if (hasRun) return;
+    hasRun = true;
     
-    var sidebarSticky = document.querySelector('.sidebar-sticky[data-cover-fade="true"]');
-    if (!sidebarSticky) return;
-    
-    hasTriggered = true;
-    
-    // Wait for initial render, then fade in
-    requestAnimationFrame(function() {
+    // Fade in main content area
+    var mainContent = document.getElementById('_main');
+    if (mainContent) {
+      // Set initial state for fade-in
+      mainContent.style.opacity = '0';
+      mainContent.style.transform = 'translateY(-3rem)';
+      mainContent.style.transition = 'opacity 500ms ease, transform 500ms ease';
+      
+      // Wait for initial render, then fade in
       requestAnimationFrame(function() {
-        setTimeout(function() {
-          sidebarSticky.style.opacity = '1';
-          sidebarSticky.style.transform = 'translateY(0)';
-        }, 100);
+        requestAnimationFrame(function() {
+          setTimeout(function() {
+            mainContent.style.opacity = '1';
+            mainContent.style.transform = 'translateY(0)';
+          }, 100);
+        });
       });
-    });
+    }
+    
+    // Fade in navbar
+    var navbar = document.getElementById('_navbar');
+    if (navbar) {
+      requestAnimationFrame(function() {
+        requestAnimationFrame(function() {
+          setTimeout(function() {
+            navbar.style.opacity = '1';
+          }, 100);
+        });
+      });
+    }
+    
+    // Fade in sidebar and background smoothly (only if not cover page)
+    var drawer = document.getElementById('_drawer');
+    var isCoverPage = drawer && drawer.classList.contains('cover');
+    
+    if (!isCoverPage) {
+      var sidebar = document.getElementById('_sidebar');
+      if (sidebar) {
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            setTimeout(function() {
+              sidebar.style.opacity = '1';
+            }, 100);
+          });
+        });
+      }
+      
+      var sidebarBg = document.querySelector('.sidebar-bg');
+      if (sidebarBg) {
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() {
+            setTimeout(function() {
+              sidebarBg.style.visibility = 'visible';
+              sidebarBg.style.transition = 'opacity 500ms ease';
+              sidebarBg.style.opacity = '1';
+            }, 100);
+          });
+        });
+      }
+    }
+    
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(triggerFadeIn, 200);
-    });
-  } else {
+  // Set initial hidden state immediately to prevent flash on full page load
+  var mainContent = document.getElementById('_main');
+  if (mainContent) {
+    mainContent.style.opacity = '0';
+    mainContent.style.transform = 'translateY(-3rem)';
+    mainContent.style.transition = 'opacity 500ms ease, transform 500ms ease';
+  }
+  
+  // Hide navbar initially to prevent dark bar at top
+  var navbar = document.getElementById('_navbar');
+  if (navbar) {
+    navbar.style.opacity = '0';
+    navbar.style.transition = 'opacity 1000ms ease';
+  }
+  
+  // Check if this is a cover page (drawer has 'cover' class)
+  var drawer = document.getElementById('_drawer');
+  var isCoverPage = drawer && drawer.classList.contains('cover');
+  
+  // Hide sidebar background immediately to prevent black bar (but not on cover pages)
+  var sidebarBg = document.querySelector('.sidebar-bg');
+  if (sidebarBg && !isCoverPage) {
+    sidebarBg.style.visibility = 'hidden';
+    sidebarBg.style.opacity = '0';
+    sidebarBg.style.transition = 'opacity 1000ms ease, visibility 0s 1000ms';
+  }
+  
+  // Hide sidebar smoothly on reload (opacity only, no transform)
+  // On cover pages, don't hide the sidebar - it should be visible with the cover image
+  var sidebar = document.getElementById('_sidebar');
+  if (sidebar && !isCoverPage) {
+    sidebar.style.opacity = '0';
+    sidebar.style.transition = 'opacity 1000ms ease';
+  }
+
+  // Run on every page load/reload (but only once per page load)
+  // Always wait for window load event to match first load timing
+  // On first load, push-state.js waits for async modules to load
+  // On reload, we need to wait the same amount to match timing
+  function startFadeIn() {
     setTimeout(triggerFadeIn, 200);
+  }
+  
+  // Always wait for window load event for consistent timing
+  if (document.readyState === 'complete') {
+    // Window already loaded (reload case), add delay to match first load timing
+    // First load waits for async modules, so we add extra delay here
+    setTimeout(startFadeIn, 600);
+  } else {
+    // Wait for window load event
+    window.addEventListener('load', startFadeIn);
   }
 })();
 </script>
