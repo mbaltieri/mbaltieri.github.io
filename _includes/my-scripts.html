@@ -54,6 +54,35 @@ The snippet below will run the code on every `hy-push-state-load` event instead.
 </script>
 {% endcomment %}
 
+<!-- Print Resume button handler -->
+<script>
+(function() {
+  function setupPrintButton() {
+    var printBtn = document.getElementById('print-resume-btn');
+    if (printBtn) {
+      printBtn.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        window.print();
+      });
+    }
+  }
+  
+  // Setup on initial load
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', setupPrintButton);
+  } else {
+    setupPrintButton();
+  }
+  
+  // Setup after push-state navigation
+  var pushStateEl = document.getElementById('_pushState');
+  if (pushStateEl) {
+    pushStateEl.addEventListener('hy-push-state-load', setupPrintButton);
+  }
+})();
+</script>
+
 <!-- Fade-in animation for homepage cover page -->
 <script>
 (function() {
