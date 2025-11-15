@@ -1,14 +1,14 @@
 ---
 layout: welcome
-title: MB
+title: What's new
 cover:  true
 ---
 
 
-## Most recent posts ([more](/news/))
+## Recent posts ([more](/news/))
 
 <!--posts-->
 
-## Most recent projects ([more](/projects/))
+## Recent projects ([more](/projects/))
 
 <!--projects-->
