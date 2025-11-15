@@ -53,3 +53,37 @@ The snippet below will run the code on every `hy-push-state-load` event instead.
   });
 </script>
 {% endcomment %}
+
+<!-- Fade-in animation for homepage cover page -->
+<script>
+(function() {
+  var hasTriggered = false;
+  
+  function triggerFadeIn() {
+    if (hasTriggered) return;
+    
+    var sidebarSticky = document.querySelector('.sidebar-sticky[data-cover-fade="true"]');
+    if (!sidebarSticky) return;
+    
+    hasTriggered = true;
+    
+    // Wait for initial render, then fade in
+    requestAnimationFrame(function() {
+      requestAnimationFrame(function() {
+        setTimeout(function() {
+          sidebarSticky.style.opacity = '1';
+          sidebarSticky.style.transform = 'translateY(0)';
+        }, 100);
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(triggerFadeIn, 200);
+    });
+  } else {
+    setTimeout(triggerFadeIn, 200);
+  }
+})();
+</script>

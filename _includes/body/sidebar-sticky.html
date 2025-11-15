@@ -1,4 +1,4 @@
-<div class="sidebar-sticky">
+<div class="sidebar-sticky"{% if include.cover %} style="opacity: 0; transform: translateY(1.5rem); transition: opacity 1s ease-out, transform 1s ease-out;" data-cover-fade="true"{% endif %}>
   <div class="sidebar-about">
     {% if site.logo %}
       <a class="no-hover" href="{{ '/' | relative_url }}" tabindex="-1">
