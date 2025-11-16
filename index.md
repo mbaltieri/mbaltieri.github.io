@@ -1,9 +1,8 @@
 ---
 layout: welcome
 title: What's new
-cover:  false
+cover:  true
 ---
-
 
 ## Recent posts ([more](/news/))
 

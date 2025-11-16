@@ -1,0 +1,20 @@
+// Custom overrides for Hydejack.
+
+// 1) Make sidebar/menu height consistent on cover vs non-cover pages.
+// Hydejack adds an inline `transform: translateY(1.5rem)` on cover pages via `data-cover-fade`.
+// Override that so the sidebar content (including the menu) starts at the same height everywhere.
+.sidebar-sticky[data-cover-fade="true"] {
+  transform: translateY(0) !important;
+}
+
+// 2) Global page fade so lists and cover image animate together on every reload.
+// This animates the entire document from 0 -> 1 opacity,
+// so sidebar background, sidebar content, and main content appear in sync.
+@keyframes mb-fade-page {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+body {
+  animation: mb-fade-page 500ms ease;
+}
