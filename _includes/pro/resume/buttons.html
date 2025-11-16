@@ -1,6 +1,6 @@
 <div class="screen-only">
   {% if page.buttons.print %}
-    <button class="btn btn-sm btn-primary mt1" id="print-resume-btn" type="button">
+    <button class="btn btn-sm btn-primary mt1" type="button" onclick="window.print()">
       <small class="icon-printer"></small>
       {{ site.data.strings.resume.print | default: "Print" }}
     </button>
