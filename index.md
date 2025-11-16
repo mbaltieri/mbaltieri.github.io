@@ -1,7 +1,7 @@
 ---
 layout: welcome
 title: What's new
-cover:  true
+cover:  false
 ---
 
 

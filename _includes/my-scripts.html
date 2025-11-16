@@ -197,14 +197,14 @@ The snippet below will run the code on every `hy-push-state-load` event instead.
   // On first load, push-state.js waits for async modules to load
   // On reload, we need to wait the same amount to match timing
   function startFadeIn() {
-    setTimeout(triggerFadeIn, 200);
+    setTimeout(triggerFadeIn, 0);
   }
   
   // Always wait for window load event for consistent timing
   if (document.readyState === 'complete') {
     // Window already loaded (reload case), add delay to match first load timing
     // First load waits for async modules, so we add extra delay here
-    setTimeout(startFadeIn, 600);
+    setTimeout(startFadeIn, 0);
   } else {
     // Wait for window load event
     window.addEventListener('load', startFadeIn);
