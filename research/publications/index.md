@@ -15,7 +15,6 @@ comments: false
 - **The Stream of Computation: Temporal Continuity as a Missing Ingredient for Artificial Consciousness**, Kanai, R., Sun, Y., & Baltieri, M., *PsyArXiv (2025)*. &emsp; [[preprint]](/assets/pdf/StreamOfConsciousness.pdf)
 - **A coalgebraic perspective on predictive processing**, Baltieri, M., Torresan, F., & Nakai, T., *arXiv preprint arXiv:2508.16877 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2508.16877)
 - **Active inference for action-unaware agents**, Torresan, F., Suzuki, K., Kanai, R. & Baltieri, M., *arXiv preprint arXiv:2508.12027 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2508.12027)
-- **A "good regulator theorem" for embodied agents**, Virgo, N., Baltieri, M., Biehl, M. & Capucci, M., *arXiv preprint arXiv:2508.06326 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2508.06326)
 - **A Bayesian Interpretation of the Internal Model Principle**, Baltieri, M., Biehl, M., Capucci, M., & Virgo, N., *arXiv preprint arXiv:2503.00511 (2025)*. &emsp; [[preprint]](https://arxiv.org/abs/2503.00511)
 - **Kalman filters as the steady-state solution of gradient descent on variational free energy**, Baltieri, M., & Isomura, T., *arXiv preprint arXiv:2111.10530 (2021)*. &emsp; [[preprint]](https://arxiv.org/abs/2111.10530)
 - **On Kalman-Bucy filters, linear quadratic control and active inference**, Baltieri, M., & Buckley, C. L., *arXiv preprint arXiv:2005.06269 (2020)*. &emsp; [[preprint]](https://arxiv.org/abs/2005.06269)
@@ -33,6 +32,7 @@ comments: false
 
 
 ## Conference proceedings
+- **A "good regulator theorem" for embodied agents**, Virgo, N., Baltieri, M., Biehl, M. & Capucci, M., *Artificial Life Conference, 2020*. &emsp; [[link]](https://direct.mit.edu/isal/proceedings/isal2025/37/46/134036) &emsp; [[preprint]](https://arxiv.org/abs/2508.06326)
 - **AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability**, Rosas, F., Boyd, A. & Baltieri, M., *Reinforcement Learning Conference (RLC), 2025*. &emsp; [[preprint]](https://arxiv.org/abs/2504.04608)
 - **Predictions in the eye of the beholder: an active inference implementation of the Watt governor**, Baltieri, M., Buckley, C. L., & Bruineberg, J., *Artificial Life Conference, 2020*. &emsp; [[link]](https://www.mitpressjournals.org/doi/abs/10.1162/isal_a_00288) &emsp; [[preprint]](https://arxiv.org/abs/2006.11495)
 - **A Bayesian perspective on classical control**, Baltieri, M., *2020 International Joint Conference on Neural Networks (IJCNN), 2020*. &emsp; [[link]](https://ieeexplore.ieee.org/document/9206617) &emsp; [[preprint]](https://arxiv.org/abs/2004.10288)
