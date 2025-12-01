@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: project
 title:  "A Bayesian Interpretation of the Internal Model Principle"
 image: /assets/img/blog/interpretations/setup.png
 date:   2025-03-01
@@ -14,8 +14,8 @@ tag:
 - Bayesian filtering
 - conjugate priors
 comments: true
-<!-- description: >
-  How do we connect `internal models' in control to `Bayesian models' in cognitive science? -->
+description: >
+  How do we connect "internal models" in control to "Bayesian models" in cognitive science?
 ---
 
 # A Bayesian Interpretation of the Internal Model Principle
