@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: project
 title:  "Living with uncertainty"
 image: /assets/img/blog/fog.jpeg
 date:   2019-11-07

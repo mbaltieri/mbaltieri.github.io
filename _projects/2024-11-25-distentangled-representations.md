@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: project
 title:  "Disentangled representations for causal cognition"
 image: /assets/img/blog/disentanglement/disentanglementsketch.jpg
 date:   2024-11-25
@@ -14,8 +14,8 @@ tag:
 - cognitive science
 - disentangled representations
 comments: true
-<!-- description: >
-  Can disentangled representations be used to explain how agents learn about causality? -->
+description: >
+  Can disentangled representations be used to explain how agents learn about causality?
 ---
 
 # Disentangled representations for causal cognition

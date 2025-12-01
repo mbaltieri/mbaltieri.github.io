@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: project
 title:  "Theories of agency"
 image: /assets/img/blog/agentbeer.jpg
 date:   2022-06-18
@@ -9,8 +9,8 @@ tag:
 - cognitive science
 - agency
 comments: true
-<!-- description: >
-  How do we go from "simple physics" to agency? -->
+description: >
+  How do we go from "simple physics" to agency?
 ---
 
 # Agents and agency

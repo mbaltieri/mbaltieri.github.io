@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: project
 title:  "The Emperor's New Markov Blankets"
 image: /assets/img/blog/blankets.jpg
 date:   2021-01-09
@@ -13,8 +13,8 @@ tag:
 - markov blankets
 - cognitive science
 comments: true
-<!-- description: >
-  Do Markov blankets in the free energy principle demarkate minds and living systems? -->
+description: >
+  Do Markov blankets in the free energy principle demarkate minds and living systems?
 ---
 
 # The Emperor's New Markov Blankets

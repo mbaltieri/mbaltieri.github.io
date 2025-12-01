@@ -1,10 +1,12 @@
 ---
-layout: grid
-title: Research projects
-slug: research
-menu: true
-order: 1
+layout: page
+title: Research
 description: >
-  A few research ideas explored in the past, actively investigated at the moment, or planned in the future. Biology, cognitive science and physics, using information theory, control theory and dynamical systems analysis.
-no_groups: true
+  Overview of Manuel's research activities, including publications, presentations, and research projects.
 ---
+
+This page provides an overview of my research activities. For detailed information, please visit:
+
+- **[Publications](/research/publications/)** - Journal articles, conference proceedings, and preprints
+- **[Presentations](/research/presentations/)** - Invited talks, conference presentations, and lectures
+- **[Projects](/projects/)** - Research projects and ongoing work

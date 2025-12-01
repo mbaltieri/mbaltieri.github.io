@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: project
 title:  "Hybrid life"
 image: /assets/img/blog/HybridLifeNew.jpg
 date:   2023-06-18
