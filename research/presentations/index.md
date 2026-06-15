@@ -13,6 +13,8 @@ Minor updates have been implemented whenever necessary (missing references, typo
 [^1]: In some cases sharing was/is not allowed, (but do expect more PDFs over time). Sometimes a (virtually) identical presentation was given in multiple occasions so no PDFs will be included, this is especially true for presentations with the same title.
 
 ## Invited presentations
+- From Life to Artificial Agents: How Do We “Mathematise” Agency?, Università IULM, Milan, Italy - Feb 2026 &emsp; [link](https://www.iulm.it/en/news-ed-eventi/news/eda-robots-evento) &emsp; [pdf](/assets/pdf/presentations/IULM.pdf)
+
 - Proving AI safety - Mathematical foundations of AI safety, AIRJ Symposium 2025: Building Trustworthy AI and Advancing Collaboration Between Italy and Japan, Embassy of Italy, Tokyo, Japan - Nov 2025 &emsp; [pdf](/assets/pdf/presentations/AISafety2025.pdf)
 
 - “What is it like to be a Braitenberg vehicle?”? (selected as a Showcase Talk), Models of Consciousness, Hokkaido University, Sapporo, Japan - Oct 2025 &emsp; [pdf](/assets/pdf/presentations/BraitenbergMoC2025.pdf)

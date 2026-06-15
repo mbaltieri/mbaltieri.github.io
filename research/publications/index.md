@@ -11,8 +11,9 @@ comments: false
 - **A ladder of uncertainty: models of perception and behaviour for increasingly complex environments**, Baltieri M., Seth. A.K., Roseboom W. (in prep.) -->
 
 ## Preprints
-<!-- - **World models: environment, agent and joint agent-environment models**. Baltieri, M., Torresan, F., Zhang, Y., Boyd, A., & Rosas, F. E. (2026). -->
-- **From monoliths to modules: Decomposing transducers for efficient world modelling**, Boyd, A., Nowak, F., Hyland, D., Baltieri, M., Rosas, F. E. *arXiv preprint arXiv:2512.02193* (2025).
+- **World models: environment, agent and joint agent-environment models**. Baltieri, M., Torresan, F., Zhang, Y., Boyd, A., & Rosas, F. E. (2026). 
+<!-- &emsp; [[preprint]](/assets/pdf/WorldModels.pdf) -->
+- **From monoliths to modules: Decomposing transducers for efficient world modelling**, Boyd, A., Nowak, F., Hyland, D., Baltieri, M., Rosas, F. E. *arXiv preprint arXiv:2512.02193* (2025). &emsp; [[preprint]](/assets/pdf/Monoliths.pdf)
 - **Prior preferences in active inference agents: soft, hard, and goal shaping**, Torresan, F., Kanai, R. & Baltieri, M., *arXiv preprint arXiv:2512.03293* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2512.03293)
 - **The Stream of Computation: Temporal Continuity as a Missing Ingredient for Artificial Consciousness**, Kanai, R., Sun, Y., & Baltieri, M., *PsyArXiv* (2025). &emsp; [[preprint]](/assets/pdf/StreamOfConsciousness.pdf)
 - **A coalgebraic perspective on predictive processing**, Baltieri, M., Torresan, F., & Nakai, T., *arXiv preprint arXiv:2508.16877* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2508.16877)
@@ -56,7 +57,7 @@ comments: false
 
 
 ## Other publications
-- **Thinking about robots**, Baltieri, M., *A contributed chapter to Robot 100* (2021) [[Robot 100]](https://www.robot100.cz/book)
+- **Thinking about robots**, Baltieri, M., *A contributed chapter to Robot 100* (2021) &emsp; [[Robot 100]](https://www.robot100.cz/book)
 
 ## Editing
 - **ALIFE 2025: Ciphers of Life: Proceedings of the Artificial Life Conference 2025**, Witkowski, O., Adams, A. M., Sinapayen, L., Baltieri, M., & Khosravy, M., MIT Press (2025) &emsp; [[link]](https://direct.mit.edu/isal/isal/volume/37)
