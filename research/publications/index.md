@@ -11,8 +11,9 @@ comments: false
 - **A ladder of uncertainty: models of perception and behaviour for increasingly complex environments**, Baltieri M., Seth. A.K., Roseboom W. (in prep.) -->
 
 ## Preprints
+- **Bayesian updates from coalgebraic determinisation**. Baltieri, M., & Virgo, N. (2026).
 - **World models: environment, agent and joint agent-environment models**. Baltieri, M., Torresan, F., Zhang, Y., Boyd, A., & Rosas, F. E. (2026). 
-<!-- &emsp; [[preprint]](/assets/pdf/WorldModels.pdf) -->
+&emsp; [[preprint]](/assets/pdf/WorldModels.pdf)
 - **From monoliths to modules: Decomposing transducers for efficient world modelling**, Boyd, A., Nowak, F., Hyland, D., Baltieri, M., Rosas, F. E. *arXiv preprint arXiv:2512.02193* (2025). &emsp; [[preprint]](/assets/pdf/Monoliths.pdf)
 - **Prior preferences in active inference agents: soft, hard, and goal shaping**, Torresan, F., Kanai, R. & Baltieri, M., *arXiv preprint arXiv:2512.03293* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2512.03293)
 - **The Stream of Computation: Temporal Continuity as a Missing Ingredient for Artificial Consciousness**, Kanai, R., Sun, Y., & Baltieri, M., *PsyArXiv* (2025). &emsp; [[preprint]](/assets/pdf/StreamOfConsciousness.pdf)
@@ -37,9 +38,9 @@ comments: false
 
 ## Conference proceedings
 - **A Braitenberg vehicle’s habitat**, Baltieri, M., Rosas, F. E., & Torresan, F., *Artificial Life Conference - ALIFE* (2026).
-- **Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning**, Zhang, Y., Luo, Z., & Baltieri, M., *International Conference on Machine Learning - ICML* (2026).
+- **Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning**, Zhang, Y., Luo, Z., & Baltieri, M., *International Conference on Machine Learning - ICML* (2026). &emsp; [[link]](https://icml.cc/virtual/2026/poster/62002) &emsp; [[preprint]](https://arxiv.org/abs/2606.25357)
 - **A "good regulator theorem" for embodied agents**, Virgo, N., Baltieri, M., Biehl, M. & Capucci, M., *Artificial Life Conference - ALIFE* (2020). &emsp; [[link]](https://direct.mit.edu/isal/proceedings/isal2025/37/46/134036) &emsp; [[preprint]](https://arxiv.org/abs/2508.06326)
-- **AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability**, Rosas, F., Boyd, A. & Baltieri, M., *Reinforcement Learning Conference - RLC* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2504.04608)
+- **AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability**, Rosas, F., Boyd, A. & Baltieri, M., *Reinforcement Learning Conference - RLC* (2025). &emsp; [[link]](https://rlj.cs.umass.edu/2025/papers/Paper367.html) &emsp; [[preprint]](https://arxiv.org/abs/2504.04608)
 - **Predictions in the eye of the beholder: an active inference implementation of the Watt governor**, Baltieri, M., Buckley, C. L., & Bruineberg, J., *Artificial Life Conference - ALIFE* (2020). &emsp; [[link]](https://www.mitpressjournals.org/doi/abs/10.1162/isal_a_00288) &emsp; [[preprint]](https://arxiv.org/abs/2006.11495)
 - **A Bayesian perspective on classical control**, Baltieri, M., *2020 International Joint Conference on Neural Networks - IJCNN* (2020). &emsp; [[link]](https://ieeexplore.ieee.org/document/9206617) &emsp; [[preprint]](https://arxiv.org/abs/2004.10288)
 - **Scaling active inference**, Tschantz, A., Baltieri, M., Seth, A. K. & Buckley, C. L., *2020 International Joint Conference on Neural Networks - IJCNN* (2020). &emsp; [[link]](https://ieeexplore.ieee.org/document/9207382) &emsp; [[preprint]](https://arxiv.org/abs/1911.10601)
