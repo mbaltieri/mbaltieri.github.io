@@ -37,7 +37,7 @@ comments: false
 
 
 ## Conference proceedings
-- **A Braitenberg vehicle’s habitat**, Baltieri, M., Rosas, F. E., & Torresan, F., *Artificial Life Conference - ALIFE* (2026).
+- **A Braitenberg vehicle’s habitat**, Baltieri, M., Rosas, F. E., & Torresan, F., *Artificial Life Conference - ALIFE* (2026). &emsp; [[preprint]](/assets/pdf/BraitenbergHabitat.pdf)
 - **Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning**, Zhang, Y., Luo, Z., & Baltieri, M., *International Conference on Machine Learning - ICML* (2026). &emsp; [[link]](https://icml.cc/virtual/2026/poster/62002) &emsp; [[preprint]](https://arxiv.org/abs/2606.25357)
 - **A "good regulator theorem" for embodied agents**, Virgo, N., Baltieri, M., Biehl, M. & Capucci, M., *Artificial Life Conference - ALIFE* (2020). &emsp; [[link]](https://direct.mit.edu/isal/proceedings/isal2025/37/46/134036) &emsp; [[preprint]](https://arxiv.org/abs/2508.06326)
 - **AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability**, Rosas, F., Boyd, A. & Baltieri, M., *Reinforcement Learning Conference - RLC* (2025). &emsp; [[link]](https://rlj.cs.umass.edu/2025/papers/Paper367.html) &emsp; [[preprint]](https://arxiv.org/abs/2504.04608)
