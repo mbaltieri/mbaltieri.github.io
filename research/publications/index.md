@@ -11,7 +11,7 @@ comments: false
 - **A ladder of uncertainty: models of perception and behaviour for increasingly complex environments**, Baltieri M., Seth. A.K., Roseboom W. (in prep.) -->
 
 ## Preprints
-- **Bayesian updates from coalgebraic determinisation**. Baltieri, M., & Virgo, N. (2026).
+- **Bayesian updates from coalgebraic determinisation**. Baltieri, M., & Virgo, N. (2026). &emsp; [[preprint]](https://arxiv.org/abs/2607.00034)
 - **World models: environment, agent and joint agent-environment models**. Baltieri, M., Torresan, F., Zhang, Y., Boyd, A., & Rosas, F. E. (2026). 
 &emsp; [[preprint]](/assets/pdf/WorldModels.pdf)
 - **From monoliths to modules: Decomposing transducers for efficient world modelling**, Boyd, A., Nowak, F., Hyland, D., Baltieri, M., Rosas, F. E. *arXiv preprint arXiv:2512.02193* (2025). &emsp; [[preprint]](/assets/pdf/Monoliths.pdf)
