@@ -6,6 +6,7 @@ menu: true
 order: 1
 description: >
   News and updates related to Manuel's work.
+image: /assets/img/ALIFE2023.jpg
 last_modified_at: 2022-09-27
 no_link_title: false 
 no_excerpt: false 

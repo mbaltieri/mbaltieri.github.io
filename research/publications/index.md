@@ -2,6 +2,9 @@
 layout: page
 title: Publications
 tags: [publications, academia]
+description: >
+  Selected publications, conference papers, journal articles, preprints, commentaries, and edited volumes by Manuel Baltieri.
+image: /assets/img/ALIFE2023.jpg
 date: 2024-06-29
 comments: false
 ---
@@ -38,7 +41,7 @@ comments: false
 ## Journal articles
 - **Mathematical approaches to the study of agents**, Baltieri, M., & Suzuki, K., *Philosophical Transactions of the Royal Society B* (2026, To appear). &emsp; [[preprint]](https://osf.io/rqu7s_v2)
 - **Active inference for action-unaware agents**, Torresan, F., Suzuki, K., Kanai, R. & Baltieri, M., *Neurocomputing* (2026, Accepted). &emsp; [[preprint]](https://arxiv.org/abs/2508.12027)
-- **Editorial Introduction to the 2023 Conference on Artificial Life Special Issue**, Iizuka, H., Suzuki, K., Suzuki, R., Izuierdo, E.J. & Baltieri, M., *Artificial Life* (2025). &emsp; [[link]](https://doi.org/10.1162/artl_e_00474) &emsp; [[pdf]](/assets/pdf/EditorialALIFE2023.pdf)
+- **Editorial Introduction to the 2023 Conference on Artificial Life Special Issue**, Iizuka, H., Suzuki, K., Suzuki, R., Izquierdo, E. J. & Baltieri, M., *Artificial Life* (2025). &emsp; [[link]](https://doi.org/10.1162/artl_e_00474) &emsp; [[pdf]](/assets/pdf/EditorialALIFE2023.pdf)
 - **Disentangled Representations for Causal Cognition**, Torresan, F. & Baltieri, M., *Physics of Life Reviews* (2024). &emsp; [[link]](https://doi.org/10.1016/j.plrev.2024.10.003) &emsp; [[pdf]](/assets/pdf/DisentanglementCausalCognition.pdf) &emsp; [[preprint]](https://arxiv.org/abs/2407.00744)
 - **Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems**. Baltieri, M., Iizuka, H., Witkowski, O., Sinapayen, L., & Suzuki, K., *WIREs Cognitive Science* (2023). &emsp; [[link]](https://doi.org/10.1002/wcs.1662) &emsp; [[pdf]](/assets/pdf/HybridLifeWIREs.pdf) &emsp; [[preprint]](https://arxiv.org/abs/2212.00285)
 - **The Emperor is Naked: Replies to the commentaries on the target article.**, Bruineberg, J., Dolega, K., Dewhurst, J., & Baltieri, M., *Behavioral and Brain Science* (2022). &emsp; [[link]](https://doi.org/10.1017/S0140525X22000656) &emsp; [[pdf]](/assets/pdf/EmperorNaked.pdf)

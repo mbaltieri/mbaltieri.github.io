@@ -3,6 +3,7 @@ layout: page
 title: Research
 description: >
   Overview of Manuel's research activities, including publications, presentations, and research projects.
+image: /assets/img/ALIFE2023.jpg
 ---
 
 This page provides an overview of my research activities. For detailed information, please visit:

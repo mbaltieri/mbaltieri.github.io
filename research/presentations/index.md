@@ -1,7 +1,10 @@
 ---
 layout: page
-title: List of presentations
+title: Talks and Presentations
 tags: [presentations, academia]
+description: >
+  Invited talks, conference presentations, lectures, recordings, and slide decks from Manuel Baltieri's research.
+image: /assets/img/blog/goaldirectedness.jpg
 date: 2023-08-14
 comments: true
 ---
@@ -50,7 +53,7 @@ Minor updates have been implemented whenever necessary (missing references, typo
 
 - Inference with and within a model, Consciousness Club, Tokyo, Japan - July 2022 &emsp; [pdf](/assets/pdf/presentations/CC_Tokyo.pdf) &emsp; [recording](https://www.youtube.com/watch?v=ascyxuJ6lIk&ab_channel=ConsciousnessClubTokyo)
 
-- Variational inference in agents, with connections to control theory and cognitive (neuro)science}, RIKEN AIP, Tokyo, Japan - Jul 2021 &emsp; [pdf](/assets/pdf/presentations/RIKENAIP.pdf)
+- Variational inference in agents, with connections to control theory and cognitive (neuro)science, RIKEN AIP, Tokyo, Japan - Jul 2021 &emsp; [pdf](/assets/pdf/presentations/RIKENAIP.pdf)
 
 - Active inference for cognitive science and artificial intelligence - open questions and new challenges, CHAIN Academic Seminars, Hokkaido University, Sapporo, Japan - Jan 2020
 
@@ -74,15 +77,15 @@ Minor updates have been implemented whenever necessary (missing references, typo
 
 - Nonmodular architectures of cognitive systems based on active inference, International Joint Conference on Neural Networks (IJCNN) 2019, Budapest, Hungary - Jul 2019 &emsp; [pdf](/assets/pdf/presentations/IJCNN2019.pdf)
 
-- Action-oriented models for active inference: examples and connections to 4E ideas, Alergic seminars, University of Sussex, Brighton, UK - May 2019
+- Action-oriented models for active inference: examples and connections to 4E ideas, ALERGIC seminars, University of Sussex, Brighton, UK - May 2019
 
 - A probabilistic interpretation of PID controllers using active inference, International Conference on the Simulation of Adaptive Behaviour (SAB) 2018, Frankfurt, Germany -  Aug 2018
 
-- The modularity of action and perception revisited using control theory and active inference}, International Conference on Artificial Life (ALIFE) 2018, Tokyo, Japan - Jul 2018
+- The modularity of action and perception revisited using control theory and active inference, International Conference on Artificial Life (ALIFE) 2018, Tokyo, Japan - Jul 2018
 
 - The free energy principle and active inference, connections to 4Es views of cognition, Friston Lab - Theoretical neurobiology meeting @ Wellcome Trust Centre for Neuroimaging, UCL, London, UK - Mar 2018
 
-- The free energy principle for the study of action and perception} @
+- The free energy principle for the study of action and perception @
     - Honda Research Institute Japan Co. Ltd. (HRI-JP) - Department Intelligence Science \& Technology, Kyoto University, Kyoto, Japan - Jan 2018
     - Ikegami Laboratory - Department of General Systems Sciences, University of Tokyo, Japan - Jan 2018
     - Laboratory for Neural Computation and Adaptation - RIKEN Center for Brain Science, Saitama, Japan - Dec 2017
