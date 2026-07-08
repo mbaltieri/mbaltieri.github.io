@@ -222,6 +222,9 @@ hydejack:
   # This will increase site build speed dramatically!
   no_inline_css:       false
 
+  # Build CSS with SassC-compatible math on this local toolchain.
+  gh_pages_compat:     true
+
   # Set to `true` if you don't intend on changing the accent color on a per-page basis. 
   # This will increase site build speed!
   no_page_style:       false

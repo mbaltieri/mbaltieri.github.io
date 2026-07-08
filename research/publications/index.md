@@ -1,6 +1,6 @@
 ---
 layout: page
-title: List of publications
+title: Publications
 tags: [publications, academia]
 date: 2024-06-29
 comments: false
@@ -10,37 +10,21 @@ comments: false
 - **Modularity, the separation principle and active inference**, Baltieri M. and Buckley C. L., (in prep.) 
 - **A ladder of uncertainty: models of perception and behaviour for increasingly complex environments**, Baltieri M., Seth. A.K., Roseboom W. (in prep.) -->
 
-## Preprints
+## Selected publications
+- **Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning**, Zhang, Y., Luo, Z., & Baltieri, M., *International Conference on Machine Learning - ICML* (2026). &emsp; [[link]](https://openreview.net/pdf?id=kovefbSXbQ) &emsp; [[preprint]](https://arxiv.org/abs/2606.25357)
+- **World models: environment, agent and joint agent-environment models**. Baltieri, M., Torresan, F., Zhang, Y., Boyd, A., & Rosas, F. E. (2026). &emsp; [[preprint]](/assets/pdf/WorldModels.pdf)
 - **Bayesian updates from coalgebraic determinisation**. Baltieri, M., & Virgo, N. (2026). &emsp; [[preprint]](https://arxiv.org/abs/2607.00034)
-- **World models: environment, agent and joint agent-environment models**. Baltieri, M., Torresan, F., Zhang, Y., Boyd, A., & Rosas, F. E. (2026). 
-&emsp; [[preprint]](/assets/pdf/WorldModels.pdf)
-- **From monoliths to modules: Decomposing transducers for efficient world modelling**, Boyd, A., Nowak, F., Hyland, D., Baltieri, M., Rosas, F. E. *arXiv preprint arXiv:2512.02193* (2025). &emsp; [[preprint]](/assets/pdf/Monoliths.pdf)
-- **Prior preferences in active inference agents: soft, hard, and goal shaping**, Torresan, F., Kanai, R. & Baltieri, M., *arXiv preprint arXiv:2512.03293* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2512.03293)
-- **The Stream of Computation: Temporal Continuity as a Missing Ingredient for Artificial Consciousness**, Kanai, R., Sun, Y., & Baltieri, M., *PsyArXiv* (2025). &emsp; [[preprint]](/assets/pdf/StreamOfConsciousness.pdf)
-- **A coalgebraic perspective on predictive processing**, Baltieri, M., Torresan, F., & Nakai, T., *arXiv preprint arXiv:2508.16877* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2508.16877)
-- **Active inference for action-unaware agents**, Torresan, F., Suzuki, K., Kanai, R. & Baltieri, M., *arXiv preprint arXiv:2508.12027* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2508.12027)
+- **Mathematical approaches to the study of agents**, Baltieri, M., & Suzuki, K., *Philosophical Transactions of the Royal Society B* (2026, To appear). &emsp; [[preprint]](https://osf.io/rqu7s_v2)
 - **A Bayesian Interpretation of the Internal Model Principle**, Baltieri, M., Biehl, M., Capucci, M., & Virgo, N., *arXiv preprint arXiv:2503.00511* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2503.00511)
-- **Kalman filters as the steady-state solution of gradient descent on variational free energy**, Baltieri, M., & Isomura, T., *arXiv preprint arXiv:2111.10530* (2021). &emsp; [[preprint]](https://arxiv.org/abs/2111.10530)
-- **On Kalman-Bucy filters, linear quadratic control and active inference**, Baltieri, M., & Buckley, C. L., *arXiv preprint arXiv:2005.06269* (2020). &emsp; [[preprint]](https://arxiv.org/abs/2005.06269)
-- **A minimal active inference agent**, McGregor, S., Baltieri, M., & Buckley, C. L., *arXiv preprint arXiv:1503.04187* (2015). &emsp; [[preprint]](https://arxiv.org/pdf/1503.04187.pdf)
-
-## Journal publications
-- **Mathematical approaches to the study of agents**, Baltieri, M., & Suzuki, K., *Philosophical Transactions of the Royal Society B* (2026, To appear). &emsp; [[preprint]](/assets/pdf/MathematicalApproachesAgency.pdf)
-- **Editorial Introduction to the 2023 Conference on Artificial Life Special Issue**, Iizuka, H., Suzuki, K., Suzuki, R., Izuierdo, E.J. & Baltieri, M., *Artificial Life* (2025). &emsp; [[link]](https://doi.org/10.1162/artl_e_00474) &emsp; [[pdf]](/assets/pdf/EditorialALIFE2023.pdf)
-- **Disentangled Representations for Causal Cognition**, Torresan, F. & Baltieri, M., *Physics of Life Reviews* (2024). &emsp; [[link]](https://doi.org/10.1016/j.plrev.2024.10.003) &emsp; [[pdf]](/assets/pdf/DisentanglementCausalCognition.pdf) &emsp; [[preprint]](https://arxiv.org/abs/2407.00744)
-- **Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems**. Baltieri, M., Iizuka, H., Witkowski, O., Sinapayen, L., & Suzuki, K., *WIREs Cognitive Science* (2023). &emsp; [[link]](https://doi.org/10.1002/wcs.1662) &emsp; [[pdf]](/assets/pdf/HybridLifeWIREs.pdf) &emsp; [[preprint]](https://arxiv.org/abs/2212.00285)
-- **The Emperor is Naked: Replies to the commentaries on the target article.**, Bruineberg, J., Dolega, K., Dewhurst, J., & Baltieri, M., *Behavioral and Brain Science* (2022). &emsp; [[link]](https://doi.org/10.1017/S0140525X22000656) &emsp; [[pdf]](/assets/pdf/EmperorNaked.pdf)
-- **The Emperor’s New Markov Blankets**, Bruineberg, J., Dolega, K., Dewhurst, J., & Baltieri, M., *Behavioral and Brain Science* (2021). &emsp; [[link]](https://doi.org/10.1017/S0140525X21002351) &emsp; [[pdf]](/assets/pdf/EmperorMarkovBlankets.pdf) &emsp; [[preprint - 2020]](https://www.researchgate.net/publication/346560958_The_Emperor's_New_Markov_Blankets)
-- **Active inference through whiskers**, Mannella, F., Maggiore, F., Baltieri, M., & Pezzulo, G. *Neural Networks* (2021). &emsp; [[link]](https://www.sciencedirect.com/science/article/abs/pii/S0893608021003506) &emsp; [[preprint]](https://www.biorxiv.org/content/10.1101/2021.07.16.452665v2)
-- **Embodied Skillful Performance: Where the Action Is**, Hipolito, I., Baltieri, M., Friston, K. J., & Ramstead, M. J., *Synthese* (2021). &emsp; [[link]](https://link.springer.com/article/10.1007/s11229-020-02986-5) &emsp; [[preprint]](http://philsci-archive.pitt.edu/18121/)
-- **PID control as a process of active inference with linear generative models**, Baltieri, M., & Buckley, C. L., *Entropy 21 (3), 257* (2019). &emsp; [[link]](https://www.mdpi.com/1099-4300/21/3/257)
-
-
-## Conference proceedings
-- **A Braitenberg vehicle’s habitat**, Baltieri, M., Rosas, F. E., & Torresan, F., *Artificial Life Conference - ALIFE* (2026). &emsp; [[preprint]](/assets/pdf/BraitenbergHabitat.pdf)
-- **Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning**, Zhang, Y., Luo, Z., & Baltieri, M., *International Conference on Machine Learning - ICML* (2026). &emsp; [[link]](https://icml.cc/virtual/2026/poster/62002) &emsp; [[preprint]](https://arxiv.org/abs/2606.25357)
-- **A "good regulator theorem" for embodied agents**, Virgo, N., Baltieri, M., Biehl, M. & Capucci, M., *Artificial Life Conference - ALIFE* (2020). &emsp; [[link]](https://direct.mit.edu/isal/proceedings/isal2025/37/46/134036) &emsp; [[preprint]](https://arxiv.org/abs/2508.06326)
+- **A "good regulator theorem" for embodied agents**, Virgo, N., Baltieri, M., Biehl, M. & Capucci, M., *Artificial Life Conference - ALIFE* (2025). &emsp; [[link]](https://direct.mit.edu/isal/proceedings/isal2025/37/46/134036) &emsp; [[preprint]](https://arxiv.org/abs/2508.06326)
 - **AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability**, Rosas, F., Boyd, A. & Baltieri, M., *Reinforcement Learning Conference - RLC* (2025). &emsp; [[link]](https://rlj.cs.umass.edu/2025/papers/Paper367.html) &emsp; [[preprint]](https://arxiv.org/abs/2504.04608)
+- **Disentangled Representations for Causal Cognition**, Torresan, F. & Baltieri, M., *Physics of Life Reviews* (2024). &emsp; [[link]](https://doi.org/10.1016/j.plrev.2024.10.003) &emsp; [[pdf]](/assets/pdf/DisentanglementCausalCognition.pdf) &emsp; [[preprint]](https://arxiv.org/abs/2407.00744)
+
+## Conference papers
+- **Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning**, Zhang, Y., Luo, Z., & Baltieri, M., *International Conference on Machine Learning - ICML* (2026). &emsp; [[link]](https://openreview.net/pdf?id=kovefbSXbQ) &emsp; [[preprint]](https://arxiv.org/abs/2606.25357)
+- **A Braitenberg vehicle’s habitat**, Baltieri, M., Rosas, F. E., & Torresan, F., *Artificial Life Conference - ALIFE* (2026). &emsp; [[preprint]](/assets/pdf/BraitenbergHabitat.pdf)
+- **AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability**, Rosas, F., Boyd, A. & Baltieri, M., *Reinforcement Learning Conference - RLC* (2025). &emsp; [[link]](https://rlj.cs.umass.edu/2025/papers/Paper367.html) &emsp; [[preprint]](https://arxiv.org/abs/2504.04608)
+- **A "good regulator theorem" for embodied agents**, Virgo, N., Baltieri, M., Biehl, M. & Capucci, M., *Artificial Life Conference - ALIFE* (2025). &emsp; [[link]](https://direct.mit.edu/isal/proceedings/isal2025/37/46/134036) &emsp; [[preprint]](https://arxiv.org/abs/2508.06326)
 - **Predictions in the eye of the beholder: an active inference implementation of the Watt governor**, Baltieri, M., Buckley, C. L., & Bruineberg, J., *Artificial Life Conference - ALIFE* (2020). &emsp; [[link]](https://www.mitpressjournals.org/doi/abs/10.1162/isal_a_00288) &emsp; [[preprint]](https://arxiv.org/abs/2006.11495)
 - **A Bayesian perspective on classical control**, Baltieri, M., *2020 International Joint Conference on Neural Networks - IJCNN* (2020). &emsp; [[link]](https://ieeexplore.ieee.org/document/9206617) &emsp; [[preprint]](https://arxiv.org/abs/2004.10288)
 - **Scaling active inference**, Tschantz, A., Baltieri, M., Seth, A. K. & Buckley, C. L., *2020 International Joint Conference on Neural Networks - IJCNN* (2020). &emsp; [[link]](https://ieeexplore.ieee.org/document/9207382) &emsp; [[preprint]](https://arxiv.org/abs/1911.10601)
@@ -51,11 +35,36 @@ comments: false
 - **The modularity of action and perception revisited using control theory and active inference**, Baltieri, M., & Buckley, C. L., *Artificial Life Conference - ALIFE* (2018). &emsp; [[link]](https://www.mitpressjournals.org/doi/abs/10.1162/isal_a_00031) &emsp; [[preprint]](https://arxiv.org/abs/1806.02649)
 - **An active inference implementation of phototaxis**, Baltieri, M., & Buckley, C. L., *European Conference on Artificial Life - ECAL* (2017). &emsp; [[link]](https://www.mitpressjournals.org/doi/abs/10.1162/isal_a_011) &emsp; [[preprint]](https://arxiv.org/abs/1707.01806)
 
+## Journal articles
+- **Mathematical approaches to the study of agents**, Baltieri, M., & Suzuki, K., *Philosophical Transactions of the Royal Society B* (2026, To appear). &emsp; [[preprint]](https://osf.io/rqu7s_v2)
+- **Active inference for action-unaware agents**, Torresan, F., Suzuki, K., Kanai, R. & Baltieri, M., *Neurocomputing* (2026, Accepted). &emsp; [[preprint]](https://arxiv.org/abs/2508.12027)
+- **Editorial Introduction to the 2023 Conference on Artificial Life Special Issue**, Iizuka, H., Suzuki, K., Suzuki, R., Izuierdo, E.J. & Baltieri, M., *Artificial Life* (2025). &emsp; [[link]](https://doi.org/10.1162/artl_e_00474) &emsp; [[pdf]](/assets/pdf/EditorialALIFE2023.pdf)
+- **Disentangled Representations for Causal Cognition**, Torresan, F. & Baltieri, M., *Physics of Life Reviews* (2024). &emsp; [[link]](https://doi.org/10.1016/j.plrev.2024.10.003) &emsp; [[pdf]](/assets/pdf/DisentanglementCausalCognition.pdf) &emsp; [[preprint]](https://arxiv.org/abs/2407.00744)
+- **Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems**. Baltieri, M., Iizuka, H., Witkowski, O., Sinapayen, L., & Suzuki, K., *WIREs Cognitive Science* (2023). &emsp; [[link]](https://doi.org/10.1002/wcs.1662) &emsp; [[pdf]](/assets/pdf/HybridLifeWIREs.pdf) &emsp; [[preprint]](https://arxiv.org/abs/2212.00285)
+- **The Emperor is Naked: Replies to the commentaries on the target article.**, Bruineberg, J., Dolega, K., Dewhurst, J., & Baltieri, M., *Behavioral and Brain Science* (2022). &emsp; [[link]](https://doi.org/10.1017/S0140525X22000656) &emsp; [[pdf]](/assets/pdf/EmperorNaked.pdf)
+- **The Emperor’s New Markov Blankets**, Bruineberg, J., Dolega, K., Dewhurst, J., & Baltieri, M., *Behavioral and Brain Science* (2021). &emsp; [[link]](https://doi.org/10.1017/S0140525X21002351) &emsp; [[pdf]](/assets/pdf/EmperorMarkovBlankets.pdf) &emsp; [[preprint - 2020]](https://www.researchgate.net/publication/346560958_The_Emperor's_New_Markov_Blankets)
+- **Active inference through whiskers**, Mannella, F., Maggiore, F., Baltieri, M., & Pezzulo, G. *Neural Networks* (2021). &emsp; [[link]](https://www.sciencedirect.com/science/article/abs/pii/S0893608021003506) &emsp; [[preprint]](https://www.biorxiv.org/content/10.1101/2021.07.16.452665v2)
+- **Embodied Skillful Performance: Where the Action Is**, Hipolito, I., Baltieri, M., Friston, K. J., & Ramstead, M. J., *Synthese* (2021). &emsp; [[link]](https://link.springer.com/article/10.1007/s11229-020-02986-5) &emsp; [[preprint]](http://philsci-archive.pitt.edu/18121/)
+- **PID control as a process of active inference with linear generative models**, Baltieri, M., & Buckley, C. L., *Entropy 21 (3), 257* (2019). &emsp; [[link]](https://www.mdpi.com/1099-4300/21/3/257)
+
+## Preprints and manuscripts
+- **Bayesian updates from coalgebraic determinisation**. Baltieri, M., & Virgo, N. (2026). &emsp; [[preprint]](https://arxiv.org/abs/2607.00034)
+- **World models: environment, agent and joint agent-environment models**. Baltieri, M., Torresan, F., Zhang, Y., Boyd, A., & Rosas, F. E. (2026). &emsp; [[preprint]](/assets/pdf/WorldModels.pdf)
+- **From monoliths to modules: Decomposing transducers for efficient world modelling**, Boyd, A., Nowak, F., Hyland, D., Baltieri, M., Rosas, F. E. *arXiv preprint arXiv:2512.02193* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2512.02193)
+- **Prior preferences in active inference agents: soft, hard, and goal shaping**, Torresan, F., Kanai, R. & Baltieri, M., *arXiv preprint arXiv:2512.03293* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2512.03293)
+- **The Stream of Computation: Temporal Continuity as a Missing Ingredient for Artificial Consciousness**, Kanai, R., Sun, Y., & Baltieri, M., *PsyArXiv* (2025). &emsp; [[preprint]](https://osf.io/preprints/psyarxiv/c6jnd_v1)
+- **A coalgebraic perspective on predictive processing**, Baltieri, M., Torresan, F., & Nakai, T., *arXiv preprint arXiv:2508.16877* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2508.16877)
+- **A Bayesian Interpretation of the Internal Model Principle**, Baltieri, M., Biehl, M., Capucci, M., & Virgo, N., *arXiv preprint arXiv:2503.00511* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2503.00511)
+
+### Earlier manuscripts
+- **Kalman filters as the steady-state solution of gradient descent on variational free energy**, Baltieri, M., & Isomura, T., *arXiv preprint arXiv:2111.10530* (2021). &emsp; [[preprint]](https://arxiv.org/abs/2111.10530)
+- **On Kalman-Bucy filters, linear quadratic control and active inference**, Baltieri, M., & Buckley, C. L., *arXiv preprint arXiv:2005.06269* (2020). &emsp; [[preprint]](https://arxiv.org/abs/2005.06269)
+- **A minimal active inference agent**, McGregor, S., Baltieri, M., & Buckley, C. L., *arXiv preprint arXiv:1503.04187* (2015). &emsp; [[preprint]](https://arxiv.org/pdf/1503.04187.pdf)
+
 ## Commentaries
 - **Ecological causal cognition needs disentanglement: Reply to comments on "Disentangled representations for causal cognition"**, Torresan, F., & Baltieri, M. *Physics of life reviews 58, 7-9* (2026) &emsp; [[link]](https://www.sciencedirect.com/science/article/abs/pii/S1571064526000424?via%3Dihub) &emsp; [[pdf]](/assets/pdf/EcologicalDisentanglement.pdf)
 - **Steam-engine naturalism**, Baltieri, M., & Kanai, R., *PsyArXiv* (2025). &emsp; [[preprint]](/assets/pdf/SteamEngineNaturalism.pdf)
 - **Generative models as parsimonious descriptions of sensorimotor loops**, Baltieri, M., & Buckley, C. L., *Behavioral and Brain Sciences 42, 218* (2019) (Target article: **[Is coding a relevant metaphor for the brain?](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/is-coding-a-relevant-metaphor-for-the-brain/D578626E4888193FFFAE5B6E2C37E052)**, Brette, R., *Behavioral and Brain Sciences 42, 218* (2019)). &emsp; [[link]](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/generative-models-as-parsimonious-descriptions-of-sensorimotor-loops/0345874F123418BEE102A90E4ADA5E5B) &emsp; [[preprint]](https://arxiv.org/abs/1904.12937)
-
 
 ## Other publications
 - **Thinking about robots**, Baltieri, M., *A contributed chapter to Robot 100* (2021) &emsp; [[Robot 100]](https://www.robot100.cz/book)
@@ -64,6 +73,5 @@ comments: false
 - **ALIFE 2025: Ciphers of Life: Proceedings of the Artificial Life Conference 2025**, Witkowski, O., Adams, A. M., Sinapayen, L., Baltieri, M., & Khosravy, M., MIT Press (2025) &emsp; [[link]](https://direct.mit.edu/isal/isal/volume/37)
 - **ALIFE 2023 - Ghost in the Machine: Proceedings of the 2023 Artificial Life Conference**, Iizuka, H., Suzuki, K., Uno, R., Damiano, L., Spychala, N., Aguilera, M., Izquierdo, E., Suzuki, R., & Baltieri, M., MIT Press (2023) &emsp; [[link]](https://direct.mit.edu/isal/isal/volume/35)
 
-
-## Guest Editing
+## Guest editing
 - **Special Issue - Emerging Methods in Active Inference**, Parr, T., Baltieri, M., van de Laar, T., Ueltzhöffer, K., Cialfi, D., & Friston, K. J., Entropy (2022), MDPI &emsp; [[link]](https://www.mdpi.com/journal/entropy/special_issues/active_inference)

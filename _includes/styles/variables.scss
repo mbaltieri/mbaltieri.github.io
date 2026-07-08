@@ -53,10 +53,18 @@ $break-point-font-large: {{ vars.break_point_font_large | default:124 }}em;
 $content-margin-3: 3rem;
 $content-margin-5: 4rem;
 
-$gh-pages-compat: {% if site.github and site.hydejack.dart_sass_2_compat != true %}true{% else %}false{% endif %};
+{% assign gh_pages_compat = false %}
+{% if site.github and site.hydejack.dart_sass_2_compat != true %}
+  {% assign gh_pages_compat = true %}
+{% endif %}
+{% if site.hydejack.gh_pages_compat == true %}
+  {% assign gh_pages_compat = true %}
+{% endif %}
+
+$gh-pages-compat: {{ gh_pages_compat }};
 
 // TODO: doc
-{% if site.github and site.hydejack.dart_sass_2_compat != true %}
+{% if gh_pages_compat %}
 $half-content:     (($content-width-5 / 2) + $content-margin-5);
 {% else %}
 $half-content: calc(($content-width-5 / 2) + $content-margin-5);

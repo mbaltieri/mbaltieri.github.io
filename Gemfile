@@ -9,6 +9,7 @@ source "https://rubygems.org"
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
 gem "jekyll"
+gem "jekyll-sass-converter", "~> 2.2"
 
 gem "jekyll-theme-hydejack", path: "./#jekyll-theme-hydejack"
 
@@ -53,4 +54,3 @@ end
 
 gem 'wdm' if Gem.win_platform?
 gem "tzinfo-data" if Gem.win_platform?
-
