@@ -4,6 +4,7 @@ title: Projects
 show_collection: projects
 description: >
   A few research ideas explored in the past, actively investigated at the moment, or planned in the future. Biology, cognitive science and physics, using information theory, control theory and dynamical systems analysis.
+image: /assets/img/blog/agentcontrol.png
 no_groups: true
 ---
 

@@ -4,7 +4,7 @@ title: Resume
 cover:  false
 description: >
   Manuel Baltieri's resume.
-  # You'll probably want to modify it in `resume.md`, and maybe set `hide_description` to `true` in the front matter.
+image: /assets/img/AlifeMe.jpg
 hide_description: true
 left_column:
   - work
