@@ -3,7 +3,11 @@ layout: page
 title: Research
 description: >
   Overview of Manuel's research activities, including publications, presentations, and research projects.
-image: /assets/img/ALIFE2023.jpg
+image:
+  path: /assets/img/social-card.jpg
+  width: 1200
+  height: 630
+  alt: "Manuel Baltieri — research in agent foundations, AI safety, artificial life, and cognition"
 ---
 
 This page provides an overview of my research activities. For detailed information, please visit:

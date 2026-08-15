@@ -29,11 +29,11 @@ Our paper is now available [here](/assets/pdf/DisentanglementCausalCognition.pdf
 
 The paper proposes a computational framework for causal cognition in natural and artificial agents, drawing from recent work in causal machine learning,
 
-![Disentangled representations](/assets/img/blog/disentanglement/disentangledrepresentations.jpg)
+![Disentangled representations](/assets/img/blog/disentanglement/disentangledrepresentations.jpg){: width="1420" height="288" loading="lazy" decoding="async" }
 
 in part based on recent developments of Markov categories in applied category theory to explain representation learning,
 
-![Representation learning](/assets/img/blog/disentanglement/commutativediagram.jpg)
+![Representation learning](/assets/img/blog/disentanglement/commutativediagram.jpg){: width="764" height="218" loading="lazy" decoding="async" }
 
 and reinforcement learning.
 
@@ -43,26 +43,26 @@ In the paper, we review the rich literature on causal cognition in non-human ani
 In the second half of the paper, we relate these aspects of causal cognition to research on disentangled representations, particularly with respect to causal representation learning.
 By proposing a distinction between weak
 
-![Weak disentanglement](/assets/img/blog/disentanglement/weakdisentanglement.jpg)
+![Weak disentanglement](/assets/img/blog/disentanglement/weakdisentanglement.jpg){: width="2000" height="1967" loading="lazy" decoding="async" }
 
 and strong disentanglement approaches,
 
-![Strong disentanglement](/assets/img/blog/disentanglement/strongdisentanglement.jpg)
+![Strong disentanglement](/assets/img/blog/disentanglement/strongdisentanglement.jpg){: width="1761" height="2000" loading="lazy" decoding="async" }
 
 causal agents can be placed on an explicitness spectrum depending on much environmental causal structure can acquire,
 
-![Explicitness spectrum of causal information](/assets/img/blog/disentanglement/explicitness.jpg)
+![Explicitness spectrum of causal information](/assets/img/blog/disentanglement/explicitness.jpg){: width="1934" height="2000" loading="lazy" decoding="async" }
 
 e.g. identifying key causal features and/or causal relationships among objects, like the fact that the shape of a ball can make a difference for whether it bounces but its colour does not.
 
 We speculate that a higher level of explicitness is conducive to better integration of causal information from different sources, i.e., improvements with respect to the other two dimensions.
 Sources 
 
-![Sources of causal information](/assets/img/blog/disentanglement/sources.jpg)
+![Sources of causal information](/assets/img/blog/disentanglement/sources.jpg){: width="2000" height="1964" loading="lazy" decoding="async" }
 
 and integration 
 
-![Integration of causal information](/assets/img/blog/disentanglement/integration.jpg)
+![Integration of causal information](/assets/img/blog/disentanglement/integration.jpg){: width="2000" height="1606" loading="lazy" decoding="async" }
 
 are discussed by examining more closely works on reinforcement learning (RL), with the goal of drawing a comparison between artificial and natural agents in causal tasks.
 

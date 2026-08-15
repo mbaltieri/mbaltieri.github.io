@@ -36,18 +36,18 @@ In this work, we focus on two specific definitions of models, and show their con
 
 In the first part, we review and reformulate the “internal model principle” from control theory (at least, one of its versions) in a more modern language heavily inspired by categorical systems theory (https://www.davidjaz.com/Papers/DynamicalBook.pdf, https://github.com/mattecapu/categorical-systems-theory/blob/master/main.pdf).
 
-![(Fully observable) Systems](/assets/img/blog/interpretations/defsystem.png)
+![(Fully observable) systems](/assets/img/blog/interpretations/defsystem.png){: width="1926" height="762" loading="lazy" decoding="async" }
 
-![Maps of systems](/assets/img/blog/interpretations/defmap.png)
+![Maps of systems](/assets/img/blog/interpretations/defmap.png){: width="1926" height="1742" loading="lazy" decoding="async" }
 
 
 We review the original work by Wonham and collaborators, and unpack some of its implicit assumptions, finding that at least one of them requires more attention (we also have a result that doesn’t require it, and may end up in a revised version or a future work). We also get to a definition of “models” for non-autonomous (fully observable) systems that already generalises the original one for autonomous systems. We do however only focus on the autonomous case for its importance in the literature, with further explorations left to future work.
 
-![Model](/assets/img/blog/interpretations/defmodel.png)
+![Model](/assets/img/blog/interpretations/defmodel.png){: width="1926" height="1070" loading="lazy" decoding="async" }
 
 The internal model principle is arguably one of the most influential outputs of control theory, claiming, at its core, that if a controller regulates a plant against disturbances from the environment, it does so by implementing a model of the environment.
 
-![Internal model principle](/assets/img/blog/interpretations/imp.png)
+![Internal model principle](/assets/img/blog/interpretations/imp.png){: width="1926" height="730" loading="lazy" decoding="async" }
 
 This is often taken to be 1) a better formalisation of Conant&Ashby’s good regulator “theorem”, and 2) the reason why talking about “internal models” is necessary in cognitive science, AI/ML/RL, biology and neuroscience.
  
@@ -57,20 +57,20 @@ In the second part of the paper, we use results from a recent line of work start
 
 After a reasonably self contained overview of the formal graphical language (string diagrams) used to represent Markov categories, and some definitions including Bayesian inference and filtering, their parametrised and conjugate prior versions, we dive into the main result, showing mainly two things.
 
-![Bayesian inversion](/assets/img/blog/interpretations/defbayesianInversion.png)
+![Bayesian inversion](/assets/img/blog/interpretations/defbayesianInversion.png){: width="1926" height="1014" loading="lazy" decoding="async" }
 
-![Conjugate prior for Bayesian inference](/assets/img/blog/interpretations/defconjugateprior.png)
+![Conjugate prior for Bayesian inference](/assets/img/blog/interpretations/defconjugateprior.png){: width="1926" height="970" loading="lazy" decoding="async" }
 
-![Conjugate prior for Bayesian filtering](/assets/img/blog/interpretations/defconjugatepriorfiltering.png)
+![Conjugate prior for Bayesian filtering](/assets/img/blog/interpretations/defconjugatepriorfiltering.png){: width="1926" height="1004" loading="lazy" decoding="async" }
 
 
 
 Firstly, we show that the definition of model between two autonomous system can be “reversed” to build a “possibilistic” version of the internal model principle.
 
-!["Inverse" internal model principle](/assets/img/blog/interpretations/impinverse.png)
+![“Inverse” internal model principle](/assets/img/blog/interpretations/impinverse.png){: width="1926" height="752" loading="lazy" decoding="async" }
 
 We then show how this corresponds to a Bayesian filtering interpretation for a reasoner: how a controller modelling its environment can be understood as performing Bayesian filtering on its environment. Importantly, this makes use of the fact that we have a Markov category, Rel^+, of possibilistic Markov kernels that can be used to specify beliefs as (sub)sets without assigning them probabilities, but that works very much like other “nice” Markov categories.
 
-![Controllers modelling environments](/assets/img/blog/interpretations/impbayesian.png)
+![Controllers modelling environments](/assets/img/blog/interpretations/impbayesian.png){: width="1926" height="1832" loading="lazy" decoding="async" }
 
 Secondly, we discuss how this form of Bayesian filtering is quite simplistic, 1) not making full use of Bayesian updates by ignoring observations from the environment/plant, and 2) assuming that beliefs of equicredible states of the environment are disjoint (they form a partition).

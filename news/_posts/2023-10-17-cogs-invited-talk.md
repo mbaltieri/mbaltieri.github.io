@@ -18,6 +18,6 @@ description: >
 ---
 
 
-## Seminar at CHAIN, Hokkaido University
+## Seminar at COGS, University of Sussex
 
 Manuel was invited to give a seminar on October 17th for the COGS Seminar Series, hosted by Simon Bowes. He will present his recent work on Markov blankets and the free energy principle, see this [blogpost]({{ site.baseurl }}{% link _projects/2021-01-09-friston-blankets.md %}), slides [here](/assets/pdf/presentations/COGSBrighton2023.pdf).

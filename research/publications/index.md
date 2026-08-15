@@ -4,7 +4,11 @@ title: Publications
 tags: [publications, academia]
 description: >
   Selected publications, conference papers, journal articles, preprints, commentaries, and edited volumes by Manuel Baltieri.
-image: /assets/img/ALIFE2023.jpg
+image:
+  path: /assets/img/social-card.jpg
+  width: 1200
+  height: 630
+  alt: "Manuel Baltieri — research in agent foundations, AI safety, artificial life, and cognition"
 date: 2024-06-29
 comments: false
 ---
