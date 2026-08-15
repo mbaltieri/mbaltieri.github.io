@@ -25,7 +25,7 @@ I'm happy to announce that our special session has been accepted at ALife 2022!
 
 For more info:
 
-- [Hybrid Life Special sessions](https://manuelbaltieri.com/research/2019-11-03-hybrid-life/)
+- [Hybrid Life Special sessions]({% link _projects/2023-06-18-hybrid-life.md %})
 
 - [Hybrid Life V](https://sites.google.com/view/hybridlife/)
 

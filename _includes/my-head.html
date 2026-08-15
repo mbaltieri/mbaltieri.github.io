@@ -11,3 +11,61 @@ Fill in `href`. You may have to adjust `rel`.
 -->
 <noscript><link href="<path/to/content.css>" rel="stylesheet"></noscript>
 {% endcomment %}
+
+<link rel="describedby" href="{{ '/llms.txt' | absolute_url }}" type="text/markdown">
+
+{% if page.url == '/' or page.url == '/about/' %}
+  {% assign person = site.data.resume.basics %}
+  {% assign primary_role = site.data.resume.work | first %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {% if page.url == '/about/' %}
+      {
+        "@type": "ProfilePage",
+        "@id": {{ '/about/#profile' | absolute_url | jsonify }},
+        "url": {{ '/about/' | absolute_url | jsonify }},
+        "name": {{ page.title | jsonify }},
+        "mainEntity": { "@id": {{ '/#person' | absolute_url | jsonify }} }
+      },
+      {% endif %}
+      {
+        "@type": "Person",
+        "@id": {{ '/#person' | absolute_url | jsonify }},
+        "name": {{ person.name | jsonify }},
+        "url": {{ person.website | jsonify }},
+        "image": {{ person.picture | absolute_url | jsonify }},
+        "description": {{ site.description | strip_newlines | jsonify }},
+        "jobTitle": {{ primary_role.position | jsonify }},
+        "worksFor": {
+          "@type": "Organization",
+          "name": {{ primary_role.company | jsonify }},
+          "url": {{ primary_role.website | jsonify }}
+        },
+        "memberOf": {
+          "@type": "Organization",
+          "name": "International Society for Artificial Life",
+          "url": "https://alife.org/"
+        },
+        "alumniOf": [
+          { "@type": "CollegeOrUniversity", "name": "University of Sussex", "url": "https://www.sussex.ac.uk/" },
+          { "@type": "CollegeOrUniversity", "name": "University of Trento", "url": "https://www.unitn.it/" }
+        ],
+        "knowsAbout": [
+          "agent foundations",
+          "AI safety",
+          "artificial life",
+          "cognitive science",
+          "cybernetics",
+          "agent-environment systems"
+        ],
+        "sameAs": [
+          {% for profile in person.profiles %}{{ profile.url | jsonify }}{% unless forloop.last %},{% endunless %}
+          {% endfor %}
+        ]
+      }
+    ]
+  }
+  </script>
+{% endif %}

@@ -4,7 +4,11 @@ title: Resume
 cover:  false
 description: >
   Manuel Baltieri's resume.
-image: /assets/img/AlifeMe.jpg
+image:
+  path: /assets/img/social-card.jpg
+  width: 1200
+  height: 630
+  alt: "Manuel Baltieri — research in agent foundations, AI safety, artificial life, and cognition"
 hide_description: true
 left_column:
   - work
@@ -26,5 +30,5 @@ buttons:
   # or use `h2vx.com` to generate a vCard on the fly based on the structured data of the resume page.
   # The later requires `hydejack.no_structured_data: false` and only works once the site is deployed to a public URL.
   # vcf: http://h2vx.com/vcf/<!--url-->
-  # json: /assets/resume.json
+  json: /assets/resume.json
 ---

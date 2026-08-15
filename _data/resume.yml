@@ -4,10 +4,10 @@
 basics:
   name: "Manuel Baltieri"
   label: "Cybernetics and ALife/AI researcher. Mathematical modeller. Coder."
-  picture: "/assets/img/AlifeMe.jpg"
-  email: ""
+  picture: "/assets/img/manuel-baltieri-512.jpg"
+  email: "manuel_baltieri@araya.org"
   phone: ""
-  website: ""
+  website: "https://manuelbaltieri.com/"
   summary: >
     - Cross-disciplinary researcher developing foundations of intelligent behaviour for agency in cybernetics, AI, ALife, and cognitive science.
 
@@ -20,13 +20,25 @@ basics:
     city: "Tokyo"
     countryCode: "JP"
     # region: "California"
-  # profiles:
-    # - network: "Twitter"
-    #   username: "manuelbaltieri"
-    #   url: "https://twitter.com/manuelbaltieri"
-    # - network: "LinkedIn"
-    #   username: "manuelbaltieri"
-    #   url: "https://www.linkedin.com/in/manuelbaltieri/"
+  profiles:
+    - network: "ORCID"
+      username: "0000-0002-6086-4711"
+      url: "https://orcid.org/0000-0002-6086-4711"
+    - network: "DBLP"
+      username: "160/8806"
+      url: "https://dblp.org/pid/160/8806"
+    - network: "GitHub"
+      username: "mbaltieri"
+      url: "https://github.com/mbaltieri"
+    - network: "LinkedIn"
+      username: "manuelbaltieri"
+      url: "https://www.linkedin.com/in/manuelbaltieri/"
+    - network: "Bluesky"
+      username: "manuelbaltieri.bsky.social"
+      url: "https://bsky.app/profile/manuelbaltieri.bsky.social"
+    - network: "Mastodon"
+      username: "@manuelbaltieri@mathstodon.xyz"
+      url: "https://mathstodon.xyz/@manuelbaltieri"
 work:
   - company: "Araya Inc."
     position: "Research Team Leader | ARIA R&D Creator"
@@ -45,7 +57,7 @@ work:
     position: "Chief Researcher"
     website: "https://research.araya.org/"
     startDate: "2022-10-01"
-    endDate: ""
+    endDate: "2025-09-30"
     summary: >
       Creating string diagrams of dynamical systems and control systems in applied category theory for models of decision making and reinforcement learning in general AI and mathematical theories of agent-environment interactions.
 #      (OLD) Studying agency and agent-environment interactions. Building string diagrams of dynamical systems and control systems in applied category theory.
@@ -62,7 +74,7 @@ work:
     startDate: "2022-12-01"
     endDate: "2023-02-28"
     summary: >
-      Teaching a course on formal approached to the study of agency for the [CHAIN 2023 Winter Graduate School: Minimal Cognition and Agency](https://www.chain.hokudai.ac.jp/en/events/3101/).
+      Teaching a course on formal approaches to the study of agency for the [CHAIN 2023 Winter Graduate School: Minimal Cognition and Agency](https://www.chain.hokudai.ac.jp/en/events/3101/).
   - company: "Araya Inc."
     position:
       Researcher

@@ -33,15 +33,15 @@ UPDATE: In the meantime, a heavily revised version was published on *Behavioral 
 
 In this paper, we give an analysis of the development of Markov Blankets from a technical concept in Bayesian inference to a central concept within the free-energy principle/active inference framework, where they are used to define the agent/environment boundary.
 
-![Markov blankets (?)](/assets/img/blog/emperor/markovblanket.jpeg)
+![Markov blankets (?)](/assets/img/blog/emperor/markovblanket.jpeg){: width="2738" height="1718" loading="lazy" decoding="async" }
 
 We argue that it is important to distinguish the original instrumental use of Markov blankets (which we call for short ‘Pearl blankets’) from their more recent, seemingly realist use in the FEP/active inference framework (which we call ‘Friston blankets’).
 
-![Markov blankets: Pearl or Friston?](/assets/img/blog/emperor/diagram1.jpeg)
+![Markov blankets: Pearl or Friston?](/assets/img/blog/emperor/diagram1.jpeg){: width="1024" height="768" loading="lazy" decoding="async" }
 
 The latter have been used to draw metaphysical or ontological conclusions, which we think require additional metaphysical premises, and cannot be justified just on the basis of the formal success of the original Markov blanket construct (see figure below).
 
-![Time synchronous blankets: Pearl or Friston?](/assets/img/blog/emperor/diagram2.jpeg)
+![Time synchronous blankets: Pearl or Friston?](/assets/img/blog/emperor/diagram2.jpeg){: width="1024" height="768" loading="lazy" decoding="async" }
 
 We believe that the two constructs have been conflated in the literature, which has caused confusion when Markov blankets are supposedly used to define the ontological boundary of a system, e.g. mind/world or organism/environment.
 
