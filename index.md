@@ -11,7 +11,7 @@ image:
 cover:  true
 ---
 
-<section class="home-intro" aria-labelledby="home-intro-title">
+<!-- <section class="home-intro" aria-labelledby="home-intro-title">
   <p class="section-kicker">Agent foundations</p>
   <h2 id="home-intro-title">What makes a system an agent?</h2>
   <p class="home-intro__lead">I develop mathematical theories for understanding agency: how agents are distinguished from their environments, what they model and how they pursue goals, and how these ideas can support safer AI.</p>
@@ -21,7 +21,7 @@ cover:  true
     <a class="mb-button" href="/research/publications/">Selected publications</a>
     <a class="mb-button" href="/assets/Academic_CV.pdf" aria-label="Download CV (PDF)">Download CV</a>
   </nav>
-</section>
+</section> -->
 
 <section class="home-research" aria-labelledby="research-programme-title">
   <div class="section-heading">
