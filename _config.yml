@@ -54,15 +54,6 @@ menu:
     url:               /about/
   - title:             Research
     url:               /research/
-    children:
-      - title:         Publications
-        url:           /research/publications/
-      - title:         Projects
-        url:           /projects/
-      - title:         Talks
-        url:           /research/presentations/
-      - title:         Vision
-        url:           /vision/
   - title:             News
     url:               /news/
   - title:             Resume
