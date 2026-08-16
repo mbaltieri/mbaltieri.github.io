@@ -42,7 +42,7 @@ image:
     <p class="section-kicker">04 · AI safety</p>
     <h2 id="mathematics-for-safe-ai-title">Mathematics for safe AI</h2>
     <p>Agent foundations matter when we try to reason about the capabilities and limits of AI systems. My current work studies world models, behavioural abstraction, interpretability, and the assumptions behind separating an agent from its environment, with the aim of making safety questions mathematically precise.</p>
-    <p class="research-theme__links"><a href="/news/2025-10-01-aria/">ARIA research programme</a> <span aria-hidden="true">·</span> <a href="https://arxiv.org/abs/2504.04608">AI in a vat</a></p>
+    <p class="research-theme__links"><a href="/projects/2025-10-01-aria-safe-ai/">ARIA safe-AI project</a> <span aria-hidden="true">·</span> <a href="https://arxiv.org/abs/2504.04608">AI in a vat</a></p>
   </section>
 </div>
 
