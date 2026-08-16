@@ -14,7 +14,7 @@ cover:  true
 <section class="home-intro" aria-labelledby="home-intro-title">
   <p class="section-kicker">Agent foundations · Mathematical AI safety</p>
   <h2 id="home-intro-title">What makes a system an agent?</h2>
-  <p class="home-intro__lead">I develop mathematical tools for understanding agency: how agents are distinguished from their environments, how they form models and pursue goals, and how these ideas can support safer AI.</p>
+  <p class="home-intro__lead">I develop mathematical theories for understanding agency: how agents are distinguished from their environments, what they model and how they pursue goals, and how these ideas can support safer AI.</p>
   <p>My research at Araya and as an ARIA R&amp;D Creator connects category theory, control, probability, dynamical systems, cognitive science, and artificial life.</p>
   <nav class="mb-actions" aria-label="Explore Manuel Baltieri's work">
     <a class="mb-button mb-button--primary" href="/research/">Explore research <span aria-hidden="true">&#8594;</span></a>
@@ -26,8 +26,8 @@ cover:  true
 <section class="home-research" aria-labelledby="research-programme-title">
   <div class="section-heading">
     <p class="section-kicker">Research programme</p>
-    <h2 id="research-programme-title">Agents in context</h2>
-    <p>The same agent–environment relationship raises different questions across mathematics, cognitive science, artificial life, and AI.</p>
+    <h2 id="research-programme-title">Agents across fields</h2>
+    <p>The relationship between agent and environment raises different questions across mathematics, cognitive science, artificial life, and AI.</p>
   </div>
   {% include research-map.html %}
 </section>
