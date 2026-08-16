@@ -52,18 +52,21 @@ author:
 menu:
   - title:             About
     url:               /about/
+  - title:             Research
+    url:               /research/
+    children:
+      - title:         Publications
+        url:           /research/publications/
+      - title:         Projects
+        url:           /projects/
+      - title:         Talks
+        url:           /research/presentations/
+      - title:         Vision
+        url:           /vision/
   - title:             News
     url:               /news/
-  - title:             Projects
-    url:               /projects/
   - title:             Resume
     url:               /resume/
-  - title:             Publications
-    url:               /research/publications/
-  - title:             Talks
-    url:               /research/presentations/
-  - title:             Vision
-    url:               /vision/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..

@@ -36,10 +36,17 @@ cover:  true
   <div class="section-heading">
     <p class="section-kicker">Start here</p>
     <h2 id="selected-work-title">Selected work</h2>
-    <p>Three entry points into the broader research programme.</p>
+    <p>Four entry points into the broader research programme.</p>
   </div>
 
   <div class="featured-work__grid">
+    <article class="featured-work__card">
+      <p class="featured-work__topic">Agent foundations</p>
+      <h3><a href="https://osf.io/rqu7s_v2">Mathematical approaches to the study of agents</a></h3>
+      <p>With Keisuke Suzuki, a review of mathematical approaches to studying agents across research fields.</p>
+      <p class="featured-work__action"><a class="featured-work__link" href="https://osf.io/rqu7s_v2" aria-label="Read the preprint: Mathematical approaches to the study of agents">Read the preprint<span aria-hidden="true"> &#8594;</span></a></p>
+    </article>
+
     <article class="featured-work__card">
       <p class="featured-work__topic">World models</p>
       <h3><a href="/assets/pdf/WorldModels.pdf">Environment, agent, and joint agent–environment models</a></h3>
