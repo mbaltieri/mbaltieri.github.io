@@ -20,8 +20,8 @@ image:
   <section id="agent-foundations" class="research-theme" aria-labelledby="agent-foundations-title">
     <p class="section-kicker">01 · Agency</p>
     <h2 id="agent-foundations-title">Agent foundations</h2>
-    <p>What distinguishes an agent from a non-agentic system? I work on formal descriptions of agent boundaries, goals, models, and composition. A recurring concern is the role of the observer: whether agency is intrinsic to a system, imposed by a description, or emerges from a precise relationship between the two.</p>
-    <p class="research-theme__links"><a href="/projects/2022-06-18-theories-of-agency/">Theories of agency</a> <span aria-hidden="true">·</span> <a href="/assets/pdf/WorldModels.pdf">World models</a></p>
+    <p>What distinguishes an agent from a non-agentic system? I work on formal descriptions of agent boundaries, goals, models, and composition. A recurring concern is the role of the observer: whether agency is intrinsic to a system, imposed by a description, or emerges from a precise relationship between the two. With Keisuke Suzuki, I review mathematical approaches to studying agents across different research fields.</p>
+    <p class="research-theme__links"><a href="https://osf.io/rqu7s_v2">Mathematical approaches to agents</a> <span aria-hidden="true">·</span> <a href="/projects/2022-06-18-theories-of-agency/">Theories of agency</a> <span aria-hidden="true">·</span> <a href="/assets/pdf/WorldModels.pdf">World models</a></p>
   </section>
 
   <section id="cognition-and-control" class="research-theme" aria-labelledby="cognition-and-control-title">

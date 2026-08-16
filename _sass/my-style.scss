@@ -19,6 +19,48 @@ body {
   animation: mb-fade-page 500ms ease;
 }
 
+// Group the research destinations under their shared top-level page.
+.sidebar-nav-group > .sidebar-nav-item--parent {
+  margin-bottom: .05rem;
+}
+
+.sidebar-subnav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0 .7rem;
+  margin: 0 0 .65rem;
+  padding: 0;
+  list-style: none;
+}
+
+.sidebar-subnav > li {
+  margin: 0;
+}
+
+.sidebar-subnav a {
+  display: inline-block;
+  color: rgba(255, 255, 255, .82);
+  font-size: .75rem;
+  line-height: 1.55;
+  text-decoration-thickness: 1px;
+  text-underline-offset: .18rem;
+}
+
+.sidebar-subnav a:hover,
+.sidebar-subnav a:focus {
+  color: #fff;
+}
+
+.sidebar.invert .sidebar-subnav a {
+  color: rgba(32, 32, 32, .82);
+}
+
+.sidebar.invert .sidebar-subnav a:hover,
+.sidebar.invert .sidebar-subnav a:focus {
+  color: #222;
+}
+
 // Homepage and research landing page.
 .section-kicker {
   margin: 0 0 .45rem;
@@ -425,7 +467,10 @@ body {
     content: "";
   }
 
-  .featured-work__grid,
+  .featured-work__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .research-paths {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
