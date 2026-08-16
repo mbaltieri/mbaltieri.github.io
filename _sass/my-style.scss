@@ -351,6 +351,8 @@ body {
 }
 
 .research-theme {
+  display: flex;
+  flex-direction: column;
   padding: 1.35rem;
   border-left: 3px solid var(--accent-color);
   background: var(--gray-bg);
@@ -367,6 +369,8 @@ body {
 }
 
 .research-theme__links {
+  margin-top: auto;
+  padding-top: .7rem;
   font-size: .8rem;
   font-weight: 700;
 }
@@ -477,6 +481,7 @@ body {
 
   .research-themes {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 1fr;
   }
 }
 
