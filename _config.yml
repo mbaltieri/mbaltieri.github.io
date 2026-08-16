@@ -50,14 +50,14 @@ author:
 
 # Add links to the sidebar.
 menu:
-  - title:             About
-    url:               /about/
-  - title:             Research
-    url:               /research/
   - title:             News
     url:               /news/
-  - title:             Resume
-    url:               /resume/
+  - title:             Research
+    url:               /research/
+  - title:             Vision
+    url:               /vision/
+  - title:             About
+    url:               /about/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
