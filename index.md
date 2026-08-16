@@ -63,9 +63,9 @@ cover:  true
 
     <article class="featured-work__card">
       <p class="featured-work__topic">AI safety</p>
-      <h3><a href="https://rlj.cs.umass.edu/2025/papers/Paper367.html">AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability</a></h3>
-      <p>Establishing fundamental limits on efficient world modelling for agent sandboxing and interpretability.</p>
-      <p class="featured-work__action"><a class="featured-work__link" href="https://rlj.cs.umass.edu/2025/papers/Paper367.html" aria-label="Read the paper: AI in a vat">Read the paper<span aria-hidden="true"> &#8594;</span></a></p>
+      <h3><a href="https://scholar.google.co.uk/citations?view_op=view_citation&amp;hl=en&amp;user=v6v1A_YAAAAJ&amp;sortby=pubdate&amp;citation_for_view=v6v1A_YAAAAJ:k_IJM867U9cC">Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning</a></h3>
+      <p>Work on compositional behavioural semantics and state abstraction in reinforcement learning.</p>
+      <p class="featured-work__action"><a class="featured-work__link" href="https://scholar.google.co.uk/citations?view_op=view_citation&amp;hl=en&amp;user=v6v1A_YAAAAJ&amp;sortby=pubdate&amp;citation_for_view=v6v1A_YAAAAJ:k_IJM867U9cC" aria-label="View Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning on Google Scholar">View on Google Scholar<span aria-hidden="true"> &#8594;</span></a></p>
     </article>
   </div>
 
