@@ -10,15 +10,15 @@ image:
   alt: "Manuel Baltieri — research in agent foundations, AI safety, artificial life, and cognition"
 ---
 
-<p class="research-lead">I study how agents can be identified, modelled, and composed—and what those formal choices imply for cognition, living systems, and AI safety.</p>
+<p class="research-lead">Studying how agents can be identified, modelled, and composed, and what those formal choices imply for cognition, living systems, and AI safety.</p>
 
-<p>Rather than treating agents in isolation, I focus on coupled agent–environment systems. This makes it possible to ask where a boundary comes from, what counts as a model or a goal, and which properties belong to a system rather than to the observer describing it.</p>
+<p>Focussing on coupled open agent–environment systems that compose to form autonomous systems. This makes it possible to ask where a boundary comes from, what counts as a model or a goal, and which properties belong to a system rather than to the observer describing it.</p>
 
 {% include research-map.html %}
 
 <div class="research-themes">
   <section id="agent-foundations" class="research-theme" aria-labelledby="agent-foundations-title">
-    <p class="section-kicker">01 · Agency</p>
+    <p class="section-kicker">01 · Maths</p>
     <h2 id="agent-foundations-title">Agent foundations</h2>
     <p>What distinguishes an agent from a non-agentic system? I work on formal descriptions of agent boundaries, goals, models, and composition. A recurring concern is the role of the observer: whether agency is intrinsic to a system, imposed by a description, or emerges from a precise relationship between the two. With Keisuke Suzuki, I review mathematical approaches to studying agents across different research fields.</p>
     <p class="research-theme__links"><a href="https://osf.io/rqu7s_v2">Mathematical approaches to agents</a> <span aria-hidden="true">·</span> <a href="/projects/2022-06-18-theories-of-agency/">Theories of agency</a> <span aria-hidden="true">·</span> <a href="/assets/pdf/WorldModels.pdf">World models</a></p>
@@ -46,7 +46,7 @@ image:
   </section>
 </div>
 
-<section class="research-methods" aria-labelledby="research-methods-title">
+<!-- <section class="research-methods" aria-labelledby="research-methods-title">
   <p class="section-kicker">Mathematical toolkit</p>
   <h2 id="research-methods-title">Several languages, one class of problems</h2>
   <p>Different questions call for different formal tools. My work draws on:</p>
@@ -58,7 +58,7 @@ image:
     <li>Information theory</li>
     <li>Stochastic thermodynamics</li>
   </ul>
-</section>
+</section> -->
 
 <nav class="research-paths" aria-label="More research material">
   <a href="/research/publications/"><strong>Publications</strong><span>Journal articles, conference papers, and preprints</span></a>
