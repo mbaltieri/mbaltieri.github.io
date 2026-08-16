@@ -1,8 +1,8 @@
 ---
 layout: welcome
 title: Manuel Baltieri
-description: >
-  Research on agency, cognition, life, and AI safety through mathematical models of agents and agent-environment systems.
+# description: >
+#   Research on agency, cognition, life, and AI safety through mathematical models of agents and agent-environment systems.
 image:
   path: /assets/img/social-card.jpg
   width: 1200
@@ -12,7 +12,7 @@ cover:  true
 ---
 
 <section class="home-intro" aria-labelledby="home-intro-title">
-  <p class="section-kicker">Agent foundations · Mathematical AI safety</p>
+  <p class="section-kicker">Agent foundations</p>
   <h2 id="home-intro-title">What makes a system an agent?</h2>
   <p class="home-intro__lead">I develop mathematical theories for understanding agency: how agents are distinguished from their environments, what they model and how they pursue goals, and how these ideas can support safer AI.</p>
   <p>My research at Araya and as an ARIA R&amp;D Creator connects category theory, control, probability, dynamical systems, cognitive science, and artificial life.</p>
@@ -27,16 +27,16 @@ cover:  true
   <div class="section-heading">
     <p class="section-kicker">Research programme</p>
     <h2 id="research-programme-title">Agents across fields</h2>
-    <p>The relationship between agent and environment raises different questions across mathematics, cognitive science, artificial life, and AI.</p>
+    <!-- <p>The relationship between agent and environment raises different questions across mathematics, cognitive science, artificial life, and AI.</p> -->
   </div>
   {% include research-map.html %}
 </section>
 
 <section class="featured-work" aria-labelledby="selected-work-title">
   <div class="section-heading">
-    <p class="section-kicker">Start here</p>
+    <!-- <p class="section-kicker">Start here</p> -->
     <h2 id="selected-work-title">Selected work</h2>
-    <p>One paper from each of the four areas in the research programme.</p>
+    <!-- <p>One paper from each of the four areas in the research programme.</p> -->
   </div>
 
   <div class="featured-work__grid">
