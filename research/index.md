@@ -40,14 +40,14 @@ image:
   <section id="artificial-life" class="research-theme" aria-labelledby="artificial-life-title">
     <p class="section-kicker">03 · Life</p>
     <h2 id="artificial-life-title">Artificial life</h2>
-    <p>Research on living systems sharpens questions about autonomy, regulation, and organisation. I investigate whether concepts from information theory, control, and thermodynamics can explain what separates living from non-living systems without quietly assuming an external observer or designer.</p>
+    <p>Research on living systems sharpens questions about autonomy, individuality and regulation. I investigate whether concepts from cybernetics, information and control theory can explain what separates living from non-living systems.</p>
     <p class="research-theme__links"><a href="/assets/pdf/HybridLifeWIREs.pdf">Hybrid Life</a> <span aria-hidden="true">·</span> <a href="/assets/pdf/BraitenbergHabitat.pdf">A Braitenberg vehicle's habitat</a></p>
   </section>
 
   <section id="agent-foundations-for-ai-safety" class="research-theme" aria-labelledby="agent-foundations-for-ai-safety-title">
     <p class="section-kicker">04 · AI safety</p>
-    <h2 id="agent-foundations-for-ai-safety-title">Agent foundations for AI safety</h2>
-    <p>I develop formal foundations for identifying AI agents, their boundaries, goals, models, and composition. This work asks how descriptions of agency relate to observable behaviour, and how those choices shape claims about capabilities, interpretability, abstraction, and sandboxing. The aim is to make safety questions precise enough to analyse and test.</p>
+    <h2 id="agent-foundations-for-ai-safety-title">Agent foundations</h2>
+    <p>I develop formal foundations for identifying AI agents in and among modern AI systems, their boundaries, goals, models to estimate their capabilities and improve interpretability. The aim is to make safety questions precise enough to analyse and test.</p>
     <p class="research-theme__links"><a href="https://openreview.net/pdf?id=kovefbSXbQ">Compositional behavioural semantics</a> <span aria-hidden="true">·</span> <a href="https://arxiv.org/abs/2504.04608">AI in a vat</a> <span aria-hidden="true">·</span> <a href="/assets/pdf/WorldModels.pdf">World models</a></p>
   </section>
 </div>
