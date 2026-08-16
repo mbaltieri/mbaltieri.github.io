@@ -12,6 +12,12 @@ image:
 
 <p class="research-lead">Studying how agents can be identified, modelled, and composed, and what those formal choices imply for cognition, living systems, and AI safety.</p>
 
+<nav class="research-paths" aria-label="Research material">
+  <a href="/research/publications/"><strong>Publications</strong><span>Journal articles, conference papers, and preprints</span></a>
+  <a href="/research/presentations/"><strong>Talks</strong><span>Invited presentations, lectures, and conference slides</span></a>
+  <a href="/projects/"><strong>Projects</strong><span>Longer introductions to current and recent work</span></a>
+</nav>
+
 <p>Focussing on coupled open agent–environment systems that compose to form autonomous systems. This makes it possible to ask where a boundary comes from, what counts as a model or a goal, and which properties belong to a system rather than to the observer describing it.</p>
 
 {% include research-map.html %}
@@ -59,9 +65,3 @@ image:
     <li>Stochastic thermodynamics</li>
   </ul>
 </section> -->
-
-<nav class="research-paths" aria-label="More research material">
-  <a href="/research/publications/"><strong>Publications</strong><span>Journal articles, conference papers, and preprints</span></a>
-  <a href="/projects/"><strong>Projects</strong><span>Longer introductions to current and recent work</span></a>
-  <a href="/research/presentations/"><strong>Talks</strong><span>Invited presentations, lectures, and conference slides</span></a>
-</nav>
