@@ -23,32 +23,32 @@ image:
 {% include research-map.html %}
 
 <div class="research-themes">
-  <section id="agent-foundations" class="research-theme" aria-labelledby="agent-foundations-title">
+  <section id="mathematics-of-agents" class="research-theme" aria-labelledby="mathematics-of-agents-title">
     <p class="section-kicker">01 · Maths</p>
-    <h2 id="agent-foundations-title">Agent foundations</h2>
-    <p>What distinguishes an agent from a non-agentic system? I work on formal descriptions of agent boundaries, goals, models, and composition. A recurring concern is the role of the observer: whether agency is intrinsic to a system, imposed by a description, or emerges from a precise relationship between the two. With Keisuke Suzuki, I review mathematical approaches to studying agents across different research fields.</p>
-    <p class="research-theme__links"><a href="https://osf.io/rqu7s_v2">Mathematical approaches to agents</a> <span aria-hidden="true">·</span> <a href="/projects/2022-06-18-theories-of-agency/">Theories of agency</a> <span aria-hidden="true">·</span> <a href="/assets/pdf/WorldModels.pdf">World models</a></p>
+    <h2 id="mathematics-of-agents-title">Mathematics for studying agents</h2>
+    <p>Different mathematical languages reveal different aspects of agency. Category theory describes systems, processes, and how interpretations compose; control theory formalises feedback and regulation; probability and Bayesian inference capture uncertainty and learning; and dynamical systems and information theory characterise evolution, coupling, and dependence. With Keisuke Suzuki, I study how these approaches relate across research fields.</p>
+    <p class="research-theme__links"><a href="https://osf.io/rqu7s_v2">Mathematical approaches to agents</a> <span aria-hidden="true">·</span> <a href="https://arxiv.org/abs/2607.00034">Bayesian updates from coalgebraic determinisation</a></p>
   </section>
 
   <section id="cognition-and-control" class="research-theme" aria-labelledby="cognition-and-control-title">
     <p class="section-kicker">02 · Cognition</p>
     <h2 id="cognition-and-control-title">Cognition and control</h2>
     <p>I use control theory, Bayesian reasoning, and dynamical systems to study perception, action, and minimal cognition. This includes examining when a controller can be said to contain an internal model and how causal representations support adaptive behaviour in natural and artificial agents.</p>
-    <p class="research-theme__links"><a href="/projects/2025-02-01-bayesian-IMP/">Bayesian internal models</a> <span aria-hidden="true">·</span> <a href="/projects/2024-11-25-distentangled-representations/">Causal cognition</a></p>
+    <p class="research-theme__links"><a href="https://arxiv.org/abs/2503.00511">Bayesian internal models</a> <span aria-hidden="true">·</span> <a href="/assets/pdf/DisentanglementCausalCognition.pdf">Disentangled representations for causal cognition</a></p>
   </section>
 
   <section id="artificial-life" class="research-theme" aria-labelledby="artificial-life-title">
     <p class="section-kicker">03 · Life</p>
     <h2 id="artificial-life-title">Artificial life</h2>
     <p>Research on living systems sharpens questions about autonomy, regulation, and organisation. I investigate whether concepts from information theory, control, and thermodynamics can explain what separates living from non-living systems without quietly assuming an external observer or designer.</p>
-    <p class="research-theme__links"><a href="/projects/2023-06-18-hybrid-life/">Hybrid Life</a> <span aria-hidden="true">·</span> <a href="/vision/#the-origins-of-life">Research vision</a></p>
+    <p class="research-theme__links"><a href="/assets/pdf/HybridLifeWIREs.pdf">Hybrid Life</a> <span aria-hidden="true">·</span> <a href="/assets/pdf/BraitenbergHabitat.pdf">A Braitenberg vehicle's habitat</a></p>
   </section>
 
-  <section id="mathematics-for-safe-ai" class="research-theme" aria-labelledby="mathematics-for-safe-ai-title">
+  <section id="agent-foundations-for-ai-safety" class="research-theme" aria-labelledby="agent-foundations-for-ai-safety-title">
     <p class="section-kicker">04 · AI safety</p>
-    <h2 id="mathematics-for-safe-ai-title">Mathematics for safe AI</h2>
-    <p>Agent foundations matter when we try to reason about the capabilities and limits of AI systems. My current work studies world models, behavioural abstraction, interpretability, and the assumptions behind separating an agent from its environment, with the aim of making safety questions mathematically precise.</p>
-    <p class="research-theme__links"><a href="/projects/2025-10-01-aria-safe-ai/">ARIA safe-AI project</a> <span aria-hidden="true">·</span> <a href="https://arxiv.org/abs/2504.04608">AI in a vat</a></p>
+    <h2 id="agent-foundations-for-ai-safety-title">Agent foundations for AI safety</h2>
+    <p>I develop formal foundations for identifying AI agents, their boundaries, goals, models, and composition. This work asks how descriptions of agency relate to observable behaviour, and how those choices shape claims about capabilities, interpretability, abstraction, and sandboxing. The aim is to make safety questions precise enough to analyse and test.</p>
+    <p class="research-theme__links"><a href="https://openreview.net/pdf?id=kovefbSXbQ">Compositional behavioural semantics</a> <span aria-hidden="true">·</span> <a href="https://arxiv.org/abs/2504.04608">AI in a vat</a> <span aria-hidden="true">·</span> <a href="/assets/pdf/WorldModels.pdf">World models</a></p>
   </section>
 </div>
 
