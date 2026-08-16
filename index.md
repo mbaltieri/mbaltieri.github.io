@@ -36,36 +36,36 @@ cover:  true
   <div class="section-heading">
     <p class="section-kicker">Start here</p>
     <h2 id="selected-work-title">Selected work</h2>
-    <p>Four entry points into the broader research programme.</p>
+    <p>One paper from each of the four areas in the research programme.</p>
   </div>
 
   <div class="featured-work__grid">
     <article class="featured-work__card">
-      <p class="featured-work__topic">Agent foundations</p>
+      <p class="featured-work__topic">Maths</p>
       <h3><a href="https://osf.io/rqu7s_v2">Mathematical approaches to the study of agents</a></h3>
       <p>With Keisuke Suzuki, a review of mathematical approaches to studying agents across research fields.</p>
       <p class="featured-work__action"><a class="featured-work__link" href="https://osf.io/rqu7s_v2" aria-label="Read the preprint: Mathematical approaches to the study of agents">Read the preprint<span aria-hidden="true"> &#8594;</span></a></p>
     </article>
 
     <article class="featured-work__card">
-      <p class="featured-work__topic">World models</p>
-      <h3><a href="/assets/pdf/WorldModels.pdf">Environment, agent, and joint agent–environment models</a></h3>
-      <p>A framework for distinguishing what is being modelled—and where the agent sits within the model.</p>
-      <p class="featured-work__action"><a class="featured-work__link" href="/assets/pdf/WorldModels.pdf" aria-label="Read the preprint: Environment, agent, and joint agent–environment models">Read the preprint<span aria-hidden="true"> &#8594;</span></a></p>
-    </article>
-
-    <article class="featured-work__card">
-      <p class="featured-work__topic">Models and control</p>
-      <h3><a href="/projects/2025-02-01-bayesian-IMP/">A Bayesian interpretation of the internal model principle</a></h3>
-      <p>Connecting internal models in control theory with Bayesian filtering in cognitive science and AI.</p>
-      <p class="featured-work__action"><a class="featured-work__link" href="/projects/2025-02-01-bayesian-IMP/">Read the project overview<span aria-hidden="true"> &#8594;</span></a></p>
-    </article>
-
-    <article class="featured-work__card">
-      <p class="featured-work__topic">Causal cognition</p>
-      <h3><a href="/projects/2024-11-25-distentangled-representations/">Disentangled representations for causal cognition</a></h3>
+      <p class="featured-work__topic">Cognition</p>
+      <h3><a href="/assets/pdf/DisentanglementCausalCognition.pdf">Disentangled representations for causal cognition</a></h3>
       <p>Relating causal representation learning to how natural and artificial agents acquire causal knowledge.</p>
-      <p class="featured-work__action"><a class="featured-work__link" href="/projects/2024-11-25-distentangled-representations/">Read the project overview<span aria-hidden="true"> &#8594;</span></a></p>
+      <p class="featured-work__action"><a class="featured-work__link" href="/assets/pdf/DisentanglementCausalCognition.pdf" aria-label="Read the paper: Disentangled representations for causal cognition">Read the paper<span aria-hidden="true"> &#8594;</span></a></p>
+    </article>
+
+    <article class="featured-work__card">
+      <p class="featured-work__topic">(A)Life</p>
+      <h3><a href="/assets/pdf/HybridLifeWIREs.pdf">Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems</a></h3>
+      <p>A synthesis of biological, artificial, and cognitive perspectives on life and the formal languages that can connect them.</p>
+      <p class="featured-work__action"><a class="featured-work__link" href="/assets/pdf/HybridLifeWIREs.pdf" aria-label="Read the paper: Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems">Read the paper<span aria-hidden="true"> &#8594;</span></a></p>
+    </article>
+
+    <article class="featured-work__card">
+      <p class="featured-work__topic">AI safety</p>
+      <h3><a href="https://rlj.cs.umass.edu/2025/papers/Paper367.html">AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability</a></h3>
+      <p>Establishing fundamental limits on efficient world modelling for agent sandboxing and interpretability.</p>
+      <p class="featured-work__action"><a class="featured-work__link" href="https://rlj.cs.umass.edu/2025/papers/Paper367.html" aria-label="Read the paper: AI in a vat">Read the paper<span aria-hidden="true"> &#8594;</span></a></p>
     </article>
   </div>
 
