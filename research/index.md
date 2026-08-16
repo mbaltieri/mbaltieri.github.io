@@ -25,8 +25,8 @@ image:
 <div class="research-themes">
   <section id="mathematics-of-agents" class="research-theme" aria-labelledby="mathematics-of-agents-title">
     <p class="section-kicker">01 · Maths</p>
-    <h2 id="mathematics-of-agents-title">Mathematics for studying agents</h2>
-    <p>Different mathematical languages reveal different aspects of agency. Category theory describes systems, processes, and how interpretations compose; control theory formalises feedback and regulation; probability and Bayesian inference capture uncertainty and learning; and dynamical systems and information theory characterise evolution, coupling, and dependence. With Keisuke Suzuki, I study how these approaches relate across research fields.</p>
+    <h2 id="mathematics-of-agents-title">Mathematics for agents</h2>
+    <p>Different mathematical languages reveal different aspects of agency. Category theory describes systems and processes, their compositional patterns and universal properties. Control theory formalises feedback and regulation, while Bayesian inference capture uncertainty and learning patterns.</p>
     <p class="research-theme__links"><a href="https://osf.io/rqu7s_v2">Mathematical approaches to agents</a> <span aria-hidden="true">·</span> <a href="https://arxiv.org/abs/2607.00034">Bayesian updates from coalgebraic determinisation</a></p>
   </section>
 
