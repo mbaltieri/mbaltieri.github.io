@@ -43,6 +43,7 @@ comments: false
 - **An active inference implementation of phototaxis**, Baltieri, M., & Buckley, C. L., *European Conference on Artificial Life - ECAL* (2017). &emsp; [[link]](https://www.mitpressjournals.org/doi/abs/10.1162/isal_a_011) &emsp; [[preprint]](https://arxiv.org/abs/1707.01806)
 
 ## Journal articles
+- **The Stream of Computation: Temporal Continuity as a Missing Ingredient for Artificial Consciousness**, Kanai, R., Sun, Y., & Baltieri, M., *Journal of Consciousness Studies* (2026). &emsp; [[link]](https://www.ingentaconnect.com/content/imp/jcs/2026/00000033/f0020007/art00003) &emsp; [[preprint]](https://osf.io/preprints/psyarxiv/c6jnd_v1)
 - **Mathematical approaches to the study of agents**, Baltieri, M., & Suzuki, K., *Philosophical Transactions of the Royal Society B* (2026, To appear). &emsp; [[preprint]](https://osf.io/rqu7s_v2)
 - **Active inference for action-unaware agents**, Torresan, F., Suzuki, K., Kanai, R. & Baltieri, M., *Neurocomputing* (2026, Accepted). &emsp; [[preprint]](https://arxiv.org/abs/2508.12027)
 - **Editorial Introduction to the 2023 Conference on Artificial Life Special Issue**, Iizuka, H., Suzuki, K., Suzuki, R., Izquierdo, E. J. & Baltieri, M., *Artificial Life* (2025). &emsp; [[link]](https://doi.org/10.1162/artl_e_00474) &emsp; [[pdf]](/assets/pdf/EditorialALIFE2023.pdf)
@@ -59,7 +60,6 @@ comments: false
 - **World models: environment, agent and joint agent-environment models**. Baltieri, M., Torresan, F., Zhang, Y., Boyd, A., & Rosas, F. E. (2026). &emsp; [[preprint]](/assets/pdf/WorldModels.pdf)
 - **From monoliths to modules: Decomposing transducers for efficient world modelling**, Boyd, A., Nowak, F., Hyland, D., Baltieri, M., Rosas, F. E. *arXiv preprint arXiv:2512.02193* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2512.02193)
 - **Prior preferences in active inference agents: soft, hard, and goal shaping**, Torresan, F., Kanai, R. & Baltieri, M., *arXiv preprint arXiv:2512.03293* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2512.03293)
-- **The Stream of Computation: Temporal Continuity as a Missing Ingredient for Artificial Consciousness**, Kanai, R., Sun, Y., & Baltieri, M., *PsyArXiv* (2025). &emsp; [[preprint]](https://osf.io/preprints/psyarxiv/c6jnd_v1)
 - **A coalgebraic perspective on predictive processing**, Baltieri, M., Torresan, F., & Nakai, T., *arXiv preprint arXiv:2508.16877* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2508.16877)
 - **A Bayesian Interpretation of the Internal Model Principle**, Baltieri, M., Biehl, M., Capucci, M., & Virgo, N., *arXiv preprint arXiv:2503.00511* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2503.00511)
 
