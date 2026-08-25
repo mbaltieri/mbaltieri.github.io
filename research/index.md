@@ -38,7 +38,7 @@ image:
   </section>
 
   <section id="artificial-life" class="research-theme" aria-labelledby="artificial-life-title">
-    <p class="section-kicker">03 · Life</p>
+    <p class="section-kicker">03 · (A)Life</p>
     <h2 id="artificial-life-title">Artificial life</h2>
     <p>Research on living systems sharpens questions about autonomy, individuality and regulation. I investigate whether concepts from cybernetics, information and control theory can explain what separates living from non-living systems.</p>
     <p class="research-theme__links"><a href="/assets/pdf/HybridLifeWIREs.pdf">Hybrid Life</a> <span aria-hidden="true">·</span> <a href="/assets/pdf/BraitenbergHabitat.pdf">A Braitenberg vehicle's habitat</a></p>
