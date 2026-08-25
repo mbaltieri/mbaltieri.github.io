@@ -19,6 +19,13 @@ body {
   animation: mb-fade-page 500ms ease;
 }
 
+// Keep the detailed sidebar artwork visible without competing with the portrait and copy.
+.sidebar-bg.sidebar-overlay::after {
+  background:
+    linear-gradient(rgba(3, 10, 14, .14), rgba(3, 10, 14, .14)),
+    linear-gradient(to bottom, rgba(32, 32, 32, 0) 0%, rgba(32, 32, 32, .5) 50%, rgba(32, 32, 32, 0) 100%);
+}
+
 // Group the research destinations under their shared top-level page.
 .sidebar-nav-group > .sidebar-nav-item--parent {
   margin-bottom: .05rem;
