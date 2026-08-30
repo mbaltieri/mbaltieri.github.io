@@ -19,6 +19,6 @@ description: >
 
 
 ## Podcast on (actually) agentic AI
-[Mindful Machines](https://open.spotify.com › show › 1rfe5rHlPQN9smSbZcXQas) is a podcast series ran by [Blane Rogers](https://www.linkedin.com/in/paperclipbadger).
+[Mindful Machines](https://open.spotify.com/show/1rfe5rHlPQN9smSbZcXQas) is a podcast series ran by [Blane Rogers](https://www.linkedin.com/in/paperclipbadger).
 
 On September 5th, the second episode featured Manuel, discussing some of his work on agency, see this [blogpost]({{ site.baseurl }}{% link _projects/2022-06-18-theories-of-agency.md %}), and its relations to agentic AI and AI safety.

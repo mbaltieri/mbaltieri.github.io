@@ -39,6 +39,7 @@ keep shared dependencies conservative, and verify the production build:
 bundle update GEM_NAME --conservative
 bundle check
 JEKYLL_ENV=production bundle exec jekyll build
+ruby .scripts/check-built-site.rb _site
 git diff -- Gemfile.lock
 ```
 

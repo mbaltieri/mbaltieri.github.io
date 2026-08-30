@@ -7,18 +7,14 @@ on:
     branches: ["master"]
   workflow_dispatch:
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
+permissions: {}
 
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pages: read
     env:
       BUNDLE_FROZEN: "true"
     steps:
@@ -39,6 +35,9 @@ jobs:
         env:
           JEKYLL_ENV: production
 
+      - name: Validate internal links and assets
+        run: ruby .scripts/check-built-site.rb _site
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         if: github.event_name != 'pull_request'
@@ -47,6 +46,12 @@ jobs:
 
   deploy:
     if: github.event_name != 'pull_request'
+    permissions:
+      pages: write
+      id-token: write
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
