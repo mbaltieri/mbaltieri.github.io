@@ -1,5 +1,7 @@
 source "https://rubygems.org"
 
+ruby "3.2.11"
+
 # Hello! This is where you manage which Jekyll version is used to run.
 # When you want to use a different version, change it below, save the
 # file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
@@ -8,8 +10,10 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-gem "jekyll"
-gem "jekyll-sass-converter", "~> 2.2"
+# Keep the tested build stack stable. Converter 3 switches to the
+# sass-embedded native host, which is incompatible with this setup.
+gem "jekyll", "4.4.1"
+gem "jekyll-sass-converter", "2.2.0"
 
 gem "jekyll-theme-hydejack", path: "./#jekyll-theme-hydejack"
 
