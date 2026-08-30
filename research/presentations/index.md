@@ -20,10 +20,6 @@ Minor updates have been implemented whenever necessary (missing references, typo
 
 - Proving AI safety - Mathematical foundations of AI safety, AIRJ Symposium 2025: Building Trustworthy AI and Advancing Collaboration Between Italy and Japan, Embassy of Italy, Tokyo, Japan - Nov 2025 &emsp; [pdf](/assets/pdf/presentations/AISafety2025.pdf)
 
-- “What is it like to be a Braitenberg vehicle?”? (selected as a Showcase Talk), Models of Consciousness, Hokkaido University, Sapporo, Japan - Oct 2025 &emsp; [pdf](/assets/pdf/presentations/BraitenbergMoC2025.pdf)
-
-- A structural view of predictive coding, Development and validation of a unified theory of prediction and action, Institute of Science, Tokyo, Japan - May 2025 &emsp; [pdf](/assets/pdf/presentations/UnifiedTheory2025.pdf)
-
 - Life and its relatives, Breakthrough Initiatives, Oxford, UK - Apr 2025 &emsp; [pdf](/assets/pdf/presentations/BreakthroughInitiatives2025.pdf)  &emsp; [recording](https://www.youtube.com/watch?v=-wuzt7JgRuM)
 
 - When does a system model another system?, Internet of Brains Event, Tokyo, Japan - Mar 2025 &emsp; [pdf](/assets/pdf/presentations/IMPBayesian2025.pdf)
@@ -63,6 +59,14 @@ Minor updates have been implemented whenever necessary (missing references, typo
 
 
 ## Contributed presentations
+- A Braitenberg vehicles' habitat, International Conference on Artificial Life (ALIFE) 2026, Waterloo, Canada - Aug 2026 &emsp; [pdf](/assets/pdf/presentations/ALIFE2026.pdf)
+
+- World models for RL, with triangles, ILIAD 2026, Berkeley, US - Aug 2026 &emsp; [pdf](/assets/pdf/presentations/ILIAD2026.pdf)
+
+- “What is it like to be a Braitenberg vehicle?”? (selected as a Showcase Talk), Models of Consciousness, Hokkaido University, Sapporo, Japan - Oct 2025 &emsp; [pdf](/assets/pdf/presentations/BraitenbergMoC2025.pdf)
+
+- A structural view of predictive coding, Development and validation of a unified theory of prediction and action, Institute of Science, Tokyo, Japan - May 2025 &emsp; [pdf](/assets/pdf/presentations/UnifiedTheory2025.pdf)
+
 - A mathematical perspective on the role of embodiment in predictive coding frameworks, Aware and Alive Workshop, Sapporo, Jul 2024 &emsp; [pdf](/assets/pdf/presentations/AwareAndAlive2024.pdf) &emsp; [recording](https://www.youtube.com/watch?v=LrH5KQE7iBY&list=PLWkKadjdO-XbMBFF5U__pdS2kl_U-dfYR&index=6)
 
 - A relational theory of agency (and goals?), Japan AI Alignment Conference 2023, Tokyo, Mar 2023 &emsp; [pdf](/assets/pdf/presentations/AgencyAlignmentTokyo2023.pdf)
