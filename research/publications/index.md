@@ -19,7 +19,7 @@ comments: false
 
 ## Selected publications
 - **Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning**, Zhang, Y., Luo, Z., & Baltieri, M., *International Conference on Machine Learning - ICML* (2026). &emsp; [[link]](https://openreview.net/pdf?id=kovefbSXbQ) &emsp; [[preprint]](https://arxiv.org/abs/2606.25357)
-- **World models: environment, agent and joint agent-environment models**. Baltieri, M., Torresan, F., Zhang, Y., Boyd, A., & Rosas, F. E. (2026). &emsp; [[preprint]](/assets/pdf/WorldModels.pdf)
+- **World models: environment, agent and joint agent-environment models**. Baltieri, M., Torresan, F., Zhang, Y., Boyd, A., & Rosas, F. E. (2026). &emsp; [[preprint]](https://arxiv.org/abs/2608.20401)
 - **Bayesian updates from coalgebraic determinisation**. Baltieri, M., & Virgo, N. (2026). &emsp; [[preprint]](https://arxiv.org/abs/2607.00034)
 - **Mathematical approaches to the study of agents**, Baltieri, M., & Suzuki, K., *Philosophical Transactions of the Royal Society B* (2026, To appear). &emsp; [[preprint]](https://osf.io/rqu7s_v2)
 - **A Bayesian Interpretation of the Internal Model Principle**, Baltieri, M., Biehl, M., Capucci, M., & Virgo, N., *arXiv preprint arXiv:2503.00511* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2503.00511)
@@ -28,8 +28,8 @@ comments: false
 - **Disentangled Representations for Causal Cognition**, Torresan, F. & Baltieri, M., *Physics of Life Reviews* (2024). &emsp; [[link]](https://doi.org/10.1016/j.plrev.2024.10.003) &emsp; [[pdf]](/assets/pdf/DisentanglementCausalCognition.pdf) &emsp; [[preprint]](https://arxiv.org/abs/2407.00744)
 
 ## Conference papers
-- **Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning**, Zhang, Y., Luo, Z., & Baltieri, M., *International Conference on Machine Learning - ICML* (2026). &emsp; [[link]](https://openreview.net/pdf?id=kovefbSXbQ) &emsp; [[preprint]](https://arxiv.org/abs/2606.25357)
-- **A Braitenberg vehicle’s habitat**, Baltieri, M., Rosas, F. E., & Torresan, F., *Artificial Life Conference - ALIFE* (2026). &emsp; [[preprint]](/assets/pdf/BraitenbergHabitat.pdf)
+- **Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning**, Zhang, Y., Luo, Z., & Baltieri, M., *International Conference on Machine Learning - ICML* (2026). &emsp; [[link]](https://icml.cc/virtual/2026/poster/62002) &emsp; [[preprint]](https://arxiv.org/abs/2606.25357)
+- **A Braitenberg vehicle’s habitat**, Baltieri, M., Rosas, F. E., & Torresan, F., *Artificial Life Conference - ALIFE* (2026).&emsp; [[link]](https://direct.mit.edu/isal/proceedings/isal2026/38/19/138181) &emsp; [[preprint]](/assets/pdf/BraitenbergHabitat.pdf)
 - **AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability**, Rosas, F., Boyd, A. & Baltieri, M., *Reinforcement Learning Conference - RLC* (2025). &emsp; [[link]](https://rlj.cs.umass.edu/2025/papers/Paper367.html) &emsp; [[preprint]](https://arxiv.org/abs/2504.04608)
 - **A "good regulator theorem" for embodied agents**, Virgo, N., Baltieri, M., Biehl, M. & Capucci, M., *Artificial Life Conference - ALIFE* (2025). &emsp; [[link]](https://direct.mit.edu/isal/proceedings/isal2025/37/46/134036) &emsp; [[preprint]](https://arxiv.org/abs/2508.06326)
 - **Predictions in the eye of the beholder: an active inference implementation of the Watt governor**, Baltieri, M., Buckley, C. L., & Bruineberg, J., *Artificial Life Conference - ALIFE* (2020). &emsp; [[link]](https://www.mitpressjournals.org/doi/abs/10.1162/isal_a_00288) &emsp; [[preprint]](https://arxiv.org/abs/2006.11495)
@@ -45,7 +45,7 @@ comments: false
 ## Journal articles
 - **The Stream of Computation: Temporal Continuity as a Missing Ingredient for Artificial Consciousness**, Kanai, R., Sun, Y., & Baltieri, M., *Journal of Consciousness Studies* (2026). &emsp; [[link]](https://www.ingentaconnect.com/content/imp/jcs/2026/00000033/f0020007/art00003) &emsp; [[preprint]](https://osf.io/preprints/psyarxiv/c6jnd_v1)
 - **Mathematical approaches to the study of agents**, Baltieri, M., & Suzuki, K., *Philosophical Transactions of the Royal Society B* (2026, To appear). &emsp; [[preprint]](https://osf.io/rqu7s_v2)
-- **Active inference for action-unaware agents**, Torresan, F., Suzuki, K., Kanai, R. & Baltieri, M., *Neurocomputing* (2026, Accepted). &emsp; [[preprint]](https://arxiv.org/abs/2508.12027)
+- **Active inference for action-unaware agents**, Torresan, F., Suzuki, K., Kanai, R. & Baltieri, M., *Neurocomputing* (2026). &emsp; [[link]](https://doi.org/10.1016/j.neucom.2026.134399) &emsp; [[preprint]](https://arxiv.org/abs/2508.12027)
 - **Editorial Introduction to the 2023 Conference on Artificial Life Special Issue**, Iizuka, H., Suzuki, K., Suzuki, R., Izquierdo, E. J. & Baltieri, M., *Artificial Life* (2025). &emsp; [[link]](https://doi.org/10.1162/artl_e_00474) &emsp; [[pdf]](/assets/pdf/EditorialALIFE2023.pdf)
 - **Disentangled Representations for Causal Cognition**, Torresan, F. & Baltieri, M., *Physics of Life Reviews* (2024). &emsp; [[link]](https://doi.org/10.1016/j.plrev.2024.10.003) &emsp; [[pdf]](/assets/pdf/DisentanglementCausalCognition.pdf) &emsp; [[preprint]](https://arxiv.org/abs/2407.00744)
 - **Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems**. Baltieri, M., Iizuka, H., Witkowski, O., Sinapayen, L., & Suzuki, K., *WIREs Cognitive Science* (2023). &emsp; [[link]](https://doi.org/10.1002/wcs.1662) &emsp; [[pdf]](/assets/pdf/HybridLifeWIREs.pdf) &emsp; [[preprint]](https://arxiv.org/abs/2212.00285)
@@ -57,7 +57,7 @@ comments: false
 
 ## Preprints and manuscripts
 - **Bayesian updates from coalgebraic determinisation**. Baltieri, M., & Virgo, N. (2026). &emsp; [[preprint]](https://arxiv.org/abs/2607.00034)
-- **World models: environment, agent and joint agent-environment models**. Baltieri, M., Torresan, F., Zhang, Y., Boyd, A., & Rosas, F. E. (2026). &emsp; [[preprint]](/assets/pdf/WorldModels.pdf)
+- **World models: environment, agent and joint agent-environment models**. Baltieri, M., Torresan, F., Zhang, Y., Boyd, A., & Rosas, F. E. (2026). &emsp; [[preprint]](https://arxiv.org/abs/2608.20401)
 - **From monoliths to modules: Decomposing transducers for efficient world modelling**, Boyd, A., Nowak, F., Hyland, D., Baltieri, M., Rosas, F. E. *arXiv preprint arXiv:2512.02193* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2512.02193)
 - **Prior preferences in active inference agents: soft, hard, and goal shaping**, Torresan, F., Kanai, R. & Baltieri, M., *arXiv preprint arXiv:2512.03293* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2512.03293)
 - **A coalgebraic perspective on predictive processing**, Baltieri, M., Torresan, F., & Nakai, T., *arXiv preprint arXiv:2508.16877* (2025). &emsp; [[preprint]](https://arxiv.org/abs/2508.16877)
