@@ -29,7 +29,7 @@ comments: false
 
 ## Conference papers
 - **Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning**, Zhang, Y., Luo, Z., & Baltieri, M., *International Conference on Machine Learning - ICML* (2026). &emsp; [[link]](https://icml.cc/virtual/2026/poster/62002) &emsp; [[preprint]](https://arxiv.org/abs/2606.25357)
-- **A Braitenberg vehicle’s habitat**, Baltieri, M., Rosas, F. E., & Torresan, F., *Artificial Life Conference - ALIFE* (2026).&emsp; [[link]](https://direct.mit.edu/isal/proceedings/isal2026/38/19/138181) &emsp; [[preprint]](/assets/pdf/BraitenbergHabitat.pdf)
+- **A Braitenberg vehicle’s habitat**, Baltieri, M., Rosas, F. E., & Torresan, F., *Artificial Life Conference - ALIFE* (2026).&emsp; [[link]](https://doi.org/10.1162/ISAL.a.945) &emsp; [[preprint]](/assets/pdf/BraitenbergHabitat.pdf)
 - **AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability**, Rosas, F., Boyd, A. & Baltieri, M., *Reinforcement Learning Conference - RLC* (2025). &emsp; [[link]](https://rlj.cs.umass.edu/2025/papers/Paper367.html) &emsp; [[preprint]](https://arxiv.org/abs/2504.04608)
 - **A "good regulator theorem" for embodied agents**, Virgo, N., Baltieri, M., Biehl, M. & Capucci, M., *Artificial Life Conference - ALIFE* (2025). &emsp; [[link]](https://direct.mit.edu/isal/proceedings/isal2025/37/46/134036) &emsp; [[preprint]](https://arxiv.org/abs/2508.06326)
 - **Predictions in the eye of the beholder: an active inference implementation of the Watt governor**, Baltieri, M., Buckley, C. L., & Bruineberg, J., *Artificial Life Conference - ALIFE* (2020). &emsp; [[link]](https://www.mitpressjournals.org/doi/abs/10.1162/isal_a_00288) &emsp; [[preprint]](https://arxiv.org/abs/2006.11495)
@@ -69,9 +69,9 @@ comments: false
 - **A minimal active inference agent**, McGregor, S., Baltieri, M., & Buckley, C. L., *arXiv preprint arXiv:1503.04187* (2015). &emsp; [[preprint]](https://arxiv.org/pdf/1503.04187.pdf)
 
 ## Commentaries
-- **Ecological causal cognition needs disentanglement: Reply to comments on "Disentangled representations for causal cognition"**, Torresan, F., & Baltieri, M. *Physics of life reviews 58, 7-9* (2026) &emsp; [[link]](https://www.sciencedirect.com/science/article/abs/pii/S1571064526000424?via%3Dihub) &emsp; [[pdf]](/assets/pdf/EcologicalDisentanglement.pdf)
-- **Steam-engine naturalism**, Baltieri, M., & Kanai, R., *PsyArXiv* (2025). &emsp; [[preprint]](/assets/pdf/SteamEngineNaturalism.pdf)
-- **Generative models as parsimonious descriptions of sensorimotor loops**, Baltieri, M., & Buckley, C. L., *Behavioral and Brain Sciences 42, 218* (2019) (Target article: **[Is coding a relevant metaphor for the brain?](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/is-coding-a-relevant-metaphor-for-the-brain/D578626E4888193FFFAE5B6E2C37E052)**, Brette, R., *Behavioral and Brain Sciences 42, 218* (2019)). &emsp; [[link]](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/generative-models-as-parsimonious-descriptions-of-sensorimotor-loops/0345874F123418BEE102A90E4ADA5E5B) &emsp; [[preprint]](https://arxiv.org/abs/1904.12937)
+- **Steam-engine naturalism**, Baltieri, M., & Kanai, R., *Behavioral and Brain Sciences, 49* (2026). &emsp; [[link]](https://doi.org/10.1017/S0140525X25103531) &emph; [[pdf]](/assets/pdf/SteamEngineNaturalism.pdf) &emsp; [[preprint]](https://doi.org/10.31234/osf.io/m4gk3_v1)
+- **Ecological causal cognition needs disentanglement: Reply to comments on "Disentangled representations for causal cognition"**, Torresan, F., & Baltieri, M. *Physics of life reviews 58, 7-9* (2026) &emsp; [[link]](https://doi.org/10.1016/j.plrev.2026.05.002) &emsp; [[pdf]](/assets/pdf/EcologicalDisentanglement.pdf)
+- **Generative models as parsimonious descriptions of sensorimotor loops**, Baltieri, M., & Buckley, C. L., *Behavioral and Brain Sciences 42, 218* (2019) &emsp; [[link]](https://doi.org/10.1017/S0140525X19001353) &emsp; [[preprint]](https://arxiv.org/abs/1904.12937)
 
 ## Other publications
 - **Thinking about robots**, Baltieri, M., *A contributed chapter to Robot 100* (2021) &emsp; [[Robot 100]](https://www.robot100.cz/book)
