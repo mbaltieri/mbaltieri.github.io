@@ -1,6 +1,15 @@
 // Uncomment to disable dingbat icons below posts
 // hr.dingbat { display: none }
 
+// Home page only: its tiles end at the column edges, in line with the cards and heading
+// rules above them. Everywhere else tiles keep the theme's geometry (1rem past the column).
+@media screen and (min-width: 42em) {
+  body main .home-section .columns {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
+}
+
 // Image tiles (news and projects) look like the other cards: a border instead of a shadow,
 // and text set from the left. `body` makes these rules outrank the theme's own.
 body main:not(.layout-resume) .project-card {
@@ -43,6 +52,19 @@ body main:not(.layout-resume) .project-card > .project-card-text {
 
 // The ornament under a page only separates a post or project from what follows it.
 main:not(.layout-post):not(.layout-project) hr.dingbat { display: none; }
+
+// The home page opens with its own headline. The page title stays in the page for screen
+// readers and search engines, but is not drawn.
+.layout-welcome > .page > header {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
 
 // The publication filters need a script; without one they are hidden (see my-head.html).
 html:not([data-mb-js]) .mb-tabs--filter { display: none; }

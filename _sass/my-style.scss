@@ -68,85 +68,6 @@ body {
   color: #222;
 }
 
-// Homepage and research landing page.
-.section-kicker {
-  margin: 0 0 .45rem;
-  color: var(--body-color);
-  font-family: var(--font-family-heading);
-  font-size: .72rem;
-  font-weight: 700;
-  letter-spacing: .11em;
-  line-height: 1.4;
-  text-transform: uppercase;
-}
-
-.section-heading {
-  max-width: 39rem;
-  margin-bottom: 1.5rem;
-}
-
-.section-heading h2 {
-  margin: 0 0 .55rem;
-}
-
-.section-heading > :last-child {
-  margin-bottom: 0;
-}
-
-.home-intro {
-  margin: 1rem 0 4.25rem;
-  padding: clamp(1.5rem, 5vw, 3rem);
-  border: 1px solid var(--border-color);
-  border-radius: .8rem;
-  background:
-    linear-gradient(135deg, var(--accent-color-highlight), transparent 62%),
-    var(--gray-bg);
-  box-shadow: .2rem .35rem 1.4rem rgba(0, 0, 0, .08);
-}
-
-.home-intro h2 {
-  max-width: 35rem;
-  margin: 0 0 .85rem;
-  font-size: clamp(1.75rem, 6vw, 2.7rem);
-  line-height: 1.08;
-}
-
-.home-intro__lead {
-  max-width: 42rem;
-  margin-bottom: .9rem;
-  font-size: 1.12rem;
-  line-height: 1.65;
-}
-
-.mb-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .7rem;
-  margin-top: 1.5rem;
-}
-
-.mb-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 2.8rem;
-  padding: .65rem 1rem;
-  border: 1px solid var(--accent-color-darkened);
-  border-radius: .35rem;
-  color: var(--body-color);
-  font-family: var(--font-family-heading);
-  font-size: .82rem;
-  font-weight: 700;
-  line-height: 1.2;
-  text-align: center;
-  text-decoration: none;
-}
-
-.mb-button:hover,
-.mb-button:focus {
-  background: var(--accent-color-highlight);
-}
-
 // A darker teal for text and for fills under white text; see the note further down.
 $mb-accent-strong: #25777e;
 
@@ -222,29 +143,127 @@ $mb-accent-strong: #25777e;
   margin-top: 1.5rem;
 }
 
+// A section heading with a link to the full page on its right and a rule below.
+.mb-section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0 1.5rem;
+  margin: 0 0 1.25rem;
+  padding-bottom: .6rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.mb-section-head h2 {
+  margin: 0;
+}
+
+.content a.mb-more {
+  color: var(--mb-accent-strong);
+  font-size: .875rem;
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.content a.mb-more:hover {
+  text-decoration: underline;
+}
+
+// A card: one bordered box style for selected work, research themes and research paths.
+@mixin mb-card {
+  border: 1px solid var(--border-color);
+  border-radius: .5rem;
+  background: var(--body-bg);
+}
+
+// Homepage and research landing page
+// ---------------------------------------------------------------------------------------
+
+.section-kicker {
+  @include mb-label;
+  margin: 0 0 .45rem;
+  color: var(--mb-accent-strong);
+  font-size: .75rem;
+}
+
+.home-intro {
+  margin: 1rem 0 4.5rem;
+}
+
+.home-intro h2 {
+  margin: 0 0 1.1rem;
+  font-size: clamp(1.9rem, 6vw, 2.6rem);
+  line-height: 1.12;
+  text-wrap: balance;
+}
+
+// The theme appends a "#" link to headings; here it must not push the headline onto a second line.
+.home-intro h2 > .permalink {
+  position: absolute;
+}
+
+// The opening sentence of the home page and of the Research page.
+.home-intro__lead,
+.research-lead {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+  line-height: 1.65;
+}
+
+.home-intro__lead + p {
+  color: var(--gray-text);
+}
+
+.home-section {
+  margin: 4.5rem 0;
+}
+
+.mb-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .75rem;
+  margin-top: 1.5rem;
+}
+
+.content a.mb-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.75rem;
+  padding: .5rem 1.1rem;
+  border: 1px solid var(--mb-accent-strong);
+  border-radius: .375rem;
+  color: var(--mb-accent-strong);
+  font-size: .875rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+}
+
+.content a.mb-button:hover {
+  background: var(--accent-color-highlight);
+}
+
+.content a.mb-button--primary {
+  border-color: $mb-accent-strong;
+  background: $mb-accent-strong;
+  color: #fff;
+}
+
+.content a.mb-button--primary:hover {
+  border-color: darken($mb-accent-strong, 6%);
+  background: darken($mb-accent-strong, 6%);
+}
+
 .mb-button:focus-visible,
 .research-map__theme:focus-visible,
 .featured-work__card a:focus-visible,
 .research-paths a:focus-visible {
   outline: 3px solid var(--accent-color-darkened);
   outline-offset: 3px;
-}
-
-.mb-button--primary {
-  border-color: var(--theme-color, #193747);
-  background: var(--theme-color, #193747);
-  color: #fff !important;
-}
-
-.mb-button--primary:hover,
-.mb-button--primary:focus {
-  border-color: var(--accent-color-darkened);
-  background: var(--accent-color-darkened);
-}
-
-.home-research,
-.featured-work {
-  margin: 4.5rem 0;
 }
 
 .research-map {
@@ -369,55 +388,53 @@ $mb-accent-strong: #25777e;
 }
 
 .featured-work__card {
+  @include mb-card;
+  position: relative;
   display: flex;
   flex-direction: column;
   margin: 0;
   padding: 1.25rem;
-  border: 1px solid var(--border-color);
-  border-radius: .6rem;
-  background: var(--gray-bg);
+}
+
+.featured-work__card:hover {
+  border-color: var(--accent-color);
 }
 
 .featured-work__topic {
-  margin: 0 0 .55rem;
-  color: var(--body-color);
-  font-size: .7rem;
-  font-weight: 700;
-  letter-spacing: .08em;
-  text-transform: uppercase;
+  @include mb-label;
+  margin: 0 0 .5rem;
+  color: var(--gray-text);
 }
 
 .featured-work__card h3 {
-  margin: 0 0 .7rem;
-  font-size: 1rem;
-  line-height: 1.35;
+  margin: 0 0 .5rem;
+  font-size: 1.125rem;
+  line-height: 1.3;
 }
 
-.featured-work__card h3 a {
-  color: var(--body-color);
-  text-decoration-color: var(--accent-color-faded);
-  text-underline-offset: .15em;
+.content .featured-work__card h3 a {
+  text-decoration: none;
+}
+
+// The whole card is the link to the paper.
+.featured-work__card h3 a::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  content: "";
 }
 
 .featured-work__card > p:not(.featured-work__topic):not(.featured-work__action) {
   margin-bottom: 1rem;
   color: var(--gray-text);
-  font-size: .82rem;
-  line-height: 1.55;
-}
-
-.featured-work__link {
-  font-size: .77rem;
-  font-weight: 700;
+  font-size: .875rem;
+  line-height: 1.6;
 }
 
 .featured-work__action {
   margin: auto 0 0;
-}
-
-.section-more {
-  margin-top: 1.15rem;
-  text-align: right;
 }
 
 .research-lead {
@@ -438,6 +455,13 @@ $mb-accent-strong: #25777e;
   border-left: 3px solid var(--accent-color);
   background: var(--gray-bg);
   scroll-margin-top: 6rem;
+}
+
+.content a.featured-work__link {
+  color: var(--mb-accent-strong);
+  font-size: .875rem;
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
 }
 
 .research-theme h2 {
