@@ -129,6 +129,16 @@ The page is compressed onto one line: use /* */ comments and semicolons only.
       if (card) reveal(card);
     });
 
+    /* Switching between light and dark: the theme fades the page background over one second.
+       This class lets the cards fade with it (see `mb-scheme-change` in my-style.scss). */
+    var schemeTimer;
+    document.addEventListener('hydejack-dark-mode-toggle', function () {
+      var root = document.documentElement;
+      root.classList.add('mb-scheme-change');
+      clearTimeout(schemeTimer);
+      schemeTimer = setTimeout(function () { root.classList.remove('mb-scheme-change'); }, 1100);
+    });
+
     /* The theme swaps the page content on navigation; set up the new content. */
     function init() {
       initPublications();
@@ -137,5 +147,12 @@ The page is compressed onto one line: use /* */ comments and semicolons only.
     var pushState = document.getElementById('_pushState');
     if (pushState) pushState.addEventListener('hy-push-state-after', init);
     init();
+
+    /* Visitors who ask for less motion get page changes without the theme's fade and slide.
+       The theme reads this attribute once, when its own script starts, which is after this one;
+       it treats 0 as "not set", so 1ms is the shortest it accepts. */
+    if (pushState && window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      pushState.setAttribute('duration', '1');
+    }
   })();
 </script>

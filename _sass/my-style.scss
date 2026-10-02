@@ -1,23 +1,5 @@
 // Custom overrides for Hydejack.
-
-// 1) Make sidebar/menu height consistent on cover vs non-cover pages.
-// Hydejack adds an inline `transform: translateY(1.5rem)` on cover pages via `data-cover-fade`.
-// Override that so the sidebar content (including the menu) starts at the same height everywhere.
-.sidebar-sticky[data-cover-fade="true"] {
-  transform: translateY(0) !important;
-}
-
-// 2) Global page fade so lists and cover image animate together on every reload.
-// This animates the entire document from 0 -> 1 opacity,
-// so sidebar background, sidebar content, and main content appear in sync.
-@keyframes mb-fade-page {
-  from { opacity: 0; }
-  to   { opacity: 1; }
-}
-
-body {
-  animation: mb-fade-page 500ms ease;
-}
+// The fade-in of the whole page on load is in my-inline.scss.
 
 // Keep the detailed sidebar artwork visible without competing with the portrait and copy.
 .sidebar-bg.sidebar-overlay::after {
@@ -71,6 +53,12 @@ body {
 // A darker teal for text and for fills under white text; see the note further down.
 $mb-accent-strong: #25777e;
 
+// Timing. A hover change comes in over 50ms and goes out over 250ms, as on the theme's links.
+// Something that appears inside a page takes 250ms; the theme shows a whole page in 500ms.
+$mb-hover-in: 50ms;
+$mb-hover-out: 250ms;
+$mb-appear: 250ms;
+
 // Shared pieces
 // ---------------------------------------------------------------------------------------
 
@@ -82,6 +70,18 @@ $mb-accent-strong: #25777e;
   letter-spacing: .1em;
   line-height: 1.4;
   text-transform: uppercase;
+}
+
+// A link that shows its underline only under the pointer. The line is always drawn: it is
+// clear at rest and takes the theme's hover colour, so it fades in and out like the
+// underline of any other link.
+@mixin mb-quiet-link {
+  text-decoration-line: underline;
+  text-decoration-thickness: auto;
+
+  &:not(:hover) {
+    text-decoration-color: transparent;
+  }
 }
 
 // A row of text buttons where one is active: the publication filters.
@@ -107,6 +107,11 @@ $mb-accent-strong: #25777e;
   text-decoration-thickness: 2px;
   text-underline-offset: .45rem;
   cursor: pointer;
+  transition: color $mb-hover-out, text-decoration-color $mb-hover-out;
+}
+
+.mb-tab:hover {
+  transition: color $mb-hover-in, text-decoration-color $mb-hover-in;
 }
 
 .mb-tab:hover,
@@ -160,15 +165,11 @@ $mb-accent-strong: #25777e;
 }
 
 .content a.mb-more {
+  @include mb-quiet-link;
   color: var(--mb-accent-strong);
   font-size: .875rem;
   font-weight: var(--font-weight-bold);
-  text-decoration: none;
   white-space: nowrap;
-}
-
-.content a.mb-more:hover {
-  text-decoration: underline;
 }
 
 // A card: one bordered box style for selected work, research themes and research paths.
@@ -241,10 +242,12 @@ $mb-accent-strong: #25777e;
   line-height: 1.2;
   text-align: center;
   text-decoration: none;
+  transition: color $mb-hover-out, border-color $mb-hover-out, background-color $mb-hover-out;
 }
 
 .content a.mb-button:hover {
   background: var(--accent-color-highlight);
+  transition: color $mb-hover-in, border-color $mb-hover-in, background-color $mb-hover-in;
 }
 
 .content a.mb-button--primary {
@@ -378,10 +381,12 @@ $mb-map-gap: .75rem;
   flex-direction: column;
   margin: 0;
   padding: 1.25rem;
+  transition: border-color $mb-hover-out;
 }
 
 .featured-work__card:hover {
   border-color: var(--accent-color);
+  transition: border-color $mb-hover-in;
 }
 
 .featured-work__topic {
@@ -453,7 +458,7 @@ html[data-mb-js] .research-themes {
 
 html[data-mb-js] .research-theme.is-open {
   margin-top: 1.8rem;
-  animation: mb-appear 280ms ease-out both;
+  animation: mb-appear $mb-appear ease both;
 }
 
 // The selected box already names the field.
@@ -503,12 +508,8 @@ html[data-mb-js] .research-theme > .section-kicker {
 }
 
 .content .research-theme__links a {
+  @include mb-quiet-link;
   color: var(--mb-accent-strong);
-  text-decoration: none;
-}
-
-.content .research-theme__links a:hover {
-  text-decoration: underline;
 }
 
 .research-methods {
@@ -717,8 +718,15 @@ html[data-mb-js] .research-theme > .section-kicker {
   line-height: 1.4;
 }
 
+// The underline is always drawn and is clear until the row is under the pointer, so that it
+// fades like the underline of any other link.
 .content .news-row__title a {
-  text-decoration: none;
+  text-decoration-line: underline;
+  text-decoration-thickness: auto;
+}
+
+.content .news-row:not(:hover) .news-row__title a {
+  text-decoration-color: transparent;
 }
 
 // The whole row is the link to the item.
@@ -732,7 +740,6 @@ html[data-mb-js] .research-theme > .section-kicker {
 }
 
 .content .news-row:hover .news-row__title a {
-  text-decoration: underline;
   text-decoration-color: var(--accent-color);
 }
 
@@ -861,17 +868,13 @@ html[data-mb-js] .research-theme > .section-kicker {
 }
 
 .content .pub__links a {
+  @include mb-quiet-link;
   display: inline-flex;
   align-items: center;
   min-height: 2.75rem;
   color: var(--mb-accent-strong);
   font-size: .875rem;
   font-weight: var(--font-weight-bold);
-  text-decoration: none;
-}
-
-.content .pub__links a:hover {
-  text-decoration: underline;
 }
 
 // Brand icons missing from the IcoMoon font. They render at 1em in the current
@@ -953,8 +956,32 @@ body.dark-mode {
   filter: var(--mb-image-filter);
 }
 
+// Switching between light and dark. The theme fades the page background and its rules over
+// one second. These pieces have a background or a border of their own, so they fade with
+// the page; my-scripts.html sets the class for as long as the switch lasts. A new piece
+// with its own background or border belongs in this list.
+html.mb-scheme-change {
+  .mb-section-head,
+  .research-map__canvas,
+  .research-map__core,
+  .content a.research-map__theme,
+  .research-theme,
+  .content .research-paths a,
+  .featured-work__card,
+  .pubs__list,
+  .pub,
+  .news-list,
+  .news-row,
+  .news-row__thumb img,
+  body main .project-card,
+  body main .project-card .project-card-img {
+    transition: background-color 1s ease, border-color 1s ease, box-shadow 1s ease;
+  }
+}
+
+// Visitors who ask for less motion get the research card without its fade. The page fade
+// is switched off in my-inline.scss, and the theme's page change in my-scripts.html.
 @media (prefers-reduced-motion: reduce) {
-  body,
   html[data-mb-js] .research-theme.is-open {
     animation: none;
   }

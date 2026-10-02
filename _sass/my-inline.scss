@@ -1,6 +1,25 @@
 // Uncomment to disable dingbat icons below posts
 // hr.dingbat { display: none }
 
+// The whole page fades in on every full load, so that the sidebar, its artwork and the
+// content appear together. The rule is in this file, which is inlined in the page, so that
+// the fade starts with the first paint. In the linked stylesheet it started only when that
+// file arrived: on a first visit the page was shown, went blank, and then faded in.
+@keyframes mb-fade-page {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+body {
+  animation: mb-fade-page 500ms ease;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    animation: none;
+  }
+}
+
 // Home page only: its tiles end at the column edges, in line with the cards and heading
 // rules above them. Everywhere else tiles keep the theme's geometry (1rem past the column).
 @media screen and (min-width: 42em) {
@@ -12,16 +31,21 @@
 
 // Image tiles (news and projects) look like the other cards: a border instead of a shadow,
 // and text set from the left. `body` makes these rules outrank the theme's own.
+// The theme lifts a tile on hover. Here its border changes colour instead, with the timing
+// of the theme's links: 50ms in, 250ms out.
 body main:not(.layout-resume) .project-card {
   padding-bottom: 1.1rem;
   border: 1px solid var(--border-color);
   background: var(--body-bg);
   box-shadow: none;
+  transition: border-color 250ms;
+  will-change: auto;
 }
 
 body main:not(.layout-resume) .project-card:hover {
   border-color: var(--accent-color);
   transform: none;
+  transition: border-color 50ms;
 }
 
 body main:not(.layout-resume) .project-card .project-card-img {
