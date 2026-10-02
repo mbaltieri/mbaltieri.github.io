@@ -22,7 +22,7 @@ description: >
 ### Hybrid life IV - special session accepted at ALIFE 2021, Prague, Czech Republic (update: online)
 #### Organisers: Manuel Baltieri, Hiroyuki Iizuka, Keisuke Suzuki, Olaf Witkowski, Lana Sinapayen
 
-I'm happy to announce that our special session has been accepted at ALIFE 2021!
+Manuel is happy to announce that the special session has been accepted at ALIFE 2021!
 
 For more info:
 

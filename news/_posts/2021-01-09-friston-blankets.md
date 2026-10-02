@@ -1,8 +1,11 @@
 ---
-layout: project
+layout: post
 title:  "The Emperor's New Markov Blankets"
 image: /assets/img/blog/blankets.jpg
 date:   2021-01-09
+redirect_from:
+  - /projects/2021-01-09-friston-blankets/
+  - /news/2022-06-01-publication-bbs/
 excerpt: "The Emperor's New Markov Blankets"
 tag:
 - active inference
@@ -12,20 +15,21 @@ tag:
 - free energy principle
 - markov blankets
 - cognitive science
+- publication
 comments: true
 description: >
-  Do Markov blankets in the free energy principle demarkate minds and living systems?
+  Do Markov blankets in the free energy principle demarcate minds and living systems?
 ---
 
 # The Emperor's New Markov Blankets
-Our manuscript, discussing the role of Markov blankets in cognitive science, is now available as a preprint [here](/assets/pdf/EmperorMarkovBlankets_preprint.pdf). Work led by Jelle Bruineberg, with Krzysztof Dolega, Joe Dewhurst and myself.
+Our manuscript, discussing the role of Markov blankets in cognitive science, is now available as a preprint [here](/assets/pdf/EmperorMarkovBlankets_preprint.pdf). Work led by Jelle Bruineberg, with Krzysztof Dolega, Joe Dewhurst and Manuel.
 
 - **The Emperor's New Markov Blankets**, Bruineberg J., Dolega K., Dewhurst J. and Baltieri, M., *A Preprint, 2020*.
 
-UPDATE: In the meantime, a heavily revised version was published on *Behavioral and Brain Sciences* in 2022 (available online in 2021), with a PDF inclduding our target article, various insightful commentaries and our reply to those commentaries [here](/assets/pdf/EmperorMarkovBlankets.pdf).
+UPDATE: In the meantime, a heavily revised version was published on [*Behavioral and Brain Sciences*](https://www.cambridge.org/core/journals/behavioral-and-brain-sciences/article/abs/emperors-new-markov-blankets/715C589A73DDF861DCF8997271DE0B8C) in 2022 (available online in 2021), with a PDF including our target article, various insightful commentaries and our reply to those commentaries [here](/assets/pdf/EmperorMarkovBlankets.pdf).
 
-- **The Emperor is Naked: Replies to the commentaries on the target article.**, Bruineberg, J., Dolega, K., Dewhurst, J., & Baltieri, M., *Behavioral and Brain Science (2022)*.
-- **The Emperor’s New Markov Blankets**, Bruineberg, J., Dolega, K., Dewhurst, J., & Baltieri, M., *Behavioral and Brain Science (2021)*.
+- **The Emperor is Naked: Replies to the commentaries on the target article.**, Bruineberg, J., Dolega, K., Dewhurst, J., & Baltieri, M., *Behavioral and Brain Sciences (2022)*.
+- **The Emperor’s New Markov Blankets**, Bruineberg, J., Dolega, K., Dewhurst, J., & Baltieri, M., *Behavioral and Brain Sciences (2021)*.
 
 
 &nbsp;

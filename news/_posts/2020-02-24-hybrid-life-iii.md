@@ -22,7 +22,7 @@ description: >
 ### Hybrid Life III - special session accepted at ALIFE 2020, Montreal, Canada (update: online)
 ### Organisers: Manuel Baltieri, Hiroyuki Iizuka, Keisuke Suzuki, Olaf Witkowski, Lana Sinapayen
 
-I'm happy to announce that our special session has been accepted at ALIFE 2020!
+Manuel is happy to announce that the special session has been accepted at ALIFE 2020!
 
 For more info:
 

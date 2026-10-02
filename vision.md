@@ -25,7 +25,7 @@ To study life and cognition, Manuel makes use of frameworks inspired by informat
 
 Unpopular opinion: the concept of agency captures *mostly* just a series of choices made by an observer (cf. intentional stance).
 
-Less unpopular opinion: an interesting definition of agency could arise from the fact I used the word "mostly" in the line above.
+Less unpopular opinion: an interesting definition of agency could arise from the use of the word "mostly" in the line above.
 
 ### The origins of life
 Manuel stayed for a short period at [EON](https://web.archive.org/web/20220627044109/http://eon.elsi.jp/) (ELSI Origins of Life Network) at Tokyo Tech. There, he worked on theories of the *origins of life* (OoL), with a special interest in proposals attempting to link OoL to information and control theory. Is homeostasis enough to explain the differences between living and non-living systems? Does control theory provide the right language to study homeostasis? Can information theory be used to define a useful (intrinsic) notion of information for living systems? Perhaps one that captures the crucial aspects of autopoiesis, beyond simple homeostasis? Can we ground these ideas into a phenomenological theory, thermodynamics, that allows us to derive a formulation of the statistical mechanics of living systems? For a brief overview: [blogpost for EON](https://web.archive.org/web/20230117062811/https://eon.elsi.jp/information-and-regulation-at-the-origins-of-life/). 

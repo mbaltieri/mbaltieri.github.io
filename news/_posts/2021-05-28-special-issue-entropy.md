@@ -23,7 +23,7 @@ comments: true
 ## Editing Special issue at Entropy
 ### New special issue on "Emerging Methods in Active Inference"
 
-Together with a stellar team of guest editors, I will be co-editing a special issue on "Emerging Methods in Active Inference" in [Entropy](https://www.mdpi.com/journal/entropy) (MDPI).
+Together with a stellar team of guest editors, Manuel will be co-editing a special issue on "Emerging Methods in Active Inference" in [Entropy](https://www.mdpi.com/journal/entropy) (MDPI).
 
 
 #### Scope
@@ -35,8 +35,8 @@ Active inference is a formal approach for characterizing behavior. Although orig
 - Dr. Manuel Baltieri
 - Dr. Thijs van de Laar
 - Dr. Kai Ueltzhöffer
+- Dr. Daniela Cialfi
 - Prof. Dr. Karl Friston
-- Ms. Noor Sajid
 
 #### Submission
 For submissions and more info, please visit [https://www.mdpi.com/journal/entropy/special_issues/active_inference](https://www.mdpi.com/journal/entropy/special_issues/active_inference).

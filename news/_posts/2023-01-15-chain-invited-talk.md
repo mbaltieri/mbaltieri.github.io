@@ -20,4 +20,4 @@ description: >
 
 ## Seminar at CHAIN, Hokkaido University
 
-Manuel was invited to give a seminar on February 17th for the CHAIN Seminar Series, hosted by Keisuke Suzuki. He will present his recent work on Markov blankets and the free energy principle, see this [blogpost]({{ site.baseurl }}{% link _projects/2021-01-09-friston-blankets.md %}). Slides can be found [here](/assets/pdf/presentations/CC_Tokyo.pdf) and the recording [here](https://youtu.be/yA-d1atSzWs?si=HlO4g3CrjQyvWrKv).
+Manuel was invited to give a seminar on February 17th for the CHAIN Seminar Series, hosted by Keisuke Suzuki. He will present his recent work on Markov blankets and the free energy principle, see this [blogpost]({{ site.baseurl }}{% link news/_posts/2021-01-09-friston-blankets.md %}). Slides can be found [here](/assets/pdf/presentations/CC_Tokyo.pdf) and the recording [here](https://youtu.be/yA-d1atSzWs?si=HlO4g3CrjQyvWrKv).

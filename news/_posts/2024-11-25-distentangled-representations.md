@@ -1,8 +1,11 @@
 ---
-layout: project
+layout: post
 title:  "Disentangled representations for causal cognition"
-image: /assets/img/blog/disentanglement/disentanglementsketch.jpg
+image: /assets/img/blog/disentanglement/disentanglementsketch-cover.jpg
 date:   2024-11-25
+redirect_from:
+  - /projects/2024-11-25-distentangled-representations/
+  - /news/2024-12-01-publication-polr/
 excerpt: "Disentangled representations for causal cognition"
 tag:
 - disentanglement
@@ -13,13 +16,14 @@ tag:
 - causal reinforcement learning
 - cognitive science
 - disentangled representations
+- publication
 comments: true
 description: >
   Can disentangled representations be used to explain how agents learn about causality?
 ---
 
 # Disentangled representations for causal cognition
-Our paper is now available [here](/assets/pdf/DisentanglementCausalCognition.pdf). Work led by Filippo Torresan and myself.
+Our paper is now published in [Physics of Life Reviews](https://www.sciencedirect.com/science/article/pii/S1571064524001295) and available [here](/assets/pdf/DisentanglementCausalCognition.pdf). Work led by Filippo Torresan and Manuel.
 
 - **Disentangled Representations for Causal Cognition**, Torresan, F. & Baltieri, M., *Physics of Life Reviews* (2024).
 

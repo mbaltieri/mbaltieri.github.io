@@ -21,7 +21,7 @@ description: >
 ## Organising Hybrid Life V
 ### Hybrid life V - special session accepted at ALIFE 2022, Trento, Italy (update: online)
 #### Organisers: Manuel Baltieri, Keisuke Suzuki, Olaf Witkowski
-I'm happy to announce that our special session has been accepted at ALife 2022!
+Manuel is happy to announce that the special session has been accepted at ALife 2022!
 
 For more info:
 
