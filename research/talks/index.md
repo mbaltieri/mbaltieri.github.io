@@ -1,21 +1,26 @@
 ---
 layout: page
-title: Talks and Presentations
-tags: [presentations, academia]
+title: Talks
+tags: [talks, academia]
 description: >
-  Invited talks, conference presentations, lectures, recordings, and slide decks from Manuel Baltieri's research.
+  Invited and contributed talks, lectures, recordings, and slide decks from Manuel Baltieri's research.
 image: /assets/img/blog/goaldirectedness.jpg
 date: 2023-08-14
 comments: true
+# This page used to be at /research/presentations/. The old address redirects here, and the
+# comments keep the thread that was started there.
+redirect_from:
+  - /research/presentations/
+comments_url: /research/presentations/
 ---
 
-This page contains a list of selected presentations that Manuel gave over the years, with PDFs and recordings shared whenever possible[^1]. Please feel free to reference the material contained here, and leave a comment if you'd like.
+This page contains a list of selected talks that Manuel gave over the years, with PDFs and recordings shared whenever possible[^1]. Please feel free to reference the material contained here, and leave a comment if you'd like.
 
 Minor updates have been implemented whenever necessary (missing references, typos, etc.) but the contents have largely been left unchanged. While all of the material is based on some of Manuel's previous work, bear in mind that his opinion and thoughts might have changed (following some at least approximate sequence of Bayesian inference steps) over time.
 
-[^1]: In some cases sharing was/is not allowed, (but do expect more PDFs over time). Sometimes a (virtually) identical presentation was given in multiple occasions so no PDFs will be included, this is especially true for presentations with the same title.
+[^1]: In some cases sharing was/is not allowed, (but do expect more PDFs over time). Sometimes a (virtually) identical talk was given in multiple occasions so no PDFs will be included, this is especially true for talks with the same title.
 
-## Invited presentations
+## Invited talks
 - From Life to Artificial Agents: How Do We “Mathematise” Agency?, Università IULM, Milan, Italy - Feb 2026 &emsp; [link](https://www.iulm.it/en/news-ed-eventi/news/eda-robots-evento) &emsp; [pdf](/assets/pdf/presentations/IULM.pdf)
 
 - Proving AI safety - Mathematical foundations of AI safety, AIRJ Symposium 2025: Building Trustworthy AI and Advancing Collaboration Between Italy and Japan, Embassy of Italy, Tokyo, Japan - Nov 2025 &emsp; [pdf](/assets/pdf/presentations/AISafety2025.pdf)
@@ -58,7 +63,7 @@ Minor updates have been implemented whenever necessary (missing references, typo
 - The free energy principle and active inference, connecting control theory to biology, Active inference workshop, TU Delft, Delft, Netherlands - Apr 2018
 
 
-## Contributed presentations
+## Contributed talks
 - A Braitenberg vehicles' habitat, International Conference on Artificial Life (ALIFE) 2026, Waterloo, Canada - Aug 2026 &emsp; [pdf](/assets/pdf/presentations/ALIFE2026.pdf)
 
 - World models for RL, with triangles, ILIAD 2026, Berkeley, US - Aug 2026 &emsp; [pdf](/assets/pdf/presentations/ILIAD2026.pdf)

@@ -1,6 +1,7 @@
 {% assign disqus = site.disqus | default:site.disqus_shortname %}
 {% if disqus %}
-<div id="disqus_thread"></div>
+{% comment %}Disqus finds a thread by its address. A page that has moved names its old address in `comments_url`.{% endcomment %}
+<div id="disqus_thread"{% if page.comments_url %} data-url="{{ page.comments_url | absolute_url }}"{% endif %}></div>
 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 <script>!function(w, d) {
   if (d.getElementById("disqus_thread")) {
@@ -8,13 +9,13 @@
       w.DISQUS.reset({
         reload: true,
         config() {
-          this.page.url = w.location.href;
+          this.page.url = d.getElementById("disqus_thread").getAttribute("data-url") || w.location.href;
           this.page.title = d.title;
         },
       });
     } else {
       w.disqus_config = function disqusConfig() {
-        this.page.url = w.location.href;
+        this.page.url = d.getElementById("disqus_thread").getAttribute("data-url") || w.location.href;
         this.page.title = d.title;
       };
       w.loadJSDeferred(d.getElementById("_hrefDisqus").href + '/embed.js');

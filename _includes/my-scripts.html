@@ -38,18 +38,104 @@ The page is compressed onto one line: use /* */ comments and semicolons only.
       if (list) filterPublications(list, location.hash ? location.hash.slice(1) : 'all');
     }
 
+    /* Research map: a field's box shows that field's card under the diagram. One card at a time;
+       `id` is the field to show, or '' for none. Returns the card that is now open, if any. */
+    function showField(map, id) {
+      var boxes = map.querySelectorAll('[data-field]');
+      var open = null;
+      for (var i = 0; i < boxes.length; i++) {
+        var field = boxes[i].getAttribute('data-field');
+        var card = document.getElementById(field);
+        var on = field === id;
+        boxes[i].setAttribute('aria-expanded', on ? 'true' : 'false');
+        if (card) card.classList.toggle('is-open', on);
+        if (on) open = card;
+      }
+      map.classList.toggle('has-open', !!open);
+      return open;
+    }
+
+    /* Scroll just enough for a card that opened below the window (or above it) to be seen. */
+    function reveal(card) {
+      var rect = card.getBoundingClientRect();
+      var height = window.innerHeight;
+      var by = 0;
+      if (rect.height > height - 140 || rect.top < 96) by = rect.top - 110;
+      else if (rect.bottom > height - 24) by = rect.bottom - height + 24;
+      if (!by) return;
+      var still = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollBy({ top: by, behavior: still ? 'auto' : 'smooth' });
+    }
+
+    /* The open field is kept in the address (#artificial-life, ...), so it can be linked to.
+       An address that points inside a card (its heading, say) counts as that card. */
+    function fieldInAddress(map) {
+      var id = location.hash ? location.hash.slice(1) : '';
+      try { id = decodeURIComponent(id); } catch (e) {}
+      var target = id ? document.getElementById(id) : null;
+      var card = target && target.closest ? target.closest('.research-theme') : null;
+      return card && map.contains(card) ? card.id : '';
+    }
+
+    function initResearchMap() {
+      var map = document.querySelector('[data-research-map]');
+      if (!map) return;
+      var boxes = map.querySelectorAll('[data-field]');
+      for (var i = 0; i < boxes.length; i++) {
+        boxes[i].setAttribute('role', 'button');
+        boxes[i].setAttribute('aria-controls', boxes[i].getAttribute('data-field'));
+      }
+      var card = showField(map, fieldInAddress(map));
+      if (card) setTimeout(function () { reveal(card); }, 0);
+    }
+
     document.addEventListener('click', function (event) {
-      var button = event.target.closest ? event.target.closest('[data-pub-filter]') : null;
-      if (!button) return;
-      var filter = filterPublications(button.closest('[data-pubs]'), button.getAttribute('data-pub-filter'));
+      var target = event.target.closest ? event.target.closest('[data-pub-filter], [data-field]') : null;
+      if (!target) return;
+
+      if (target.hasAttribute('data-field')) {
+        var map = target.closest('[data-research-map]');
+        /* Leave ctrl-, cmd- and shift-clicks to the browser: the box is also a link to its card. */
+        if (!map || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+        event.preventDefault();
+        var id = target.getAttribute('aria-expanded') === 'true' ? '' : target.getAttribute('data-field');
+        var card = showField(map, id);
+        try {
+          history.replaceState(history.state, '', id ? '#' + id : location.pathname + location.search);
+        } catch (e) {}
+        if (card) reveal(card);
+        return;
+      }
+
+      var filter = filterPublications(target.closest('[data-pubs]'), target.getAttribute('data-pub-filter'));
       try {
         history.replaceState(history.state, '', filter === 'all' ? location.pathname + location.search : '#' + filter);
       } catch (e) {}
     });
 
-    /* The theme swaps the page content on navigation; apply the filter to the new content. */
+    /* The boxes act as buttons, so the space bar works on them as well as Enter. */
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== ' ' && event.key !== 'Spacebar') return;
+      var box = event.target.closest ? event.target.closest('[data-research-map] [data-field]') : null;
+      if (!box) return;
+      event.preventDefault();
+      box.click();
+    });
+
+    window.addEventListener('hashchange', function () {
+      var map = document.querySelector('[data-research-map]');
+      if (!map) return;
+      var card = showField(map, fieldInAddress(map));
+      if (card) reveal(card);
+    });
+
+    /* The theme swaps the page content on navigation; set up the new content. */
+    function init() {
+      initPublications();
+      initResearchMap();
+    }
     var pushState = document.getElementById('_pushState');
-    if (pushState) pushState.addEventListener('hy-push-state-after', initPublications);
-    initPublications();
+    if (pushState) pushState.addEventListener('hy-push-state-after', init);
+    init();
   })();
 </script>

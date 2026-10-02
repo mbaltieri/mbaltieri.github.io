@@ -271,26 +271,22 @@ $mb-accent-strong: #25777e;
 }
 
 .research-map__canvas {
-  padding: clamp(1.25rem, 4vw, 2.5rem);
+  padding: clamp(1.25rem, 4vw, 1.75rem) clamp(1rem, 3vw, 1.5rem);
   border: 1px solid var(--border-color);
-  border-radius: .8rem;
-  background:
-    radial-gradient(circle at 50% 16%, var(--accent-color-highlight), transparent 34%),
-    var(--gray-bg);
-  overflow: hidden;
+  border-radius: .5rem;
+  background: var(--gray-bg);
 }
 
 .research-map__core {
   position: relative;
   z-index: 1;
-  max-width: 28rem;
+  max-width: 24rem;
   margin: 0 auto;
-  padding: 1.2rem 1rem;
+  padding: 1.1rem 1rem;
   border: 1px solid var(--accent-color-faded);
-  border-radius: .65rem;
+  border-radius: .5rem;
   background: var(--body-bg);
   text-align: center;
-  box-shadow: 0 .35rem 1.25rem rgba(0, 0, 0, .09);
 }
 
 .research-map__label,
@@ -299,12 +295,9 @@ $mb-accent-strong: #25777e;
 }
 
 .research-map__label {
-  margin-bottom: .5rem;
+  @include mb-label;
+  margin-bottom: .4rem;
   color: var(--gray-text);
-  font-size: .68rem;
-  font-weight: 700;
-  letter-spacing: .1em;
-  text-transform: uppercase;
 }
 
 .research-map__interaction {
@@ -318,53 +311,51 @@ $mb-accent-strong: #25777e;
 }
 
 .research-map__exchange {
-  color: var(--accent-color-darkened);
+  color: var(--mb-accent-strong);
   font-size: 1.55em;
   line-height: 1;
 }
 
 .research-map__vocabulary {
-  margin-top: .55rem;
+  margin-top: .45rem;
   color: var(--gray-text);
   font-size: .75rem;
 }
 
+// The gap between the four field boxes; the connector line below is computed from it.
+$mb-map-gap: .75rem;
+
 .research-map__themes {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: .75rem;
-  margin-top: 2rem;
+  gap: $mb-map-gap;
+  margin-top: 1.25rem;
 }
 
-.research-map__theme {
+.content a.research-map__theme {
+  @include mb-card;
   position: relative;
   display: flex;
   flex-direction: column;
   min-width: 0;
-  padding: 1rem;
-  border: 1px solid var(--border-color);
-  border-top: 3px solid var(--accent-color);
-  border-radius: .45rem;
-  background: var(--body-bg);
+  padding: .9rem .75rem;
+  border-color: var(--accent-color-faded);
   color: var(--body-color);
+  text-align: center;
   text-decoration: none;
 }
 
-.research-map__theme:hover,
-.research-map__theme:focus {
-  border-top-color: var(--accent-color-darkened);
-  background: var(--accent-color-highlight);
+.content a.research-map__theme:hover {
+  border-color: var(--accent-color);
 }
 
 .research-map__number {
-  color: var(--accent-color-darkened);
-  font-family: var(--font-family-heading);
-  font-size: .67rem;
-  letter-spacing: .08em;
+  @include mb-label;
+  color: var(--mb-accent-strong);
 }
 
 .research-map__theme strong {
-  margin: .2rem 0 .3rem;
+  margin: .15rem 0 .25rem;
   font-family: var(--font-family-heading);
   font-size: 1rem;
 }
@@ -373,13 +364,6 @@ $mb-accent-strong: #25777e;
   color: var(--gray-text);
   font-size: .75rem;
   line-height: 1.45;
-}
-
-.research-map figcaption {
-  margin-top: .65rem;
-  color: var(--gray-text);
-  font-size: .72rem;
-  text-align: center;
 }
 
 .featured-work__grid {
@@ -437,26 +421,6 @@ $mb-accent-strong: #25777e;
   margin: auto 0 0;
 }
 
-.research-lead {
-  margin-bottom: 1rem;
-  font-size: 1.22rem;
-  line-height: 1.6;
-}
-
-.research-themes {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1rem;
-  margin: 3.5rem 0;
-}
-
-.research-theme {
-  padding: 1.35rem;
-  border-left: 3px solid var(--accent-color);
-  background: var(--gray-bg);
-  scroll-margin-top: 6rem;
-}
-
 .content a.featured-work__link {
   color: var(--mb-accent-strong);
   font-size: .875rem;
@@ -464,18 +428,87 @@ $mb-accent-strong: #25777e;
   text-decoration: none;
 }
 
+// The four field cards sit inside the diagram, under the row of boxes. With scripts only
+// the selected field's card is shown (the rule that hides the others is in my-inline.scss,
+// so that they never flash on load); without scripts all four are listed.
+.research-themes {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.research-theme {
+  @include mb-card;
+  padding: 1.35rem;
+  border-color: var(--accent-color-faded);
+  scroll-margin-top: 6rem;
+}
+
+// With scripts: one card at a time, joined to its box by a line, and it fades in.
+html[data-mb-js] .research-themes {
+  display: block;
+  margin-top: 0;
+}
+
+html[data-mb-js] .research-theme.is-open {
+  margin-top: 1.8rem;
+  animation: mb-appear 280ms ease-out both;
+}
+
+// The selected box already names the field.
+html[data-mb-js] .research-theme > .section-kicker {
+  display: none;
+}
+
+@keyframes mb-appear {
+  from { opacity: 0; transform: translateY(-.6rem); }
+  to   { opacity: 1; transform: none; }
+}
+
+.research-map__hint {
+  margin: 1.25rem 0 0;
+  color: var(--gray-text);
+  font-size: .8125rem;
+  text-align: center;
+}
+
+// The selected box.
+.content a.research-map__theme[aria-expanded="true"] {
+  border-color: var(--mb-accent-strong);
+  box-shadow: inset 0 0 0 1px var(--mb-accent-strong);
+}
+
 .research-theme h2 {
   margin: 0 0 .65rem;
   font-size: 1.25rem;
 }
 
-.research-theme p:last-child {
+.research-theme > :last-child {
   margin-bottom: 0;
 }
 
-.research-theme__links {
-  font-size: .8rem;
-  font-weight: 700;
+// The papers of a field: one title per line.
+.research-theme .research-theme__links {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: .875rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.45;
+}
+
+.research-theme .research-theme__links li + li {
+  margin-top: .4rem;
+}
+
+.content .research-theme__links a {
+  color: var(--mb-accent-strong);
+  text-decoration: none;
+}
+
+.content .research-theme__links a:hover {
+  text-decoration: underline;
 }
 
 .research-methods {
@@ -512,20 +545,17 @@ $mb-accent-strong: #25777e;
   margin: 1.5rem 0 2.5rem;
 }
 
-.research-paths a {
+.content .research-paths a {
+  @include mb-card;
   display: flex;
   flex-direction: column;
   padding: 1rem;
-  border: 1px solid var(--border-color);
-  border-radius: .45rem;
-  background: var(--gray-bg);
   color: var(--body-color);
   text-decoration: none;
 }
 
-.research-paths a:hover,
-.research-paths a:focus {
-  background: var(--accent-color-highlight);
+.content .research-paths a:hover {
+  border-color: var(--accent-color);
 }
 
 .research-paths strong {
@@ -552,15 +582,18 @@ $mb-accent-strong: #25777e;
   .research-map__themes {
     position: relative;
     grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: .65rem;
+    margin-top: 2rem;
     padding-top: 1.8rem;
   }
 
+  // The line runs from the centre of the first box to the centre of the last, so that it
+  // meets their ticks. With four equal columns and three gaps, a box centre is one eighth
+  // of (width - 3 gaps) from the edge; the right end adds the 1px width of the last tick.
   .research-map__themes::before {
     position: absolute;
     top: 0;
-    right: 12.5%;
-    left: 12.5%;
+    right: calc((100% - #{$mb-map-gap * 3}) / 8 - 1px);
+    left: calc((100% - #{$mb-map-gap * 3}) / 8);
     border-top: 1px solid var(--accent-color-faded);
     content: "";
   }
@@ -570,6 +603,16 @@ $mb-accent-strong: #25777e;
     top: -1.85rem;
     left: 50%;
     height: 1.8rem;
+    border-left: 1px solid var(--accent-color-faded);
+    content: "";
+  }
+
+  // From the selected box down to its card.
+  .research-map__theme[aria-expanded="true"]::after {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    height: calc(1.8rem + 2px);
     border-left: 1px solid var(--accent-color-faded);
     content: "";
   }
@@ -584,13 +627,26 @@ $mb-accent-strong: #25777e;
 
 }
 
-@media screen and (min-width: 86em) {
-  .research-themes {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+// A wide card: the text on the left, the papers on the right.
+@media screen and (min-width: 72em) {
+  .research-theme {
+    display: grid;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+    column-gap: 2rem;
+    align-items: start;
+  }
+
+  .research-theme > .section-kicker,
+  .research-theme > h2 {
+    grid-column: 1 / -1;
+  }
+
+  .research-theme > p:not(.section-kicker) {
+    margin-bottom: 0;
   }
 }
 
-@media screen and (max-width: 30em) {
+@media screen and (max-width: 22em) {
   .research-map__themes {
     grid-template-columns: 1fr;
   }
@@ -598,35 +654,8 @@ $mb-accent-strong: #25777e;
   .research-map__interaction {
     flex-wrap: wrap;
   }
-
-  .mb-actions,
-  .mb-button {
-    width: 100%;
-  }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  body {
-    animation: none;
-  }
-}
-
-@media print {
-  .home-intro,
-  .research-map__canvas,
-  .featured-work__card,
-  .research-theme,
-  .research-methods,
-  .research-paths a {
-    background: none;
-    box-shadow: none;
-  }
-
-  .featured-work__card,
-  .research-theme {
-    break-inside: avoid;
-  }
-}
 // News
 // ---------------------------------------------------------------------------------------
 
@@ -924,3 +953,49 @@ body.dark-mode {
   filter: var(--mb-image-filter);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  body,
+  html[data-mb-js] .research-theme.is-open {
+    animation: none;
+  }
+}
+
+@media print {
+  .research-map__canvas {
+    background: none;
+  }
+
+  // Controls that do nothing on paper.
+  .mb-bar,
+  .research-map__hint {
+    display: none;
+  }
+
+  // On paper all four field cards are printed, not only the selected one.
+  html[data-mb-js] .research-themes {
+    display: grid;
+    margin-top: 1.25rem;
+  }
+
+  html[data-mb-js] .research-map .research-theme:not(.is-open) {
+    display: block;
+  }
+
+  html[data-mb-js] .research-theme.is-open {
+    margin-top: 0;
+    animation: none;
+  }
+
+  html[data-mb-js] .research-theme > .section-kicker {
+    display: block;
+  }
+
+  .research-map__theme[aria-expanded="true"]::after {
+    content: none;
+  }
+
+  .featured-work__card,
+  .research-theme {
+    break-inside: avoid;
+  }
+}

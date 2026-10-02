@@ -69,6 +69,12 @@ main:not(.layout-post):not(.layout-project) hr.dingbat { display: none; }
 // The publication filters need a script; without one they are hidden (see my-head.html).
 html:not([data-mb-js]) .mb-tabs--filter { display: none; }
 
+// Research page: with scripts, a field's card shows only while its box in the diagram is
+// selected, and the hint shows only while none is. Without scripts every card shows.
+html[data-mb-js] .research-map .research-theme:not(.is-open),
+html:not([data-mb-js]) .research-map__hint,
+.research-map.has-open .research-map__hint { display: none; }
+
 // Short desktop windows: tighten the sidebar so the whole menu and the social icons stay visible.
 @media screen and (min-width: 64em) and (max-height: 39em) {
   .sidebar-sticky {
