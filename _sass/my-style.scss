@@ -147,6 +147,9 @@ body {
   background: var(--accent-color-highlight);
 }
 
+// A darker teal for text and for fills under white text; see the note further down.
+$mb-accent-strong: #25777e;
+
 .mb-button:focus-visible,
 .research-map__theme:focus-visible,
 .featured-work__card a:focus-visible,
@@ -564,5 +567,46 @@ $mb-brand-icons: (
     -webkit-mask-repeat: no-repeat;
     mask-repeat: no-repeat;
   }
+}
+
+// The accent teal is too light to carry text: white on it is 2.5:1, and WCAG AA asks for 4.5:1.
+// Where teal is a text colour or sits behind white text, use a darker shade of the same hue.
+// In dark mode the page is dark, so the lighter accent already has enough contrast.
+// Dark mode also dims images, so figures with white backgrounds don't glare against the page.
+body,
+body.light-mode {
+  --mb-accent-strong: #{$mb-accent-strong};
+  --mb-image-filter: none;
+}
+
+body.dark-mode {
+  --mb-accent-strong: var(--accent-color-darkened);
+  --mb-image-filter: brightness(.85);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  body:not(.light-mode) {
+    --mb-accent-strong: var(--accent-color-darkened);
+    --mb-image-filter: brightness(.85);
+  }
+}
+
+.btn-primary,
+.btn-primary:disabled,
+.btn-primary.disabled {
+  background-color: $mb-accent-strong;
+  border-color: $mb-accent-strong;
+}
+
+.btn-primary:hover,
+.btn-primary.hover,
+.btn-primary:active,
+.btn-primary.active {
+  background-color: darken($mb-accent-strong, 6%);
+  border-color: darken($mb-accent-strong, 6%);
+}
+
+.content img:not(.avatar) {
+  filter: var(--mb-image-filter);
 }
 

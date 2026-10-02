@@ -128,6 +128,13 @@ defaults:
         background:    rgb(32,32,32)
         overlay:       false
 
+  # Don't show the search description in a box at the top of each page.
+  # It is still used for search engines, social previews and cards.
+  - scope:
+      path:            ''
+    values:
+      hide_description: true
+
   # Don't include documents in assets in the sitemap
   - scope:
       path:            assets/

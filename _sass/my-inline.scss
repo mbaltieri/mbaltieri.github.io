@@ -1,6 +1,9 @@
 // Uncomment to disable dingbat icons below posts
 // hr.dingbat { display: none }
 
+// The ornament under a page only separates a post or project from what follows it.
+main:not(.layout-post):not(.layout-project) hr.dingbat { display: none; }
+
 // Short desktop windows: tighten the sidebar so the whole menu and the social icons stay visible.
 @media screen and (min-width: 64em) and (max-height: 39em) {
   .sidebar-sticky {
