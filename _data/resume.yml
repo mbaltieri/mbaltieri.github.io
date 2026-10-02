@@ -20,13 +20,21 @@ basics:
     city: "Tokyo"
     countryCode: "JP"
     # region: "California"
+  # `hide: true` keeps a profile out of the resume page; it stays in resume.json and
+  # in the profile links for search engines. `label` is shown instead of `username`.
   profiles:
     - network: "ORCID"
       username: "0000-0002-6086-4711"
       url: "https://orcid.org/0000-0002-6086-4711"
+      hide: true
+    - network: "Google Scholar"
+      username: "v6v1A_YAAAAJ"
+      url: "https://scholar.google.com/citations?user=v6v1A_YAAAAJ"
+      label: "Google Scholar"
     - network: "DBLP"
       username: "160/8806"
       url: "https://dblp.org/pid/160/8806"
+      label: "DBLP"
     - network: "GitHub"
       username: "mbaltieri"
       url: "https://github.com/mbaltieri"

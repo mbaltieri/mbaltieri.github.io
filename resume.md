@@ -10,6 +10,10 @@ image:
   height: 630
   alt: "Manuel Baltieri — research in agent foundations, AI safety, artificial life, and cognition"
 hide_description: true
+# Contact details left off this page; only the location is shown. They stay in
+# _data/resume.yml, so they are still in resume.json and in the profile links that
+# search engines read on the home and About pages.
+hide_contact: [email, website, profiles]
 left_column:
   - work
   - volunteer

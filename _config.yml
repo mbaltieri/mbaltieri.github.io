@@ -58,6 +58,8 @@ menu:
     url:               /vision/
   - title:             About
     url:               /about/
+  - title:             Resume
+    url:               /resume/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -91,7 +93,7 @@ permalink:             /:categories/:year-:month-:day-:title/
 # ----------------------------------------------------------------------------------------
  
 # Sidebar image and theme color of the site.
-accent_image:          /assets/img/sidebar-bg-braitenberg-glider-right-connected-subdued-4k.jpg
+accent_image:          /assets/img/sidebar-bg-braitenberg-glider-right-connected-subdued-1920.jpg
 accent_color:          rgb(79,177,186)
 
 # This is used for the `theme-color` meta tag,
@@ -398,6 +400,7 @@ social:
   links:
     - https://orcid.org/0000-0002-6086-4711
     - https://dblp.org/pid/160/8806
+    - https://scholar.google.com/citations?user=v6v1A_YAAAAJ
     - https://github.com/mbaltieri
     - https://www.linkedin.com/in/manuelbaltieri/
     - https://bsky.app/profile/manuelbaltieri.bsky.social

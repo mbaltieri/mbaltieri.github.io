@@ -1,2 +1,26 @@
 // Uncomment to disable dingbat icons below posts
 // hr.dingbat { display: none }
+
+// Short desktop windows: tighten the sidebar so the whole menu and the social icons stay visible.
+@media screen and (min-width: 64em) and (max-height: 39em) {
+  .sidebar-sticky {
+    padding-top: .75rem;
+    padding-bottom: .75rem;
+  }
+
+  .sidebar-about .avatar {
+    width: 4.5rem;
+    height: 4.5rem;
+    margin-bottom: .75rem;
+  }
+
+  .sidebar-nav-item {
+    margin-bottom: .25rem;
+  }
+}
+
+@media screen and (min-width: 64em) and (max-height: 33em) {
+  .sidebar-about .avatar {
+    display: none;
+  }
+}
