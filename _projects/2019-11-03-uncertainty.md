@@ -23,5 +23,3 @@ This project tackles these and other questions by combining behavioural and theo
 
 ## Models of uncertainty
 The project includes a theoretical proposal including an analysis of the existing literature in different areas of physical, natural and cognitive sciences and a mathematical treatment of models of uncertainty, from Kalman filters to PID control, to the Delta Rule, etc.
-
-An extended version to appear soon.
