@@ -1,0 +1,32 @@
+{% comment %}
+The publication list: the entries of _data/publications.yml grouped by year, with buttons that
+show one kind at a time. The buttons need the script in my-scripts.html; without scripts
+every entry is shown and the buttons are hidden. One entry is publications/entry.html.
+{% endcomment %}
+{% assign years = site.data.publications | group_by:"year" %}
+
+<div class="pubs" data-pubs>
+  <div class="mb-bar">
+    <div class="mb-tabs mb-tabs--filter" role="group" aria-label="Show publications by kind">
+      <button type="button" class="mb-tab" data-pub-filter="all" aria-pressed="true">All</button>
+      <button type="button" class="mb-tab" data-pub-filter="selected" aria-pressed="false">Selected</button>
+      <button type="button" class="mb-tab" data-pub-filter="journal" aria-pressed="false">Journal</button>
+      <button type="button" class="mb-tab" data-pub-filter="conference" aria-pressed="false">Conference</button>
+      <button type="button" class="mb-tab" data-pub-filter="preprint" aria-pressed="false">Preprint</button>
+      <button type="button" class="mb-tab" data-pub-filter="commentary" aria-pressed="false">Commentary</button>
+      <button type="button" class="mb-tab" data-pub-filter="editing" aria-pressed="false">Editing</button>
+      <button type="button" class="mb-tab" data-pub-filter="other" aria-pressed="false">Other</button>
+    </div>
+  </div>
+
+  {% for year in years %}
+    <section class="pubs__year">
+      <h2 class="mb-year" id="y-{{ year.name }}">{{ year.name }}</h2>
+      <ul class="pubs__list">
+        {% for pub in year.items %}
+          {% include publications/entry.html pub=pub %}
+        {% endfor %}
+      </ul>
+    </section>
+  {% endfor %}
+</div>

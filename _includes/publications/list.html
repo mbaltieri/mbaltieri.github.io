@@ -1,0 +1,14 @@
+{% comment %}
+A short list of publications picked by title, for a project page.
+Parameter: titles (titles exactly as in _data/publications.yml, in the order to print).
+{% endcomment %}
+<ul class="pubs__list">
+  {% for title in include.titles %}
+    {% assign pub = site.data.publications | where:"title",title | first %}
+    {% if pub %}
+      {% include publications/entry.html pub=pub no_mark=true %}
+    {% else %}
+      <li class="pub"><strong>Not in _data/publications.yml:</strong> {{ title | escape }}</li>
+    {% endif %}
+  {% endfor %}
+</ul>

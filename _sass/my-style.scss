@@ -150,6 +150,78 @@ body {
 // A darker teal for text and for fills under white text; see the note further down.
 $mb-accent-strong: #25777e;
 
+// Shared pieces
+// ---------------------------------------------------------------------------------------
+
+// Small uppercase label: news kinds, card topics, "Selected" marks.
+@mixin mb-label {
+  font-family: var(--font-family);
+  font-size: .7rem;
+  font-weight: var(--font-weight-bold);
+  letter-spacing: .1em;
+  line-height: 1.4;
+  text-transform: uppercase;
+}
+
+// A row of text buttons where one is active: the publication filters.
+.mb-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.5rem;
+}
+
+.mb-tab {
+  min-height: 2.75rem;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--gray-text);
+  font-family: var(--font-family);
+  font-size: .875rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.4;
+  text-decoration-line: underline;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 2px;
+  text-underline-offset: .45rem;
+  cursor: pointer;
+}
+
+.mb-tab:hover,
+.mb-tab[aria-pressed="true"] {
+  color: var(--body-color);
+}
+
+.mb-tab[aria-pressed="true"] {
+  text-decoration-color: var(--mb-accent-strong);
+}
+
+.mb-tab:focus-visible {
+  outline: 3px solid var(--accent-color-darkened);
+  outline-offset: 3px;
+}
+
+// The row of controls under a page title: the year links on News, the filter buttons
+// on Publications.
+.mb-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 1.5rem;
+}
+
+// A year heading above a list; the list draws the rule under it.
+.mb-year {
+  margin: 2.5rem 0 .6rem;
+}
+
+.mb-bar + .mb-year,
+.mb-bar + section > .mb-year {
+  margin-top: 1.5rem;
+}
+
 .mb-button:focus-visible,
 .research-map__theme:focus-visible,
 .featured-work__card a:focus-visible,
@@ -531,6 +603,82 @@ $mb-accent-strong: #25777e;
     break-inside: avoid;
   }
 }
+// Publications
+// ---------------------------------------------------------------------------------------
+
+.pubs__list {
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--border-color);
+  list-style: none;
+}
+
+.pub {
+  margin: 0;
+  padding: 1rem 0 .25rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+// Entries and years that the filter leaves out.
+.pub[hidden],
+.pubs__year[hidden] {
+  display: none;
+}
+
+.pub__head {
+  display: flex;
+  align-items: baseline;
+  gap: 0 .75rem;
+}
+
+.pub__title {
+  flex: 1 1 auto;
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 1rem;
+  font-weight: var(--font-weight-bold);
+  line-height: 1.4;
+}
+
+.pub__mark {
+  @include mb-label;
+  flex: none;
+  color: var(--mb-accent-strong);
+}
+
+.pub__authors,
+.pub__venue {
+  margin: .1rem 0 0;
+  color: var(--gray-text);
+  font-size: .875rem;
+  line-height: 1.55;
+}
+
+.pub__authors strong {
+  color: var(--body-color);
+}
+
+.pub__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.25rem;
+  margin: 0;
+}
+
+.content .pub__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.75rem;
+  color: var(--mb-accent-strong);
+  font-size: .875rem;
+  font-weight: var(--font-weight-bold);
+  text-decoration: none;
+}
+
+.content .pub__links a:hover {
+  text-decoration: underline;
+}
+
 // Brand icons missing from the IcoMoon font. They render at 1em in the current
 // text colour, like the font icons. Paths: Simple Icons 16.33.0 (CC0-1.0).
 $mb-brand-icons: (

@@ -1,3 +1,55 @@
 {% comment %}
-Intentionally left blank.
+Small behaviours for this site. This file is included once, outside the part of the page
+that the theme swaps on navigation, so the handlers are delegated from the document.
+The page is compressed onto one line: use /* */ comments and semicolons only.
 {% endcomment %}
+<script>
+  (function () {
+    /* Publications: show one kind at a time, and hide the years left without entries. */
+    function filterPublications(list, filter) {
+      var buttons = list.querySelectorAll('[data-pub-filter]');
+      var known = false;
+      var i;
+      for (i = 0; i < buttons.length; i++) {
+        if (buttons[i].getAttribute('data-pub-filter') === filter) known = true;
+      }
+      if (!known) filter = 'all';
+      for (i = 0; i < buttons.length; i++) {
+        buttons[i].setAttribute('aria-pressed', buttons[i].getAttribute('data-pub-filter') === filter ? 'true' : 'false');
+      }
+      var years = list.querySelectorAll('.pubs__year');
+      for (i = 0; i < years.length; i++) {
+        var entries = years[i].querySelectorAll('.pub');
+        var shown = 0;
+        for (var j = 0; j < entries.length; j++) {
+          var kinds = ' ' + entries[j].getAttribute('data-kinds') + ' ';
+          var show = filter === 'all' || kinds.indexOf(' ' + filter + ' ') !== -1;
+          entries[j].hidden = !show;
+          if (show) shown++;
+        }
+        years[i].hidden = shown === 0;
+      }
+      return filter;
+    }
+
+    /* The filter is kept in the address (#selected, #journal, ...), so a filtered list can be linked to. */
+    function initPublications() {
+      var list = document.querySelector('[data-pubs]');
+      if (list) filterPublications(list, location.hash ? location.hash.slice(1) : 'all');
+    }
+
+    document.addEventListener('click', function (event) {
+      var button = event.target.closest ? event.target.closest('[data-pub-filter]') : null;
+      if (!button) return;
+      var filter = filterPublications(button.closest('[data-pubs]'), button.getAttribute('data-pub-filter'));
+      try {
+        history.replaceState(history.state, '', filter === 'all' ? location.pathname + location.search : '#' + filter);
+      } catch (e) {}
+    });
+
+    /* The theme swaps the page content on navigation; apply the filter to the new content. */
+    var pushState = document.getElementById('_pushState');
+    if (pushState) pushState.addEventListener('hy-push-state-after', initPublications);
+    initPublications();
+  })();
+</script>

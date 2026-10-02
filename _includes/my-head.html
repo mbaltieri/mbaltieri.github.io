@@ -14,6 +14,12 @@ Fill in `href`. You may have to adjust `rel`.
 
 <link rel="describedby" href="{{ '/llms.txt' | absolute_url }}" type="text/markdown">
 
+{% comment %}
+Marks that scripts run, so that controls which need one (the publication filters) can stay
+hidden when they do not. See my-scripts.html.
+{% endcomment %}
+<script>document.documentElement.setAttribute('data-mb-js', '');</script>
+
 {% if page.url == '/' or page.url == '/about/' %}
   {% assign person = site.data.resume.basics %}
   {% assign primary_role = site.data.resume.work | first %}
