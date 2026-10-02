@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "A Bayesian Interpretation of the Internal Model Principle"
+kind:   Preprint
 image: /assets/img/blog/interpretations/setup-cover.png
 date:   2025-03-01
 redirect_from:

@@ -1,0 +1,22 @@
+{% comment %}
+The latest news items, as tiles or as a list of rows: `news_view` in _config.yml, or in the
+front matter of the page that includes this.
+Parameters: limit (default 4).
+{% endcomment %}
+{% assign limit = include.limit | default:4 %}
+{% assign news_view = page.news_view | default:site.news_view | default:"tiles" %}
+{% if news_view == "list" %}
+  <div class="news-list">
+    {% for post in site.posts limit:limit %}
+      {% include news/row.html post=post with_year=true %}
+    {% endfor %}
+  </div>
+{% else %}
+  <div class="columns">
+    {% for post in site.posts limit:limit %}
+      <div class="column column-1-2">
+        {% include_cached pro/post-card.html post=post %}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

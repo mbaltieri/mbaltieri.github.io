@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Organising Hybrid Life IV"
+kind:   Organising
 image: /assets/img/blog/HybridLifeNew.jpg
 date:   2021-02-14
 excerpt: "Organising Hybrid Life IV"

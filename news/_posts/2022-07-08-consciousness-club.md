@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Talk at Consciousness Club Tokyo"
+kind:   Talk
 image: /assets/img/blog/consciousness-club-Tokyo.webp
 date:   2022-07-08
 excerpt: "Talk at Consciousness Club Tokyo"

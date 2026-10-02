@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Talk at the Aware and Alive Workshop"
+kind:   Talk
 image: /assets/img/blog/awarealive.jpg
 date:   2024-07-08
 excerpt: "Talk at the Aware and Alive Workshop"

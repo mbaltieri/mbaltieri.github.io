@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Talk at the Theoretical and Experimental Approaches to Goal-Directed Behavior Workshop"
+kind:   Talk
 image: /assets/img/blog/goaldirectedness.jpg
 date:   2024-10-17
 excerpt: "Talk at the Theoretical and Experimental Approaches to Goal-Directed Behavior Workshop"

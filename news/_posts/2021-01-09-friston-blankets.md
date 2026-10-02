@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "The Emperor's New Markov Blankets"
+kind:   Paper
 image: /assets/img/blog/blankets.jpg
 date:   2021-01-09
 redirect_from:

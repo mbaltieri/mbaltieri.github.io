@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Publication in Neurocomputing"
+kind:   Paper
 image: /assets/img/blog/2026-action-unaware-agents-published.jpg
 date:   2026-07-16
 excerpt: "Active inference for action-unaware agents published in Neurocomputing"

@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Joined Entropy (MDPI) as Topic editor"
+kind:   Editing
 image: /assets/img/blog/entropy-logo-social.webp
 date:   2021-05-20
 # excerpt: "Joining "

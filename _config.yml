@@ -116,6 +116,10 @@ font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
 # The font used for code blocks. Expects a string that is a valid CSS font-family value.
 font_code:             Fira Code, Menlo, Monaco, Consolas, monospace;
 
+# How news is laid out on the News page and the home page: `tiles` or `list`.
+# A page can set its own `news_view` in its front matter.
+news_view:             tiles
+
 defaults:
   # You can use this to provide a default accent color and background for
   # all pages under a given path:

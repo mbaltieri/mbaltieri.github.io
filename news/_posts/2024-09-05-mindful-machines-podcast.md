@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Podcast for ``Mindful Machines''"
+kind:   Podcast
 image: /assets/img/blog/mindfulmachines.jpg
 date:   2024-09-05
 excerpt: "Podcast for ``Mindful Machines''"

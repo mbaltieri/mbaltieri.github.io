@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "A Braitenberg vehicle's habitat at ALIFE 2026"
+kind:   Paper
 image: /assets/img/blog/2026-braitenberg-habitat-figure-2.jpg
 date:   2026-08-17
 excerpt: "Work on agents and their environments at ALIFE 2026"

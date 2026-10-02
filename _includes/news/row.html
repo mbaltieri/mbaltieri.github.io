@@ -1,0 +1,29 @@
+{% comment %}
+One news item as a row: date, kind, title, and (unless `compact`) a summary and a thumbnail.
+Parameters: post, compact (title only, with the kind after it), with_year (print the year in the date).
+{% endcomment %}
+{% assign post = include.post %}
+{% if include.with_year %}{% assign date_format = "%-d %b %Y" %}{% else %}{% assign date_format = "%-d %b" %}{% endif %}
+{% assign text = post.tagline | default:post.caption | default:post.description %}
+{% assign thumb = post.image.path | default:post.image.src | default:post.image %}
+
+<article class="news-row{% if include.compact %} news-row--compact{% endif %}">
+  <time class="news-row__date" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:date_format }}</time>
+  <div class="news-row__body">
+    {% if include.compact %}
+      <h3 class="news-row__title"><a href="{{ post.url | relative_url }}" class="flip-title">{{ post.title }}</a></h3>
+      {% if post.kind %}<span class="news-row__kind">{{ post.kind }}</span>{% endif %}
+    {% else %}
+      {% if post.kind %}<p class="news-row__kind">{{ post.kind }}</p>{% endif %}
+      <h3 class="news-row__title"><a href="{{ post.url | relative_url }}" class="flip-title">{{ post.title }}</a></h3>
+      {% if text %}
+        <p class="news-row__text">{{ text | markdownify | replace:'<p>','' | replace:'</p>','' }}</p>
+      {% endif %}
+    {% endif %}
+  </div>
+  {% unless include.compact or post.hide_image %}{% if thumb %}
+    <a class="news-row__thumb no-hover no-print-link" href="{{ post.url | relative_url }}" tabindex="-1" aria-hidden="true">
+      <img src="{% include_cached smart-url url=thumb %}" alt="" width="208" height="130" loading="lazy" />
+    </a>
+  {% endif %}{% endunless %}
+</article>

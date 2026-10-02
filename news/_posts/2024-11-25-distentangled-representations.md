@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Disentangled representations for causal cognition"
+kind:   Paper
 image: /assets/img/blog/disentanglement/disentanglementsketch-cover.jpg
 date:   2024-11-25
 redirect_from:

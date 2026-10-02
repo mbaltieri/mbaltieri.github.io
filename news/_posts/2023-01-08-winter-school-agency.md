@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Lecturer for the CHAIN Winter School on Minimal Cognition and Agency"
+kind:   Teaching
 image: /assets/img/blog/agent.png
 date:   2023-01-08
 excerpt: "Lecturer for the CHAIN Winter School on Minimal Cognition and Agency"

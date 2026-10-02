@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Seminar at Unified theory of prediction and action meeting"
+kind:   Talk
 image: /assets/img/blog/unifiedtheory.png
 date:   2025-05-30
 excerpt: "Seminar at Unified theory of prediction and action meeting"

@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "World models of environment, agent and joint agent-environment systems"
+kind:   Preprint
 image: /assets/img/blog/2026-world-models-drawings.jpg
 date:   2026-08-24
 excerpt: "A new preprint on environment, agent, and joint agent-environment models"

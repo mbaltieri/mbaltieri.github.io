@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Mathematical approaches to the study of agents"
+kind:   Paper
 image: /assets/img/blog/2026-mathematical-agents.jpg
 date:   2026-08-30
 excerpt: "A review of mathematical approaches to agency"

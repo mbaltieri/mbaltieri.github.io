@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Podcast for ``What ALife!''"
+kind:   Podcast
 image: /assets/img/blog/whatalife.jpg
 date:   2024-04-02
 excerpt: "Podcast for ``What ALife!''"

@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Seminar at CHAIN, Hokkaido University"
+kind:   Talk
 image: /assets/img/blog/chain-front.jpeg
 date:   2025-01-08
 excerpt: "Seminar at CHAIN, Hokkaido University"

@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Seminar at COGS, University of Sussex"
+kind:   Talk
 image: /assets/img/blog/cogs.png
 date:   2023-10-17
 excerpt: "Seminar at COGS, University of Sussex"

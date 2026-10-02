@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Invited presentation at IULM University"
+kind:   Talk
 image: /assets/img/blog/2026-iulm-agency-talk.jpg
 date:   2026-02-20
 excerpt: "From Life to Artificial Agents at IULM University"

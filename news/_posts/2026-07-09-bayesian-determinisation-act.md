@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Bayesian updates from coalgebraic determinisation"
+kind:   Talk
 image: /assets/img/blog/2026-bayesian-determinisation-act.jpg
 date:   2026-07-09
 excerpt: "Work on Bayesian filtering and coalgebraic determinisation presented at ACT 2026"

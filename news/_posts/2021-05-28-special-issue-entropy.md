@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Editing Special issue at Entropy"
+kind:   Editing
 image: /assets/img/blog/entropy-AI-banner
 date:   2021-05-29
 excerpt: "Editing Special issue at Entropy"

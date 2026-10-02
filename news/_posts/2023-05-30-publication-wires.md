@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Publication in WIREs Cognitive Science"
+kind:   Paper
 image: /assets/img/blog/wires.jpg
 date:   2023-05-30
 excerpt: "Publication in WIREs Cognitive Science"

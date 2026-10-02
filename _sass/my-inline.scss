@@ -1,6 +1,46 @@
 // Uncomment to disable dingbat icons below posts
 // hr.dingbat { display: none }
 
+// Image tiles (news and projects) look like the other cards: a border instead of a shadow,
+// and text set from the left. `body` makes these rules outrank the theme's own.
+body main:not(.layout-resume) .project-card {
+  padding-bottom: 1.1rem;
+  border: 1px solid var(--border-color);
+  background: var(--body-bg);
+  box-shadow: none;
+}
+
+body main:not(.layout-resume) .project-card:hover {
+  border-color: var(--accent-color);
+  transform: none;
+}
+
+body main:not(.layout-resume) .project-card .project-card-img {
+  border-bottom: 1px solid var(--border-color);
+}
+
+body main:not(.layout-resume) .project-card > .project-card-title,
+body main:not(.layout-resume) .project-card > .project-card-text {
+  padding: 0 1.25rem;
+  text-align: left;
+}
+
+body main:not(.layout-resume) .project-card > .project-card-title {
+  margin: 1rem 0 .4rem;
+  font-size: 1.125rem;
+  line-height: 1.3;
+}
+
+body main:not(.layout-resume) .project-card > .project-card-title a {
+  text-decoration: none;
+}
+
+body main:not(.layout-resume) .project-card > .project-card-text {
+  margin: 0;
+  font-size: .875rem;
+  line-height: 1.6;
+}
+
 // The ornament under a page only separates a post or project from what follows it.
 main:not(.layout-post):not(.layout-project) hr.dingbat { display: none; }
 

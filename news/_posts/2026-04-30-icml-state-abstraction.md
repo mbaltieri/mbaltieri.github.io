@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Paper accepted at ICML 2026"
+kind:   Paper
 image: /assets/img/blog/2026-icml-state-abstraction-poster.jpg
 date:   2026-04-30
 excerpt: "Paper on state abstraction in reinforcement learning accepted at ICML 2026"

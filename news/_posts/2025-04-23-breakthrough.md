@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Talk at Breakthrough Initiatives"
+kind:   Talk
 image: /assets/img/blog/breakthroughdiscuss.png
 date:   2025-04-23
 excerpt: "Talk at Breakthrough Initiatives"

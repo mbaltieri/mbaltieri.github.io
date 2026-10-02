@@ -1,6 +1,7 @@
 ---
 layout: post
 title:  "Publication in the Journal of Consciousness Studies"
+kind:   Paper
 image: /assets/img/blog/2026-stream-computation-architecture.jpg
 date:   2026-07-30
 excerpt: "Temporal continuity as a missing ingredient for artificial consciousness"
