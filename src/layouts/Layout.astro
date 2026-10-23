@@ -53,5 +53,18 @@ const { language, textDirection } = I18N;
     <slot />
 
     <Intersect />
+
+    <script>
+      // Printing always uses the light theme: the dark one would put pale text on white paper.
+      const root = document.documentElement;
+      let wasDark = false;
+      window.addEventListener('beforeprint', () => {
+        wasDark = root.classList.contains('dark');
+        root.classList.remove('dark');
+      });
+      window.addEventListener('afterprint', () => {
+        if (wasDark) root.classList.add('dark');
+      });
+    </script>
   </body>
 </html>

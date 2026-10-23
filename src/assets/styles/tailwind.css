@@ -150,3 +150,43 @@
   color: var(--shiki-dark) !important;
   background-color: var(--shiki-dark-bg) !important;
 }
+
+/* Printing: paper is light, so print with the light colours whatever the screen uses (the
+   theme class itself is removed while printing, see Layout.astro). Content that fades in on
+   scroll is shown wherever the page was scrolled to, and the header and footer are left out. */
+@media print {
+  @page {
+    margin: 14mm 14mm 16mm;
+  }
+
+  html {
+    font-size: 10pt;
+  }
+
+  :root,
+  .dark {
+    --aw-color-primary: rgb(31 96 103);
+    --aw-color-secondary: rgb(31 96 103);
+    --aw-color-accent: rgb(201 132 18);
+    --aw-color-text-heading: rgb(0 0 0);
+    --aw-color-text-default: rgb(20 20 20);
+    --aw-color-text-muted: rgb(20 20 20 / 75%);
+    --aw-color-bg-page: rgb(255 255 255);
+  }
+
+  body {
+    background: #fff !important;
+  }
+
+  #header,
+  footer,
+  .print-hidden {
+    display: none !important;
+  }
+
+  [class*='intersect'] {
+    opacity: 1 !important;
+    animation: none !important;
+    transform: none !important;
+  }
+}

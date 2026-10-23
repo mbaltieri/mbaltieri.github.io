@@ -36,18 +36,39 @@ const educationItems = education.map((school) => ({
   icon: 'tabler:school',
 }));
 
+// On paper a link is no use, so the address is printed after it.
 const publicationItems = publications.map((entry) => ({
-  title: link(entry.name, entry.website),
+  title:
+    link(entry.name, entry.website) +
+    (entry.website
+      ? ` <span class="hidden print:inline font-normal">(${escapeHtml(entry.website.replace(/^https?:\/\//, '').replace(/\/$/, ''))})</span>`
+      : ''),
   icon: 'tabler:books',
 }));
 
 // All sections share one column and one left-aligned heading, whichever widget draws them.
-const column = { container: 'max-w-3xl' };
-const listColumn = { ...column, headline: { container: 'text-left rtl:text-right max-w-none md:mx-0 mb-0 md:mb-0' } };
+// The `print:` classes make the same sections compact on paper: the timelines keep their shape,
+// with smaller type and spacing, and no entry is split across two pages.
+const printHeadline = { title: 'text-3xl lg:text-4xl print:text-lg' };
+const column = {
+  container: 'max-w-3xl print:max-w-none print:px-0 print:py-3',
+  headline: { container: 'text-left rtl:text-right print:mb-3', ...printHeadline },
+  items: {
+    panel: 'print:break-inside-avoid',
+    title: 'print:text-base',
+    description: 'print:mt-1 print:text-sm',
+    icon: 'text-primary dark:text-slate-200 border-primary/40 dark:border-primary/60 print:h-7 print:w-7 print:p-1',
+  },
+};
+const listColumn = {
+  container: 'max-w-3xl print:max-w-none print:px-0 print:py-3',
+  headline: { container: 'text-left rtl:text-right max-w-none md:mx-0 mb-0 md:mb-0', ...printHeadline },
+};
 ---
 
 <Layout metadata={metadata}>
   <Hero
+    id="resume-hero"
     tagline="Resume"
     title={escapeHtml(basics.name)}
     subtitle={`${escapeHtml(basics.label)}${location ? `<br /><span class="text-base">${escapeHtml(location)}</span>` : ''}`}
@@ -59,8 +80,12 @@ const listColumn = { ...column, headline: { container: 'text-left rtl:text-right
   />
 
   {/* Not in a WidgetWrapper: its `not-prose` would remove the bullets of the list. */}
-  <section class="mx-auto max-w-3xl px-4 md:px-6">
-    <div class="prose prose-lg dark:prose-invert max-w-none" set:html={summary} />
+  <section class="mx-auto max-w-3xl px-4 md:px-6 print:max-w-none print:px-0">
+    <header class="hidden print:block print:mb-3">
+      <h1 class="font-heading text-2xl font-semibold text-heading">{basics.name}</h1>
+      <p class="text-sm text-muted">{[basics.label, location].filter(Boolean).join(' · ')}</p>
+    </header>
+    <div class="prose prose-lg print:prose-sm dark:prose-invert max-w-none" set:html={summary} />
   </section>
 
   <Steps id="work" title="Work" items={workItems} classes={column} />
@@ -100,3 +125,37 @@ const listColumn = { ...column, headline: { container: 'text-left rtl:text-right
     }))}
   />
 </Layout>
+
+<style is:global>
+  /* On paper: the screen banner gives way to the short header above, and the grids of skills,
+     languages and interests close up. */
+  @media print {
+    #resume-hero {
+      display: none;
+    }
+    #skills .grid,
+    #languages .grid,
+    #interests .grid {
+      margin-top: 0.5rem;
+      gap: 0.4rem 1.5rem;
+    }
+    #languages .grid,
+    #interests .grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    #skills .grid > *,
+    #languages .grid > *,
+    #interests .grid > * {
+      break-inside: avoid;
+    }
+    #publications,
+    #skills,
+    #languages,
+    #interests {
+      break-inside: avoid;
+    }
+    h2 {
+      break-after: avoid;
+    }
+  }
+</style>
