@@ -1,0 +1,102 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Hero from '~/components/widgets/Hero.astro';
+import Steps from '~/components/widgets/Steps.astro';
+import Features3 from '~/components/widgets/Features3.astro';
+import { resume, resumeDates } from '~/utils/resume';
+import { escapeHtml, inlineMarkdown, markdown } from '~/utils/markdown';
+
+// Everything on this page comes from src/data/resume.yaml. As on the Jekyll site, the contact
+// details are left off and only the location is shown. They stay in the data, so they are
+// still in /assets/resume.json and in the profile links of the home page.
+
+const metadata = {
+  title: 'Resume',
+  description: "Manuel Baltieri's resume.",
+};
+
+const { basics, work = [], education = [], publications = [], skills = [], languages = [], interests = [] } = resume;
+
+const location = [basics.location?.city, basics.location?.countryCode].filter(Boolean).join(', ');
+const summary = await markdown(basics.summary);
+
+const link = (text: string, href?: string) =>
+  href ? `<a class="hover:underline" href="${escapeHtml(href)}">${escapeHtml(text)}</a>` : escapeHtml(text);
+
+const workItems = await Promise.all(
+  work.map(async (job) => ({
+    title: `${escapeHtml(job.position)} <br /> <span class="font-normal">${link(job.company, job.website)}</span> <br /> <span class="text-sm font-normal">${resumeDates(job.startDate, job.endDate)}</span>`,
+    description: job.summary ? await inlineMarkdown(job.summary) : undefined,
+    icon: 'tabler:briefcase',
+  }))
+);
+
+const educationItems = education.map((school) => ({
+  title: `${escapeHtml(school.studyType)} in ${escapeHtml(school.area)} <br /> <span class="font-normal">${escapeHtml(school.institution)}</span> <br /> <span class="text-sm font-normal">${resumeDates(school.startDate, school.endDate)}</span>`,
+  icon: 'tabler:school',
+}));
+
+const publicationItems = publications.map((entry) => ({
+  title: link(entry.name, entry.website),
+  icon: 'tabler:books',
+}));
+
+// All sections share one column and one left-aligned heading, whichever widget draws them.
+const column = { container: 'max-w-3xl' };
+const listColumn = { ...column, headline: { container: 'text-left rtl:text-right max-w-none md:mx-0 mb-0 md:mb-0' } };
+---
+
+<Layout metadata={metadata}>
+  <Hero
+    tagline="Resume"
+    title={escapeHtml(basics.name)}
+    subtitle={`${escapeHtml(basics.label)}${location ? `<br /><span class="text-base">${escapeHtml(location)}</span>` : ''}`}
+    actions={[
+      { variant: 'primary', text: 'PDF', href: '/assets/Academic_CV.pdf', icon: 'tabler:file-type-pdf' },
+      { text: 'JSON', href: '/assets/resume.json', icon: 'tabler:braces' },
+      { text: 'Print', type: 'button', onclick: 'window.print()', icon: 'tabler:printer' },
+    ]}
+  />
+
+  {/* Not in a WidgetWrapper: its `not-prose` would remove the bullets of the list. */}
+  <section class="mx-auto max-w-3xl px-4 md:px-6">
+    <div class="prose prose-lg dark:prose-invert max-w-none" set:html={summary} />
+  </section>
+
+  <Steps id="work" title="Work" items={workItems} classes={column} />
+  <Steps id="education" title="Education" items={educationItems} classes={column} />
+  <Steps id="publications" title="Publications" items={publicationItems} classes={column} />
+
+  <Features3
+    id="skills"
+    title="Skills"
+    columns={2}
+    defaultIcon="tabler:point-filled"
+    classes={listColumn}
+    items={skills.map((skill) => ({
+      title: escapeHtml(skill.name),
+      description: escapeHtml([skill.level, (skill.keywords ?? []).join(', ')].filter(Boolean).join(' · ')),
+    }))}
+  />
+
+  <Features3
+    id="languages"
+    title="Languages"
+    columns={3}
+    defaultIcon="tabler:language"
+    classes={listColumn}
+    items={languages.map((entry) => ({ title: escapeHtml(entry.language), description: escapeHtml(entry.fluency) }))}
+  />
+
+  <Features3
+    id="interests"
+    title="Interests"
+    columns={3}
+    defaultIcon="tabler:heart"
+    classes={listColumn}
+    items={interests.map((entry) => ({
+      title: escapeHtml(entry.name),
+      description: escapeHtml((entry.keywords ?? []).join(', ')),
+    }))}
+  />
+</Layout>

@@ -1,0 +1,74 @@
+site:
+  name: Manuel Baltieri
+  site: 'https://manuelbaltieri.com'
+  base: '/'
+  # The addresses of the Jekyll site ended in a slash (/about/, /news/...), so these do too.
+  trailingSlash: true
+
+# Default SEO metadata
+metadata:
+  title:
+    default: Manuel Baltieri
+    template: '%s | Manuel Baltieri'
+  description: 'Research team leader at Araya working on mathematical approaches to agency, cognition, life, and AI safety.'
+  robots:
+    index: true
+    follow: true
+  openGraph:
+    site_name: Manuel Baltieri
+    images:
+      - url: '/assets/img/social-card.jpg'
+        width: 1200
+        height: 630
+    type: website
+  twitter:
+    handle: '@manuelbaltieri'
+    site: '@manuelbaltieri'
+    cardType: summary_large_image
+
+i18n:
+  language: en
+  textDirection: ltr
+
+# The "blog" of the template is the News section of this site.
+apps:
+  blog:
+    isEnabled: true
+    postsPerPage: 10
+
+    post:
+      isEnabled: true
+      # %id% is the file name in src/data/post/ without the extension, as in /news/2026-08-30-mathematical-agents/.
+      permalink: '/news/%id%'
+      robots:
+        index: true
+
+    list:
+      isEnabled: true
+      pathname: 'news'
+      robots:
+        index: true
+
+    # The category of a post is its kind: Paper, Talk, Organising, ...
+    category:
+      isEnabled: true
+      pathname: 'news/category'
+      robots:
+        index: true
+
+    tag:
+      isEnabled: true
+      pathname: 'news/tag'
+      robots:
+        index: false
+
+    isRelatedPostsEnabled: true
+    relatedPostsCount: 4
+
+analytics:
+  vendors:
+    googleAnalytics:
+      id: null # or "G-XXXXXXXXXX"
+
+ui:
+  theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"

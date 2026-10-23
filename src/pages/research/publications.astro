@@ -1,0 +1,26 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import Headline from '~/components/blog/Headline.astro';
+import PublicationList from '~/components/publications/PublicationList.astro';
+
+// The entries are in src/data/publications.yaml.
+//
+// Kept from the Jekyll page, where it was commented out:
+//   Currently in preparation
+//   - Modularity, the separation principle and active inference, Baltieri M. and Buckley C. L., (in prep.)
+//   - A ladder of uncertainty: models of perception and behaviour for increasingly complex
+//     environments, Baltieri M., Seth. A.K., Roseboom W. (in prep.)
+
+const metadata = {
+  title: 'Publications',
+  description:
+    'Selected publications, conference papers, journal articles, preprints, commentaries, and edited volumes by Manuel Baltieri.',
+};
+---
+
+<Layout metadata={metadata}>
+  <section class="px-4 md:px-6 py-12 sm:py-16 lg:py-20 mx-auto max-w-4xl">
+    <Headline>Publications</Headline>
+    <PublicationList />
+  </section>
+</Layout>

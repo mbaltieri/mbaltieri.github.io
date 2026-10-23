@@ -1,0 +1,127 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Features2 from '~/components/widgets/Features2.astro';
+import ResearchMap from '~/components/widgets/ResearchMap.astro';
+import type { ResearchField } from '~/components/widgets/ResearchMap.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+const metadata = {
+  title: 'Research',
+  description:
+    "Manuel Baltieri's research on mathematical foundations of agency, cognition, artificial life, and AI safety in agent-environment systems.",
+};
+
+const fields: Array<ResearchField> = [
+  {
+    id: 'mathematics-of-agents',
+    number: '01',
+    name: 'Maths',
+    keywords: 'Category theory, control, probability',
+    title: 'Mathematics for agents',
+    text: 'Different mathematical languages reveal different aspects of agency. Category theory describes systems and processes, their compositional patterns and universal properties. Control theory formalises feedback and regulation, while Bayesian inference captures uncertainty and learning patterns.',
+    papers: [
+      { title: 'Mathematical approaches to the study of agents', href: 'https://osf.io/rqu7s_v2' },
+      { title: 'Bayesian updates from coalgebraic determinisation', href: 'https://arxiv.org/abs/2607.00034' },
+    ],
+  },
+  {
+    id: 'cognition-and-control',
+    number: '02',
+    name: 'Cognition',
+    keywords: 'Inference, control, representations',
+    title: 'Cognition and control',
+    text: 'Perception, action, and minimal cognition are studied with control theory, Bayesian reasoning, and dynamical systems. This includes examining when a controller can be said to contain an internal model and how causal representations support adaptive behaviour in natural and artificial agents.',
+    papers: [
+      { title: 'A Bayesian Interpretation of the Internal Model Principle', href: 'https://arxiv.org/abs/2503.00511' },
+      {
+        title: 'Disentangled Representations for Causal Cognition',
+        href: '/assets/pdf/DisentanglementCausalCognition.pdf',
+      },
+    ],
+  },
+  {
+    id: 'artificial-life',
+    number: '03',
+    name: '(A)Life',
+    keywords: 'Autonomy, regulation, organisation',
+    title: 'Artificial life',
+    text: 'Research on living systems sharpens questions about autonomy, individuality and regulation. The focus is on whether concepts from cybernetics, information and control theory can explain what separates living from non-living systems.',
+    papers: [
+      {
+        title: 'Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems',
+        href: '/assets/pdf/HybridLifeWIREs.pdf',
+      },
+      { title: 'A Braitenberg vehicle’s habitat', href: '/assets/pdf/BraitenbergHabitat.pdf' },
+    ],
+  },
+  {
+    id: 'agent-foundations-for-ai-safety',
+    number: '04',
+    name: 'AI safety',
+    keywords: 'Agent foundations, abstractions, capabilities',
+    title: 'Agent foundations',
+    text: 'Formal foundations are being developed for identifying AI agents in and among modern AI systems, together with their boundaries, goals and models, in order to estimate their capabilities and improve interpretability. The aim is to make safety questions precise enough to analyse and test.',
+    papers: [
+      {
+        title: 'Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning',
+        href: 'https://openreview.net/pdf?id=kovefbSXbQ',
+      },
+      {
+        title: 'AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and interpretability',
+        href: 'https://arxiv.org/abs/2504.04608',
+      },
+      {
+        title: 'World models of environment, agent and joint agent-environment systems',
+        href: '/assets/pdf/WorldModels.pdf',
+      },
+    ],
+  },
+];
+---
+
+<Layout metadata={metadata}>
+  <HeroText title="Research">
+    <Fragment slot="subtitle">
+      <span class="block text-xl md:text-2xl text-heading">
+        Studying how agents can be identified, modelled, and composed, and what those formal choices imply for
+        cognition, living systems, and AI safety.
+      </span>
+      <span class="block mt-4">
+        Manuel focuses on coupled open agent–environment systems that compose to form autonomous systems. This makes it
+        possible to ask where a boundary comes from, what counts as a model or a goal, and which properties belong to a
+        system rather than to the observer describing it.
+      </span>
+    </Fragment>
+  </HeroText>
+
+  <Features2
+    columns={3}
+    items={[
+      {
+        title: 'Publications',
+        description: 'Journal articles, conference papers, and preprints',
+        icon: 'tabler:file-text',
+        href: getPermalink('/research/publications'),
+      },
+      {
+        title: 'Talks',
+        description: 'Invited talks, lectures, and conference slides',
+        icon: 'tabler:presentation',
+        href: getPermalink('/research/talks'),
+      },
+      {
+        title: 'Projects',
+        description: 'Longer introductions to current and recent work',
+        icon: 'tabler:folders',
+        href: getPermalink('/projects'),
+      },
+    ]}
+    classes={{ container: 'max-w-5xl' }}
+  />
+
+  <ResearchMap
+    label="Research agenda connecting agent-environment systems with mathematics, cognition, artificial life, and AI safety"
+    fields={fields}
+  />
+</Layout>

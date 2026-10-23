@@ -1,0 +1,22 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Projects from '~/components/widgets/Projects.astro';
+import { fetchProjects, projectCard } from '~/utils/projects';
+
+const description =
+  'A few research ideas explored in the past, actively investigated at the moment, or planned in the future. Biology, cognitive science and physics, using information theory, control theory and dynamical systems analysis.';
+
+const metadata = {
+  title: 'Projects',
+  description,
+  openGraph: { images: [{ url: '/assets/img/blog/agentcontrol.png' }] },
+};
+
+const projects = await fetchProjects();
+---
+
+<Layout metadata={metadata}>
+  <HeroText title="Projects" subtitle={description} />
+  <Projects columns={2} items={projects.map(projectCard)} classes={{ container: 'max-w-5xl' }} />
+</Layout>

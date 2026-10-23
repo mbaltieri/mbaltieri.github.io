@@ -1,0 +1,17 @@
+---
+import { twMerge } from 'tailwind-merge';
+import Item from '~/components/blog/GridItem.astro';
+import type { Post } from '~/types';
+
+export interface Props {
+  posts: Array<Post>;
+  /** Classes merged into the grid's own, e.g. `lg:grid-cols-2`. */
+  class?: string;
+}
+
+const { posts, class: className = '' } = Astro.props;
+---
+
+<div class={twMerge('grid gap-6 row-gap-5 md:grid-cols-2 lg:grid-cols-4 -mb-6', className)}>
+  {posts.map((post) => <Item post={post} />)}
+</div>

@@ -1,0 +1,137 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+
+import Hero from '~/components/widgets/Hero.astro';
+import Projects from '~/components/widgets/Projects.astro';
+import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import StructuredData from '~/components/common/StructuredData.astro';
+import { SITE, I18N } from 'astrowind:config';
+import { getPermalink, getBlogPermalink } from '~/utils/permalinks';
+import { fetchProjects, projectCard } from '~/utils/projects';
+import { resume } from '~/utils/resume';
+
+const metadata = {
+  title: SITE?.name,
+  ignoreTitleTemplate: true,
+};
+
+// The site and its owner, for search engines. The profile links are those of src/data/resume.yaml.
+const personId = `${SITE?.site}/#person`;
+const [currentJob] = resume.work ?? [];
+const structuredData = [
+  {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': `${SITE?.site}/#website`,
+    name: SITE?.name,
+    url: SITE?.site,
+    inLanguage: I18N?.language,
+    publisher: { '@id': personId },
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    '@id': personId,
+    name: resume.basics.name,
+    url: SITE?.site,
+    ...(resume.basics.picture ? { image: new URL(resume.basics.picture, SITE?.site).toString() } : {}),
+    ...(currentJob
+      ? {
+          jobTitle: currentJob.position,
+          worksFor: { '@type': 'Organization', name: currentJob.company, url: currentJob.website },
+        }
+      : {}),
+    sameAs: (resume.basics.profiles ?? []).map((profile) => profile.url),
+  },
+];
+
+const currentProjects = (await fetchProjects()).slice(0, 2);
+---
+
+<Layout metadata={metadata}>
+  <StructuredData slot="head" schema={structuredData} />
+
+  <Hero
+    tagline="Agent foundations"
+    title="What makes a system an agent?"
+    actions={[
+      { variant: 'primary', text: 'Explore research', href: getPermalink('/research') },
+      { text: 'Vision', href: getPermalink('/vision') },
+      { text: 'Resume', href: getPermalink('/resume') },
+    ]}
+    image={{
+      src: '~/assets/images/braitenberg-glider.jpg',
+      alt: 'Line drawing of a brain made of circuit tracks, linked to a Braitenberg vehicle, a brain, a planet, a microorganism, a network of cubes, a plant and a grid of squares',
+    }}
+  >
+    <Fragment slot="subtitle">
+      <span class="block">
+        Manuel develops mathematical theories for understanding agency: how agents are distinguished from their
+        environments, what they model and how they pursue goals, and how these ideas can support safer AI.
+      </span>
+      <span class="block mt-4 text-lg">
+        His research at Araya and as an ARIA R&amp;D Creator connects category theory, control, probability, dynamical
+        systems, cognitive science, and artificial life.
+      </span>
+    </Fragment>
+  </Hero>
+
+  <Projects
+    id="selected-work"
+    title="Selected work"
+    columns={2}
+    items={[
+      {
+        tags: ['Maths'],
+        title: 'Mathematical approaches to the study of agents',
+        description: 'A review of mathematical approaches to studying agents across research fields.',
+        href: 'https://osf.io/rqu7s_v2',
+        linkText: 'Read the preprint',
+      },
+      {
+        tags: ['Cognition'],
+        title: 'Disentangled representations for causal cognition',
+        description:
+          'Relating causal representation learning to how natural and artificial agents acquire causal knowledge.',
+        href: '/assets/pdf/DisentanglementCausalCognition.pdf',
+        linkText: 'Read the paper',
+      },
+      {
+        tags: ['(A)Life'],
+        title: 'Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems',
+        description:
+          'A synthesis of biological, artificial, and cognitive perspectives on life and the formal languages that can connect them.',
+        href: '/assets/pdf/HybridLifeWIREs.pdf',
+        linkText: 'Read the paper',
+      },
+      {
+        tags: ['AI safety'],
+        title: 'Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning',
+        description:
+          'A unified framework for behavioural structures in reinforcement learning and their safe transfer between abstract and concrete systems.',
+        href: 'https://openreview.net/pdf?id=kovefbSXbQ',
+        linkText: 'Read the paper',
+      },
+    ]}
+    callToAction={{ text: 'All publications', href: getPermalink('/research/publications') }}
+    classes={{ container: 'max-w-5xl' }}
+  />
+
+  <BlogLatestPosts
+    id="latest-news"
+    title="Latest news"
+    linkText="All news"
+    linkUrl={getBlogPermalink()}
+    count={2}
+    classes={{ container: 'max-w-5xl', grid: 'lg:grid-cols-2' }}
+  />
+
+  <Projects
+    id="current-projects"
+    title="Current projects"
+    columns={2}
+    items={currentProjects.map(projectCard)}
+    callToAction={{ text: 'All projects', href: getPermalink('/projects') }}
+    classes={{ container: 'max-w-5xl' }}
+  />
+</Layout>

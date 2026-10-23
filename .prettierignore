@@ -1,7 +1,9 @@
-package.json
+dist
+node_modules
+.github
+.changeset
+# Markdown content is written by hand (four-space indentation). Prettier leaves it alone.
 *.md
-*.html
-*.scss
-*.css
-*.yml
-_js/lib
+*.mdx
+# The data files are edited by hand, with their own comments and quoting.
+src/data/*.yaml
