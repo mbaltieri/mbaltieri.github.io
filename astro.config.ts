@@ -57,6 +57,15 @@ export default defineConfig({
       subsets: ['latin'],
       fallbacks: ['sans-serif'],
     },
+    {
+      provider: fontProviders.fontsource(),
+      name: 'Space Grotesk',
+      cssVariable: '--font-space-grotesk',
+      weights: ['500', '600'],
+      styles: ['normal'],
+      subsets: ['latin'],
+      fallbacks: ['sans-serif'],
+    },
   ],
 
   integrations: [

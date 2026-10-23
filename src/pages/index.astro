@@ -1,13 +1,17 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 
-import Hero from '~/components/widgets/Hero.astro';
-import Projects from '~/components/widgets/Projects.astro';
-import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
+import HeroVehicles from '~/components/widgets/HeroVehicles.astro';
+import AgentEnvironment from '~/components/widgets/AgentEnvironment.astro';
+import FeatureTabs from '~/components/widgets/FeatureTabs.astro';
+import Timeline from '~/components/widgets/Timeline.astro';
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import Headline from '~/components/ui/Headline.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
 import { SITE, I18N } from 'astrowind:config';
 import { getPermalink, getBlogPermalink } from '~/utils/permalinks';
-import { fetchProjects, projectCard } from '~/utils/projects';
+import { fetchPosts } from '~/utils/blog';
+import { getFormattedDate } from '~/utils/utils';
 import { resume } from '~/utils/resume';
 
 const metadata = {
@@ -17,7 +21,6 @@ const metadata = {
 
 // The site and its owner, for search engines. The profile links are those of src/data/resume.yaml.
 const personId = `${SITE?.site}/#person`;
-const [currentJob] = resume.work ?? [];
 const structuredData = [
   {
     '@context': 'https://schema.org',
@@ -35,103 +38,132 @@ const structuredData = [
     name: resume.basics.name,
     url: SITE?.site,
     ...(resume.basics.picture ? { image: new URL(resume.basics.picture, SITE?.site).toString() } : {}),
-    ...(currentJob
-      ? {
-          jobTitle: currentJob.position,
-          worksFor: { '@type': 'Organization', name: currentJob.company, url: currentJob.website },
-        }
-      : {}),
     sameAs: (resume.basics.profiles ?? []).map((profile) => profile.url),
   },
 ];
 
-const currentProjects = (await fetchProjects()).slice(0, 2);
+const link = (text: string, href: string) => `<a class="text-primary hover:underline" href="${href}">${text}</a>`;
+
+// The fields of the Research page, by the anchors of their cards there.
+const fields = [
+  { label: 'Maths', href: getPermalink('/research') + '#mathematics-of-agents' },
+  { label: 'Cognition', href: getPermalink('/research') + '#cognition-and-control' },
+  { label: 'Artificial Life', href: getPermalink('/research') + '#artificial-life' },
+  { label: 'AI safety', href: getPermalink('/research') + '#agent-foundations-for-ai-safety' },
+];
+
+const selectedWork = [
+  {
+    title: 'Mathematical approaches to the study of agents',
+    description: 'A review of mathematical approaches to studying agents across research fields.',
+    icon: 'tabler:math-function',
+    caption: 'Philosophical Transactions of the Royal Society B · 2026, to appear',
+    callToAction: { text: 'Read the preprint', href: 'https://osf.io/rqu7s_v2' },
+    image: {
+      src: '~/assets/images/agents-artwork.jpg',
+      alt: 'Line drawing of a brain made of circuit tracks, linked to a small vehicle, a brain, a planet, a microorganism, a network of cubes, a plant and a grid of squares',
+    },
+  },
+  {
+    title: 'Disentangled representations for causal cognition',
+    description:
+      'Relating causal representation learning to how natural and artificial agents acquire causal knowledge.',
+    icon: 'tabler:brain',
+    caption: 'Physics of Life Reviews · 2024',
+    callToAction: { text: 'Read the paper', href: '/assets/pdf/DisentanglementCausalCognition.pdf' },
+    image: {
+      src: '~/assets/images/blog/disentanglement/disentanglementsketch-cover.jpg',
+      alt: 'Sketch from the paper',
+    },
+  },
+  {
+    title: 'Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems',
+    description:
+      'A synthesis of biological, artificial, and cognitive perspectives on life and the formal languages that can connect them.',
+    icon: 'tabler:plant-2',
+    caption: 'WIREs Cognitive Science · 2023',
+    callToAction: { text: 'Read the paper', href: '/assets/pdf/HybridLifeWIREs.pdf' },
+    image: { src: '~/assets/images/blog/HybridLifeNew.jpg', alt: 'Illustration of hybrid life' },
+  },
+  {
+    title: 'Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning',
+    description:
+      'A unified framework for behavioural structures in reinforcement learning and their safe transfer between abstract and concrete systems.',
+    icon: 'tabler:shield-check',
+    caption: 'International Conference on Machine Learning (ICML) · 2026',
+    callToAction: { text: 'Read the paper', href: 'https://openreview.net/pdf?id=kovefbSXbQ' },
+    image: { src: '~/assets/images/blog/2026-icml-state-abstraction-poster.jpg', alt: 'Poster of the paper' },
+  },
+];
+
+// Latest news, leaving out what Selected work already shows: nothing appears twice on this page.
+const shown = new Set(selectedWork.map(({ title }) => title.toLowerCase()));
+const latestNews = (await fetchPosts()).filter((post) => !shown.has(post.title.toLowerCase())).slice(0, 3);
 ---
 
 <Layout metadata={metadata}>
   <StructuredData slot="head" schema={structuredData} />
 
-  <Hero
-    tagline="Agent foundations"
-    title="What makes a system an agent?"
+  <HeroVehicles
+    title="What does<br />an agent<br />model?"
+    subtitle="Manuel develops mathematical theories for understanding agency: how agents are distinguished from their environments, what they model and how they pursue goals, and how these ideas can support safer AI."
     actions={[
       { variant: 'primary', text: 'Explore research', href: getPermalink('/research') },
       { text: 'Vision', href: getPermalink('/vision') },
       { text: 'Resume', href: getPermalink('/resume') },
     ]}
-    image={{
-      src: '~/assets/images/braitenberg-glider.jpg',
-      alt: 'Line drawing of a brain made of circuit tracks, linked to a Braitenberg vehicle, a brain, a planet, a microorganism, a network of cubes, a plant and a grid of squares',
-    }}
-  >
-    <Fragment slot="subtitle">
-      <span class="block">
-        Manuel develops mathematical theories for understanding agency: how agents are distinguished from their
-        environments, what they model and how they pursue goals, and how these ideas can support safer AI.
-      </span>
-      <span class="block mt-4 text-lg">
-        His research at Araya and as an ARIA R&amp;D Creator connects category theory, control, probability, dynamical
-        systems, cognitive science, and artificial life.
-      </span>
-    </Fragment>
-  </Hero>
+  />
 
-  <Projects
+  <WidgetWrapper id="research-agenda" containerClass="max-w-6xl">
+    <Headline title="Research agenda" subtitle={link('Research overview', getPermalink('/research'))} />
+    <div class="grid gap-10 md:grid-cols-2 md:gap-16">
+      <div>
+        <p class="font-heading text-2xl md:text-3xl font-medium leading-snug text-heading">
+          Studying how agents can be identified, modelled, and composed, and what those formal choices imply for
+          cognition, living systems, and AI safety.
+        </p>
+        <p class="mt-5 text-lg text-muted">
+          His research connects category theory, control, probability, dynamical systems, cognitive science, and
+          artificial life.
+        </p>
+      </div>
+      <div>
+        <p class="text-lg text-muted">
+          Manuel focuses on coupled open agent–environment systems that compose to form autonomous systems. This makes
+          it possible to ask:
+        </p>
+        <ul
+          class="mt-4 divide-y divide-gray-200 border-y border-gray-200 dark:divide-slate-700 dark:border-slate-700 font-heading text-lg md:text-xl font-medium text-heading"
+        >
+          <li class="py-3">Where does a boundary come from?</li>
+          <li class="py-3">What counts as a model or a goal?</li>
+          <li class="py-3">Which properties belong to a system rather than to the observer describing it?</li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-16 md:mt-24">
+      <AgentEnvironment fields={fields} />
+    </div>
+  </WidgetWrapper>
+
+  <FeatureTabs
     id="selected-work"
     title="Selected work"
-    columns={2}
-    items={[
-      {
-        tags: ['Maths'],
-        title: 'Mathematical approaches to the study of agents',
-        description: 'A review of mathematical approaches to studying agents across research fields.',
-        href: 'https://osf.io/rqu7s_v2',
-        linkText: 'Read the preprint',
-      },
-      {
-        tags: ['Cognition'],
-        title: 'Disentangled representations for causal cognition',
-        description:
-          'Relating causal representation learning to how natural and artificial agents acquire causal knowledge.',
-        href: '/assets/pdf/DisentanglementCausalCognition.pdf',
-        linkText: 'Read the paper',
-      },
-      {
-        tags: ['(A)Life'],
-        title: 'Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems',
-        description:
-          'A synthesis of biological, artificial, and cognitive perspectives on life and the formal languages that can connect them.',
-        href: '/assets/pdf/HybridLifeWIREs.pdf',
-        linkText: 'Read the paper',
-      },
-      {
-        tags: ['AI safety'],
-        title: 'Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning',
-        description:
-          'A unified framework for behavioural structures in reinforcement learning and their safe transfer between abstract and concrete systems.',
-        href: 'https://openreview.net/pdf?id=kovefbSXbQ',
-        linkText: 'Read the paper',
-      },
-    ]}
-    callToAction={{ text: 'All publications', href: getPermalink('/research/publications') }}
-    classes={{ container: 'max-w-5xl' }}
+    subtitle={link('All publications', getPermalink('/research/publications'))}
+    items={selectedWork}
+    classes={{ container: 'max-w-6xl' }}
   />
 
-  <BlogLatestPosts
+  <Timeline
     id="latest-news"
     title="Latest news"
-    linkText="All news"
-    linkUrl={getBlogPermalink()}
-    count={2}
-    classes={{ container: 'max-w-5xl', grid: 'lg:grid-cols-2' }}
-  />
-
-  <Projects
-    id="current-projects"
-    title="Current projects"
-    columns={2}
-    items={currentProjects.map(projectCard)}
-    callToAction={{ text: 'All projects', href: getPermalink('/projects') }}
-    classes={{ container: 'max-w-5xl' }}
+    subtitle={link('All news', getBlogPermalink())}
+    items={latestNews.map((post, index) => ({
+      date: [getFormattedDate(post.publishDate), post.category?.title].filter(Boolean).join(' · '),
+      title: post.title,
+      href: getPermalink(post.permalink, 'post'),
+      description: post.excerptHtml,
+      highlight: index === 0,
+    }))}
   />
 </Layout>

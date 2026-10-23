@@ -31,7 +31,7 @@ const { label, fields, id, isDark = false, classes = {}, bg = await Astro.slots.
     <div
       class="mx-auto max-w-xl rounded-xl border border-gray-200 bg-white p-6 text-center shadow-sm dark:border-slate-700 dark:bg-slate-900"
     >
-      <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-blue-200">Formal focus</p>
+      <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-primary">Formal focus</p>
       <p
         class="mt-2 font-heading text-2xl font-bold text-heading md:text-3xl"
         role="img"
@@ -50,7 +50,7 @@ const { label, fields, id, isDark = false, classes = {}, bg = await Astro.slots.
             data-field={field.id}
             class="flex flex-col rounded-xl border border-gray-200 bg-white p-4 shadow-sm transition hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-md aria-expanded:border-primary aria-expanded:ring-2 aria-expanded:ring-primary/30 dark:border-slate-700 dark:bg-slate-900"
           >
-            <span class="text-sm font-bold text-primary dark:text-blue-400" aria-hidden="true">
+            <span class="text-sm font-bold text-primary dark:text-primary" aria-hidden="true">
               {field.number}
             </span>
             <strong class="mt-1 text-lg text-heading">{field.name}</strong>
@@ -71,7 +71,7 @@ const { label, fields, id, isDark = false, classes = {}, bg = await Astro.slots.
             aria-labelledby={`${field.id}-title`}
             class="scroll-mt-24 rounded-xl border border-gray-200 bg-white p-6 shadow-sm motion-safe:animate-fade dark:border-slate-700 dark:bg-slate-900 md:p-8"
           >
-            <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-blue-200">
+            <p class="text-sm font-bold uppercase tracking-wide text-secondary dark:text-primary">
               {field.number} · {field.name}
             </p>
             <h2 id={`${field.id}-title`} class="mt-1 font-heading text-2xl font-bold text-heading">
@@ -81,7 +81,7 @@ const { label, fields, id, isDark = false, classes = {}, bg = await Astro.slots.
             <ul class="mt-4 list-disc space-y-1 pl-5">
               {field.papers.map((paper) => (
                 <li>
-                  <a class="text-primary hover:underline dark:text-blue-400" href={paper.href}>
+                  <a class="text-primary hover:underline dark:text-primary" href={paper.href}>
                     {paper.title}
                   </a>
                 </li>

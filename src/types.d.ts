@@ -315,6 +315,8 @@ export interface Comparison extends Omit<Headline, 'classes'>, Widget {
 
 export interface FeatureTab extends Item {
   image?: Image;
+  /** Short line under the image of the panel, beside the call to action (a venue, a date). */
+  caption?: string;
 }
 
 export interface FeatureTabs extends Omit<Headline, 'classes'>, Widget {
@@ -371,6 +373,8 @@ export interface Team extends Omit<Headline, 'classes'>, Widget {
 export interface TimelineItem {
   date?: string;
   title?: string;
+  /** Makes the title a link. */
+  href?: string;
   description?: string;
   icon?: string;
   image?: string | Image;

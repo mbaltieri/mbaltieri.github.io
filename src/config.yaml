@@ -10,7 +10,7 @@ metadata:
   title:
     default: Manuel Baltieri
     template: '%s | Manuel Baltieri'
-  description: 'Research team leader at Araya working on mathematical approaches to agency, cognition, life, and AI safety.'
+  description: 'Studying how agents can be identified, modelled, and composed, and what those formal choices imply for cognition, living systems, and AI safety.'
   robots:
     index: true
     follow: true
