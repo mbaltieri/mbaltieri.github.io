@@ -42,6 +42,7 @@ LC_ALL=en_US.UTF-8 ruby .scripts/check-built-site.rb dist
 | Site name, address, blog switch        | `src/config.yaml`                                                        |
 | Menu and footer                        | `src/navigation.ts`                                                      |
 | Publications                           | `src/data/publications.yaml`                                             |
+| Areas of research and their questions  | `src/data/research.yaml`                                                 |
 | Resume (and `/assets/resume.json`)     | `src/data/resume.yaml`                                                   |
 | Home, Research, Publications, Resume   | `src/pages/index.astro`, `src/pages/research/`, `src/pages/resume.astro` |
 | Talks                                  | `src/pages/research/talks.md`                                            |

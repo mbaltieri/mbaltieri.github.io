@@ -1,0 +1,298 @@
+# The areas of research on the Research page (src/pages/research/index.astro), in the order of
+# their tabs, each with the questions it takes up. Pressing a question shows its answer.
+#
+# An area:
+#
+#   id          its address (/research/#artificial-life) and the drawing on its tab, one of
+#               mathematics-of-agents | cognition-and-control | artificial-life |
+#               agent-foundations-for-ai-safety
+#               (the drawings are in src/components/graphics/FieldGraphic.astro)
+#   number      printed before its name on the tab
+#   name        the name on the tab
+#   keywords    the line under the name
+#   title       the heading of the area once its tab is chosen
+#   text        its introduction
+#   questions   its questions, as below
+#   papers      optional, papers of the area that belong to none of its questions, listed under
+#               "Other papers", by title as below
+#
+# A question:
+#
+#   id          its address, as /research/#boundaries. Old addresses redirect to some of these
+#               (astro.config.ts), so a renamed id needs its redirects changed too.
+#   label       a short name for the question, used only in links to it
+#   question    the question as it is shown
+#   answer      paragraphs, in Markdown: [text](address) for a link, *text* for emphasis
+#   aside       optional, a remark set apart after the answer, in Markdown
+#   papers      optional, titles exactly as in src/data/publications.yaml (a title that is not
+#               there stops the build)
+#   links       optional, other links, each a text and an href
+#   linksNote   optional, a line over the links, saying what they are
+#   drawing     optional, a drawing beside the answer, one of fundamental-questions |
+#               agents-and-observers | agents-without-observers | origins-of-life |
+#               origins-of-cognition (src/components/graphics/VisionGraphic.astro)
+#
+# A long text starts with ">-" and goes on, indented, over the next lines, which are joined into
+# one paragraph. Quote a short text that has a colon followed by a space in it.
+
+- id: mathematics-of-agents
+  number: "01"
+  name: Maths
+  keywords: Category theory, control, probability
+  title: Mathematics for agents
+  text: >-
+    Different mathematical languages reveal different aspects of agency. Category theory describes
+    systems and processes, their compositional patterns and universal properties. Control theory
+    formalises feedback and regulation, while Bayesian inference captures uncertainty and learning
+    patterns.
+  questions:
+    - id: theories-of-agency
+      label: Theories of agency
+      question: How do we go from simple physics to agency?
+      answer:
+        - >-
+          Agency is central to biology, cognitive science and AI, yet no widely accepted formal
+          definition of agency or purpose exists. Agency is usually tied to the idea of a system
+          able to take an action, without saying what an action is: is a ball taking an action when
+          it falls to the ground, or when someone bounces it on a court?
+        - >-
+          Goals are often assumed simply to exist, without saying whether they are intrinsic
+          properties of a system or attributed to it by an observer, or whether the same system can
+          have different goals depending on who looks at it. A framework for these questions is
+          being built on categorical systems theory (see [David Jaz Myers’ draft
+          book](http://davidjaz.com/Papers/DynamicalBook.pdf) and [Matteo Capucci’s
+          notes](https://github.com/mattecapu/categorical-systems-theory)).
+      papers:
+        - Mathematical approaches to the study of agents
+      links:
+        - text: Lecture 1, Defining agency (PDF)
+          href: /assets/pdf/presentations/Lecture1_Baltieri.pdf
+        - text: Lecture 2, A history of studies of agency (PDF)
+          href: /assets/pdf/presentations/Lecture2_Baltieri.pdf
+        - text: Lecture 3, First-principles definitions of agents (PDF)
+          href: /assets/pdf/presentations/Lecture3_Baltieri.pdf
+      linksNote: >-
+        Lectures for the CHAIN Winter School on Minimal Cognition and Agency, Hokkaido University,
+        February 2023.
+    - id: agents-life-and-cognition
+      label: Agents, life and cognition
+      question: >-
+        Are there sharp lines between agents and non-agents, the living and the non-living, the
+        cognitive and the non-cognitive?
+      answer:
+        - >-
+          Formal definitions of agency, life and cognition come down to what separates agentic from
+          non-agentic systems, living from non-living organisms, and cognitive from non-cognitive
+          architectures. Do sharp distinctions between these classes exist, and are they meaningful?
+          If there are none, why are some systems perceived to be qualitatively different? And what
+          mathematical theories can bring out such apparent diversity?
+      drawing: fundamental-questions
+    - id: agents-and-observers
+      label: Agents and observers
+      question: What is the difference between an observer and an agent?
+      answer:
+        - >-
+          The frameworks used to study life and cognition, from information theory, control theory
+          and dynamical systems to (stochastic) thermodynamics and (applied) category theory, all
+          give observers a fundamental role: entropy in information theory and thermodynamics,
+          observability in dynamical systems, the very definition of a target state in control
+          theory. Can observers be defined in a way that unifies these notions? Can observers not be
+          agents? Is agency in the eye of the beholder, or an intrinsic property of a system?
+        - >-
+          Autopoietic proposals in theoretical biology and Bayesian frameworks in cognitive science
+          suggest further questions. Can intrinsic goals explain living and cognitive organisms
+          without observers? What does it mean for an agent to be autonomous? Can non-agents become
+          agents, and can non-agentic parts be composed into one?
+      aside: >-
+        Unpopular opinion: the concept of agency captures *mostly* just a series of choices made by
+        an observer (cf. intentional stance). Less unpopular opinion: an interesting definition of
+        agency could arise from the use of the word “mostly” in the line above.
+      drawing: agents-and-observers
+- id: cognition-and-control
+  number: "02"
+  name: Cognition
+  keywords: Inference, control, representations
+  title: Cognition and control
+  text: >-
+    Perception, action, and minimal cognition are studied with control theory, Bayesian reasoning,
+    and dynamical systems. This includes examining when a controller can be said to contain an
+    internal model and how causal representations support adaptive behaviour in natural and
+    artificial agents.
+  questions:
+    - id: internal-model-principle
+      label: Internal models and good regulators
+      question: When does a system that regulates its environment contain a model of it?
+      answer:
+        - >-
+          Conant and Ashby claimed that “every good regulator of a system must be a model of that
+          system”, an idea taken up in control theory as the internal model principle. When can a
+          system that regulates its environment be said to model it, and how do such models relate
+          to the Bayesian models of cognitive science?
+        - >-
+          A Bayesian interpretation of the internal model principle formulates it in categorical
+          systems theory and shows that its notion of model is a special case of possibilistic
+          Bayesian filtering. A “good regulator theorem” for embodied agents shows that whenever an
+          agent can perform a regulation task, an observer can interpret it as having beliefs about
+          its environment, updated in response to sensory input. The universal property of
+          possibilistic belief updating shows that the agent’s ability to perform the task and the
+          map from its states to beliefs are the same thing.
+      papers:
+        - A Bayesian Interpretation of the Internal Model Principle
+        - A "good regulator theorem" for embodied agents
+        - The Universal Property of Possibilistic Belief Updating
+    - id: causality
+      label: Causality
+      question: How do natural and artificial agents acquire and use causal information?
+      answer:
+        - >-
+          Causal cognition is the ability to acquire and exploit causal information about oneself
+          and the world. Research on causal cognition in human and non-human animals meets causal
+          machine and reinforcement learning, with disentanglement as a candidate process for
+          building causal representations. A unifying computational framework organises causal
+          cognition by its explicitness, sources and integration, and identifies explicitness with
+          disentanglement.
+      papers:
+        - Disentangled Representations for Causal Cognition
+        - >-
+          Ecological causal cognition needs disentanglement: Reply to comments on "Disentangled
+          representations for causal cognition"
+    - id: uncertainty
+      label: Uncertainty
+      question: How do agents decide when they cannot know precisely what is happening around them?
+      answer:
+        - >-
+          Behaviour and decision making depend on the uncertainty an agent has about its
+          environment, a dynamic system with too many properties to keep track of. How is an agent
+          affected by unknown and ambiguous information, and how can reliable behaviour emerge from
+          uncertain stimuli? Work at the University of Sussex and RIKEN CBS combined behavioural and
+          theoretical studies, mapping experiments onto models of uncertainty from estimation and
+          control theory, psychology, neuroscience and biology, from Kalman filters to PID control
+          and the delta rule.
+    - id: origins-of-cognition
+      label: Origins of cognition
+      question: Where does cognition come from, and what is its evolutionary role?
+      answer:
+        - >-
+          Models of minimal cognition, and of action and perception in coupled agent–environment
+          systems, are the usual setting. Earlier work combined the uncertainty of information and
+          estimation theory with time-evolving trajectories and the geometry of phase spaces in
+          dynamical systems. More recent work looks at models of policy selection and decision
+          making inspired by time-reversal symmetry in stochastic thermodynamics (detailed balance,
+          zero entropy production).
+      aside: >-
+        Generally: somewhat unsure about (but attracted by the idea of) a life–mind continuity
+        thesis.
+      drawing: origins-of-cognition
+- id: artificial-life
+  number: "03"
+  name: Artificial Life
+  keywords: Autonomy, regulation, hybrid systems
+  title: Hybrid life
+  text: >-
+    Research on living systems sharpens questions about autonomy, individuality and regulation. The
+    focus is on whether concepts from cybernetics, information and control theory can explain what
+    separates living from non-living systems.
+  questions:
+    - id: hybrid-life
+      label: Hybrid life
+      question: How can biological, artificial and cognitive systems be studied together?
+      answer:
+        - >-
+          Hybrid Life, a special session of the annual ALIFE conference since 2018, looks at
+          artificial life from three perspectives: unified formal languages for living, artificial
+          and cognitive systems (control theory, Bayesian inference, dynamical systems), biological
+          systems enhanced with artificial parts to probe the moving boundaries between living and
+          non-living (bio-inspired robotics, human augmentation, synthetic biology), and coupled
+          heterogeneous systems, from human–computer interaction to virtual and augmented reality.
+      papers:
+        - "Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems"
+      links:
+        - text: The Hybrid Life special sessions
+          href: https://sites.google.com/view/hybridlife
+    - id: origins-of-life
+      label: Origins of life
+      question: Is homeostasis enough to tell the living from the non-living?
+      answer:
+        - >-
+          A short stay at EON, the ELSI Origins of Life Network at Tokyo Tech, led to work on
+          theories of the origins of life, especially those linking them to information and control
+          theory. Does control theory provide the right language for homeostasis? Can information
+          theory give a useful, intrinsic notion of information for living systems, one that
+          captures autopoiesis beyond simple homeostasis? Can these ideas be grounded in
+          thermodynamics, towards a statistical mechanics of living systems?
+      links:
+        - text: Information and regulation at the origins of life, for EON
+          href: >-
+            https://web.archive.org/web/20230117062811/https://eon.elsi.jp/information-and-regulation-at-the-origins-of-life/
+      drawing: origins-of-life
+  papers:
+    - A Braitenberg vehicle’s habitat
+- id: agent-foundations-for-ai-safety
+  number: "04"
+  name: AI safety
+  keywords: Agent foundations, abstractions, capabilities
+  title: Agent foundations
+  text: >-
+    Formal foundations are being developed for identifying AI agents in and among modern AI systems,
+    together with their boundaries, goals and models, in order to estimate their capabilities and
+    improve interpretability. The aim is to make safety questions precise enough to analyse and
+    test.
+  questions:
+    - id: physical-and-intentional-stance
+      label: Physical and intentional stance
+      question: When can a dynamical system be understood as a goal-directed agent?
+      answer:
+        - >-
+          A formal link is being developed between the physical behaviour of a system and an
+          intentional description in terms of beliefs and goals. Mathematical interpretation maps
+          ask when dynamical systems can be understood as goal-directed agents, and how this can
+          support tools for checking whether AI behaviour is consistent with its intended purpose.
+          The project (2025–2027) is supported by ARIA’s *Trust Everything, Everywhere* opportunity
+          space.
+      papers:
+        - Bayesian updates from coalgebraic determinisation
+        - The Universal Property of Possibilistic Belief Updating
+      links:
+        - text: Combining Physical and Intentional Stance for Safe AI, at ARIA
+          href: >-
+            https://aria.org.uk/opportunity-spaces/trust-everything-everywhere/opportunity-seeds?tabId=nora-portfolio&cardId=combining-physical-intentional-stance-safe-ai
+    - id: world-models
+      label: World models
+      question: What do world models need to contain, and what are they models of?
+      answer:
+        - >-
+          World models are central to model-based reinforcement learning, and have been proposed as
+          sandboxes in which AI agents can be tested before deployment. There is a fundamental
+          trade-off between their efficiency and their interpretability. A large world model,
+          represented as a transducer, can be decomposed into interacting modules for
+          parallelisable, interpretable and distributed inference. Behavioural structures can be
+          specified compositionally, from local, one-step descriptions of dynamics, and transferred
+          safely between abstract and concrete systems. And world models can be told apart by the
+          channel they model: the environment, the agent, or their joint process.
+      papers:
+        - >-
+          AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and
+          interpretability
+        - "From monoliths to modules: Decomposing transducers for efficient world modelling"
+        - Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning
+        - World models of environment, agent and joint agent-environment systems
+    - id: boundaries
+      label: Boundaries
+      question: Where does a boundary come from?
+      answer:
+        - >-
+          In categorical systems theory an agent and its environment interact through a fixed
+          interface. When boundaries change, interfaces change with them, and it becomes unclear how
+          an agent’s identity is preserved. A critique of Markov blankets looked at how they came to
+          be used to define the boundary between an agent and its environment. Boundaries are also a
+          direction for AI safety research, with workshops on conceptual and on mathematical models
+          of boundaries.
+      papers:
+        - The Emperor’s New Markov Blankets
+        - "The Emperor is Naked: Replies to the commentaries on the target article."
+      links:
+        - text: Conceptual Boundaries Workshop, Austin, February 2024
+          href: https://formalizingboundaries.ai
+        - text: Mathematical Boundaries Workshop, Berkeley, April 2024 (a retrospective)
+          href: >-
+            https://www.lesswrong.com/posts/NitP3AsMeuycJQbfa/retrospective-on-mathematical-boundaries-workshop
