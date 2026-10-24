@@ -1,7 +1,7 @@
 ---
 title: "Talks"
 layout: '~/layouts/MarkdownLayout.astro'
-description: "Invited and contributed talks, lectures, recordings, and slide decks from Manuel Baltieri's research."
+description: "Invited and contributed talks, lectures, podcasts, recordings, and slide decks from Manuel Baltieri's research."
 image: ~/assets/images/blog/goaldirectedness.jpg
 ---
 
@@ -91,3 +91,9 @@ Minor updates have been implemented whenever necessary (missing references, typo
     - Laboratory for Neural Computation and Adaptation - RIKEN Center for Brain Science, Saitama, Japan - Dec 2017
 
 - An active inference implementation of phototaxis, European Conference on Artificial Life (ECAL) 2017, Lyon, France - Sep 2017
+
+
+## Podcasts
+- (Actually) agentic AI, Mindful Machines, a podcast on AI safety hosted by Blane Rogers, episode 2 - Sep 2024 &emsp; [link](https://open.spotify.com/show/1rfe5rHlPQN9smSbZcXQas)
+
+- Foundations of agency for artificial life, What ALife!, a podcast on artificial life hosted by Imy Khan, episode 3 - Apr 2024 &emsp; [link](https://open.spotify.com/show/3u2WswlGc9tThXCYHonUGy)
