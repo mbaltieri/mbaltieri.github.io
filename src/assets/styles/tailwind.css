@@ -18,6 +18,33 @@
   --color-muted: var(--aw-color-text-muted);
   --color-link: var(--aw-color-link, var(--aw-color-primary));
 
+  /* Tailwind's slate and gray turned to the hue of the page and its ink (229° in OKLCH), so
+     that the borders, surfaces and secondary text of AstroWind's components match the palette
+     instead of leaning to violet. The lightness of each shade is Tailwind's, and slate is a
+     little less saturated. */
+  --color-slate-50: oklch(98.4% 0.002 229);
+  --color-slate-100: oklch(96.8% 0.005 229);
+  --color-slate-200: oklch(92.9% 0.01 229);
+  --color-slate-300: oklch(86.9% 0.017 229);
+  --color-slate-400: oklch(70.4% 0.03 229);
+  --color-slate-500: oklch(55.4% 0.035 229);
+  --color-slate-600: oklch(44.6% 0.032 229);
+  --color-slate-700: oklch(37.2% 0.033 229);
+  --color-slate-800: oklch(27.9% 0.031 229);
+  --color-slate-900: oklch(20.8% 0.032 229);
+  --color-slate-950: oklch(12.9% 0.032 229);
+  --color-gray-50: oklch(98.5% 0.002 229);
+  --color-gray-100: oklch(96.7% 0.003 229);
+  --color-gray-200: oklch(92.8% 0.006 229);
+  --color-gray-300: oklch(87.2% 0.01 229);
+  --color-gray-400: oklch(70.7% 0.022 229);
+  --color-gray-500: oklch(55.1% 0.027 229);
+  --color-gray-600: oklch(44.6% 0.03 229);
+  --color-gray-700: oklch(37.3% 0.034 229);
+  --color-gray-800: oklch(27.8% 0.033 229);
+  --color-gray-900: oklch(21% 0.034 229);
+  --color-gray-950: oklch(13% 0.028 229);
+
   --font-sans:
     var(--aw-font-sans, ui-sans-serif), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
     'Segoe UI Symbol', 'Noto Color Emoji';
