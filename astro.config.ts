@@ -26,8 +26,10 @@ const whenExternalScripts = (items: (() => AstroIntegration) | (() => AstroInteg
 export default defineConfig({
   output: 'static',
 
-  // Addresses of the Jekyll site whose pages have moved.
+  // Addresses of the Jekyll site whose pages have moved or gone. The About page is gone: its
+  // positions are on the Resume page.
   redirects: {
+    '/about': '/resume/',
     '/research/presentations': '/research/talks/',
     '/research/editing': '/research/publications/#editing',
     '/projects/2021-01-09-friston-blankets': '/news/2021-01-09-friston-blankets/',

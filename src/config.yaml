@@ -2,7 +2,7 @@ site:
   name: Manuel Baltieri
   site: 'https://manuelbaltieri.com'
   base: '/'
-  # The addresses of the Jekyll site ended in a slash (/about/, /news/...), so these do too.
+  # The addresses of the Jekyll site ended in a slash (/research/, /news/...), so these do too.
   trailingSlash: true
 
 # Default SEO metadata

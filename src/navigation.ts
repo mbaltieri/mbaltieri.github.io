@@ -1,12 +1,11 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
-// The menu of the Jekyll site. Publications, Talks and Projects are reached from the Research page.
+// Publications, Talks and Projects are reached from the Research page.
 export const headerData = {
   links: [
     { text: 'News', href: getBlogPermalink() },
     { text: 'Research', href: getPermalink('/research') },
     { text: 'Vision', href: getPermalink('/vision') },
-    { text: 'About', href: getPermalink('/about') },
     { text: 'Resume', href: getPermalink('/resume') },
   ],
   actions: [],
@@ -19,7 +18,6 @@ export const footerData = {
       links: [
         { text: 'News', href: getBlogPermalink() },
         { text: 'Vision', href: getPermalink('/vision') },
-        { text: 'About', href: getPermalink('/about') },
         { text: 'Resume', href: getPermalink('/resume') },
       ],
     },
