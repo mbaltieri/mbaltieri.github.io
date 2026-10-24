@@ -39,19 +39,18 @@ LC_ALL=en_US.UTF-8 ruby .scripts/check-built-site.rb dist
 
 | What                                   | Where                                                                    |
 | -------------------------------------- | ------------------------------------------------------------------------ |
-| Site name, address, News settings      | `src/config.yaml`                                                        |
+| Site name, address, blog switch        | `src/config.yaml`                                                        |
 | Menu and footer                        | `src/navigation.ts`                                                      |
-| News posts                             | `src/data/post/`, one file per post, shown at `/news/<file name>/`       |
 | Publications                           | `src/data/publications.yaml`                                             |
 | Resume (and `/assets/resume.json`)     | `src/data/resume.yaml`                                                   |
 | Home, Research, Publications, Resume   | `src/pages/index.astro`, `src/pages/research/`, `src/pages/resume.astro` |
 | Talks                                  | `src/pages/research/talks.md`                                            |
 | PDFs and images linked by address      | `public/assets/`, served at `/assets/...`                                |
-| Post covers and page images            | `src/assets/images/`, optimised at build time                            |
+| Page images                            | `src/assets/images/`, optimised at build time                            |
 | Pages of the papers in Selected work   | `src/assets/papers/`, made from the PDFs by `.scripts/render-papers.sh`  |
 | Redirects from old addresses           | `astro.config.ts`                                                        |
 
-The addresses of the Jekyll site are kept: a post is named after its file, case included, so renaming a file changes its address.
+The addresses of the Jekyll site are kept. News, the projects and Vision are retired, and their addresses redirect to where their content now is (`astro.config.ts`).
 
 ## Deployment
 

@@ -30,10 +30,12 @@ i18n:
   language: en
   textDirection: ltr
 
-# The "blog" of the template is the News section of this site.
+# The "blog" of the template was the News section of this site. News is retired: its posts were
+# about papers and talks, which the Research, Publications and Talks pages now keep up to date, and
+# the old addresses redirect (astro.config.ts). Set this to true to bring a blog back.
 apps:
   blog:
-    isEnabled: true
+    isEnabled: false
     postsPerPage: 10
 
     post:

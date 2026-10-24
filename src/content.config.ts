@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs';
 import { defineCollection } from 'astro:content';
 import { z } from 'astro/zod';
 import { glob } from 'astro/loaders';
@@ -47,12 +48,15 @@ const metadataDefinition = () =>
     })
     .optional();
 
-// Entries are named after their file, case included (Astro lowercases them by default), so that
-// the addresses of the Jekyll site still work: /news/2025-03-01-bayesian-IMP/, for instance.
+// Entries are named after their file, case included (Astro lowercases them by default).
 const fileName = ({ entry }: { entry: string }) => entry.replace(/\.mdx?$/, '');
 
+// The posts of the template's blog. News is retired and its posts are gone (see apps.blog in
+// src/config.yaml), so the collection is empty unless a folder of posts comes back.
 const postCollection = defineCollection({
-  loader: glob({ pattern: ['*.md', '*.mdx'], base: 'src/data/post', generateId: fileName }),
+  loader: existsSync('src/data/post')
+    ? glob({ pattern: ['*.md', '*.mdx'], base: 'src/data/post', generateId: fileName })
+    : () => [],
   schema: z.object({
     publishDate: z.date().optional(),
     updateDate: z.date().optional(),

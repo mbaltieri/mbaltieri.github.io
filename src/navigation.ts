@@ -1,9 +1,8 @@
-import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
+import { getPermalink } from './utils/permalinks';
 
 // Publications and Talks are reached from the Research page.
 export const headerData = {
   links: [
-    { text: 'News', href: getBlogPermalink() },
     { text: 'Research', href: getPermalink('/research') },
     { text: 'Resume', href: getPermalink('/resume') },
   ],
@@ -14,10 +13,7 @@ export const footerData = {
   links: [
     {
       title: 'Site',
-      links: [
-        { text: 'News', href: getBlogPermalink() },
-        { text: 'Resume', href: getPermalink('/resume') },
-      ],
+      links: [{ text: 'Resume', href: getPermalink('/resume') }],
     },
     {
       title: 'Research',
@@ -41,7 +37,6 @@ export const footerData = {
     { ariaLabel: 'Bluesky', icon: 'tabler:brand-bluesky', href: 'https://bsky.app/profile/manuelbaltieri.bsky.social' },
     { ariaLabel: 'Mastodon', icon: 'tabler:brand-mastodon', href: 'https://mathstodon.xyz/@manuelbaltieri' },
     { ariaLabel: 'X', icon: 'tabler:brand-x', href: 'https://x.com/manuelbaltieri' },
-    { ariaLabel: 'News feed', icon: 'tabler:rss', href: getAsset('/feed.xml') },
   ],
   footNote: `© 2026. All rights reserved.`,
 };

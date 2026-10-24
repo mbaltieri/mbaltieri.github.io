@@ -4,14 +4,11 @@ import Layout from '~/layouts/PageLayout.astro';
 import HeroVehicles from '~/components/widgets/HeroVehicles.astro';
 import AgentEnvironment from '~/components/widgets/AgentEnvironment.astro';
 import FeatureTabs from '~/components/widgets/FeatureTabs.astro';
-import Timeline from '~/components/widgets/Timeline.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Headline from '~/components/ui/Headline.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
 import { SITE, I18N } from 'astrowind:config';
-import { getPermalink, getBlogPermalink } from '~/utils/permalinks';
-import { fetchPosts } from '~/utils/blog';
-import { getFormattedDate } from '~/utils/utils';
+import { getPermalink } from '~/utils/permalinks';
 import { resume } from '~/utils/resume';
 import { paperPages } from '~/utils/papers';
 
@@ -93,10 +90,6 @@ const selectedWork = [
     paper: paperPages('compositional-behavioral-semantics'),
   },
 ];
-
-// Latest news, leaving out what Selected work already shows: nothing appears twice on this page.
-const shown = new Set(selectedWork.map(({ title }) => title.toLowerCase()));
-const latestNews = (await fetchPosts()).filter((post) => !shown.has(post.title.toLowerCase())).slice(0, 3);
 ---
 
 <Layout metadata={metadata}>
@@ -149,18 +142,5 @@ const latestNews = (await fetchPosts()).filter((post) => !shown.has(post.title.t
     subtitle={link('All publications', getPermalink('/research/publications'))}
     items={selectedWork}
     classes={{ container: 'max-w-6xl' }}
-  />
-
-  <Timeline
-    id="latest-news"
-    title="Latest news"
-    subtitle={link('All news', getBlogPermalink())}
-    items={latestNews.map((post, index) => ({
-      date: [getFormattedDate(post.publishDate), post.category?.title].filter(Boolean).join(' · '),
-      title: post.title,
-      href: getPermalink(post.permalink, 'post'),
-      description: post.excerptHtml,
-      highlight: index === 0,
-    }))}
   />
 </Layout>
