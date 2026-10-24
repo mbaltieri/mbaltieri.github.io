@@ -72,28 +72,6 @@ const postCollection = defineCollection({
   }),
 });
 
-// Research projects, listed on /projects/ and shown at /projects/<file name>/.
-const projectCollection = defineCollection({
-  loader: glob({ pattern: ['*.md', '*.mdx'], base: 'src/data/project', generateId: fileName }),
-  schema: z.object({
-    publishDate: z.date(),
-    draft: z.boolean().optional(),
-
-    title: z.string(),
-    /** Shown on the project cards, under the title and as the meta description. */
-    description: z.string().optional(),
-    excerpt: z.string().optional(),
-    image: z.string().optional(),
-    imageAlt: z.string().optional(),
-    tags: z.array(z.string()).optional(),
-    /** Titles exactly as in src/data/publications.yaml, printed under "Papers" in this order. */
-    papers: z.array(z.string()).optional(),
-
-    metadata: metadataDefinition(),
-  }),
-});
-
 export const collections = {
   post: postCollection,
-  project: projectCollection,
 };

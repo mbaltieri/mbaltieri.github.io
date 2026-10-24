@@ -22,6 +22,6 @@ Manuel is happy to announce that the special session has been accepted at ALIFE 
 
 For more info:
 
-- [Hybrid Life Special sessions](/projects/2023-06-18-hybrid-life/)
+- [Hybrid Life Special sessions](/research/#hybrid-life)
 
 - [Hybrid Life IV, website and instructions for sumbissions](https://sites.google.com/view/hybridlife/)

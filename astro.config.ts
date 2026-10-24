@@ -30,6 +30,17 @@ export default defineConfig({
   // positions are on the Resume page.
   redirects: {
     '/about': '/resume/',
+    // Vision and the projects were folded into the questions of the Research page.
+    '/vision': '/research/',
+    '/projects': '/research/',
+    '/projects/2019-11-03-uncertainty': '/research/#uncertainty',
+    '/projects/2022-06-18-theories-of-agency': '/research/#theories-of-agency',
+    '/projects/2023-06-18-hybrid-life': '/research/#hybrid-life',
+    '/projects/2025-10-01-aria-safe-ai': '/research/#physical-and-intentional-stance',
+    '/projects/2026-10-01-boundaries': '/research/#boundaries',
+    '/projects/2026-10-01-causality': '/research/#causality',
+    '/projects/2026-10-01-internal-model-principle': '/research/#internal-model-principle',
+    '/projects/2026-10-01-world-models': '/research/#world-models',
     '/research/presentations': '/research/talks/',
     '/research/editing': '/research/publications/#editing',
     '/projects/2021-01-09-friston-blankets': '/news/2021-01-09-friston-blankets/',

@@ -42,16 +42,15 @@ LC_ALL=en_US.UTF-8 ruby .scripts/check-built-site.rb dist
 | Site name, address, News settings      | `src/config.yaml`                                                        |
 | Menu and footer                        | `src/navigation.ts`                                                      |
 | News posts                             | `src/data/post/`, one file per post, shown at `/news/<file name>/`       |
-| Projects                               | `src/data/project/`, shown at `/projects/<file name>/`                   |
 | Publications                           | `src/data/publications.yaml`                                             |
 | Resume (and `/assets/resume.json`)     | `src/data/resume.yaml`                                                   |
 | Home, Research, Publications, Resume   | `src/pages/index.astro`, `src/pages/research/`, `src/pages/resume.astro` |
-| Vision, Talks                          | `src/pages/vision.mdx`, `src/pages/research/talks.md`                    |
+| Talks                                  | `src/pages/research/talks.md`                                            |
 | PDFs and images linked by address      | `public/assets/`, served at `/assets/...`                                |
-| Cover images of posts and projects     | `src/assets/images/`, optimised at build time                            |
+| Post covers and page images            | `src/assets/images/`, optimised at build time                            |
 | Redirects from old addresses           | `astro.config.ts`                                                        |
 
-The addresses of the Jekyll site are kept: a post or project is named after its file, case included, so renaming a file changes its address.
+The addresses of the Jekyll site are kept: a post is named after its file, case included, so renaming a file changes its address.
 
 ## Deployment
 

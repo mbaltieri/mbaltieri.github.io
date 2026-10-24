@@ -1,11 +1,10 @@
 import { getPermalink, getBlogPermalink, getAsset } from './utils/permalinks';
 
-// Publications, Talks and Projects are reached from the Research page.
+// Publications and Talks are reached from the Research page.
 export const headerData = {
   links: [
     { text: 'News', href: getBlogPermalink() },
     { text: 'Research', href: getPermalink('/research') },
-    { text: 'Vision', href: getPermalink('/vision') },
     { text: 'Resume', href: getPermalink('/resume') },
   ],
   actions: [],
@@ -17,7 +16,6 @@ export const footerData = {
       title: 'Site',
       links: [
         { text: 'News', href: getBlogPermalink() },
-        { text: 'Vision', href: getPermalink('/vision') },
         { text: 'Resume', href: getPermalink('/resume') },
       ],
     },
@@ -27,7 +25,6 @@ export const footerData = {
         { text: 'Overview', href: getPermalink('/research') },
         { text: 'Publications', href: getPermalink('/research/publications') },
         { text: 'Talks', href: getPermalink('/research/talks') },
-        { text: 'Projects', href: getPermalink('/projects') },
       ],
     },
   ],

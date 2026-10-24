@@ -1,13 +1,41 @@
 ---
+import { Icon } from 'astro-icon/components';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import FieldGraphic from '~/components/graphics/FieldGraphic.astro';
+import VisionGraphic from '~/components/graphics/VisionGraphic.astro';
 import type { Props as FieldGraphicProps } from '~/components/graphics/FieldGraphic.astro';
+import type { Props as VisionGraphicProps } from '~/components/graphics/VisionGraphic.astro';
 import type { Widget } from '~/types';
 
-// The research fields as tabs: a row of drawings, one per field, and under it the selected
-// field's text and papers. The first field is shown at first, or the one named in the address
-// (#artificial-life, ...), and the address follows the selection, so a field can be linked to.
-// Without scripts, and on paper, every field is shown and the drawings link to them.
+// The areas of research as tabs: a row of drawings, one per area, and under the selected one its
+// introduction and the questions it takes up. Pressing a question shows its answer, with its papers
+// and links, one answer at a time within an area. The first area is shown at first, or the one
+// named in the address: an area (#artificial-life) or a question (#boundaries), which then opens.
+// The address follows the selected area. Without scripts every area is shown and the questions
+// still open, and on paper every area and every answer is printed.
+
+export interface ResearchPaper {
+  title: string;
+  href?: string;
+  venue?: string;
+  year: number;
+}
+
+export interface ResearchQuestion {
+  id: string;
+  /** A short name for the question, for links to it. */
+  label: string;
+  question: string;
+  /** Paragraphs, as HTML. */
+  answer: Array<string>;
+  /** A remark set apart after the answer, as HTML. */
+  aside?: string;
+  papers?: Array<ResearchPaper>;
+  links?: Array<{ text: string; href: string }>;
+  /** A line over the links, saying what they are. */
+  linksNote?: string;
+  drawing?: VisionGraphicProps['name'];
+}
 
 export interface ResearchField {
   id: FieldGraphicProps['field'];
@@ -16,7 +44,9 @@ export interface ResearchField {
   keywords: string;
   title: string;
   text: string;
-  papers: Array<{ title: string; href: string }>;
+  questions: Array<ResearchQuestion>;
+  /** Papers of the area that belong to none of its questions. */
+  papers?: Array<ResearchPaper>;
 }
 
 export interface Props extends Widget {
@@ -25,6 +55,8 @@ export interface Props extends Widget {
 }
 
 const { label, fields, id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+
+const small = 'text-sm font-semibold uppercase tracking-wide text-muted';
 ---
 
 <WidgetWrapper
@@ -33,6 +65,9 @@ const { label, fields, id, isDark = false, classes = {}, bg = await Astro.slots.
   containerClass={`max-w-5xl mx-auto print:pb-0 ${classes?.container ?? ''}`}
   bg={bg}
 >
+  <h2 class="mb-8 font-heading text-2xl font-semibold text-heading md:mb-10 md:text-3xl print:mb-4">
+    Areas of research
+  </h2>
   <research-fields class="block">
     <div
       data-tabs
@@ -69,31 +104,102 @@ const { label, fields, id, isDark = false, classes = {}, bg = await Astro.slots.
             id={field.id}
             data-card
             aria-labelledby={`${field.id}-title`}
-            class="grid scroll-mt-24 gap-6 motion-safe:animate-fade md:grid-cols-12 md:gap-12 print:break-inside-avoid"
+            class="grid scroll-mt-24 gap-6 motion-safe:animate-fade md:grid-cols-12 md:gap-12"
           >
             <div class="md:col-span-5">
               <p class="text-sm font-semibold uppercase tracking-wide text-primary">
                 {field.number} · {field.name}
               </p>
-              <h2
+              <h3
                 id={`${field.id}-title`}
                 class="mt-2 font-heading text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-heading"
               >
                 {field.title}
-              </h2>
+              </h3>
             </div>
             <div class="md:col-span-7">
               <p class="text-lg text-muted">{field.text}</p>
-              <h3 class="mt-8 text-sm font-semibold uppercase tracking-wide text-muted">Selected papers</h3>
-              <ul class="mt-3 divide-y divide-gray-200 border-y border-gray-200 dark:divide-slate-800 dark:border-slate-800">
-                {field.papers.map((paper) => (
-                  <li class="py-3">
-                    <a class="font-medium text-heading hover:text-primary transition" href={paper.href}>
-                      {paper.title}
-                    </a>
-                  </li>
+              <h4 class:list={[small, 'mt-8']}>Questions</h4>
+              <div class="mt-3 divide-y divide-gray-200 border-y border-gray-200 dark:divide-slate-800 dark:border-slate-800">
+                {field.questions.map((item) => (
+                  <details id={item.id} name={`questions-${field.id}`} class="group scroll-mt-28">
+                    <summary class="flex cursor-pointer list-none items-start justify-between gap-4 py-4 [&::-webkit-details-marker]:hidden">
+                      <span class="font-heading text-lg font-medium leading-snug text-heading transition group-hover:text-primary">
+                        {item.question}
+                      </span>
+                      <Icon
+                        name="tabler:plus"
+                        class="mt-1 h-5 w-5 shrink-0 text-primary transition-transform duration-200 group-open:rotate-45 print:hidden"
+                      />
+                    </summary>
+                    <div class="flow-root pb-6 text-muted motion-safe:animate-fade [&_p_a]:text-primary [&_p_a:hover]:underline">
+                      {item.drawing && (
+                        <figure class="mb-4 max-w-xs md:float-right md:mb-2 md:ml-6 md:w-52">
+                          <VisionGraphic name={item.drawing} class="h-auto w-full" />
+                        </figure>
+                      )}
+                      {item.answer.map((paragraph) => (
+                        <p class="mb-3" set:html={paragraph} />
+                      ))}
+                      {item.aside && (
+                        <p class="mb-3 border-l-2 border-accent pl-3 text-sm italic" set:html={item.aside} />
+                      )}
+                      {item.papers?.length ? (
+                        <>
+                          <h5 class:list={[small, 'mt-5 text-xs']}>Papers</h5>
+                          <ul class="mt-2 space-y-1.5">
+                            {item.papers.map((paper) => (
+                              <li>
+                                {paper.href ? (
+                                  <a class="font-medium text-heading transition hover:text-primary" href={paper.href}>
+                                    {paper.title}
+                                  </a>
+                                ) : (
+                                  <span class="font-medium text-heading">{paper.title}</span>
+                                )}
+                                <span class="text-sm"> · {[paper.venue, paper.year].filter(Boolean).join(', ')}</span>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      ) : null}
+                      {item.links?.length ? (
+                        <>
+                          <h5 class:list={[small, 'mt-5 text-xs']}>Links</h5>
+                          {item.linksNote && <p class="mt-1 text-sm">{item.linksNote}</p>}
+                          <ul class="mt-2 space-y-1.5">
+                            {item.links.map((link) => (
+                              <li>
+                                <a class="text-primary hover:underline" href={link.href}>
+                                  {link.text}
+                                </a>
+                              </li>
+                            ))}
+                          </ul>
+                        </>
+                      ) : null}
+                    </div>
+                  </details>
                 ))}
-              </ul>
+              </div>
+              {field.papers?.length ? (
+                <>
+                  <h4 class:list={[small, 'mt-8']}>Other papers</h4>
+                  <ul class="mt-3 divide-y divide-gray-200 border-y border-gray-200 dark:divide-slate-800 dark:border-slate-800">
+                    {field.papers.map((paper) => (
+                      <li class="py-3">
+                        <a class="font-medium text-heading transition hover:text-primary" href={paper.href}>
+                          {paper.title}
+                        </a>
+                        <span class="text-sm text-muted">
+                          {' '}
+                          · {[paper.venue, paper.year].filter(Boolean).join(', ')}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </>
+              ) : null}
             </div>
           </section>
         ))
@@ -110,8 +216,8 @@ const { label, fields, id, isDark = false, classes = {}, bg = await Astro.slots.
 </WidgetWrapper>
 
 <style>
-  /* Only the selected field is shown (only the first one until the script has picked one).
-     Without scripts the rule in <noscript> wins, and on paper every field is printed. */
+  /* Only the selected area is shown (only the first one until the script has picked one).
+     Without scripts the rule in <noscript> wins, and on paper every area is printed. */
   research-fields:not(:defined) [data-card]:not(:first-child),
   research-fields:defined [data-card]:not([data-open]) {
     display: none;
@@ -120,12 +226,15 @@ const { label, fields, id, isDark = false, classes = {}, bg = await Astro.slots.
     research-fields [data-card] {
       display: grid !important;
       animation: none !important;
+      break-inside: auto;
     }
   }
 </style>
 
 <script>
   class ResearchFields extends HTMLElement {
+    private openBeforePrint: Array<HTMLDetailsElement> = [];
+
     connectedCallback() {
       const list = this.querySelector<HTMLElement>('[data-tabs]');
       list?.setAttribute('role', 'tablist');
@@ -139,13 +248,17 @@ const { label, fields, id, isDark = false, classes = {}, bg = await Astro.slots.
       this.addEventListener('click', this.onClick);
       this.addEventListener('keydown', this.onKeyDown);
       window.addEventListener('hashchange', this.onHashChange);
+      window.addEventListener('beforeprint', this.onBeforePrint);
+      window.addEventListener('afterprint', this.onAfterPrint);
       const named = this.fieldInAddress();
       this.select(named || this.tabs()[0]?.dataset.field || '');
-      if (named) setTimeout(() => this.reveal(), 0);
+      if (named) setTimeout(() => this.reveal(this.openNamed()), 0);
     }
 
     disconnectedCallback() {
       window.removeEventListener('hashchange', this.onHashChange);
+      window.removeEventListener('beforeprint', this.onBeforePrint);
+      window.removeEventListener('afterprint', this.onAfterPrint);
     }
 
     tabs() {
@@ -156,7 +269,7 @@ const { label, fields, id, isDark = false, classes = {}, bg = await Astro.slots.
       return tab.dataset.field ? document.getElementById(tab.dataset.field) : null;
     }
 
-    /** Shows the field `id` and hides the others. */
+    /** Shows the area `id` and hides the others. */
     select(id: string) {
       this.tabs().forEach((tab) => {
         const on = tab.dataset.field === id;
@@ -166,21 +279,33 @@ const { label, fields, id, isDark = false, classes = {}, bg = await Astro.slots.
       });
     }
 
-    /** The field named in the address. An address inside a field's text (its heading, say) counts as that field. */
-    fieldInAddress(): string {
+    /** The element named in the address, if it is in one of the areas. */
+    named(): HTMLElement | null {
       let id = location.hash.slice(1);
       try {
         id = decodeURIComponent(id);
       } catch {
         // Keep the address as it is.
       }
-      const panel = id ? document.getElementById(id)?.closest<HTMLElement>('[data-card]') : null;
-      return panel && this.contains(panel) ? panel.id : '';
+      const element = id ? document.getElementById(id) : null;
+      return element && this.contains(element) ? element : null;
     }
 
-    /** Brings the drawings, and the field under them, into view. */
-    reveal() {
-      const top = this.getBoundingClientRect().top;
+    /** The area named in the address, or holding what the address names (a question, say). */
+    fieldInAddress(): string {
+      return this.named()?.closest<HTMLElement>('[data-card]')?.id ?? '';
+    }
+
+    /** Opens the question named in the address, if it names one, and returns what to bring into view. */
+    openNamed(): HTMLElement {
+      const question = this.named()?.closest<HTMLDetailsElement>('details');
+      if (question) question.open = true;
+      return question ?? this;
+    }
+
+    /** Brings an element into view, unless it already is near the top of the window. */
+    reveal(element: HTMLElement) {
+      const top = element.getBoundingClientRect().top;
       if (top > 80 && top < window.innerHeight / 3) return;
       const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       window.scrollBy({ top: top - 96, behavior: still ? 'auto' : 'smooth' });
@@ -195,7 +320,7 @@ const { label, fields, id, isDark = false, classes = {}, bg = await Astro.slots.
 
     onClick = (event: MouseEvent) => {
       const tab = (event.target as HTMLElement).closest<HTMLElement>('[data-field]');
-      // Ctrl-, cmd- and shift-clicks are left to the browser: the drawings are also links to their fields.
+      // Ctrl-, cmd- and shift-clicks are left to the browser: the drawings are also links to their areas.
       if (!tab || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
       event.preventDefault();
       this.choose(tab);
@@ -228,7 +353,26 @@ const { label, fields, id, isDark = false, classes = {}, bg = await Astro.slots.
       const id = this.fieldInAddress();
       if (!id) return;
       this.select(id);
-      this.reveal();
+      this.reveal(this.openNamed());
+    };
+
+    /** On paper every answer is printed: open them all, and close again afterwards those that were closed. */
+    onBeforePrint = () => {
+      const all = [...this.querySelectorAll<HTMLDetailsElement>('details')];
+      this.openBeforePrint = all.filter((details) => details.open);
+      all.forEach((details) => {
+        // Opening one of an exclusive group closes the others: let the group go while printing.
+        details.dataset.name = details.name;
+        details.removeAttribute('name');
+        details.open = true;
+      });
+    };
+
+    onAfterPrint = () => {
+      this.querySelectorAll<HTMLDetailsElement>('details').forEach((details) => {
+        details.open = this.openBeforePrint.includes(details);
+        if (details.dataset.name) details.setAttribute('name', details.dataset.name);
+      });
     };
   }
 

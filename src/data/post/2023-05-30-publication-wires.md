@@ -17,4 +17,4 @@ tags:
 
 ## Work on hybrid life special sessions published in WIREs Cognitive Science
 
-Manuel's work with Hiroyuki Iizuka, Olaf Witkowski, Lana Sinapayen and Keisuke Suzuki, see this [blogpost](/projects/2023-06-18-hybrid-life/), was published in [WIREs Cognitive Science](https://wires.onlinelibrary.wiley.com/doi/full/10.1002/wcs.1662).
+Manuel's work with Hiroyuki Iizuka, Olaf Witkowski, Lana Sinapayen and Keisuke Suzuki, see this [blogpost](/research/#hybrid-life), was published in [WIREs Cognitive Science](https://wires.onlinelibrary.wiley.com/doi/full/10.1002/wcs.1662).
