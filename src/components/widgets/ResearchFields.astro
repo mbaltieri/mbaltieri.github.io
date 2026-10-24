@@ -1,0 +1,236 @@
+---
+import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
+import FieldGraphic from '~/components/graphics/FieldGraphic.astro';
+import type { Props as FieldGraphicProps } from '~/components/graphics/FieldGraphic.astro';
+import type { Widget } from '~/types';
+
+// The research fields as tabs: a row of drawings, one per field, and under it the selected
+// field's text and papers. The first field is shown at first, or the one named in the address
+// (#artificial-life, ...), and the address follows the selection, so a field can be linked to.
+// Without scripts, and on paper, every field is shown and the drawings link to them.
+
+export interface ResearchField {
+  id: FieldGraphicProps['field'];
+  number: string;
+  name: string;
+  keywords: string;
+  title: string;
+  text: string;
+  papers: Array<{ title: string; href: string }>;
+}
+
+export interface Props extends Widget {
+  label?: string;
+  fields: Array<ResearchField>;
+}
+
+const { label, fields, id, isDark = false, classes = {}, bg = await Astro.slots.render('bg') } = Astro.props;
+---
+
+<WidgetWrapper
+  id={id}
+  isDark={isDark}
+  containerClass={`max-w-5xl mx-auto print:pb-0 ${classes?.container ?? ''}`}
+  bg={bg}
+>
+  <research-fields class="block">
+    <div
+      data-tabs
+      data-label={label}
+      class="grid grid-cols-2 gap-x-5 gap-y-8 sm:gap-x-8 lg:grid-cols-4 print:grid-cols-4 print:gap-x-4"
+    >
+      {
+        fields.map((field) => (
+          <a
+            href={`#${field.id}`}
+            data-field={field.id}
+            class="group block border-t border-gray-200 pt-5 outline-offset-4 transition-shadow aria-selected:shadow-[inset_0_2px_0_var(--aw-color-primary)] print:shadow-none dark:border-slate-800"
+          >
+            <FieldGraphic
+              field={field.id}
+              class="h-auto w-full opacity-55 transition-opacity group-hover:opacity-100 group-aria-selected:opacity-100 print:opacity-100"
+            />
+            <span class="mt-4 flex items-baseline gap-2.5">
+              <span class="text-sm font-semibold tabular-nums text-primary" aria-hidden="true">
+                {field.number}
+              </span>
+              <span class="font-heading text-lg md:text-xl font-medium text-heading">{field.name}</span>
+            </span>
+            <span class="mt-1 block text-sm text-muted">{field.keywords}</span>
+          </a>
+        ))
+      }
+    </div>
+
+    <div class="mt-12 space-y-16 md:mt-16 print:mt-8 print:space-y-8">
+      {
+        fields.map((field) => (
+          <section
+            id={field.id}
+            data-card
+            aria-labelledby={`${field.id}-title`}
+            class="grid scroll-mt-24 gap-6 motion-safe:animate-fade md:grid-cols-12 md:gap-12 print:break-inside-avoid"
+          >
+            <div class="md:col-span-5">
+              <p class="text-sm font-semibold uppercase tracking-wide text-primary">
+                {field.number} · {field.name}
+              </p>
+              <h2
+                id={`${field.id}-title`}
+                class="mt-2 font-heading text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-heading"
+              >
+                {field.title}
+              </h2>
+            </div>
+            <div class="md:col-span-7">
+              <p class="text-lg text-muted">{field.text}</p>
+              <h3 class="mt-8 text-sm font-semibold uppercase tracking-wide text-muted">Selected papers</h3>
+              <ul class="mt-3 divide-y divide-gray-200 border-y border-gray-200 dark:divide-slate-800 dark:border-slate-800">
+                {field.papers.map((paper) => (
+                  <li class="py-3">
+                    <a class="font-medium text-heading hover:text-primary transition" href={paper.href}>
+                      {paper.title}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </section>
+        ))
+      }
+    </div>
+  </research-fields>
+  <noscript
+    ><style is:inline>
+      research-fields [data-card] {
+        display: grid !important;
+      }
+    </style></noscript
+  >
+</WidgetWrapper>
+
+<style>
+  /* Only the selected field is shown (only the first one until the script has picked one).
+     Without scripts the rule in <noscript> wins, and on paper every field is printed. */
+  research-fields:not(:defined) [data-card]:not(:first-child),
+  research-fields:defined [data-card]:not([data-open]) {
+    display: none;
+  }
+  @media print {
+    research-fields [data-card] {
+      display: grid !important;
+      animation: none !important;
+    }
+  }
+</style>
+
+<script>
+  class ResearchFields extends HTMLElement {
+    connectedCallback() {
+      const list = this.querySelector<HTMLElement>('[data-tabs]');
+      list?.setAttribute('role', 'tablist');
+      if (list?.dataset.label) list.setAttribute('aria-label', list.dataset.label);
+      this.tabs().forEach((tab) => {
+        const panel = this.panel(tab);
+        tab.setAttribute('role', 'tab');
+        tab.setAttribute('aria-controls', tab.dataset.field ?? '');
+        panel?.setAttribute('role', 'tabpanel');
+      });
+      this.addEventListener('click', this.onClick);
+      this.addEventListener('keydown', this.onKeyDown);
+      window.addEventListener('hashchange', this.onHashChange);
+      const named = this.fieldInAddress();
+      this.select(named || this.tabs()[0]?.dataset.field || '');
+      if (named) setTimeout(() => this.reveal(), 0);
+    }
+
+    disconnectedCallback() {
+      window.removeEventListener('hashchange', this.onHashChange);
+    }
+
+    tabs() {
+      return [...this.querySelectorAll<HTMLElement>('[data-field]')];
+    }
+
+    panel(tab: HTMLElement) {
+      return tab.dataset.field ? document.getElementById(tab.dataset.field) : null;
+    }
+
+    /** Shows the field `id` and hides the others. */
+    select(id: string) {
+      this.tabs().forEach((tab) => {
+        const on = tab.dataset.field === id;
+        tab.setAttribute('aria-selected', String(on));
+        tab.tabIndex = on ? 0 : -1;
+        this.panel(tab)?.toggleAttribute('data-open', on);
+      });
+    }
+
+    /** The field named in the address. An address inside a field's text (its heading, say) counts as that field. */
+    fieldInAddress(): string {
+      let id = location.hash.slice(1);
+      try {
+        id = decodeURIComponent(id);
+      } catch {
+        // Keep the address as it is.
+      }
+      const panel = id ? document.getElementById(id)?.closest<HTMLElement>('[data-card]') : null;
+      return panel && this.contains(panel) ? panel.id : '';
+    }
+
+    /** Brings the drawings, and the field under them, into view. */
+    reveal() {
+      const top = this.getBoundingClientRect().top;
+      if (top > 80 && top < window.innerHeight / 3) return;
+      const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollBy({ top: top - 96, behavior: still ? 'auto' : 'smooth' });
+    }
+
+    choose(tab: HTMLElement, focus = false) {
+      const id = tab.dataset.field ?? '';
+      this.select(id);
+      history.replaceState(history.state, '', `#${id}`);
+      if (focus) tab.focus();
+    }
+
+    onClick = (event: MouseEvent) => {
+      const tab = (event.target as HTMLElement).closest<HTMLElement>('[data-field]');
+      // Ctrl-, cmd- and shift-clicks are left to the browser: the drawings are also links to their fields.
+      if (!tab || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+      event.preventDefault();
+      this.choose(tab);
+    };
+
+    /** Arrow keys, Home and End move between the tabs, and the space bar selects like Enter. */
+    onKeyDown = (event: KeyboardEvent) => {
+      const tab = (event.target as HTMLElement).closest<HTMLElement>('[data-field]');
+      if (!tab) return;
+      const tabs = this.tabs();
+      const at = tabs.indexOf(tab);
+      const to = {
+        ArrowRight: at + 1,
+        ArrowDown: at + 1,
+        ArrowLeft: at - 1,
+        ArrowUp: at - 1,
+        Home: 0,
+        End: tabs.length - 1,
+      }[event.key];
+      if (to !== undefined) {
+        event.preventDefault();
+        this.choose(tabs[(to + tabs.length) % tabs.length], true);
+      } else if (event.key === ' ') {
+        event.preventDefault();
+        this.choose(tab);
+      }
+    };
+
+    onHashChange = () => {
+      const id = this.fieldInAddress();
+      if (!id) return;
+      this.select(id);
+      this.reveal();
+    };
+  }
+
+  if (!customElements.get('research-fields')) customElements.define('research-fields', ResearchFields);
+</script>

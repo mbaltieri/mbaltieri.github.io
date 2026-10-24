@@ -1,0 +1,173 @@
+---
+import Vehicle from '~/components/graphics/parts/Vehicle.astro';
+import Light from '~/components/graphics/parts/Light.astro';
+
+// Line drawings for the four research fields, in the style of the home page: primary-coloured
+// line work, muted context and the accent for what matters. They are inline SVG, so they
+// follow the light and dark themes.
+//
+//   mathematics-of-agents            a string diagram: f and g in parallel, then h
+//   cognition-and-control            a bacterium running and tumbling up a sugar gradient
+//   artificial-life                  a vehicle with crossed wiring steering towards a light
+//   agent-foundations-for-ai-safety  a probability simplex, a prior moved to a posterior, and
+//                                    Bayes' theorem
+
+export interface Props {
+  field: 'mathematics-of-agents' | 'cognition-and-control' | 'artificial-life' | 'agent-foundations-for-ai-safety';
+  class?: string;
+}
+
+const { field, class: className = '' } = Astro.props;
+const marker = `field-arrow-${field}`;
+
+// Cognition: sugar rings, denser and larger towards the source on the right.
+const hexagon = (cx: number, cy: number, r: number) =>
+  Array.from({ length: 6 }, (_, i) => {
+    const a = (Math.PI / 3) * i;
+    return `${(cx + r * Math.cos(a)).toFixed(1)},${(cy + r * Math.sin(a)).toFixed(1)}`;
+  }).join(' ');
+const sugars = [
+  [258, 92, 6.5],
+  [243, 79, 4.5],
+  [273, 105, 4.5],
+  [249, 109, 4.5],
+  [271, 77, 4.5],
+  [287, 93, 4.5],
+  [230, 95, 4],
+  [226, 63, 3.5],
+  [298, 62, 3.5],
+  [294, 130, 3.5],
+  [233, 130, 3.5],
+  [205, 80, 3],
+  [200, 118, 2.8],
+];
+
+// AI safety: the simplex of three hypotheses, and its barycentric grid at thirds.
+const [A, B, C] = [
+  [40, 168],
+  [150, 168],
+  [95, 72.7],
+];
+const mix = (p: Array<number>, q: Array<number>, s: number) => [p[0] + s * (q[0] - p[0]), p[1] + s * (q[1] - p[1])];
+const grid = [1 / 3, 2 / 3].flatMap((s) => [
+  [mix(A, C, s), mix(B, C, s)],
+  [mix(A, B, s), mix(C, B, s)],
+  [mix(B, A, s), mix(C, A, s)],
+]);
+---
+
+<svg
+  class:list={['text-primary', className]}
+  viewBox="0 0 320 200"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+>
+  <defs>
+    <marker id={marker} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" class="fill-current" stroke="none"></path>
+    </marker>
+  </defs>
+  {
+    field === 'mathematics-of-agents' && (
+      <>
+        <rect x="58" y="32" width="86" height="136" rx="12" class="stroke-muted" stroke-dasharray="4 5" opacity="0.6" />
+        <line x1="14" y1="66" x2="72" y2="66" />
+        <line x1="14" y1="134" x2="72" y2="134" />
+        <rect x="72" y="46" width="58" height="40" rx="7" />
+        <rect x="72" y="114" width="58" height="40" rx="7" />
+        <path d="M130 66 C 162 66, 160 88, 190 88" />
+        <path d="M130 134 C 162 134, 160 112, 190 112" />
+        <rect x="190" y="68" width="62" height="64" rx="7" />
+        <line x1="252" y1="100" x2="298" y2="100" />
+        <circle cx="303" cy="100" r="4.5" class="fill-accent" stroke="none" />
+        <g
+          class="fill-current"
+          stroke="none"
+          font-family="Georgia, serif"
+          font-style="italic"
+          font-size="19"
+          text-anchor="middle"
+        >
+          <text x="101" y="72">
+            f
+          </text>
+          <text x="101" y="140">
+            g
+          </text>
+          <text x="221" y="106">
+            h
+          </text>
+        </g>
+      </>
+    )
+  }
+  {
+    field === 'cognition-and-control' && (
+      <>
+        {[26, 48, 72].map((r) => (
+          <circle cx="258" cy="92" r={r} class="stroke-muted" stroke-width="1" stroke-dasharray="3 5" opacity="0.5" />
+        ))}
+        {sugars.map(([x, y, r]) => (
+          <polygon points={hexagon(x, y, r)} class="stroke-accent" stroke-width="1.2" />
+        ))}
+        <path d="M14 178 L 36 162 L 42 174 L 64 150 L 70 158 L 90.4 131.8" stroke-width="1.2" opacity="0.5" />
+        <circle cx="36" cy="162" r="2" class="fill-muted" stroke="none" />
+        <circle cx="64" cy="150" r="2" class="fill-muted" stroke="none" />
+        <g transform="translate(156 116) rotate(-13.5) scale(1.35)" stroke-width="1.1">
+          <path d="M-20 -3 q -5 -6 -10 0 t -10 0 t -10 0" stroke-width="1" />
+          <path d="M-20 3 q -5 6 -10 0 t -10 0 t -10 0" stroke-width="1" />
+          <rect x="-20" y="-8" width="40" height="16" rx="8" />
+          <path d="M-8 -1 C -2 -4, 4 2, 10 -1" stroke-width="1" opacity="0.6" />
+        </g>
+      </>
+    )
+  }
+  {
+    field === 'artificial-life' && (
+      <>
+        <path d="M18 176 C 44 168, 70 150, 97.4 136.6" opacity="0.45" />
+        <line x1="139.5" y1="111.2" x2="252" y2="77" class="stroke-muted" stroke-width="1" stroke-dasharray="3 5" />
+        <line x1="145.8" y1="127.6" x2="252" y2="80" class="stroke-muted" stroke-width="1" stroke-dasharray="3 5" />
+        <Light x={262} y={74} r={5} />
+        <Vehicle x={120} y={128} angle={-20.8} scale={2.2} />
+      </>
+    )
+  }
+  {
+    field === 'agent-foundations-for-ai-safety' && (
+      <>
+        {grid.map(([p, q]) => (
+          <line x1={p[0]} y1={p[1]} x2={q[0]} y2={q[1]} class="stroke-muted" stroke-width="1" opacity="0.4" />
+        ))}
+        <polygon points={[A, B, C].map((p) => p.join(',')).join(' ')} />
+        {[A, B, C].map(([x, y]) => (
+          <circle cx={x} cy={y} r="3" fill="currentColor" stroke="none" />
+        ))}
+        <circle cx="95" cy="136.2" r="4" class="fill-muted" stroke="none" />
+        <path d="M95.6 130 L 99.2 106" marker-end={`url(#${marker})`} />
+        <circle cx="100" cy="98" r="5" class="fill-accent" stroke="none" />
+        <g stroke="none" font-family="Georgia, serif" font-style="italic" font-size="15">
+          <text x="164" y="124" class="fill-accent">
+            p(h|d)
+          </text>
+          <text x="214" y="124" class="fill-current">
+            =
+          </text>
+          <g class="fill-current" text-anchor="middle">
+            <text x="270" y="111">
+              p(d|h) p(h)
+            </text>
+            <text x="270" y="139">
+              p(d)
+            </text>
+          </g>
+        </g>
+        <line x1="230" y1="119" x2="310" y2="119" stroke-width="1.2" />
+      </>
+    )
+  }
+</svg>

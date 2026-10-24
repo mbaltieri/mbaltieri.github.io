@@ -46,7 +46,7 @@ LC_ALL=en_US.UTF-8 ruby .scripts/check-built-site.rb dist
 | Publications                           | `src/data/publications.yaml`                                             |
 | Resume (and `/assets/resume.json`)     | `src/data/resume.yaml`                                                   |
 | Home, Research, Publications, Resume   | `src/pages/index.astro`, `src/pages/research/`, `src/pages/resume.astro` |
-| Vision, Talks                          | `src/pages/vision.md`, `src/pages/research/talks.md`                     |
+| Vision, Talks                          | `src/pages/vision.mdx`, `src/pages/research/talks.md`                    |
 | PDFs and images linked by address      | `public/assets/`, served at `/assets/...`                                |
 | Cover images of posts and projects     | `src/assets/images/`, optimised at build time                            |
 | Redirects from old addresses           | `astro.config.ts`                                                        |

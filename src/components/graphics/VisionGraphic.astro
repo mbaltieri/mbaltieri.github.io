@@ -1,0 +1,263 @@
+---
+import Vehicle from '~/components/graphics/parts/Vehicle.astro';
+import Protocell from '~/components/graphics/parts/Protocell.astro';
+
+// Line drawings for the sections of the Vision page, in the style of the field drawings.
+//
+//   fundamental-questions     from inert things to living things to agents: is there a line, and where?
+//   agents-and-observers      an eye drawing the boundary of an agent among the parts it watches
+//   agents-without-observers  the same agent drawing its own boundary and keeping a cycle going
+//                             inside it, with no eye needed
+//   origins-of-life           a U-skate of the Gray-Scott model, stylised, gliding among spots
+//   origins-of-cognition      a trajectory in a joint agent and environment space, and the same
+//                             loop run backwards in time
+
+export interface Props {
+  name:
+    | 'fundamental-questions'
+    | 'agents-and-observers'
+    | 'agents-without-observers'
+    | 'origins-of-life'
+    | 'origins-of-cognition';
+  class?: string;
+}
+
+const { name, class: className = '' } = Astro.props;
+const marker = `vision-arrow-${name}`;
+const mutedMarker = `vision-arrow-muted-${name}`;
+
+type Point = [number, number];
+
+// A smooth curve through points (Catmull-Rom as cubic Béziers), indices taken round the list.
+const curve = (points: Array<Point>, from: number, to: number, closed = false) => {
+  const n = points.length;
+  const at = (i: number) => points[((i % n) + n) % n];
+  const f = (p: Array<number>) => `${p[0].toFixed(1)} ${p[1].toFixed(1)}`;
+  let d = `M${f(at(from))}`;
+  for (let i = from; i < to; i++) {
+    const [p0, p1, p2, p3] = [at(i - 1), at(i), at(i + 1), at(i + 2)];
+    const c1 = [p1[0] + (p2[0] - p0[0]) / 6, p1[1] + (p2[1] - p0[1]) / 6];
+    const c2 = [p2[0] - (p3[0] - p1[0]) / 6, p2[1] - (p3[1] - p1[1]) / 6];
+    d += ` C ${f(c1)}, ${f(c2)}, ${f(p2)}`;
+  }
+  return closed ? `${d} Z` : d;
+};
+
+// A blob: a closed curve whose radius wobbles with the angle.
+const blob = (cx: number, cy: number, rx: number, ry: number, wobble: (t: number) => number, n = 60): Array<Point> =>
+  Array.from({ length: n }, (_, i) => {
+    const t = (i / n) * 2 * Math.PI;
+    const k = wobble(t);
+    return [cx + rx * k * Math.cos(t), cy + ry * k * Math.sin(t)];
+  });
+
+const hexagon = Array.from({ length: 6 }, (_, i) => {
+  const a = (Math.PI / 3) * i + Math.PI / 6;
+  return `${(100 + 14 * Math.cos(a)).toFixed(1)},${(118 + 14 * Math.sin(a)).toFixed(1)}`;
+}).join(' ');
+
+// The parts the observer watches, and the four that form the agent.
+const watched = [
+  [176, 52],
+  [206, 40],
+  [252, 46],
+  [288, 66],
+  [298, 106],
+  [284, 150],
+  [244, 162],
+  [198, 156],
+  [170, 126],
+];
+const agent: Array<Point> = [
+  [222, 96],
+  [252, 92],
+  [258, 120],
+  [230, 124],
+];
+
+// Without an observer: the agent's own boundary, and the cycle that runs through its parts.
+const ownBoundary = curve(
+  blob(240, 108, 44, 38, (t) => 1 + 0.09 * Math.sin(2 * t + 0.8) + 0.06 * Math.cos(3 * t)),
+  0,
+  60,
+  true
+);
+const cycle = agent.map((p, i) => {
+  const q = agent[(i + 1) % agent.length];
+  const [dx, dy] = [q[0] - p[0], q[1] - p[1]];
+  const length = Math.hypot(dx, dy);
+  const [ux, uy] = [dx / length, dy / length];
+  const start = [p[0] + ux * 7, p[1] + uy * 7];
+  const end = [q[0] - ux * 8, q[1] - uy * 8];
+  const mid = [(p[0] + q[0]) / 2, (p[1] + q[1]) / 2];
+  const away = Math.hypot(mid[0] - 240, mid[1] - 108);
+  const control = [mid[0] + ((mid[0] - 240) / away) * 7, mid[1] + ((mid[1] - 108) / away) * 7];
+  return `M${start[0].toFixed(1)} ${start[1].toFixed(1)} Q ${control[0].toFixed(1)} ${control[1].toFixed(1)} ${end[0].toFixed(1)} ${end[1].toFixed(1)}`;
+});
+
+// A U-skate, stylised: a U-shaped glider (arms trailing) and the ridge inside its body.
+const uSkate = (x: number, y: number) =>
+  `M${x - 24} ${y - 34} L ${x} ${y - 34} A 34 34 0 0 1 ${x} ${y + 34} L ${x - 24} ${y + 34} ` +
+  `A 8 8 0 0 1 ${x - 24} ${y + 18} L ${x} ${y + 18} A 18 18 0 0 0 ${x} ${y - 18} L ${x - 24} ${y - 18} ` +
+  `A 8 8 0 0 1 ${x - 24} ${y - 34} Z`;
+const ridge = (x: number, y: number) =>
+  `M${x - 26} ${y - 26} L ${x} ${y - 26} A 26 26 0 0 1 ${x} ${y + 26} L ${x - 26} ${y + 26}`;
+const spots = [
+  [30, 40, 4],
+  [62, 162, 5],
+  [112, 28, 3],
+  [124, 172, 4],
+  [272, 40, 5],
+  [298, 152, 4],
+  [258, 178, 3],
+  [22, 118, 3],
+  [302, 98, 3.5],
+  [212, 184, 3],
+];
+
+// Cognition: an irregular orbit in the joint space, and a smaller one run backwards.
+const forwardOrbit = blob(178, 98, 96, 54, (t) => 1 + 0.16 * Math.sin(2 * t + 0.7) + 0.08 * Math.cos(3 * t - 0.4));
+const backwardOrbit = blob(
+  176,
+  100,
+  58,
+  30,
+  (t) => 1 + 0.14 * Math.sin(2 * t + 2.1) + 0.1 * Math.cos(3 * t + 1)
+).reverse();
+const thirds = [
+  [0, 16],
+  [20, 36],
+  [40, 56],
+];
+const forward = thirds.map(([from, to]) => curve(forwardOrbit, from, to));
+const backward = thirds.map(([from, to]) => curve(backwardOrbit, from, to));
+const [stateX, stateY] = forwardOrbit[8];
+---
+
+<svg
+  class:list={['text-primary', className]}
+  viewBox="0 0 320 200"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
+>
+  <defs>
+    <marker id={marker} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" class="fill-current" stroke="none"></path>
+    </marker>
+    <marker id={mutedMarker} viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0 0 L10 5 L0 10 z" class="fill-muted" stroke="none"></path>
+    </marker>
+  </defs>
+  {
+    name === 'fundamental-questions' && (
+      <>
+        <line x1="24" y1="142" x2="296" y2="142" class="stroke-muted" stroke-width="1" />
+        <circle cx="44" cy="126" r="8" class="fill-muted" stroke="none" />
+        <polygon points={hexagon} class="stroke-muted" />
+        <circle cx="160" cy="118" r="15" class="stroke-muted" />
+        <circle cx="160" cy="118" r="4" fill="currentColor" stroke="none" />
+        <Protocell cx={222} cy={116} r={22} marker={marker} exchange={false} />
+        <Vehicle x={280} y={122} scale={1.5} />
+        <line x1="190" y1="62" x2="190" y2="152" class="stroke-accent" stroke-dasharray="4 4" />
+        <text x="190" y="50" text-anchor="middle" class="fill-accent" stroke="none" font-size="22" font-weight="600">
+          ?
+        </text>
+        <line
+          x1="40"
+          y1="170"
+          x2="282"
+          y2="170"
+          class="stroke-muted"
+          stroke-width="1"
+          marker-end={`url(#${mutedMarker})`}
+        />
+      </>
+    )
+  }
+  {
+    name === 'agents-and-observers' && (
+      <>
+        <path d="M20 100 Q 62 60 104 100 Q 62 140 20 100 Z" />
+        <circle cx="64" cy="100" r="13" />
+        <circle cx="64" cy="100" r="5" fill="currentColor" stroke="none" />
+        <line x1="106" y1="98" x2="204" y2="76" class="stroke-muted" stroke-width="1" stroke-dasharray="3 5" />
+        <line x1="106" y1="102" x2="204" y2="134" class="stroke-muted" stroke-width="1" stroke-dasharray="3 5" />
+        {watched.map(([x, y]) => (
+          <circle cx={x} cy={y} r="3.5" class="fill-muted" stroke="none" />
+        ))}
+        <ellipse cx="237" cy="106" rx="40" ry="34" stroke-dasharray="5 5" />
+        {agent.map(([x, y]) => (
+          <circle cx={x} cy={y} r="5" fill="currentColor" stroke="none" />
+        ))}
+      </>
+    )
+  }
+  {
+    name === 'agents-without-observers' && (
+      <>
+        <g class="stroke-muted" opacity="0.45">
+          <path d="M20 100 Q 62 60 104 100 Q 62 140 20 100 Z" />
+          <circle cx="64" cy="100" r="13" />
+          <line x1="26" y1="138" x2="102" y2="62" />
+        </g>
+        {watched.map(([x, y]) => (
+          <circle cx={x} cy={y} r="3.5" class="fill-muted" stroke="none" />
+        ))}
+        <path d={ownBoundary} stroke-width="1.8" />
+        {cycle.map((d) => (
+          <path d={d} stroke-width="1.2" marker-end={`url(#${marker})`} />
+        ))}
+        {agent.map(([x, y], i) => (
+          <circle cx={x} cy={y} r="5" class={i === 0 ? 'fill-accent' : 'fill-current'} stroke="none" />
+        ))}
+      </>
+    )
+  }
+  {
+    name === 'origins-of-life' && (
+      <>
+        {spots.map(([x, y, r]) => (
+          <circle cx={x} cy={y} r={r} class="fill-muted" stroke="none" opacity="0.6" />
+        ))}
+        <path d={uSkate(84, 100)} stroke-width="1" stroke-dasharray="3 4" opacity="0.18" />
+        <path d={uSkate(140, 100)} stroke-width="1" stroke-dasharray="3 4" opacity="0.4" />
+        <path d={uSkate(200, 100)} class="fill-current" fill-opacity="0.16" />
+        <path d={ridge(200, 100)} class="stroke-accent" stroke-width="1.2" stroke-dasharray="2 4" />
+        <line x1="246" y1="100" x2="286" y2="100" marker-end={`url(#${marker})`} />
+      </>
+    )
+  }
+  {
+    name === 'origins-of-cognition' && (
+      <>
+        <line x1="48" y1="168" x2="48" y2="26" class="stroke-muted" stroke-width="1" />
+        <line x1="48" y1="168" x2="300" y2="168" class="stroke-muted" stroke-width="1" />
+        <g class="fill-muted" stroke="none" font-size="12">
+          <text x="56" y="34">
+            agent
+          </text>
+          <text x="300" y="186" text-anchor="end">
+            environment
+          </text>
+        </g>
+        {backward.map((d) => (
+          <path
+            d={d}
+            class="stroke-muted"
+            stroke-width="1.2"
+            stroke-dasharray="3 4"
+            marker-end={`url(#${mutedMarker})`}
+          />
+        ))}
+        {forward.map((d) => (
+          <path d={d} marker-end={`url(#${marker})`} />
+        ))}
+        <circle cx={stateX} cy={stateY} r="5" class="fill-accent" stroke="none" />
+      </>
+    )
+  }
+</svg>

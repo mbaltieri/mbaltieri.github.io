@@ -1,0 +1,24 @@
+---
+// One of the vehicles of the home page, for use inside an <svg>: a body, two wheels at the
+// back, and two light sensors at the front wired to the wheel on the opposite side.
+
+export interface Props {
+  x: number;
+  y: number;
+  /** Heading in degrees, clockwise from the positive x axis. */
+  angle?: number;
+  scale?: number;
+}
+
+const { x, y, angle = 0, scale = 1 } = Astro.props;
+---
+
+<g transform={`translate(${x} ${y}) rotate(${angle}) scale(${scale})`}>
+  <rect x="-11" y="-7" width="22" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width={1.5 / scale}
+  ></rect>
+  <rect x="-9.5" y="-10" width="8" height="2.5" fill="currentColor" stroke="none"></rect>
+  <rect x="-9.5" y="7.5" width="8" height="2.5" fill="currentColor" stroke="none"></rect>
+  <path d="M9.5 -4 L-5.5 7 M9.5 4 L-5.5 -7" stroke="currentColor" stroke-width={0.9 / scale}></path>
+  <circle cx="11" cy="-4" r="1.9" class="fill-accent" stroke="none"></circle>
+  <circle cx="11" cy="4" r="1.9" class="fill-accent" stroke="none"></circle>
+</g>

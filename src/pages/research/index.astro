@@ -1,9 +1,9 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import Features2 from '~/components/widgets/Features2.astro';
-import ResearchMap from '~/components/widgets/ResearchMap.astro';
-import type { ResearchField } from '~/components/widgets/ResearchMap.astro';
+import Button from '~/components/ui/Button.astro';
+import ResearchFields from '~/components/widgets/ResearchFields.astro';
+import type { ResearchField } from '~/components/widgets/ResearchFields.astro';
 import { getPermalink } from '~/utils/permalinks';
 
 const metadata = {
@@ -43,7 +43,7 @@ const fields: Array<ResearchField> = [
   {
     id: 'artificial-life',
     number: '03',
-    name: '(A)Life',
+    name: 'Artificial Life',
     keywords: 'Autonomy, regulation, organisation',
     title: 'Artificial life',
     text: 'Research on living systems sharpens questions about autonomy, individuality and regulation. The focus is on whether concepts from cybernetics, information and control theory can explain what separates living from non-living systems.',
@@ -93,35 +93,16 @@ const fields: Array<ResearchField> = [
         system rather than to the observer describing it.
       </span>
     </Fragment>
+    <div slot="content" class="mt-2 flex flex-wrap justify-center gap-3 print:hidden">
+      <Button variant="primary" text="Publications" href={getPermalink('/research/publications')} />
+      <Button text="Talks" href={getPermalink('/research/talks')} />
+      <Button text="Projects" href={getPermalink('/projects')} />
+    </div>
   </HeroText>
 
-  <Features2
-    columns={3}
-    items={[
-      {
-        title: 'Publications',
-        description: 'Journal articles, conference papers, and preprints',
-        icon: 'tabler:file-text',
-        href: getPermalink('/research/publications'),
-      },
-      {
-        title: 'Talks',
-        description: 'Invited talks, lectures, and conference slides',
-        icon: 'tabler:presentation',
-        href: getPermalink('/research/talks'),
-      },
-      {
-        title: 'Projects',
-        description: 'Longer introductions to current and recent work',
-        icon: 'tabler:folders',
-        href: getPermalink('/projects'),
-      },
-    ]}
-    classes={{ container: 'max-w-5xl' }}
-  />
-
-  <ResearchMap
-    label="Research agenda connecting agent-environment systems with mathematics, cognition, artificial life, and AI safety"
+  <ResearchFields
+    label="Research fields: mathematics, cognition, artificial life and AI safety"
     fields={fields}
+    classes={{ container: 'pt-8 md:pt-10 lg:pt-12' }}
   />
 </Layout>

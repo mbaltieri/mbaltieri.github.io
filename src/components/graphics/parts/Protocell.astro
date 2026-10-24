@@ -1,0 +1,67 @@
+---
+// A protocell, for use inside an <svg>: a membrane of beads with a gap on the right where
+// matter is exchanged, and inside it a cycle of three steps that keeps itself going.
+
+export interface Props {
+  cx: number;
+  cy: number;
+  /** Radius of the membrane. */
+  r?: number;
+  /** Id of the arrowhead marker, defined by the drawing that uses this part. */
+  marker: string;
+  /** Draw the arrows of the exchange through the gap. */
+  exchange?: boolean;
+}
+
+const { cx, cy, r = 66, marker, exchange = true } = Astro.props;
+
+const point = (radius: number, degrees: number) => ({
+  x: +(cx + radius * Math.cos((degrees * Math.PI) / 180)).toFixed(1),
+  y: +(cy + radius * Math.sin((degrees * Math.PI) / 180)).toFixed(1),
+});
+
+const count = Math.round((r / 66) * 32);
+const beads = Array.from({ length: count }, (_, i) => (i * 360) / count)
+  .filter((angle) => angle > 14 && angle < 346)
+  .map((angle) => point(r, angle));
+const bead = Math.max(2.6, (r / 66) * 3.6);
+
+const cycle = r * 0.42;
+const arcs = [
+  [-70, 10],
+  [50, 130],
+  [170, 250],
+].map(([from, to]) => {
+  const a = point(cycle, from);
+  const b = point(cycle, to);
+  return `M${a.x} ${a.y} A ${cycle.toFixed(1)} ${cycle.toFixed(1)} 0 0 1 ${b.x} ${b.y}`;
+});
+const [top, right, left] = [point(cycle, -90), point(cycle, 30), point(cycle, 150)];
+const node = Math.max(3.5, (r / 66) * 5.5);
+const gapIn = [point(r + 64, -10), point(r + 12, -5)];
+const gapOut = [point(r + 12, 5), point(r + 64, 10)];
+---
+
+<g>
+  {beads.map(({ x, y }) => <circle cx={x} cy={y} r={bead} fill="none" stroke="currentColor" />)}
+  {
+    exchange && (
+      <>
+        <path
+          d={`M${gapIn[0].x} ${gapIn[0].y} L ${gapIn[1].x} ${gapIn[1].y}`}
+          class="stroke-muted"
+          marker-end={`url(#${marker})`}
+        />
+        <path
+          d={`M${gapOut[0].x} ${gapOut[0].y} L ${gapOut[1].x} ${gapOut[1].y}`}
+          class="stroke-muted"
+          marker-end={`url(#${marker})`}
+        />
+      </>
+    )
+  }
+  {arcs.map((d) => <path d={d} fill="none" stroke="currentColor" marker-end={`url(#${marker})`} />)}
+  <circle cx={top.x} cy={top.y} r={node + 0.5} class="fill-accent" stroke="none"></circle>
+  <circle cx={right.x} cy={right.y} r={node} fill="currentColor" stroke="none"></circle>
+  <circle cx={left.x} cy={left.y} r={node} fill="currentColor" stroke="none"></circle>
+</g>
