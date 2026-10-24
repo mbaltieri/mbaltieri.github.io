@@ -1,161 +1,238 @@
 ---
+import { Icon } from 'astro-icon/components';
 import Layout from '~/layouts/PageLayout.astro';
-import Hero from '~/components/widgets/Hero.astro';
-import Steps from '~/components/widgets/Steps.astro';
-import Features3 from '~/components/widgets/Features3.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
+import Timeline from '~/components/ui/Timeline.astro';
+import Button from '~/components/ui/Button.astro';
+import PublicationEntry from '~/components/publications/PublicationEntry.astro';
 import { resume, resumeDates } from '~/utils/resume';
-import { escapeHtml, inlineMarkdown, markdown } from '~/utils/markdown';
+import { publications } from '~/utils/publications';
+import { getPermalink } from '~/utils/permalinks';
+import { escapeHtml, inlineMarkdown } from '~/utils/markdown';
 
-// Everything on this page comes from src/data/resume.yaml. As on the Jekyll site, the contact
-// details are left off and only the location is shown. They stay in the data, so they are
+// A resume built from AstroWind's own pieces: its banner for the header, its Timeline for the
+// positions, and the entries of the Publications page for the papers. Everything comes from
+// src/data/resume.yaml, except the selected publications, which come from
+// src/data/publications.yaml. The full CV is the PDF linked at the top. As on the Jekyll site, the
+// contact details are left off and only the location is shown. They stay in the data, so they are
 // still in /assets/resume.json and in the profile links of the home page.
 
 const metadata = {
   title: 'Resume',
-  description: "Manuel Baltieri's resume.",
+  description: "Manuel Baltieri's resume: positions, education, selected publications and skills.",
 };
 
-const { basics, work = [], education = [], publications = [], skills = [], languages = [], interests = [] } = resume;
+const { basics, work = [], education = [], skills = [], languages = [], interests = [] } = resume;
 
-const location = [basics.location?.city, basics.location?.countryCode].filter(Boolean).join(', ');
-const summary = await markdown(basics.summary);
+const countries: Record<string, string> = { JP: 'Japan' };
+const location = [basics.location?.city, countries[basics.location?.countryCode ?? ''] ?? basics.location?.countryCode]
+  .filter(Boolean)
+  .join(', ');
 
-const link = (text: string, href?: string) =>
-  href ? `<a class="hover:underline" href="${escapeHtml(href)}">${escapeHtml(text)}</a>` : escapeHtml(text);
+// The summary is a list of short statements in the data, shown side by side.
+const statementIcons = ['tabler:atom-2', 'tabler:math-function', 'tabler:code'];
+const statements = await Promise.all(
+  (basics.summary ?? '')
+    .split(/\n+/)
+    .map((line) => line.replace(/^\s*-\s*/, '').trim())
+    .filter(Boolean)
+    .map((line) => inlineMarkdown(line))
+);
 
-const workItems = await Promise.all(
+// Each position: the role and its dates on one line, the organisation under it, then what it was.
+const organisation = (name: string, href?: string) =>
+  href
+    ? `<a class="hover:text-primary hover:underline" href="${escapeHtml(href)}">${escapeHtml(name)}</a>`
+    : escapeHtml(name);
+const positions = await Promise.all(
   work.map(async (job) => ({
-    title: `${escapeHtml(job.position)} <br /> <span class="font-normal">${link(job.company, job.website)}</span> <br /> <span class="text-sm font-normal">${resumeDates(job.startDate, job.endDate)}</span>`,
+    title: `<span class="flex flex-wrap items-baseline justify-between gap-x-4"><span>${escapeHtml(job.position)}</span><span class="text-sm font-normal tabular-nums text-muted">${resumeDates(job.startDate, job.endDate)}</span></span><span class="mt-0.5 block text-base font-normal text-muted">${organisation(job.company, job.website)}</span>`,
     description: job.summary ? await inlineMarkdown(job.summary) : undefined,
-    icon: 'tabler:briefcase',
   }))
 );
 
-const educationItems = education.map((school) => ({
-  title: `${escapeHtml(school.studyType)} in ${escapeHtml(school.area)} <br /> <span class="font-normal">${escapeHtml(school.institution)}</span> <br /> <span class="text-sm font-normal">${resumeDates(school.startDate, school.endDate)}</span>`,
-  icon: 'tabler:school',
-}));
+const selected = publications.filter((entry) => entry.selected);
 
-// On paper a link is no use, so the address is printed after it.
-const publicationItems = publications.map((entry) => ({
-  title:
-    link(entry.name, entry.website) +
-    (entry.website
-      ? ` <span class="hidden print:inline font-normal">(${escapeHtml(entry.website.replace(/^https?:\/\//, '').replace(/\/$/, ''))})</span>`
-      : ''),
-  icon: 'tabler:books',
-}));
+const sections = [
+  { id: 'profile', title: 'Profile' },
+  { id: 'experience', title: 'Experience' },
+  { id: 'education', title: 'Education' },
+  { id: 'publications', title: 'Publications' },
+  { id: 'skills', title: 'Skills' },
+  { id: 'languages', title: 'Languages' },
+];
 
-// All sections share one column and one left-aligned heading, whichever widget draws them.
-// The `print:` classes make the same sections compact on paper: the timelines keep their shape,
-// with smaller type and spacing, and no entry is split across two pages.
-const printHeadline = { title: 'text-3xl lg:text-4xl print:text-lg' };
-const column = {
-  container: 'max-w-3xl print:max-w-none print:px-0 print:py-3',
-  headline: { container: 'text-left rtl:text-right print:mb-3', ...printHeadline },
-  items: {
-    panel: 'print:break-inside-avoid',
-    title: 'print:text-base',
-    description: 'print:mt-1 print:text-sm',
-    icon: 'text-primary dark:text-slate-200 border-primary/40 dark:border-primary/60 print:h-7 print:w-7 print:p-1',
-  },
-};
-const listColumn = {
-  container: 'max-w-3xl print:max-w-none print:px-0 print:py-3',
-  headline: { container: 'text-left rtl:text-right max-w-none md:mx-0 mb-0 md:mb-0', ...printHeadline },
-};
+const section =
+  'scroll-mt-24 pt-12 md:pt-16 print:pt-2.5 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade';
+const heading =
+  'mb-6 flex items-center gap-4 font-heading text-2xl font-semibold text-heading after:h-px after:flex-1 after:bg-gray-200 dark:after:bg-slate-800 print:mb-2 print:text-base';
 ---
 
 <Layout metadata={metadata}>
-  <Hero
-    id="resume-hero"
-    tagline="Resume"
-    title={escapeHtml(basics.name)}
-    subtitle={`${escapeHtml(basics.label)}${location ? `<br /><span class="text-base">${escapeHtml(location)}</span>` : ''}`}
-    actions={[
-      { variant: 'primary', text: 'PDF', href: '/assets/Academic_CV.pdf', icon: 'tabler:file-type-pdf' },
-      { text: 'JSON', href: '/assets/resume.json', icon: 'tabler:braces' },
-      { text: 'Print', type: 'button', onclick: 'window.print()', icon: 'tabler:printer' },
-    ]}
-  />
+  <div class="print:hidden">
+    <HeroText tagline="Resume" title={basics.name}>
+      <Fragment slot="subtitle">
+        <span class="block text-xl md:text-2xl text-heading">{basics.label}</span>
+        {
+          location && (
+            <span class="mt-3 inline-flex items-center gap-1.5 text-lg">
+              <Icon name="tabler:map-pin" class="h-5 w-5" />
+              {location}
+            </span>
+          )
+        }
+      </Fragment>
+      <div slot="content">
+        <div class="mt-2 flex flex-wrap justify-center gap-3">
+          <Button variant="primary" text="Full CV" href="/assets/Academic_CV.pdf" icon="tabler:file-type-pdf" />
+          <Button text="Print" type="button" onclick="window.print()" icon="tabler:printer" />
+        </div>
+        <nav aria-label="Sections of the resume" class="mt-10 flex flex-wrap justify-center gap-2">
+          {
+            sections.map(({ id, title }) => (
+              <a
+                class="rounded-full border border-gray-200 px-3.5 py-1.5 text-sm font-medium text-muted transition hover:border-primary hover:text-primary dark:border-slate-700"
+                href={`#${id}`}
+              >
+                {title}
+              </a>
+            ))
+          }
+        </nav>
+      </div>
+    </HeroText>
+  </div>
 
-  {/* Not in a WidgetWrapper: its `not-prose` would remove the bullets of the list. */}
-  <section class="mx-auto max-w-3xl px-4 md:px-6 print:max-w-none print:px-0">
-    <header class="hidden print:block print:mb-3">
+  <div class="mx-auto max-w-4xl px-4 pb-16 md:px-6 md:pb-20 print:max-w-none print:px-0 print:pb-0">
+    <header class="hidden print:mb-2 print:block">
       <h1 class="font-heading text-2xl font-semibold text-heading">{basics.name}</h1>
       <p class="text-sm text-muted">{[basics.label, location].filter(Boolean).join(' · ')}</p>
     </header>
-    <div class="prose prose-lg print:prose-sm dark:prose-invert max-w-none" set:html={summary} />
-  </section>
 
-  <Steps id="work" title="Work" items={workItems} classes={column} />
-  <Steps id="education" title="Education" items={educationItems} classes={column} />
-  <Steps id="publications" title="Publications" items={publicationItems} classes={column} />
+    <section id="profile" class={section}>
+      <h2 class={heading}>Profile</h2>
+      <ul class="grid gap-6 md:grid-cols-3 print:grid-cols-3 print:gap-4">
+        {
+          statements.map((statement, index) => (
+            <li class="flex gap-3">
+              <Icon
+                name={statementIcons[index % statementIcons.length]}
+                class="mt-0.5 h-6 w-6 shrink-0 text-primary print:h-4 print:w-4"
+              />
+              <p class="text-default print:text-sm" set:html={statement} />
+            </li>
+          ))
+        }
+      </ul>
+    </section>
 
-  <Features3
-    id="skills"
-    title="Skills"
-    columns={2}
-    defaultIcon="tabler:point-filled"
-    classes={listColumn}
-    items={skills.map((skill) => ({
-      title: escapeHtml(skill.name),
-      description: escapeHtml([skill.level, (skill.keywords ?? []).join(', ')].filter(Boolean).join(' · ')),
-    }))}
-  />
+    <section id="experience" class={section}>
+      <h2 class={heading}>Experience</h2>
+      <Timeline
+        items={positions}
+        defaultIcon="tabler:point-filled"
+        classes={{
+          title: 'text-lg font-semibold text-heading print:text-sm',
+          description: 'mt-1.5 text-sm print:mt-0.5 print:text-xs',
+          icon: 'h-6 w-6 p-1 border text-primary border-primary/40 dark:border-primary/60',
+          // The text column fills the line, so that the dates sit at its right end.
+          panel: '[&>div:last-child]:flex-1 print:break-inside-avoid',
+        }}
+      />
+    </section>
 
-  <Features3
-    id="languages"
-    title="Languages"
-    columns={3}
-    defaultIcon="tabler:language"
-    classes={listColumn}
-    items={languages.map((entry) => ({ title: escapeHtml(entry.language), description: escapeHtml(entry.fluency) }))}
-  />
+    <section id="education" class={section}>
+      <h2 class={heading}>Education</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm print:text-xs">
+          <thead>
+            <tr class="border-b border-gray-200 text-xs uppercase tracking-wide text-muted dark:border-slate-800">
+              <th scope="col" class="py-2 pr-4 font-semibold">Degree</th>
+              <th scope="col" class="py-2 pr-4 font-semibold">Field</th>
+              <th scope="col" class="py-2 pr-4 font-semibold">Institution</th>
+              <th scope="col" class="py-2 font-semibold whitespace-nowrap">Dates</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 dark:divide-slate-800">
+            {
+              education.map((school) => (
+                <tr>
+                  <td class="py-3 pr-4 font-semibold text-heading">{school.studyType}</td>
+                  <td class="py-3 pr-4 text-default">{school.area}</td>
+                  <td class="py-3 pr-4 text-muted">{school.institution}</td>
+                  <td class="py-3 whitespace-nowrap tabular-nums text-muted">
+                    {resumeDates(school.startDate, school.endDate)}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </section>
 
-  <Features3
-    id="interests"
-    title="Interests"
-    columns={3}
-    defaultIcon="tabler:heart"
-    classes={listColumn}
-    items={interests.map((entry) => ({
-      title: escapeHtml(entry.name),
-      description: escapeHtml((entry.keywords ?? []).join(', ')),
-    }))}
-  />
+    <section id="publications" class={section}>
+      <h2 class={heading}>Selected publications</h2>
+      <ol
+        class="divide-y divide-gray-200 dark:divide-slate-800 print:[&_h3]:text-sm print:[&_p]:mt-0 print:[&_p]:text-xs print:[&_p.mt-2]:hidden print:[&>li]:break-inside-avoid print:[&>li]:py-1"
+      >
+        {selected.map((pub) => <PublicationEntry pub={pub} noMark />)}
+      </ol>
+      <p class="mt-4 print:hidden">
+        <a class="font-medium text-primary hover:underline" href={getPermalink('/research/publications')}>
+          All publications
+        </a>
+      </p>
+    </section>
+
+    <section id="skills" class={section}>
+      <h2 class={heading}>Skills</h2>
+      <dl class="grid gap-x-10 gap-y-6 sm:grid-cols-2 print:grid-cols-2 print:gap-y-2">
+        {
+          skills.map((skill) => (
+            <div>
+              <dt class="font-heading text-lg font-semibold text-heading print:text-sm">{skill.name}</dt>
+              <dd class="mt-2 flex flex-wrap gap-1.5 print:mt-0.5">
+                {(skill.keywords ?? []).map((keyword) => (
+                  <span class="rounded-full bg-primary/10 px-2.5 py-0.5 text-sm text-default dark:bg-primary/15 print:bg-transparent print:px-0 print:text-xs">
+                    {keyword}
+                  </span>
+                ))}
+              </dd>
+            </div>
+          ))
+        }
+      </dl>
+    </section>
+
+    <section id="languages" class={section}>
+      <h2 class={heading}>Languages and interests</h2>
+      <div class="grid gap-x-10 gap-y-8 md:grid-cols-2 print:grid-cols-2 print:gap-y-2">
+        <dl class="grid grid-cols-2 gap-x-6 gap-y-3 print:gap-y-1">
+          {
+            languages.map((entry) => (
+              <div>
+                <dt class="font-semibold text-heading print:text-sm">{entry.language}</dt>
+                <dd class="text-sm text-muted print:text-xs">{entry.fluency}</dd>
+              </div>
+            ))
+          }
+        </dl>
+        <dl class="grid gap-y-3 print:gap-y-1">
+          {
+            interests.map((entry) => (
+              <div>
+                <dt class="font-semibold text-heading print:text-sm">{entry.name}</dt>
+                <dd class="text-sm text-muted print:text-xs">{(entry.keywords ?? []).join(', ')}</dd>
+              </div>
+            ))
+          }
+        </dl>
+      </div>
+    </section>
+
+    <p class="mt-16 text-sm text-muted print:hidden">
+      The same resume, as data in the <a class="text-primary hover:underline" href="/assets/resume.json">JSON Resume</a> format.
+    </p>
+  </div>
 </Layout>
-
-<style is:global>
-  /* On paper: the screen banner gives way to the short header above, and the grids of skills,
-     languages and interests close up. */
-  @media print {
-    #resume-hero {
-      display: none;
-    }
-    #skills .grid,
-    #languages .grid,
-    #interests .grid {
-      margin-top: 0.5rem;
-      gap: 0.4rem 1.5rem;
-    }
-    #languages .grid,
-    #interests .grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-    }
-    #skills .grid > *,
-    #languages .grid > *,
-    #interests .grid > * {
-      break-inside: avoid;
-    }
-    #publications,
-    #skills,
-    #languages,
-    #interests {
-      break-inside: avoid;
-    }
-    h2 {
-      break-after: avoid;
-    }
-  }
-</style>
