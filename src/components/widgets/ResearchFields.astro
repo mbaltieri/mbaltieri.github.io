@@ -9,8 +9,10 @@ import type { Widget } from '~/types';
 
 // The areas of research as tabs: a row of drawings, one per area, and under the selected one its
 // introduction and the questions it takes up. Pressing a question shows its answer, with its papers
-// and links, one answer at a time within an area. The first area is shown at first, or the one
-// named in the address: an area (#artificial-life) or a question (#boundaries), which then opens.
+// and links. Each answer opens and closes on its own, so that opening one never moves the question
+// pressed. The first area is shown at first, or the one named in the address: an area
+// (#artificial-life) or a question (#boundaries), which then opens. Areas fade in with the site's
+// fade, after the one shown has faded out, and answers fade in as they slide open.
 // The address follows the selected area. Without scripts every area is shown and the questions
 // still open, and on paper every area and every answer is printed.
 
@@ -122,7 +124,7 @@ const small = 'text-sm font-semibold uppercase tracking-wide text-muted';
               <h4 class:list={[small, 'mt-8']}>Questions</h4>
               <div class="mt-3 divide-y divide-gray-200 border-y border-gray-200 dark:divide-slate-800 dark:border-slate-800">
                 {field.questions.map((item) => (
-                  <details id={item.id} name={`questions-${field.id}`} class="group scroll-mt-28">
+                  <details id={item.id} class="group scroll-mt-28">
                     <summary class="flex cursor-pointer list-none items-start justify-between gap-4 py-4 [&::-webkit-details-marker]:hidden">
                       <span class="font-heading text-lg font-medium leading-snug text-heading transition group-hover:text-primary">
                         {item.question}
@@ -132,52 +134,54 @@ const small = 'text-sm font-semibold uppercase tracking-wide text-muted';
                         class="mt-1 h-5 w-5 shrink-0 text-primary transition-transform duration-200 group-open:rotate-45 print:hidden"
                       />
                     </summary>
-                    <div class="flow-root pb-6 text-muted motion-safe:animate-fade [&_p_a]:text-primary [&_p_a:hover]:underline">
-                      {item.drawing && (
-                        <figure class="mb-4 max-w-xs md:float-right md:mb-2 md:ml-6 md:w-52">
-                          <VisionGraphic name={item.drawing} class="h-auto w-full" />
-                        </figure>
-                      )}
-                      {item.answer.map((paragraph) => (
-                        <p class="mb-3" set:html={paragraph} />
-                      ))}
-                      {item.aside && (
-                        <p class="mb-3 border-l-2 border-accent pl-3 text-sm italic" set:html={item.aside} />
-                      )}
-                      {item.papers?.length ? (
-                        <>
-                          <h5 class:list={[small, 'mt-5 text-xs']}>Papers</h5>
-                          <ul class="mt-2 space-y-1.5">
-                            {item.papers.map((paper) => (
-                              <li>
-                                {paper.href ? (
-                                  <a class="font-medium text-heading transition hover:text-primary" href={paper.href}>
-                                    {paper.title}
+                    <div data-answer>
+                      <div class="flow-root pb-6 text-muted [&_p_a]:text-primary [&_p_a:hover]:underline">
+                        {item.drawing && (
+                          <figure class="mb-4 max-w-xs md:float-right md:mb-2 md:ml-6 md:w-52">
+                            <VisionGraphic name={item.drawing} class="h-auto w-full" />
+                          </figure>
+                        )}
+                        {item.answer.map((paragraph) => (
+                          <p class="mb-3" set:html={paragraph} />
+                        ))}
+                        {item.aside && (
+                          <p class="mb-3 border-l-2 border-accent pl-3 text-sm italic" set:html={item.aside} />
+                        )}
+                        {item.papers?.length ? (
+                          <>
+                            <h5 class:list={[small, 'mt-5 text-xs']}>Papers</h5>
+                            <ul class="mt-2 space-y-1.5">
+                              {item.papers.map((paper) => (
+                                <li>
+                                  {paper.href ? (
+                                    <a class="font-medium text-heading transition hover:text-primary" href={paper.href}>
+                                      {paper.title}
+                                    </a>
+                                  ) : (
+                                    <span class="font-medium text-heading">{paper.title}</span>
+                                  )}
+                                  <span class="text-sm"> · {[paper.venue, paper.year].filter(Boolean).join(', ')}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </>
+                        ) : null}
+                        {item.links?.length ? (
+                          <>
+                            <h5 class:list={[small, 'mt-5 text-xs']}>Links</h5>
+                            {item.linksNote && <p class="mt-1 text-sm">{item.linksNote}</p>}
+                            <ul class="mt-2 space-y-1.5">
+                              {item.links.map((link) => (
+                                <li>
+                                  <a class="text-primary hover:underline" href={link.href}>
+                                    {link.text}
                                   </a>
-                                ) : (
-                                  <span class="font-medium text-heading">{paper.title}</span>
-                                )}
-                                <span class="text-sm"> · {[paper.venue, paper.year].filter(Boolean).join(', ')}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </>
-                      ) : null}
-                      {item.links?.length ? (
-                        <>
-                          <h5 class:list={[small, 'mt-5 text-xs']}>Links</h5>
-                          {item.linksNote && <p class="mt-1 text-sm">{item.linksNote}</p>}
-                          <ul class="mt-2 space-y-1.5">
-                            {item.links.map((link) => (
-                              <li>
-                                <a class="text-primary hover:underline" href={link.href}>
-                                  {link.text}
-                                </a>
-                              </li>
-                            ))}
-                          </ul>
-                        </>
-                      ) : null}
+                                </li>
+                              ))}
+                            </ul>
+                          </>
+                        ) : null}
+                      </div>
                     </div>
                   </details>
                 ))}
@@ -232,8 +236,12 @@ const small = 'text-sm font-semibold uppercase tracking-wide text-muted';
 </style>
 
 <script>
+  const still = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
   class ResearchFields extends HTMLElement {
     private openBeforePrint: Array<HTMLDetailsElement> = [];
+    private leaving: Animation | null = null;
+    private chosen = '';
 
     connectedCallback() {
       const list = this.querySelector<HTMLElement>('[data-tabs]');
@@ -269,14 +277,23 @@ const small = 'text-sm font-semibold uppercase tracking-wide text-muted';
       return tab.dataset.field ? document.getElementById(tab.dataset.field) : null;
     }
 
-    /** Shows the area `id` and hides the others. */
-    select(id: string) {
+    /** Marks the tab of the area `id` as the selected one. */
+    mark(id: string) {
       this.tabs().forEach((tab) => {
         const on = tab.dataset.field === id;
         tab.setAttribute('aria-selected', String(on));
         tab.tabIndex = on ? 0 : -1;
-        this.panel(tab)?.toggleAttribute('data-open', on);
       });
+    }
+
+    /** Shows the area `id` and hides the others (the one shown fades in, see the panels' classes). */
+    show(id: string) {
+      this.tabs().forEach((tab) => this.panel(tab)?.toggleAttribute('data-open', tab.dataset.field === id));
+    }
+
+    select(id: string) {
+      this.mark(id);
+      this.show(id);
     }
 
     /** The element named in the address, if it is in one of the areas. */
@@ -307,18 +324,74 @@ const small = 'text-sm font-semibold uppercase tracking-wide text-muted';
     reveal(element: HTMLElement) {
       const top = element.getBoundingClientRect().top;
       if (top > 80 && top < window.innerHeight / 3) return;
-      const still = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      window.scrollBy({ top: top - 96, behavior: still ? 'auto' : 'smooth' });
+      window.scrollBy({ top: top - 96, behavior: still() ? 'auto' : 'smooth' });
     }
 
+    /** Selects an area: the one shown fades out first, unless visitors ask for less motion. */
     choose(tab: HTMLElement, focus = false) {
       const id = tab.dataset.field ?? '';
-      this.select(id);
       history.replaceState(history.state, '', `#${id}`);
       if (focus) tab.focus();
+      this.mark(id);
+      this.chosen = id;
+      // A fade-out under way ends by showing the area chosen last.
+      if (this.leaving) return;
+      const shown = this.querySelector<HTMLElement>('[data-card][data-open]');
+      if (!shown || shown.id === id || still()) {
+        this.show(id);
+        return;
+      }
+      const leaving = shown.animate([{ opacity: 1 }, { opacity: 0 }], {
+        duration: 160,
+        easing: 'ease-in',
+        fill: 'forwards',
+      });
+      this.leaving = leaving;
+      leaving.onfinish = () => {
+        this.show(this.chosen);
+        leaving.cancel();
+        this.leaving = null;
+      };
+    }
+
+    /** Opens or closes an answer: it fades in as it slides open, and fades out as it slides shut. */
+    toggle(question: HTMLDetailsElement) {
+      const answer = question.querySelector<HTMLElement>('[data-answer]');
+      answer?.getAnimations().forEach((animation) => animation.finish());
+      if (!answer || still()) {
+        question.open = !question.open;
+        return;
+      }
+      const opening = !question.open;
+      question.open = true;
+      const height = `${answer.offsetHeight}px`;
+      answer.style.overflow = 'hidden';
+      const sliding = answer.animate(
+        opening
+          ? [
+              { height: '0px', opacity: 0 },
+              { height, opacity: 1 },
+            ]
+          : [
+              { height, opacity: 1 },
+              { height: '0px', opacity: 0 },
+            ],
+        { duration: opening ? 380 : 260, easing: opening ? 'ease-out' : 'ease-in', fill: 'forwards' }
+      );
+      sliding.onfinish = () => {
+        if (!opening) question.open = false;
+        answer.style.overflow = '';
+        sliding.cancel();
+      };
     }
 
     onClick = (event: MouseEvent) => {
+      const summary = (event.target as HTMLElement).closest('summary');
+      if (summary?.parentElement instanceof HTMLDetailsElement && this.contains(summary)) {
+        event.preventDefault();
+        this.toggle(summary.parentElement);
+        return;
+      }
       const tab = (event.target as HTMLElement).closest<HTMLElement>('[data-field]');
       // Ctrl-, cmd- and shift-clicks are left to the browser: the drawings are also links to their areas.
       if (!tab || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
@@ -360,18 +433,12 @@ const small = 'text-sm font-semibold uppercase tracking-wide text-muted';
     onBeforePrint = () => {
       const all = [...this.querySelectorAll<HTMLDetailsElement>('details')];
       this.openBeforePrint = all.filter((details) => details.open);
-      all.forEach((details) => {
-        // Opening one of an exclusive group closes the others: let the group go while printing.
-        details.dataset.name = details.name;
-        details.removeAttribute('name');
-        details.open = true;
-      });
+      all.forEach((details) => (details.open = true));
     };
 
     onAfterPrint = () => {
       this.querySelectorAll<HTMLDetailsElement>('details').forEach((details) => {
         details.open = this.openBeforePrint.includes(details);
-        if (details.dataset.name) details.setAttribute('name', details.dataset.name);
       });
     };
   }
