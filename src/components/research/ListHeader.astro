@@ -1,0 +1,43 @@
+---
+import HeroText from '~/components/widgets/HeroText.astro';
+import { getPermalink } from '~/utils/permalinks';
+
+// The top of the Publications and Talks pages: the way back to Research, the title, a line about
+// the list, and a switch between the two pages.
+
+export interface Props {
+  title: string;
+  subtitle: string;
+  current: 'publications' | 'talks';
+}
+
+const { title, subtitle, current } = Astro.props;
+const pages = [
+  { id: 'publications', text: 'Publications', href: getPermalink('/research/publications') },
+  { id: 'talks', text: 'Talks', href: getPermalink('/research/talks') },
+];
+---
+
+<HeroText
+  tagline={`<a class="hover:underline" href="${getPermalink('/research')}">Research</a>`}
+  title={title}
+  subtitle={subtitle}
+>
+  <nav
+    slot="content"
+    aria-label="Research pages"
+    class="mt-2 inline-flex rounded-full border border-gray-200 p-1 dark:border-slate-700 print:hidden"
+  >
+    {
+      pages.map(({ id, text, href }) => (
+        <a
+          href={href}
+          aria-current={id === current ? 'page' : undefined}
+          class="rounded-full px-5 py-1.5 text-sm font-medium text-muted transition hover:text-primary aria-[current=page]:bg-primary aria-[current=page]:text-white"
+        >
+          {text}
+        </a>
+      ))
+    }
+  </nav>
+</HeroText>

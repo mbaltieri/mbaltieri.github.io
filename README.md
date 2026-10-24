@@ -45,7 +45,7 @@ LC_ALL=en_US.UTF-8 ruby .scripts/check-built-site.rb dist
 | Areas of research and their questions  | `src/data/research.yaml`                                                 |
 | Resume (and `/assets/resume.json`)     | `src/data/resume.yaml`                                                   |
 | Home, Research, Publications, Resume   | `src/pages/index.astro`, `src/pages/research/`, `src/pages/resume.astro` |
-| Talks                                  | `src/pages/research/talks.md`                                            |
+| Talks and podcasts                     | `src/data/talks.yaml`                                                    |
 | PDFs and images linked by address      | `public/assets/`, served at `/assets/...`                                |
 | Page images                            | `src/assets/images/`, optimised at build time                            |
 | Pages of the papers in Selected work   | `src/assets/papers/`, made from the PDFs by `.scripts/render-papers.sh`  |

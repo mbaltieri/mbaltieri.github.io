@@ -175,7 +175,7 @@ const heading =
     <section id="publications" class={section}>
       <h2 class={heading}>Selected publications</h2>
       <ol
-        class="divide-y divide-gray-200 dark:divide-slate-800 print:[&_h3]:text-sm print:[&_p]:mt-0 print:[&_p]:text-xs print:[&_p.mt-2]:hidden print:[&>li]:break-inside-avoid print:[&>li]:py-1"
+        class="divide-y divide-gray-200 dark:divide-slate-800 print:[&_h3]:text-sm print:[&_p]:mt-0 print:[&_p]:text-xs print:[&_[data-links]]:hidden print:[&>li]:break-inside-avoid print:[&>li]:py-1"
       >
         {selected.map((pub) => <PublicationEntry pub={pub} noMark />)}
       </ol>

@@ -1,0 +1,74 @@
+---
+// A list of dated entries, grouped by year, with buttons that show one kind at a time. Each year is a <section data-year> with the year on the left on wide screens;
+// each entry has data-kinds. The chosen filter is kept in the address (#invited, #journal, ...),
+// so a filtered list can be linked to. Without scripts the buttons stay hidden and every entry is
+// shown.
+
+export interface Props {
+  label: string;
+  filters: Array<{ id: string; label: string }>;
+}
+
+const { label, filters } = Astro.props;
+---
+
+<dated-list class="block">
+  <div role="group" aria-label={label} class="mb-10 flex flex-wrap justify-center gap-2" data-filters hidden>
+    {
+      filters.map(({ id, label: text }) => (
+        <button
+          type="button"
+          data-filter={id}
+          aria-pressed={id === 'all' ? 'true' : 'false'}
+          class="rounded-full border border-gray-200 px-3.5 py-1 text-sm font-medium transition hover:border-primary/50 aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-white dark:border-slate-700"
+        >
+          {text}
+        </button>
+      ))
+    }
+  </div>
+  <slot />
+</dated-list>
+
+<script>
+  class DatedList extends HTMLElement {
+    connectedCallback() {
+      this.querySelector('[data-filters]')?.removeAttribute('hidden');
+      this.addEventListener('click', this.onClick);
+      window.addEventListener('hashchange', this.onHashChange);
+      this.apply(location.hash.slice(1));
+    }
+
+    disconnectedCallback() {
+      window.removeEventListener('hashchange', this.onHashChange);
+    }
+
+    onHashChange = () => this.apply(location.hash.slice(1));
+
+    onClick = (event: Event) => {
+      const button = (event.target as HTMLElement).closest<HTMLElement>('[data-filter]');
+      if (!button) return;
+      const filter = this.apply(button.dataset.filter ?? 'all');
+      history.replaceState(history.state, '', filter === 'all' ? location.pathname + location.search : `#${filter}`);
+    };
+
+    /** Shows the entries of one kind (or all of them) and hides the years left empty. */
+    apply(requested: string): string {
+      const buttons = [...this.querySelectorAll<HTMLElement>('[data-filter]')];
+      const filter = buttons.some((button) => button.dataset.filter === requested) ? requested : 'all';
+      buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.filter === filter)));
+      this.querySelectorAll<HTMLElement>('[data-year]').forEach((year) => {
+        let shown = 0;
+        year.querySelectorAll<HTMLElement>('[data-kinds]').forEach((entry) => {
+          const show = filter === 'all' || (entry.dataset.kinds ?? '').split(' ').includes(filter);
+          entry.hidden = !show;
+          if (show) shown++;
+        });
+        year.hidden = shown === 0;
+      });
+      return filter;
+    }
+  }
+
+  if (!customElements.get('dated-list')) customElements.define('dated-list', DatedList);
+</script>

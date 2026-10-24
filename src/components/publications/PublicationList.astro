@@ -1,88 +1,27 @@
 ---
+import DatedList from '~/components/research/DatedList.astro';
+import YearGroup from '~/components/research/YearGroup.astro';
 import PublicationEntry from '~/components/publications/PublicationEntry.astro';
-import { publicationFilters, publicationsByYear } from '~/utils/publications';
+import { publications, publicationFilters, publicationsByYear } from '~/utils/publications';
 
-// Every entry of src/data/publications.yaml, grouped by year, with buttons that show one kind
-// at a time. The chosen filter is kept in the address (#selected, #journal, ...), so a filtered
-// list can be linked to. Without scripts the buttons stay hidden and every entry is shown.
+// Every entry of src/data/publications.yaml, grouped by year, with a filter for each kind that has
+// entries.
 
-const years = publicationsByYear();
+const filters = publicationFilters.filter(
+  ({ id }) =>
+    id === 'all' ||
+    (id === 'selected' ? publications.some((pub) => pub.selected) : publications.some((pub) => pub.kind === id))
+);
 ---
 
-<publication-list class="block">
-  <div role="group" aria-label="Show publications by kind" class="mb-8 flex flex-wrap gap-2" data-filters hidden>
-    {
-      publicationFilters.map(({ id, label }) => (
-        <button
-          type="button"
-          data-filter={id}
-          aria-pressed={id === 'all' ? 'true' : 'false'}
-          class="rounded-full border border-gray-200 px-3.5 py-1 text-sm font-medium transition hover:border-primary/50 aria-pressed:border-primary aria-pressed:bg-primary aria-pressed:text-white dark:border-slate-700"
-        >
-          {label}
-        </button>
-      ))
-    }
-  </div>
-
+<DatedList label="Show publications by kind" filters={filters}>
   {
-    years.map(({ year, items }) => (
-      <section data-year class="mt-10 first-of-type:mt-0">
-        <h2
-          id={`y-${year}`}
-          class="border-b border-gray-200 pb-2 font-heading text-2xl font-bold text-heading dark:border-slate-700"
-        >
-          {year}
-        </h2>
-        <ul class="divide-y divide-gray-200 dark:divide-slate-800">
-          {items.map((pub) => (
-            <PublicationEntry pub={pub} />
-          ))}
-        </ul>
-      </section>
+    publicationsByYear().map(({ year, items }) => (
+      <YearGroup year={year}>
+        {items.map((pub) => (
+          <PublicationEntry pub={pub} />
+        ))}
+      </YearGroup>
     ))
   }
-</publication-list>
-
-<script>
-  class PublicationList extends HTMLElement {
-    connectedCallback() {
-      this.querySelector('[data-filters]')?.removeAttribute('hidden');
-      this.addEventListener('click', this.onClick);
-      window.addEventListener('hashchange', this.onHashChange);
-      this.apply(location.hash.slice(1));
-    }
-
-    disconnectedCallback() {
-      window.removeEventListener('hashchange', this.onHashChange);
-    }
-
-    onHashChange = () => this.apply(location.hash.slice(1));
-
-    onClick = (event: Event) => {
-      const button = (event.target as HTMLElement).closest<HTMLElement>('[data-filter]');
-      if (!button) return;
-      const filter = this.apply(button.dataset.filter ?? 'all');
-      history.replaceState(history.state, '', filter === 'all' ? location.pathname + location.search : `#${filter}`);
-    };
-
-    /** Shows the entries of one kind (or all of them) and hides the years left empty. */
-    apply(requested: string): string {
-      const buttons = [...this.querySelectorAll<HTMLElement>('[data-filter]')];
-      const filter = buttons.some((button) => button.dataset.filter === requested) ? requested : 'all';
-      buttons.forEach((button) => button.setAttribute('aria-pressed', String(button.dataset.filter === filter)));
-      this.querySelectorAll<HTMLElement>('[data-year]').forEach((year) => {
-        let shown = 0;
-        year.querySelectorAll<HTMLElement>('[data-kinds]').forEach((entry) => {
-          const show = filter === 'all' || (entry.dataset.kinds ?? '').split(' ').includes(filter);
-          entry.hidden = !show;
-          if (show) shown++;
-        });
-        year.hidden = shown === 0;
-      });
-      return filter;
-    }
-  }
-
-  if (!customElements.get('publication-list')) customElements.define('publication-list', PublicationList);
-</script>
+</DatedList>

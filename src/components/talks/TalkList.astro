@@ -1,0 +1,20 @@
+---
+import DatedList from '~/components/research/DatedList.astro';
+import YearGroup from '~/components/research/YearGroup.astro';
+import TalkEntry from '~/components/talks/TalkEntry.astro';
+import { talkFilters, talksByYear } from '~/utils/talks';
+
+// Every entry of src/data/talks.yaml, grouped by year, with a filter per kind.
+---
+
+<DatedList label="Show talks by kind" filters={talkFilters()}>
+  {
+    talksByYear().map(({ year, items }) => (
+      <YearGroup year={year}>
+        {items.map((talk) => (
+          <TalkEntry talk={talk} />
+        ))}
+      </YearGroup>
+    ))
+  }
+</DatedList>

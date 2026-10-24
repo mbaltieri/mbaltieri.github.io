@@ -1,0 +1,40 @@
+---
+import Layout from '~/layouts/PageLayout.astro';
+import ListHeader from '~/components/research/ListHeader.astro';
+import TalkList from '~/components/talks/TalkList.astro';
+import { talks } from '~/utils/talks';
+
+// The entries are in src/data/talks.yaml. The page shares its design with the Publications page.
+
+const metadata = {
+  title: 'Talks',
+  description:
+    "Invited and contributed talks, lectures, podcasts, recordings, and slide decks from Manuel Baltieri's research.",
+  openGraph: { images: [{ url: '~/assets/images/blog/goaldirectedness.jpg' }] },
+};
+const since = Math.min(...talks.map((talk) => Number(talk.date.slice(0, 4))));
+---
+
+<Layout metadata={metadata}>
+  <ListHeader
+    title="Talks"
+    subtitle={`Invited and contributed talks and podcasts, since ${since}, with slides and recordings shared whenever possible.`}
+    current="talks"
+  />
+  <section class="mx-auto max-w-4xl px-4 pb-16 md:px-6 md:pb-20">
+    <TalkList />
+    <div class="mt-10 space-y-3 border-t border-gray-200 pt-6 text-sm text-muted dark:border-slate-800">
+      <p>
+        Please feel free to reference the material contained here. Minor updates have been implemented whenever
+        necessary (missing references, typos, etc.) but the contents have largely been left unchanged. While all of the
+        material is based on some of Manuel's previous work, bear in mind that his opinion and thoughts might have
+        changed (following some at least approximate sequence of Bayesian inference steps) over time.
+      </p>
+      <p>
+        In some cases sharing was/is not allowed, (but do expect more PDFs over time). Sometimes a (virtually) identical
+        talk was given in multiple occasions so no PDFs will be included, this is especially true for talks with the
+        same title.
+      </p>
+    </div>
+  </section>
+</Layout>

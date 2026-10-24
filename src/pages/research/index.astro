@@ -1,10 +1,9 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import Button from '~/components/ui/Button.astro';
+import ResearchShelf from '~/components/research/ResearchShelf.astro';
 import ResearchFields from '~/components/widgets/ResearchFields.astro';
 import type { ResearchField, ResearchQuestion } from '~/components/widgets/ResearchFields.astro';
-import { getPermalink } from '~/utils/permalinks';
 import { findPublication, publicationLinks } from '~/utils/publications';
 import { inlineMarkdown } from '~/utils/markdown';
 import { research, areaDrawings, answerDrawings } from '~/utils/research';
@@ -73,11 +72,9 @@ const fields: Array<ResearchField> = await Promise.all(
         system rather than to the observer describing it.
       </span>
     </Fragment>
-    <div slot="content" class="mt-2 flex flex-wrap justify-center gap-3 print:hidden">
-      <Button variant="primary" text="Publications" href={getPermalink('/research/publications')} />
-      <Button text="Talks" href={getPermalink('/research/talks')} />
-    </div>
   </HeroText>
+
+  <ResearchShelf />
 
   <ResearchFields
     label="Areas of research: mathematics, cognition, artificial life and AI safety"

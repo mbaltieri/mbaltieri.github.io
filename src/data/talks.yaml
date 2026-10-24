@@ -1,0 +1,263 @@
+# Talks and podcasts, shown on /research/talks/ and, newest first, on the Research page.
+#
+# The page groups the entries by year, newest first, in the order they are listed here within a
+# year.
+#
+#   title      as it should be printed (an entry without one prints its event as its title)
+#   event      where it was given: the event, and the institution if there is one
+#   place      optional, the city and the country
+#   date       the year and the month, as "2026-02"
+#   kind       invited | contributed | podcast (the filter buttons on the page use it)
+#   note       optional, printed after the title, e.g. "panel discussion"
+#   parts      optional, the parts of a series (lectures), each with a title and its own links
+#   occasions  optional, other times the same talk was given, each with an event, a place and a date
+#
+# An entry has up to three links, and no others:
+#
+#   slides     a PDF of the slides
+#   recording  a recording of the talk
+#   link       the page of the event (for a podcast, its page)
+
+# Invited talks
+- title: "From Life to Artificial Agents: How Do We “Mathematise” Agency?"
+  event: "Università IULM"
+  place: "Milan, Italy"
+  date: "2026-02"
+  kind: invited
+  link: "https://www.iulm.it/en/news-ed-eventi/news/eda-robots-evento"
+  slides: "/assets/pdf/presentations/IULM.pdf"
+- title: "Proving AI safety - Mathematical foundations of AI safety"
+  event: "AIRJ Symposium 2025: Building Trustworthy AI and Advancing Collaboration Between Italy and Japan, Embassy of Italy"
+  place: "Tokyo, Japan"
+  date: "2025-11"
+  kind: invited
+  slides: "/assets/pdf/presentations/AISafety2025.pdf"
+- title: "Life and its relatives"
+  event: "Breakthrough Initiatives"
+  place: "Oxford, UK"
+  date: "2025-04"
+  kind: invited
+  slides: "/assets/pdf/presentations/BreakthroughInitiatives2025.pdf"
+  recording: "https://www.youtube.com/watch?v=-wuzt7JgRuM"
+- title: "When does a system model another system?"
+  event: "Internet of Brains Event"
+  place: "Tokyo, Japan"
+  date: "2025-03"
+  kind: invited
+  slides: "/assets/pdf/presentations/IMPBayesian2025.pdf"
+- title: "What do Braitenberg vehicles believe?"
+  event: "Computational Agency Workshop, CHAIN, Hokkaido University"
+  place: "Sapporo, Japan"
+  date: "2025-01"
+  kind: invited
+  slides: "/assets/pdf/presentations/BraitenbergBeliefs2025.pdf"
+- title: "Using goals to compress models, effects of bisimulations for (PO)MDPs on embodied agents"
+  event: "Theoretical and Experimental Approaches to Goal-Directed Behaviour, BCAM"
+  place: "Bilbao, Spain"
+  date: "2024-10"
+  kind: invited
+  slides: "/assets/pdf/presentations/GoalOrientedness2024.pdf"
+- title: "Foundations of AI: building reliable, trustworthy and agentic systems"
+  event: "FUTURA @ Italian Chamber of Commerce in Japan"
+  place: "Tokyo, Japan"
+  date: "2024-10"
+  kind: invited
+  slides: "/assets/pdf/presentations/ICCJ2024.pdf"
+- title: "The Role of the Free Energy Principle in AI Safety: Markov Blankets and Beyond"
+  event: "Technical AI Safety Conference"
+  place: "Tokyo"
+  date: "2024-04"
+  kind: invited
+  slides: "/assets/pdf/presentations/TAIS2024.pdf"
+  recording: "https://www.youtube.com/watch?v=qYyzdOEGNIM"
+- title: "LLMs beyond Transformers"
+  note: "panel discussion"
+  event: "Tokyo AI Talks @ GHOVC"
+  place: "Tokyo, Japan"
+  date: "2024-01"
+  kind: invited
+- title: "The Emperor's New Markov Blankets"
+  event: "COGS Academic Seminars, University of Sussex"
+  place: "Brighton, UK"
+  date: "2023-10"
+  kind: invited
+  slides: "/assets/pdf/presentations/COGSBrighton2023.pdf"
+- title: "Minimal agency"
+  event: "Agent Foundations for Alignment: Clear Thinking for Messy Minds"
+  place: "Oxford, UK"
+  date: "2023-10"
+  kind: invited
+  slides: "/assets/pdf/presentations/MinimalAgencyOxford2023.pdf"
+- title: "The free energy principle and the internal model principle: A guide for the study of agents?"
+  event: "Active Inference meets AI Alignment"
+  place: "Oxford, UK"
+  date: "2023-10"
+  kind: invited
+  slides: "/assets/pdf/presentations/AIAlignmentActiveInferenceOxford2023.pdf"
+- title: "Inference with and within a model"
+  event: "CHAIN Academic Seminars, Hokkaido University"
+  place: "Sapporo, Japan"
+  date: "2023-02"
+  kind: invited
+  slides: "/assets/pdf/presentations/CC_Tokyo.pdf"
+  recording: "https://youtu.be/yA-d1atSzWs?si=HlO4g3CrjQyvWrKv"
+- event: "CHAIN Winter School on Minimal Cognition and Agency, Hokkaido University"
+  place: "Sapporo, Japan"
+  date: "2023-02"
+  kind: invited
+  link: "https://www.chain.hokudai.ac.jp/events/3101/"
+  parts:
+    - title: "Lecture 1 - Defining agency"
+      slides: "/assets/pdf/presentations/Lecture1_Baltieri.pdf"
+      recording: "https://youtu.be/h3odndlkDoc?si=FSefC48crbUN6F6r"
+    - title: "Lecture 2 - A history of studies of agency"
+      slides: "/assets/pdf/presentations/Lecture2_Baltieri.pdf"
+      recording: "https://youtu.be/HE9c9XoZ7vQ?si=vhIo_gPoxWV0SZ-Q"
+    - title: "Lecture 3 - First-principles definitions of agents"
+      slides: "/assets/pdf/presentations/Lecture3_Baltieri.pdf"
+      recording: "https://youtu.be/7h3jk4U3f9k?si=DPH5sgDXJygMfxj5"
+- title: "Inference with and within a model"
+  event: "Consciousness Club"
+  place: "Tokyo, Japan"
+  date: "2022-07"
+  kind: invited
+  slides: "/assets/pdf/presentations/CC_Tokyo.pdf"
+  recording: "https://www.youtube.com/watch?v=ascyxuJ6lIk&ab_channel=ConsciousnessClubTokyo"
+- title: "Variational inference in agents, with connections to control theory and cognitive (neuro)science"
+  event: "RIKEN AIP"
+  place: "Tokyo, Japan"
+  date: "2021-07"
+  kind: invited
+  slides: "/assets/pdf/presentations/RIKENAIP.pdf"
+- title: "Active inference for cognitive science and artificial intelligence - open questions and new challenges"
+  event: "CHAIN Academic Seminars, Hokkaido University"
+  place: "Sapporo, Japan"
+  date: "2020-01"
+  kind: invited
+- title: "PID control as active inference: what can we gain from this formulation?"
+  event: "2nd Active inference workshop, TU Delft"
+  place: "Delft, Netherlands"
+  date: "2018-11"
+  kind: invited
+- title: "The free energy principle and active inference, connecting control theory to biology"
+  event: "Active inference workshop, TU Delft"
+  place: "Delft, Netherlands"
+  date: "2018-04"
+  kind: invited
+
+# Contributed talks
+- title: "A Braitenberg vehicles' habitat"
+  event: "International Conference on Artificial Life (ALIFE) 2026"
+  place: "Waterloo, Canada"
+  date: "2026-08"
+  kind: contributed
+  slides: "/assets/pdf/presentations/ALIFE2026.pdf"
+- title: "World models for RL, with triangles"
+  event: "ILIAD 2026"
+  place: "Berkeley, US"
+  date: "2026-08"
+  kind: contributed
+  slides: "/assets/pdf/presentations/ILIAD2026.pdf"
+- title: "“What is it like to be a Braitenberg vehicle?”?"
+  note: "selected as a Showcase Talk"
+  event: "Models of Consciousness, Hokkaido University"
+  place: "Sapporo, Japan"
+  date: "2025-10"
+  kind: contributed
+  slides: "/assets/pdf/presentations/BraitenbergMoC2025.pdf"
+- title: "A structural view of predictive coding"
+  event: "Development and validation of a unified theory of prediction and action, Institute of Science"
+  place: "Tokyo, Japan"
+  date: "2025-05"
+  kind: contributed
+  slides: "/assets/pdf/presentations/UnifiedTheory2025.pdf"
+- title: "A mathematical perspective on the role of embodiment in predictive coding frameworks"
+  event: "Aware and Alive Workshop"
+  place: "Sapporo"
+  date: "2024-07"
+  kind: contributed
+  slides: "/assets/pdf/presentations/AwareAndAlive2024.pdf"
+  recording: "https://www.youtube.com/watch?v=LrH5KQE7iBY&list=PLWkKadjdO-XbMBFF5U__pdS2kl_U-dfYR&index=6"
+- title: "A relational theory of agency (and goals?)"
+  event: "Japan AI Alignment Conference 2023"
+  place: "Tokyo"
+  date: "2023-03"
+  kind: contributed
+  slides: "/assets/pdf/presentations/AgencyAlignmentTokyo2023.pdf"
+- title: "The Emperor's New Markov Blankets"
+  event: "Annual meeting of the Association of Scientific Studies of Consciousness (ASSC 25) 2022"
+  place: "Amsterdam, Netherlands"
+  date: "2022-07"
+  kind: contributed
+- title: "Predictions in the eye of the beholder: an active inference account of Watt governors"
+  event: "International Conference on Artificial Life (ALIFE) 2020"
+  place: "Montreal, Canada"
+  date: "2020-07"
+  kind: contributed
+  recording: "https://www.youtube.com/watch?v=BJauifkLEAE&ab_channel=ALife2020Conference"
+- title: "A Bayesian perspective on classical control"
+  event: "International Joint Conference on Neural Networks (IJCNN) 2020"
+  place: "Glasgow, UK"
+  date: "2020-07"
+  kind: contributed
+  slides: "/assets/pdf/presentations/IJCNN2020.pdf"
+- title: "The dark room problem in predictive processing and active inference, a legacy of cognitivism?"
+  event: "International Conference on Artificial Life (ALIFE) 2019"
+  place: "Newcastle, UK"
+  date: "2019-07"
+  kind: contributed
+- title: "Nonmodular architectures of cognitive systems based on active inference"
+  event: "International Joint Conference on Neural Networks (IJCNN) 2019"
+  place: "Budapest, Hungary"
+  date: "2019-07"
+  kind: contributed
+  slides: "/assets/pdf/presentations/IJCNN2019.pdf"
+- title: "Action-oriented models for active inference: examples and connections to 4E ideas"
+  event: "ALERGIC seminars, University of Sussex"
+  place: "Brighton, UK"
+  date: "2019-05"
+  kind: contributed
+- title: "A probabilistic interpretation of PID controllers using active inference"
+  event: "International Conference on the Simulation of Adaptive Behaviour (SAB) 2018"
+  place: "Frankfurt, Germany"
+  date: "2018-08"
+  kind: contributed
+- title: "The modularity of action and perception revisited using control theory and active inference"
+  event: "International Conference on Artificial Life (ALIFE) 2018"
+  place: "Tokyo, Japan"
+  date: "2018-07"
+  kind: contributed
+- title: "The free energy principle and active inference, connections to 4Es views of cognition"
+  event: "Friston Lab - Theoretical neurobiology meeting @ Wellcome Trust Centre for Neuroimaging, UCL"
+  place: "London, UK"
+  date: "2018-03"
+  kind: contributed
+- title: "The free energy principle for the study of action and perception"
+  event: "Honda Research Institute Japan Co. Ltd. (HRI-JP) - Department Intelligence Science & Technology, Kyoto University"
+  place: "Kyoto, Japan"
+  date: "2018-01"
+  kind: contributed
+  occasions:
+    - event: "Ikegami Laboratory - Department of General Systems Sciences, University of Tokyo"
+      place: "Japan"
+      date: "2018-01"
+    - event: "Laboratory for Neural Computation and Adaptation - RIKEN Center for Brain Science"
+      place: "Saitama, Japan"
+      date: "2017-12"
+- title: "An active inference implementation of phototaxis"
+  event: "European Conference on Artificial Life (ECAL) 2017"
+  place: "Lyon, France"
+  date: "2017-09"
+  kind: contributed
+
+# Podcasts
+- title: "(Actually) agentic AI"
+  event: "Mindful Machines, a podcast on AI safety hosted by Blane Rogers, episode 2"
+  date: "2024-09"
+  kind: podcast
+  link: "https://open.spotify.com/show/1rfe5rHlPQN9smSbZcXQas"
+- title: "Foundations of agency for artificial life"
+  event: "What ALife!, a podcast on artificial life hosted by Imy Khan, episode 3"
+  date: "2024-04"
+  kind: podcast
+  link: "https://open.spotify.com/show/3u2WswlGc9tThXCYHonUGy"

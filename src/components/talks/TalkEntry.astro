@@ -1,0 +1,51 @@
+---
+import LinkPills from '~/components/research/LinkPills.astro';
+import type { Talk } from '~/utils/talks';
+import { talkDate, talkLinks, talkType } from '~/utils/talks';
+
+// A talk, laid out like a publication: its title (with a note, if any), where it was given, when
+// and what it was, other times it was given, its parts (lectures) with their own links, and its
+// links.
+
+export interface Props {
+  talk: Talk;
+}
+
+const { talk } = Astro.props;
+const where = (event: string, place?: string) => [event, place].filter(Boolean).join(', ');
+---
+
+<li class="py-5" data-kinds={talk.kind === 'podcast' ? 'podcasts' : talk.kind}>
+  <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+    <h3 class="text-lg font-semibold leading-snug text-heading">{talk.title ?? talk.event}</h3>
+    {
+      talk.note && (
+        <span class="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary dark:bg-primary/25">
+          {talk.note}
+        </span>
+      )
+    }
+  </div>
+  <p class="mt-1 text-muted">{talk.title ? where(talk.event, talk.place) : talk.place}</p>
+  <p class="text-sm text-muted">{talkDate(talk.date)} · {talkType(talk)}</p>
+  {
+    talk.occasions?.map((occasion) => (
+      <p class="text-sm text-muted">
+        Also at {where(occasion.event, occasion.place)} · {talkDate(occasion.date)}
+      </p>
+    ))
+  }
+  {
+    talk.parts && (
+      <ul class="mt-3 space-y-2 border-l-2 border-gray-200 pl-4 dark:border-slate-700">
+        {talk.parts.map((part) => (
+          <li class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1.5">
+            <span class="text-default">{part.title}</span>
+            <LinkPills links={talkLinks(part)} />
+          </li>
+        ))}
+      </ul>
+    )
+  }
+  <LinkPills links={talkLinks(talk, talk.kind)} class="mt-3" />
+</li>
