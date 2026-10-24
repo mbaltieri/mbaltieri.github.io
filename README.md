@@ -48,6 +48,7 @@ LC_ALL=en_US.UTF-8 ruby .scripts/check-built-site.rb dist
 | Talks                                  | `src/pages/research/talks.md`                                            |
 | PDFs and images linked by address      | `public/assets/`, served at `/assets/...`                                |
 | Post covers and page images            | `src/assets/images/`, optimised at build time                            |
+| Pages of the papers in Selected work   | `src/assets/papers/`, made from the PDFs by `.scripts/render-papers.sh`  |
 | Redirects from old addresses           | `astro.config.ts`                                                        |
 
 The addresses of the Jekyll site are kept: a post is named after its file, case included, so renaming a file changes its address.

@@ -315,6 +315,8 @@ export interface Comparison extends Omit<Headline, 'classes'>, Widget {
 
 export interface FeatureTab extends Item {
   image?: Image;
+  /** The pages of a paper, shown one under the other in a scrollable panel instead of the image. */
+  paper?: Array<ImageMetadata>;
   /** Short line under the image of the panel, beside the call to action (a venue, a date). */
   caption?: string;
 }

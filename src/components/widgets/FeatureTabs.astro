@@ -6,9 +6,10 @@ import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import type { FeatureTabs as Props } from '~/types';
 
 // Features presented as tabs: the list of tabs on one side, the image of the
-// selected tab on the other. Keyboard-accessible (arrow keys, Home/End) with
-// proper tablist/tab/tabpanel roles. Without JavaScript the first tab's panel
-// is shown and the rest stay hidden, so the section still reads correctly.
+// selected tab on the other, or the pages of a paper, one under the other in a
+// panel that scrolls. Keyboard-accessible (arrow keys, Home/End) with proper
+// tablist/tab/tabpanel roles. Without JavaScript the first tab's panel is shown
+// and the rest stay hidden, so the section still reads correctly.
 
 const {
   title = await Astro.slots.render('title'),
@@ -77,7 +78,7 @@ const vertical = orientation === 'vertical';
 
     <div class:list={[vertical ? ['lg:col-span-7', isReversed ? 'lg:order-1' : ''] : '']}>
       {
-        items.map(({ title: tabTitle, description, image, caption, callToAction }, index) => (
+        items.map(({ title: tabTitle, description, image, paper, caption, callToAction }, index) => (
           <div
             role="tabpanel"
             id={`${uid}-panel-${index}`}
@@ -86,25 +87,48 @@ const vertical = orientation === 'vertical';
             hidden={index !== 0}
             class="outline-offset-4"
           >
-            {image && (
-              <div class="relative overflow-hidden rounded-lg shadow-lg bg-gray-100 dark:bg-slate-800">
-                {typeof image === 'string' ? (
-                  <Fragment set:html={image} />
-                ) : (
-                  <Image
-                    class="w-full"
-                    widths={[400, 768, 1024]}
-                    sizes="(max-width: 1023px) 100vw, 720px"
-                    width={720}
-                    height={480}
-                    layout="constrained"
-                    format="webp"
-                    loading={index === 0 ? 'eager' : 'lazy'}
-                    alt={tabTitle ?? ''}
-                    {...image}
-                  />
-                )}
+            {paper?.length ? (
+              <div
+                class="h-[28rem] overflow-y-auto rounded-lg border border-gray-200 bg-gray-100 p-3 sm:p-4 lg:h-[34rem] dark:border-slate-700 dark:bg-slate-800/60"
+                role="region"
+                aria-label={`Pages of ${tabTitle}`}
+                tabindex="0"
+              >
+                <div class="space-y-3 sm:space-y-4">
+                  {paper.map((page, number) => (
+                    <img
+                      src={page.src}
+                      width={page.width}
+                      height={page.height}
+                      alt={number === 0 ? `First page of ${tabTitle}` : ''}
+                      loading={index === 0 && number < 2 ? 'eager' : 'lazy'}
+                      decoding="async"
+                      class="block h-auto w-full rounded-sm bg-white shadow-md dark:brightness-90"
+                    />
+                  ))}
+                </div>
               </div>
+            ) : (
+              image && (
+                <div class="relative overflow-hidden rounded-lg shadow-lg bg-gray-100 dark:bg-slate-800">
+                  {typeof image === 'string' ? (
+                    <Fragment set:html={image} />
+                  ) : (
+                    <Image
+                      class="w-full"
+                      widths={[400, 768, 1024]}
+                      sizes="(max-width: 1023px) 100vw, 720px"
+                      width={720}
+                      height={480}
+                      layout="constrained"
+                      format="webp"
+                      loading={index === 0 ? 'eager' : 'lazy'}
+                      alt={tabTitle ?? ''}
+                      {...image}
+                    />
+                  )}
+                </div>
+              )
             )}
             {!vertical && description && (
               <p class="mx-auto mt-6 max-w-3xl text-center text-muted" set:html={description} />

@@ -13,6 +13,7 @@ import { getPermalink, getBlogPermalink } from '~/utils/permalinks';
 import { fetchPosts } from '~/utils/blog';
 import { getFormattedDate } from '~/utils/utils';
 import { resume } from '~/utils/resume';
+import { paperPages } from '~/utils/papers';
 
 const metadata = {
   title: SITE?.name,
@@ -59,10 +60,7 @@ const selectedWork = [
     icon: 'tabler:math-function',
     caption: 'Philosophical Transactions of the Royal Society B · 2026, to appear',
     callToAction: { text: 'Read the preprint', href: 'https://osf.io/rqu7s_v2' },
-    image: {
-      src: '~/assets/images/agents-artwork.jpg',
-      alt: 'Line drawing of a brain made of circuit tracks, linked to a small vehicle, a brain, a planet, a microorganism, a network of cubes, a plant and a grid of squares',
-    },
+    paper: paperPages('mathematical-approaches'),
   },
   {
     title: 'Disentangled representations for causal cognition',
@@ -71,10 +69,7 @@ const selectedWork = [
     icon: 'tabler:brain',
     caption: 'Physics of Life Reviews · 2024',
     callToAction: { text: 'Read the paper', href: '/assets/pdf/DisentanglementCausalCognition.pdf' },
-    image: {
-      src: '~/assets/images/blog/disentanglement/disentanglementsketch-cover.jpg',
-      alt: 'Sketch from the paper',
-    },
+    paper: paperPages('disentangled-representations'),
   },
   {
     title: 'Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems',
@@ -83,7 +78,7 @@ const selectedWork = [
     icon: 'tabler:plant-2',
     caption: 'WIREs Cognitive Science · 2023',
     callToAction: { text: 'Read the paper', href: '/assets/pdf/HybridLifeWIREs.pdf' },
-    image: { src: '~/assets/images/blog/HybridLifeNew.jpg', alt: 'Illustration of hybrid life' },
+    paper: paperPages('hybrid-life'),
   },
   {
     title: 'Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning',
@@ -95,7 +90,7 @@ const selectedWork = [
       text: 'Read the paper',
       href: 'https://raw.githubusercontent.com/mlresearch/v306/main/assets/zhang26dy/zhang26dy.pdf',
     },
-    image: { src: '~/assets/images/blog/2026-icml-state-abstraction-poster.jpg', alt: 'Poster of the paper' },
+    paper: paperPages('compositional-behavioral-semantics'),
   },
 ];
 
