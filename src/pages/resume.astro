@@ -22,7 +22,7 @@ const metadata = {
   description: "Manuel Baltieri's resume: positions, education, selected publications and skills.",
 };
 
-const { basics, work = [], education = [], skills = [], languages = [], interests = [] } = resume;
+const { basics, work = [], volunteer = [], education = [], skills = [], languages = [], interests = [] } = resume;
 
 const countries: Record<string, string> = { JP: 'Japan' };
 const location = [basics.location?.city, countries[basics.location?.countryCode ?? ''] ?? basics.location?.countryCode]
@@ -58,6 +58,7 @@ const sections = [
   { id: 'experience', title: 'Experience' },
   { id: 'education', title: 'Education' },
   { id: 'publications', title: 'Publications' },
+  { id: 'service', title: 'Service' },
   { id: 'skills', title: 'Skills' },
   { id: 'languages', title: 'Languages' },
 ];
@@ -183,6 +184,42 @@ const heading =
           All publications
         </a>
       </p>
+    </section>
+
+    <section id="service" class={section}>
+      <h2 class={heading}>Service</h2>
+      <div class="overflow-x-auto">
+        <table class="w-full text-left text-sm print:text-xs">
+          <thead>
+            <tr class="border-b border-gray-200 text-xs uppercase tracking-wide text-muted dark:border-slate-800">
+              <th scope="col" class="py-2 pr-4 font-semibold">Role</th>
+              <th scope="col" class="py-2 pr-4 font-semibold">For</th>
+              <th scope="col" class="py-2 font-semibold whitespace-nowrap">Year</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200 dark:divide-slate-800">
+            {
+              volunteer.map((role) => (
+                <tr>
+                  <td class="py-3 pr-4 font-semibold text-heading">{role.position}</td>
+                  <td class="py-3 pr-4 text-default">
+                    {role.url ? (
+                      <a class="hover:text-primary hover:underline" href={role.url}>
+                        {role.organization}
+                      </a>
+                    ) : (
+                      role.organization
+                    )}
+                  </td>
+                  <td class="py-3 whitespace-nowrap tabular-nums text-muted">
+                    {new Date(role.startDate).getUTCFullYear()}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <section id="skills" class={section}>

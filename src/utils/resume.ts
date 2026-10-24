@@ -22,6 +22,14 @@ export interface ResumeWork {
   summary?: string;
 }
 
+export interface ResumeVolunteer {
+  organization: string;
+  position: string;
+  url?: string;
+  startDate: string;
+  endDate?: string;
+}
+
 export interface ResumeEducation {
   institution: string;
   area: string;
@@ -42,6 +50,7 @@ export interface Resume {
     profiles?: Array<ResumeProfile>;
   };
   work?: Array<ResumeWork>;
+  volunteer?: Array<ResumeVolunteer>;
   education?: Array<ResumeEducation>;
   publications?: Array<{ name: string; website?: string }>;
   skills?: Array<{ name: string; level?: string; keywords?: Array<string> }>;

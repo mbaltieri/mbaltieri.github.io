@@ -140,6 +140,20 @@ work:
 #     summary: "Global movement of free coding clubs for young people."
 #     highlights:
 #       - "Awarded 'Teacher of the Month'"
+# Service, shown as such on the Resume page: organising roles, newest first.
+volunteer:
+  - organization: "International Conference on Artificial Life (ALIFE 2025), Kyoto"
+    position: "Co-organiser"
+    url: "https://2025.alife.org"
+    startDate: "2025-10-06"
+  - organization: "International Conference on Artificial Life (ALIFE 2023), Sapporo"
+    position: "Co-organiser"
+    url: "https://2023.alife.org"
+    startDate: "2023-07-24"
+  - organization: "International Conference on Artificial Life (ALIFE 2022), online"
+    position: "Co-organiser"
+    url: "https://2022.alife.org"
+    startDate: "2022-07-18"
 education:
   - institution: "University of Sussex"
     area: "Informatics and Artificial Intelligence"
