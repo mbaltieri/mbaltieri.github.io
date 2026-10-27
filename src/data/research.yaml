@@ -141,15 +141,17 @@
         Unpopular opinion: the concept of agency captures *mostly* just a series of choices made by
         an observer (cf. intentional stance). Less unpopular opinion: an interesting definition of
         agency could arise from the use of the word “mostly” in the line above.
+      papers:
+        - A Braitenberg vehicle’s habitat
       drawing: agents-and-observers
 - id: artificial-life
   name: Artificial Life
   keywords: Autonomy, regulation, hybrid systems
-  title: Hybrid life
+  title: (Hybrid) agents
   text: >-
-    Research on living systems sharpens questions about autonomy, individuality and regulation. The
-    focus is on whether concepts from cybernetics, information and control theory can explain what
-    separates living from non-living systems.
+    Research on living, artificial and hybrid agents sharpens questions about autonomy,
+    individuality and regulation. The focus is on whether concepts from cybernetics, information and
+    control theory can explain what separates living from non-living systems.
   questions:
     - id: hybrid-life
       label: Hybrid life
@@ -191,8 +193,6 @@
           href: >-
             https://web.archive.org/web/20230117062811/https://eon.elsi.jp/information-and-regulation-at-the-origins-of-life/
       drawing: origins-of-life
-  papers:
-    - A Braitenberg vehicle’s habitat
 - id: agent-foundations-for-ai-safety
   name: AI safety
   keywords: Agent foundations, abstractions, capabilities
