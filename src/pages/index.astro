@@ -4,6 +4,8 @@ import Layout from '~/layouts/PageLayout.astro';
 import HeroVehicles from '~/components/widgets/HeroVehicles.astro';
 import AgentEnvironment from '~/components/widgets/AgentEnvironment.astro';
 import FeatureTabs from '~/components/widgets/FeatureTabs.astro';
+import { Icon } from 'astro-icon/components';
+import Image from '~/components/common/Image.astro';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import Headline from '~/components/ui/Headline.astro';
 import StructuredData from '~/components/common/StructuredData.astro';
@@ -42,12 +44,55 @@ const structuredData = [
 
 const link = (text: string, href: string) => `<a class="text-primary hover:underline" href="${href}">${text}</a>`;
 
-// The fields of the Research page, by the anchors of their cards there.
-const fields = [
-  { label: 'Maths', href: getPermalink('/research') + '#mathematics-of-agents' },
-  { label: 'Cognition', href: getPermalink('/research') + '#cognition-and-control' },
-  { label: 'Artificial Life', href: getPermalink('/research') + '#artificial-life' },
-  { label: 'AI safety', href: getPermalink('/research') + '#agent-foundations-for-ai-safety' },
+// The questions of the research agenda.
+const questions = [
+  'Where does a boundary come from?',
+  'What counts as a model or a goal?',
+  'Which properties belong to a system rather than to the observer describing it?',
+];
+
+// A few talks, the newest first after the one in Oxford, which leads. Each has a preview: the
+// thumbnail of its recording when there is one (kept in src/assets/images/talks/, so that the page loads
+// nothing from YouTube), or else the first slide of its deck.
+const talks = [
+  {
+    title: 'Life and its relatives',
+    event: 'Breakthrough Initiatives, Oxford',
+    when: 'April 2025',
+    preview: '~/assets/images/talks/youtube--wuzt7JgRuM.jpg',
+    recording: 'https://www.youtube.com/watch?v=-wuzt7JgRuM',
+    slides: '/assets/pdf/presentations/BreakthroughInitiatives2025.pdf',
+  },
+  {
+    title: 'From Life to Artificial Agents: How Do We “Mathematise” Agency?',
+    event: 'Università IULM, Milan',
+    when: 'February 2026',
+    preview: '~/assets/images/talks/slides-mathematise-agency.jpg',
+    slides: '/assets/pdf/presentations/IULM.pdf',
+  },
+  {
+    title: 'Proving AI safety: Mathematical foundations of AI safety',
+    event: 'AIRJ Symposium 2025, Embassy of Italy, Tokyo',
+    when: 'November 2025',
+    preview: '~/assets/images/talks/slides-proving-ai-safety.jpg',
+    slides: '/assets/pdf/presentations/AISafety2025.pdf',
+  },
+  {
+    title: 'The Role of the Free Energy Principle in AI Safety: Markov Blankets and Beyond',
+    event: 'Technical AI Safety Conference, Tokyo',
+    when: 'April 2024',
+    preview: '~/assets/images/talks/youtube-qYyzdOEGNIM.jpg',
+    recording: 'https://www.youtube.com/watch?v=qYyzdOEGNIM',
+    slides: '/assets/pdf/presentations/TAIS2024.pdf',
+  },
+  {
+    title: 'Inference with and within a model',
+    event: 'CHAIN Academic Seminars, Hokkaido University, Sapporo',
+    when: 'February 2023',
+    preview: '~/assets/images/talks/youtube-yA-d1atSzWs.jpg',
+    recording: 'https://www.youtube.com/watch?v=yA-d1atSzWs',
+    slides: '/assets/pdf/presentations/CC_Tokyo.pdf',
+  },
 ];
 
 const selectedWork = [
@@ -107,33 +152,106 @@ const selectedWork = [
   <WidgetWrapper id="research-agenda" containerClass="max-w-6xl">
     <Headline title="Research agenda" subtitle={link('Research overview', getPermalink('/research'))} />
     <div class="grid gap-10 md:grid-cols-2 md:gap-16">
-      <div>
+      <div class="intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
         <p class="font-heading text-2xl md:text-3xl font-medium leading-snug text-heading">
           Studying how agents can be identified, modelled, and composed, and what those formal choices imply for
           cognition, living systems, and AI safety.
         </p>
         <p class="mt-5 text-lg text-muted">
-          His research connects category theory, control, probability, dynamical systems, cognitive science, and
+          This research connects category theory, control, probability, dynamical systems, cognitive science, and
           artificial life.
         </p>
       </div>
-      <div>
+      <div class="intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
         <p class="text-lg text-muted">
-          Manuel focuses on coupled open agent–environment systems that compose to form autonomous systems. This makes
-          it possible to ask:
+          The focus is on coupled open agent–environment systems that compose to form autonomous systems. This makes it
+          possible to ask:
         </p>
         <ul
           class="mt-4 divide-y divide-gray-200 border-y border-gray-200 dark:divide-slate-700 dark:border-slate-700 font-heading text-lg md:text-xl font-medium text-heading"
         >
-          <li class="py-3">Where does a boundary come from?</li>
-          <li class="py-3">What counts as a model or a goal?</li>
-          <li class="py-3">Which properties belong to a system rather than to the observer describing it?</li>
+          {questions.map((text) => <li class="py-3">{text}</li>)}
         </ul>
       </div>
     </div>
-    <div class="mt-16 md:mt-24">
-      <AgentEnvironment fields={fields} />
+    <div class="mt-14 md:mt-16">
+      <AgentEnvironment />
     </div>
+  </WidgetWrapper>
+
+  <WidgetWrapper id="talks" containerClass="max-w-6xl">
+    <Headline title="Selected talks" subtitle={link('All talks', getPermalink('/research/talks'))} />
+    <ul class="grid gap-x-8 gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        talks.map(({ title, event, when, preview, recording, slides }, index) => (
+          <li
+            class:list={[
+              'intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade',
+              index === 0 && 'sm:col-span-2 lg:row-span-2',
+            ]}
+          >
+            <a
+              class="group relative block aspect-video overflow-hidden rounded-lg bg-gray-300 dark:bg-slate-700"
+              href={recording ?? slides}
+              tabindex="-1"
+              aria-hidden="true"
+            >
+              <Image
+                src={preview}
+                alt=""
+                class="absolute inset-0 h-full w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                layout="cover"
+                widths={index === 0 ? [640, 960, 1280] : [320, 480, 640, 960]}
+                width={index === 0 ? 1280 : 960}
+                height={index === 0 ? 720 : 540}
+                sizes={
+                  index === 0
+                    ? '(max-width: 1023px) 100vw, 560px'
+                    : '(max-width: 639px) 100vw, (max-width: 1023px) 50vw, 260px'
+                }
+                format="webp"
+                loading="lazy"
+              />
+              {recording && (
+                <span class="absolute inset-0 flex items-center justify-center bg-black/10 transition group-hover:bg-black/0">
+                  <span
+                    class:list={[
+                      'flex items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-sm',
+                      index === 0 ? 'h-16 w-16' : 'h-11 w-11',
+                    ]}
+                  >
+                    <Icon name="tabler:player-play-filled" class={index === 0 ? 'h-7 w-7' : 'h-5 w-5'} />
+                  </span>
+                </span>
+              )}
+            </a>
+            <p class="mt-4 text-xs font-semibold uppercase tracking-wide text-muted">
+              {event} · {when}
+            </p>
+            <h3
+              class:list={[
+                'mt-1.5 font-heading font-medium leading-snug text-heading',
+                index === 0 ? 'text-2xl' : 'text-lg',
+              ]}
+            >
+              <a class="hover:text-primary transition" href={recording ?? slides}>
+                {title}
+              </a>
+            </h3>
+            <p class="mt-2 flex gap-4 text-sm font-medium">
+              {recording && (
+                <a class="text-primary hover:underline" href={recording}>
+                  Recording
+                </a>
+              )}
+              <a class="text-primary hover:underline" href={slides}>
+                Slides
+              </a>
+            </p>
+          </li>
+        ))
+      }
+    </ul>
   </WidgetWrapper>
 
   <FeatureTabs

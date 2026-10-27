@@ -1,0 +1,138 @@
+---
+import Vehicle from '~/components/graphics/parts/Vehicle.astro';
+import Light from '~/components/graphics/parts/Light.astro';
+
+// The patch of world in the drawing of the home page, for use inside an <svg>: its frame, the
+// light, the agents in their boundaries, and their thoughts, clipped by the clip paths
+// `thought-<ids>-<n>` and blurred by the filters `blur-near-<ids>` and `blur-far-<ids>` that the
+// drawing defines. It is drawn twice: at full size, with the steps of the drawing's entrance, and
+// in small inside the observer's thought, its agents' thoughts enlarged so that they can be read.
+
+export interface SceneAgent {
+  index: number;
+  x: number;
+  y: number;
+  s: number;
+  heading: number;
+  boundary: string;
+  puffs: Array<{ x: number; y: number; r: number }>;
+  enlargedPuffs: Array<{ x: number; y: number; r: number }>;
+  style: string;
+  cells: Array<{ x: number; y: number; kind: string; value: number }>;
+  cell: number;
+  bubble: {
+    x: number;
+    y: number;
+    path: string;
+    self: { x: number; y: number };
+    others: Array<{ x: number; y: number; heading: number }>;
+    light: { x: number; y: number; opacity: number };
+  };
+}
+
+export interface Props {
+  world: { width: number; height: number };
+  lights: Array<{ x: number; y: number }>;
+  agents: Array<SceneAgent>;
+  ids: string;
+  /** Give the parts the classes and delays of the drawing's entrance. */
+  steps?: boolean;
+  /** How much larger than to scale the agents' thoughts are drawn. */
+  enlarge?: number;
+}
+
+const { world, lights, agents, ids, steps = false, enlarge = 1 } = Astro.props;
+const step = (delay: number) => (steps ? { class: 'step', style: `--d: ${delay}ms` } : {});
+---
+
+<rect
+  x="0.5"
+  y="0.5"
+  width={world.width - 1}
+  height={world.height - 1}
+  rx="6"
+  class:list={['stroke-gray-300 dark:stroke-slate-700', steps && 'step']}
+  stroke-width="1"></rect>
+<g {...step(0)}>
+  {lights.map(({ x, y }) => <Light x={x} y={y} r={4} />)}
+</g>
+{
+  agents.map(({ x, y, s, heading, boundary }) => (
+    <g {...step(100)}>
+      <path d={boundary} class="fill-current" fill-opacity="0.08" stroke="none" />
+      <Vehicle x={x} y={y} angle={heading} scale={s} />
+      <path d={boundary} stroke-width="1.2" stroke-dasharray="4 3.5" />
+    </g>
+  ))
+}
+{
+  agents.map(({ index, heading, puffs, enlargedPuffs, bubble, style, cells, cell }) => (
+    <g {...step(200)}>
+      {(enlarge === 1 ? puffs : enlargedPuffs).map(({ x, y, r }) => (
+        <circle cx={x} cy={y} r={r} class="stroke-muted fill-page" stroke-width="1" />
+      ))}
+      <g
+        transform={
+          enlarge === 1
+            ? undefined
+            : `translate(${bubble.x} ${bubble.y}) scale(${enlarge}) translate(${-bubble.x} ${-bubble.y})`
+        }
+      >
+        <path d={bubble.path} class="stroke-muted fill-page" stroke-width="1" />
+        <g clip-path={`url(#thought-${ids}-${index})`}>
+          {style === 'grid' ? (
+            cells.map(({ x: cx, y: cy, kind, value }) => (
+              <rect
+                x={cx}
+                y={cy}
+                width={cell}
+                height={cell}
+                rx="0.6"
+                class={kind === 'light' ? 'fill-accent' : 'fill-current'}
+                opacity={kind === 'self' ? 0.9 : kind === 'other' ? 0.45 : +(0.85 * value).toFixed(2)}
+                stroke="none"
+              />
+            ))
+          ) : (
+            <>
+              <g class="fill-accent" stroke="none">
+                <circle
+                  cx={bubble.light.x}
+                  cy={bubble.light.y}
+                  r="15"
+                  opacity="0.35"
+                  filter={`url(#blur-far-${ids})`}
+                />
+                <circle
+                  cx={bubble.light.x}
+                  cy={bubble.light.y}
+                  r="5.5"
+                  opacity={bubble.light.opacity}
+                  filter={`url(#blur-near-${ids})`}
+                />
+              </g>
+              {[{ ...bubble.self, heading, faint: false }, ...bubble.others.map((o) => ({ ...o, faint: true }))].map(
+                (plain) => (
+                  <g
+                    transform={`translate(${plain.x} ${plain.y}) rotate(${plain.heading})`}
+                    opacity={plain.faint ? 0.65 : 1}
+                  >
+                    <rect x="-7" y="-4.5" width="14" height="9" rx="3.5" class="fill-page" stroke-width="1.1" />
+                    <circle cx="6.2" cy="-2.4" r="1.3" class="fill-accent" stroke="none" />
+                    <circle cx="6.2" cy="2.4" r="1.3" class="fill-accent" stroke="none" />
+                  </g>
+                )
+              )}
+            </>
+          )}
+        </g>
+      </g>
+    </g>
+  ))
+}
+
+<style>
+  .fill-page {
+    fill: var(--aw-color-bg-page);
+  }
+</style>

@@ -1,70 +1,390 @@
 ---
-// Agent and environment, wired both ways, and below them the fields that study them.
-// The agent is drawn as one of the vehicles of the home page, the environment as its light.
+import { getImage } from 'astro:assets';
+import AgentScene from '~/components/graphics/parts/AgentScene.astro';
+import type { SceneAgent } from '~/components/graphics/parts/AgentScene.astro';
+import portrait from '~/assets/images/observer-face.jpg';
 
-export interface Props {
-  fields: Array<{ label: string; href: string }>;
-}
+// A patch of the hero's world, from above. Two agents (vehicles that steer towards the light),
+// each inside a dashed line that marks where it ends and its environment (the light, the other
+// agent) begins, and each with a thought labelled "model": a coarse picture of its world holding a
+// plain version of itself, the other agent and the light, blurred in one and a grid of cells in
+// the other. Manuel looks on from outside, his face in a circle, with a thought of his own labelled
+// "model": the whole patch in small, the agents and their thoughts included. Beside the patch on
+// wide screens, below it on phones.
 
-const { fields } = Astro.props;
+type Point = { x: number; y: number };
 
-const box =
-  'flex shrink-0 items-center gap-3 rounded-xl border-[1.5px] border-primary bg-white/70 dark:bg-slate-900/60 px-4 py-3 sm:px-6 sm:py-4';
-const label = 'font-heading text-lg sm:text-2xl font-semibold text-heading';
-const rail = 'bg-gray-300 dark:bg-slate-600';
+const f = (n: number) => +n.toFixed(1);
+const unit = (from: Point, to: Point) => {
+  const length = Math.hypot(to.x - from.x, to.y - from.y);
+  return { x: (to.x - from.x) / length, y: (to.y - from.y) / length, length };
+};
+
+// A smooth closed curve through points (each corner rounded off at the midpoints of its sides).
+const closed = (points: Array<Point>) => {
+  const mid = (p: Point, q: Point) => ({ x: (p.x + q.x) / 2, y: (p.y + q.y) / 2 });
+  const n = points.length;
+  const first = mid(points[n - 1], points[0]);
+  let d = `M${f(first.x)} ${f(first.y)}`;
+  points.forEach((p, i) => {
+    const next = mid(p, points[(i + 1) % n]);
+    d += ` Q ${f(p.x)} ${f(p.y)}, ${f(next.x)} ${f(next.y)}`;
+  });
+  return `${d} Z`;
+};
+
+// A thought: an ellipse with a scalloped edge.
+const cloud = (cx: number, cy: number, rx: number, ry: number, bumps = 10) => {
+  const at = (k: number) => {
+    const a = (k / bumps) * Math.PI * 2 - Math.PI / 2;
+    return { x: cx + rx * Math.cos(a), y: cy + ry * Math.sin(a) };
+  };
+  let d = `M${f(at(0).x)} ${f(at(0).y)}`;
+  for (let k = 1; k <= bumps; k++) {
+    const [p, q] = [at(k - 1), at(k)];
+    const r = Math.hypot(q.x - p.x, q.y - p.y) * 0.62;
+    d += ` A ${f(r)} ${f(r)} 0 0 1 ${f(q.x)} ${f(q.y)}`;
+  }
+  return `${d} Z`;
+};
+
+// The world is 480 by 240, its top left corner at the origin of the drawing.
+const world = { width: 480, height: 240 };
+const lights: Array<Point> = [{ x: 284, y: 92 }];
+
+// How much larger than to scale the agents' thoughts are in his model, so that they can be read.
+const enlarge = 1.6;
+
+// The agents: where each is and how big, the light it steers towards and how far off that light
+// it heads (in degrees), where its thought floats and how big it is, and how widely its model
+// spreads things out. No two are alike, and neither are their models.
+const placed = [
+  {
+    x: 110,
+    y: 168,
+    size: 1.12,
+    light: 0,
+    off: -14,
+    bubble: { x: 70, y: 86, rx: 44, ry: 26 },
+    spread: 1,
+    style: 'blur',
+  },
+  {
+    x: 372,
+    y: 188,
+    size: 0.98,
+    light: 0,
+    off: 18,
+    bubble: { x: 424, y: 116, rx: 37, ry: 23 },
+    spread: 0.82,
+    style: 'grid',
+  },
+].map((agent) => {
+  const towards = unit(agent, lights[agent.light]);
+  return { ...agent, towards, heading: Math.atan2(towards.y, towards.x) + (agent.off * Math.PI) / 180 };
+});
+const degrees = (radians: number) => f((radians * 180) / Math.PI);
+
+const agents: Array<SceneAgent> = placed.map((agent, index) => {
+  const { x, y, size: s, bubble, towards, heading, spread } = agent;
+  const [c, sn] = [Math.cos(heading), Math.sin(heading)];
+  const place = (along: number, across: number) => ({ x: x + along * c - across * sn, y: y + along * sn + across * c });
+  // Its boundary: an ellipse round the body that wobbles a little, each agent's differently.
+  const boundary = closed(
+    Array.from({ length: 40 }, (_, i) => {
+      const a = (i / 40) * Math.PI * 2;
+      const wobble = 1 + 0.05 * Math.sin(3 * a + index * 2.1) + 0.035 * Math.sin(5 * a - index * 1.3 + 1);
+      return place((1.5 + 21 * Math.cos(a) * wobble) * s, 18 * Math.sin(a) * wobble * s);
+    })
+  );
+  // What it senses of the light falls off with the squared distance, as on the hero.
+  const brightness = 1 / (1 + towards.length ** 2 / 9000);
+  // The thought rises from the boundary through two small bubbles, spaced up to its edge (the edge
+  // of the thought as drawn, which is larger in his model).
+  const up = unit(agent, bubble);
+  const start = { x: x + up.x * (24 * s + 3), y: y + up.y * (24 * s + 3) };
+  const puffsFor = (scale: number) => {
+    const end = { x: bubble.x - up.x * (bubble.rx - 10) * scale, y: bubble.y - up.y * bubble.ry * scale };
+    const step = (t: number) => ({ x: f(start.x + (end.x - start.x) * t), y: f(start.y + (end.y - start.y) * t) });
+    return [
+      { ...step(0.22), r: f(2.2 * Math.sqrt(scale)) },
+      { ...step(0.72), r: f(3.4 * Math.sqrt(scale)) },
+    ];
+  };
+  // Its model: the light and the other agents in the directions they are in, but not at their
+  // distances (the light, nearer, sits nearer the middle), and the whole centred in the thought.
+  const light = { x: towards.x * 15.5 * spread, y: towards.y * 17 * spread };
+  const others = placed
+    .filter((other) => other !== agent)
+    .map((other) => {
+      const away = unit(agent, other);
+      return { x: away.x * 25 * spread, y: away.y * 12.5 * spread, heading: degrees(other.heading) };
+    });
+  const xs = [0, light.x, ...others.map((o) => o.x)];
+  const ys = [0, light.y, ...others.map((o) => o.y)];
+  const dx = bubble.x - (Math.min(...xs) + Math.max(...xs)) / 2;
+  const dy = bubble.y - (Math.min(...ys) + Math.max(...ys)) / 2;
+  // The grid model: a coarse grid of cells over the thought, each filled by what falls in it, the
+  // agent itself, the other agent, or the light (the nearer its middle, the brighter the cell).
+  const size = 4.4;
+  const within = (p: Point, centre: Point, angle: number, half: [number, number]) => {
+    const a = (angle * Math.PI) / 180;
+    const [ex, ey] = [p.x - centre.x, p.y - centre.y];
+    return (
+      Math.abs(ex * Math.cos(a) + ey * Math.sin(a)) <= half[0] &&
+      Math.abs(-ex * Math.sin(a) + ey * Math.cos(a)) <= half[1]
+    );
+  };
+  const self = { x: dx, y: dy };
+  const glow = { x: light.x + dx, y: light.y + dy };
+  const cells: SceneAgent['cells'] = [];
+  if (agent.style === 'grid') {
+    for (let y0 = bubble.y - bubble.ry; y0 < bubble.y + bubble.ry; y0 += size) {
+      for (let x0 = bubble.x - bubble.rx; x0 < bubble.x + bubble.rx; x0 += size) {
+        const centre = { x: x0 + size / 2, y: y0 + size / 2 };
+        const lit = Math.exp(-((centre.x - glow.x) ** 2 + (centre.y - glow.y) ** 2) / (2 * 8 * 8));
+        const kind = within(centre, self, degrees(heading), [7.5, 4.8])
+          ? 'self'
+          : others.some((o) => within(centre, { x: o.x + dx, y: o.y + dy }, o.heading, [6.5, 4.2]))
+            ? 'other'
+            : lit > 0.12
+              ? 'light'
+              : null;
+        if (kind) cells.push({ x: f(x0), y: f(y0), kind, value: f(kind === 'light' ? lit : 1) });
+      }
+    }
+  }
+  return {
+    index,
+    x,
+    y,
+    s,
+    heading: degrees(heading),
+    boundary,
+    puffs: puffsFor(1),
+    enlargedPuffs: puffsFor(enlarge),
+    style: agent.style,
+    cells,
+    cell: f(size - 0.8),
+    bubble: {
+      x: bubble.x,
+      y: bubble.y,
+      path: cloud(bubble.x, bubble.y, bubble.rx, bubble.ry),
+      self: { x: f(dx), y: f(dy) },
+      others: others.map((o) => ({ x: f(o.x + dx), y: f(o.y + dy), heading: o.heading })),
+      light: { x: f(light.x + dx), y: f(light.y + dy), opacity: f(0.45 + 0.6 * brightness) },
+    },
+  };
+});
+
+// The patch as it appears in his model, its agents' thoughts enlarged: its box.
+const box = {
+  left: Math.min(0, ...placed.map((a) => a.bubble.x - a.bubble.rx * enlarge)),
+  right: Math.max(world.width, ...placed.map((a) => a.bubble.x + a.bubble.rx * enlarge)),
+  top: Math.min(0, ...placed.map((a) => a.bubble.y - a.bubble.ry * enlarge)),
+  bottom: world.height,
+};
+const boxWidth = box.right - box.left;
+const boxHeight = box.bottom - box.top;
+
+// The observer: Manuel's face, from a photograph, in a circle.
+const face = await getImage({ src: portrait, width: 200, height: 200, format: 'webp' });
+
+// Each layout places his face, his thought (and the patch inside it), his sight lines and the
+// labels. The patch is shrunk to fit inside the thought's ellipse, with a margin.
+const layouts = [
+  {
+    name: 'wide',
+    class: 'hidden md:block',
+    width: 640,
+    height: 250,
+    type: 12.5,
+    face: { x: 562, y: 186, r: 30 },
+    idea: { x: 558, y: 76, rx: 68, ry: 46 },
+    sight: ['M530 176 L 483 64', 'M531 192 L 483 224'],
+    observer: { x: 562, y: 234 },
+  },
+  {
+    name: 'narrow',
+    class: 'md:hidden',
+    width: 480,
+    height: 424,
+    type: 15,
+    face: { x: 414, y: 340, r: 36 },
+    idea: { x: 194, y: 346, rx: 150, ry: 64 },
+    sight: ['M401 306 L 332 246', 'M425 306 L 452 246'],
+    observer: { x: 414, y: 397 },
+  },
+].map((layout) => {
+  const { idea, face: at } = layout;
+  // The largest patch of the box's shape that fits the ellipse, less a tenth.
+  const aspect = boxWidth / boxHeight;
+  const half = 0.9 / Math.sqrt(1 / idea.rx ** 2 + 1 / (aspect * idea.ry) ** 2);
+  const k = (2 * half) / boxWidth;
+  const mini = `translate(${f(idea.x - k * (box.left + boxWidth / 2))} ${f(idea.y - k * (box.top + boxHeight / 2))}) scale(${+k.toFixed(4)})`;
+  // Two small bubbles from his face to the edge of his thought.
+  const away = unit(at, idea);
+  const from = { x: at.x + away.x * (at.r + 4), y: at.y + away.y * (at.r + 4) };
+  const t = Math.atan2((from.y - idea.y) / idea.ry, (from.x - idea.x) / idea.rx);
+  const to = { x: idea.x + idea.rx * Math.cos(t), y: idea.y + idea.ry * Math.sin(t) };
+  const between = (s: number) => ({ x: f(from.x + (to.x - from.x) * s), y: f(from.y + (to.y - from.y) * s) });
+  return {
+    ...layout,
+    mini,
+    ideaPath: cloud(idea.x, idea.y, idea.rx, idea.ry, 13),
+    puffs: [
+      { ...between(0.3), r: 2.4 },
+      { ...between(0.72), r: 3.6 },
+    ],
+  };
+});
 ---
 
-<figure class="not-prose mx-auto max-w-4xl">
-  <div class="mx-auto flex max-w-2xl items-center">
-    <div class={box}>
-      <svg class="hidden sm:block h-8 w-11 text-primary" viewBox="0 0 44 32" aria-hidden="true">
-        <rect x="6" y="6" width="28" height="20" rx="3" fill="none" stroke="currentColor" stroke-width="1.5"></rect>
-        <rect x="8" y="2" width="11" height="4" rx="1" fill="currentColor"></rect>
-        <rect x="8" y="26" width="11" height="4" rx="1" fill="currentColor"></rect>
-        <path d="M32 11 L12 23 M32 21 L12 9" stroke="currentColor" stroke-width="1"></path>
-        <circle class="fill-accent" cx="35" cy="11" r="2.3"></circle>
-        <circle class="fill-accent" cx="35" cy="21" r="2.3"></circle>
-      </svg>
-      <span class={label}>Agent</span>
-    </div>
-    <div class="flex min-w-12 flex-1 flex-col gap-4 px-1.5" aria-hidden="true">
-      <div class="relative h-[1.5px] bg-primary">
-        <span
-          class="absolute -right-px -top-[4.25px] h-0 w-0 border-y-[5px] border-l-8 border-y-transparent border-l-primary"
-        ></span>
-      </div>
-      <div class="relative h-[1.5px] bg-primary">
-        <span
-          class="absolute -left-px -top-[4.25px] h-0 w-0 border-y-[5px] border-r-8 border-y-transparent border-r-primary"
-        ></span>
-      </div>
-    </div>
-    <div class={box}>
-      <span class={label}>Environment</span>
-      <svg class="hidden sm:block h-8 w-8" viewBox="0 0 34 34" aria-hidden="true">
-        <circle class="fill-accent" cx="17" cy="17" r="16" opacity="0.15"></circle>
-        <circle class="fill-accent" cx="17" cy="17" r="10" opacity="0.3"></circle>
-        <circle class="fill-accent" cx="17" cy="17" r="4"></circle>
-      </svg>
-    </div>
-  </div>
+<figure class="agent-environment not-prose mx-auto intersect-once intersect-quarter motion-safe:intersect:opacity-100">
+  {
+    layouts.map((layout) => (
+      <svg
+        class:list={['h-auto w-full text-primary', layout.class]}
+        viewBox={`0 0 ${layout.width} ${layout.height}`}
+        fill="none"
+        stroke="currentColor"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        aria-hidden="true"
+      >
+        <defs>
+          {agents.map(({ index, bubble }) => (
+            <clipPath id={`thought-${layout.name}-${index}`}>
+              <path d={bubble.path} />
+            </clipPath>
+          ))}
+          <clipPath id={`face-${layout.name}`}>
+            <circle cx={layout.face.x} cy={layout.face.y} r={layout.face.r} />
+          </clipPath>
+          <filter id={`blur-near-${layout.name}`} x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="3" />
+          </filter>
+          <filter id={`blur-far-${layout.name}`} x="-100%" y="-100%" width="300%" height="300%">
+            <feGaussianBlur stdDeviation="6" />
+          </filter>
+        </defs>
 
-  <div class:list={['mx-auto h-9 w-[1.5px]', rail]} aria-hidden="true"></div>
-  <div class:list={['mx-[12.5%] hidden h-[1.5px] md:block', rail]} aria-hidden="true"></div>
-  <ul class="grid grid-cols-2 gap-y-6 md:grid-cols-4">
-    {
-      fields.map(({ label: fieldLabel, href }) => (
-        <li class="flex flex-col items-center">
-          <span class:list={['hidden h-6 w-[1.5px] md:block', rail]} aria-hidden="true" />
-          <span class="h-2.5 w-2.5 rounded-full bg-primary" aria-hidden="true" />
-          <a
-            class="mt-3 font-heading text-lg md:text-xl font-medium text-heading hover:text-primary transition"
-            href={href}
+        <AgentScene world={world} lights={lights} agents={agents} ids={layout.name} steps />
+
+        <g class="step" style="--d: 300ms">
+          {layout.sight.map((d) => (
+            <path d={d} class="stroke-muted" stroke-width="1" stroke-dasharray="3 5" />
+          ))}
+        </g>
+        <g class="step" style="--d: 300ms">
+          <image
+            href={face.src}
+            x={layout.face.x - layout.face.r}
+            y={layout.face.y - layout.face.r}
+            width={layout.face.r * 2}
+            height={layout.face.r * 2}
+            clip-path={`url(#face-${layout.name})`}
+            preserveAspectRatio="xMidYMid slice"
+          />
+          <circle cx={layout.face.x} cy={layout.face.y} r={layout.face.r} stroke-width="1.5" />
+        </g>
+        <g class="step" style="--d: 400ms">
+          {layout.puffs.map(({ x, y, r }) => (
+            <circle cx={x} cy={y} r={r} class="stroke-muted fill-page" stroke-width="1" />
+          ))}
+          <path d={layout.ideaPath} class="stroke-muted fill-page" stroke-width="1" />
+          <g class="mini" transform={layout.mini}>
+            <AgentScene world={world} lights={lights} agents={agents} ids={layout.name} enlarge={enlarge} />
+          </g>
+        </g>
+
+        <g class="words fill-muted" stroke="none" font-size={layout.type}>
+          {agents.map(({ x, y, s, bubble }, index) => (
+            <>
+              <text class="step" style="--d: 100ms" x={x} y={f(y + 24 * s + 13)} text-anchor="middle">
+                agent
+              </text>
+              <text
+                class="step"
+                style="--d: 200ms"
+                x={bubble.x}
+                y={f(bubble.y - placed[index].bubble.ry - 6)}
+                text-anchor="middle"
+              >
+                model
+              </text>
+            </>
+          ))}
+          <text class="step" x="10" y="21">
+            environment
+          </text>
+          <text class="step" style="--d: 300ms" x={layout.observer.x} y={layout.observer.y} text-anchor="middle">
+            observer
+          </text>
+          <text
+            class="step"
+            style="--d: 400ms"
+            x={layout.idea.x}
+            y={f(layout.idea.y - layout.idea.ry - 7)}
+            text-anchor="middle"
           >
-            {fieldLabel}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+            model
+          </text>
+        </g>
+      </svg>
+    ))
+  }
+  <figcaption class="sr-only">
+    Two vehicles that steer towards a light, each inside a dashed line that separates the agent from its environment,
+    and each with a thought labelled model: a coarse picture of itself, the other agent and the light, blurred in one
+    and a grid of cells in the other. Manuel looks on from outside, with a thought of his own labelled model: the whole
+    scene in small, the two agents and their thoughts included.
+  </figcaption>
 </figure>
+
+<style>
+  /* The first time the drawing comes into view (the layout's reveal-on-scroll removes no-intersect
+     from it), its parts fade in with the site's own fade, in waves: the world and its light, the
+     agents, their models, the observer, then his model. Visitors who ask for less motion, and
+     paper, get the drawing as it is. A part that moves carries no SVG transform of its own, since
+     the animation's transform would replace it. */
+  @media (prefers-reduced-motion: no-preference) {
+    .agent-environment[no-intersect] :global(.step) {
+      opacity: 0;
+    }
+    .agent-environment:not([no-intersect]) :global(.step) {
+      animation: var(--animate-fade);
+      animation-delay: var(--d, 0ms);
+    }
+  }
+  @media print {
+    .agent-environment :global(.step) {
+      opacity: 1 !important;
+      animation: none !important;
+    }
+  }
+  /* In his model the lines keep a fine width of their own, whatever the patch is shrunk by. */
+  .mini :global(*) {
+    vector-effect: non-scaling-stroke;
+    stroke-width: 0.6px;
+  }
+  .mini :global([stroke-dasharray]) {
+    stroke-dasharray: 1.6 1.3;
+  }
+  .agent-environment {
+    max-width: 30rem;
+  }
+  @media (width >= 48rem) {
+    .agent-environment {
+      max-width: none;
+      width: 42rem;
+    }
+  }
+  .fill-page {
+    fill: var(--aw-color-bg-page);
+  }
+  .words {
+    font-weight: 500;
+    font-family: var(--aw-font-heading, sans-serif);
+  }
+</style>

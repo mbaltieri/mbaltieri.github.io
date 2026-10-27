@@ -9,7 +9,9 @@ import type { FeatureTabs as Props } from '~/types';
 // selected tab on the other, or the pages of a paper, one under the other in a
 // panel that scrolls. Keyboard-accessible (arrow keys, Home/End) with proper
 // tablist/tab/tabpanel roles. Without JavaScript the first tab's panel is shown
-// and the rest stay hidden, so the section still reads correctly.
+// and the rest stay hidden, so the section still reads correctly. Choosing a tab
+// fades the content of the panel shown out, then fades the new one in with the
+// site's fade, while the frame round the pages stays put.
 
 const {
   title = await Astro.slots.render('title'),
@@ -94,7 +96,7 @@ const vertical = orientation === 'vertical';
                 aria-label={`Pages of ${tabTitle}`}
                 tabindex="0"
               >
-                <div class="space-y-3 sm:space-y-4">
+                <div data-fade class="space-y-3 motion-safe:animate-fade sm:space-y-4">
                   {paper.map((page, number) => (
                     <img
                       src={page.src}
@@ -110,7 +112,10 @@ const vertical = orientation === 'vertical';
               </div>
             ) : (
               image && (
-                <div class="relative overflow-hidden rounded-lg shadow-lg bg-gray-100 dark:bg-slate-800">
+                <div
+                  data-fade
+                  class="relative overflow-hidden rounded-lg shadow-lg bg-gray-100 motion-safe:animate-fade dark:bg-slate-800"
+                >
                   {typeof image === 'string' ? (
                     <Fragment set:html={image} />
                   ) : (
@@ -131,10 +136,17 @@ const vertical = orientation === 'vertical';
               )
             )}
             {!vertical && description && (
-              <p class="mx-auto mt-6 max-w-3xl text-center text-muted" set:html={description} />
+              <p
+                data-fade
+                class="mx-auto mt-6 max-w-3xl text-center text-muted motion-safe:animate-fade"
+                set:html={description}
+              />
             )}
             {(caption || callToAction) && (
-              <p class="mt-4 flex flex-wrap items-baseline justify-between gap-2 text-sm">
+              <p
+                data-fade
+                class="mt-4 flex flex-wrap items-baseline justify-between gap-2 text-sm motion-safe:animate-fade"
+              >
                 {caption && <span class="text-muted" set:html={caption} />}
                 {callToAction && (
                   <a class="font-medium text-primary hover:underline" href={callToAction.href}>
@@ -155,14 +167,33 @@ const vertical = orientation === 'vertical';
     connectedCallback() {
       const tabs = [...this.querySelectorAll<HTMLButtonElement>('[role="tab"]')];
       const panels = [...this.querySelectorAll<HTMLElement>('[role="tabpanel"]')];
+      const still = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      const show = (index: number) => panels.forEach((panel, i) => (panel.hidden = i !== index));
+      let chosen = 0;
+      let leaving: Array<Animation> = [];
       const select = (index: number, focus = false) => {
         tabs.forEach((tab, i) => {
           const active = i === index;
           tab.setAttribute('aria-selected', String(active));
           tab.tabIndex = active ? 0 : -1;
-          panels[i].hidden = !active;
         });
         if (focus) tabs[index].focus();
+        chosen = index;
+        // A fade-out under way ends by showing the tab chosen last.
+        if (leaving.length) return;
+        const shown = panels.findIndex((panel) => !panel.hidden);
+        if (shown < 0 || shown === index || still()) {
+          show(index);
+          return;
+        }
+        leaving = [...panels[shown].querySelectorAll<HTMLElement>('[data-fade]')].map((element) =>
+          element.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 150, easing: 'ease-in', fill: 'forwards' })
+        );
+        Promise.all(leaving.map((animation) => animation.finished)).then(() => {
+          show(chosen);
+          leaving.forEach((animation) => animation.cancel());
+          leaving = [];
+        });
       };
       tabs.forEach((tab, index) => {
         tab.addEventListener('click', () => select(index));
