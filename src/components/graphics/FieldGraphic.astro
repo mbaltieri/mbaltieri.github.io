@@ -6,14 +6,14 @@ import Light from '~/components/graphics/parts/Light.astro';
 // line work, muted context and the accent for what matters. They are inline SVG, so they
 // follow the light and dark themes.
 //
-//   mathematics-of-agents            a string diagram: f and g in parallel, then h
-//   cognition-and-control            a bacterium running and tumbling up a sugar gradient
+//   control                          a string diagram: f and g in parallel, then h
+//   cognition                        a bacterium running and tumbling up a sugar gradient
 //   artificial-life                  a vehicle with crossed wiring steering towards a light
 //   agent-foundations-for-ai-safety  a probability simplex, a prior moved to a posterior, and
 //                                    Bayes' theorem
 
 export interface Props {
-  field: 'mathematics-of-agents' | 'cognition-and-control' | 'artificial-life' | 'agent-foundations-for-ai-safety';
+  field: 'control' | 'cognition' | 'artificial-life' | 'agent-foundations-for-ai-safety';
   class?: string;
 }
 
@@ -72,7 +72,7 @@ const grid = [1 / 3, 2 / 3].flatMap((s) => [
     </marker>
   </defs>
   {
-    field === 'mathematics-of-agents' && (
+    field === 'control' && (
       <>
         <rect x="58" y="32" width="86" height="136" rx="12" class="stroke-muted" stroke-dasharray="4 5" opacity="0.6" />
         <line x1="14" y1="66" x2="72" y2="66" />
@@ -106,7 +106,7 @@ const grid = [1 / 3, 2 / 3].flatMap((s) => [
     )
   }
   {
-    field === 'cognition-and-control' && (
+    field === 'cognition' && (
       <>
         {[26, 48, 72].map((r) => (
           <circle cx="258" cy="92" r={r} class="stroke-muted" stroke-width="1" stroke-dasharray="3 5" opacity="0.5" />

@@ -11,7 +11,7 @@ import type { ResearchQuestionEntry } from '~/utils/research';
 const metadata = {
   title: 'Research vision',
   description:
-    "Manuel Baltieri's research on mathematical foundations of agency, cognition, artificial life, and AI safety in agent-environment systems.",
+    "Manuel Baltieri's research on control, cognition, artificial life, and AI safety in agent-environment systems.",
   openGraph: { images: [{ url: '~/assets/images/social/research.jpg' }] },
 };
 
@@ -75,7 +75,7 @@ const fields: Array<ResearchField> = await Promise.all(
   </HeroText>
 
   <ResearchFields
-    label="Areas of research: mathematics, cognition, artificial life and AI safety"
+    label="Areas of research: control, cognition, artificial life and AI safety"
     fields={fields}
     classes={{ container: 'pt-8 md:pt-10 lg:pt-12' }}
   />

@@ -30,12 +30,7 @@ export interface ResearchAreaEntry {
 export const research = yaml.load(raw) as Array<ResearchAreaEntry>;
 
 /** The drawings an area can have on its tab, and those a question can have beside its answer. */
-export const areaDrawings = [
-  'mathematics-of-agents',
-  'cognition-and-control',
-  'artificial-life',
-  'agent-foundations-for-ai-safety',
-] as const;
+export const areaDrawings = ['control', 'cognition', 'artificial-life', 'agent-foundations-for-ai-safety'] as const;
 export const answerDrawings = [
   'fundamental-questions',
   'agents-and-observers',
