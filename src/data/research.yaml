@@ -1,5 +1,5 @@
-# The areas of research on the Research page (src/pages/research/index.astro), in the order of
-# their tabs, each with the questions it takes up. Pressing a question shows its answer.
+# The areas of research on the Research vision page (src/pages/research/index.astro), in the
+# order of their tabs, each with the questions it takes up. Pressing a question shows its answer.
 #
 # An area:
 #
@@ -7,7 +7,6 @@
 #               mathematics-of-agents | cognition-and-control | artificial-life |
 #               agent-foundations-for-ai-safety
 #               (the drawings are in src/components/graphics/FieldGraphic.astro)
-#   number      printed before its name on the tab
 #   name        the name on the tab
 #   keywords    the line under the name
 #   title       the heading of the area once its tab is chosen
@@ -36,7 +35,6 @@
 # one paragraph. Quote a short text that has a colon followed by a space in it.
 
 - id: mathematics-of-agents
-  number: "01"
   name: Maths
   keywords: Category theory, control, probability
   title: Mathematics for agents
@@ -97,7 +95,6 @@
         agency could arise from the use of the word “mostly” in the line above.
       drawing: agents-and-observers
 - id: cognition-and-control
-  number: "02"
   name: Cognition
   keywords: Inference, control, representations
   title: Cognition and control
@@ -172,7 +169,6 @@
         thesis.
       drawing: origins-of-cognition
 - id: artificial-life
-  number: "03"
   name: Artificial Life
   keywords: Autonomy, regulation, hybrid systems
   title: Hybrid life
@@ -224,7 +220,6 @@
   papers:
     - A Braitenberg vehicle’s habitat
 - id: agent-foundations-for-ai-safety
-  number: "04"
   name: AI safety
   keywords: Agent foundations, abstractions, capabilities
   title: Agent foundations

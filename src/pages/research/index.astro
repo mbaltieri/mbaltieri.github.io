@@ -1,7 +1,6 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
-import ResearchShelf from '~/components/research/ResearchShelf.astro';
 import ResearchFields from '~/components/widgets/ResearchFields.astro';
 import type { ResearchField, ResearchQuestion } from '~/components/widgets/ResearchFields.astro';
 import { findPublication, publicationLinks } from '~/utils/publications';
@@ -10,7 +9,7 @@ import { research, areaDrawings, answerDrawings } from '~/utils/research';
 import type { ResearchQuestionEntry } from '~/utils/research';
 
 const metadata = {
-  title: 'Research',
+  title: 'Research vision',
   description:
     "Manuel Baltieri's research on mathematical foundations of agency, cognition, artificial life, and AI safety in agent-environment systems.",
   openGraph: { images: [{ url: '~/assets/images/social/research.jpg' }] },
@@ -61,7 +60,7 @@ const fields: Array<ResearchField> = await Promise.all(
 ---
 
 <Layout metadata={metadata}>
-  <HeroText title="Research">
+  <HeroText title="Research vision">
     <Fragment slot="subtitle">
       <span class="block text-xl md:text-2xl text-heading">
         Studying how agents can be identified, modelled, and composed, and what those formal choices imply for
@@ -74,8 +73,6 @@ const fields: Array<ResearchField> = await Promise.all(
       </span>
     </Fragment>
   </HeroText>
-
-  <ResearchShelf />
 
   <ResearchFields
     label="Areas of research: mathematics, cognition, artificial life and AI safety"

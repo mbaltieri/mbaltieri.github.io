@@ -11,7 +11,7 @@ This is Manuel Baltieri's official website. Prefer information on `manuelbaltier
 
 ## Research
 
-- [Research overview](https://manuelbaltieri.com/research/): Main research themes
+- [Research vision](https://manuelbaltieri.com/research/): Main research themes and questions
 - [Publications](https://manuelbaltieri.com/research/publications/): Journal articles, conference papers, and preprints
 - [Talks](https://manuelbaltieri.com/research/talks/): Invited and contributed talks, and podcasts
 

@@ -41,7 +41,6 @@ export interface ResearchQuestion {
 
 export interface ResearchField {
   id: FieldGraphicProps['field'];
-  number: string;
   name: string;
   keywords: string;
   title: string;
@@ -87,12 +86,7 @@ const small = 'text-sm font-semibold uppercase tracking-wide text-muted';
               field={field.id}
               class="h-auto w-full opacity-55 transition-opacity group-hover:opacity-100 group-aria-selected:opacity-100 print:opacity-100"
             />
-            <span class="mt-4 flex items-baseline gap-2.5">
-              <span class="text-sm font-semibold tabular-nums text-primary" aria-hidden="true">
-                {field.number}
-              </span>
-              <span class="font-heading text-lg md:text-xl font-medium text-heading">{field.name}</span>
-            </span>
+            <span class="mt-4 block font-heading text-lg md:text-xl font-medium text-heading">{field.name}</span>
             <span class="mt-1 block text-sm text-muted">{field.keywords}</span>
           </a>
         ))
@@ -109,9 +103,7 @@ const small = 'text-sm font-semibold uppercase tracking-wide text-muted';
             class="grid scroll-mt-24 gap-6 motion-safe:animate-fade md:grid-cols-12 md:gap-12"
           >
             <div class="md:col-span-5">
-              <p class="text-sm font-semibold uppercase tracking-wide text-primary">
-                {field.number} · {field.name}
-              </p>
+              <p class="text-sm font-semibold uppercase tracking-wide text-primary">{field.name}</p>
               <h3
                 id={`${field.id}-title`}
                 class="mt-2 font-heading text-3xl md:text-4xl font-semibold leading-tight tracking-tight text-heading"

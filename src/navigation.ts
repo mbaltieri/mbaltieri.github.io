@@ -1,10 +1,9 @@
 import { getPermalink } from './utils/permalinks';
 
-// The four pages people come for. Publications and Talks are also reached from the Research page
-// and from each other.
+// The four pages people come for.
 export const headerData = {
   links: [
-    { text: 'Research', href: getPermalink('/research') },
+    { text: 'Research vision', href: getPermalink('/research') },
     { text: 'Publications', href: getPermalink('/research/publications') },
     { text: 'Talks', href: getPermalink('/research/talks') },
     { text: 'Resume', href: getPermalink('/resume') },
@@ -17,7 +16,7 @@ export const footerData = {
     {
       title: 'Site',
       links: [
-        { text: 'Research', href: getPermalink('/research') },
+        { text: 'Research vision', href: getPermalink('/research') },
         { text: 'Publications', href: getPermalink('/research/publications') },
         { text: 'Talks', href: getPermalink('/research/talks') },
         { text: 'Resume', href: getPermalink('/resume') },

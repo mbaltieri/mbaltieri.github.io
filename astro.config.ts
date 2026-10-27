@@ -30,7 +30,7 @@ export default defineConfig({
   // positions are on the Resume page.
   redirects: {
     '/about': '/resume/',
-    // Vision and the projects were folded into the questions of the Research page.
+    // Vision and the projects were folded into the questions of the Research vision page.
     '/vision': '/research/',
     '/projects': '/research/',
     '/projects/2019-11-03-uncertainty': '/research/#uncertainty',

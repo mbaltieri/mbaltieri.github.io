@@ -1,4 +1,4 @@
-# Talks and podcasts, shown on /research/talks/ and, newest first, on the Research page.
+# Talks and podcasts, shown on /research/talks/ (src/pages/research/talks.astro).
 #
 # The page groups the entries by year, newest first, in the order they are listed here within a
 # year.

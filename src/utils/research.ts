@@ -2,8 +2,8 @@ import yaml from 'js-yaml';
 
 import raw from '~/data/research.yaml?raw';
 
-// src/data/research.yaml: the areas of research of the Research page and their questions, as
-// written there. Its own comments say what each field is.
+// src/data/research.yaml: the areas of research of the Research vision page and their questions,
+// as written there. Its own comments say what each field is.
 
 export interface ResearchQuestionEntry {
   id: string;
@@ -19,7 +19,6 @@ export interface ResearchQuestionEntry {
 
 export interface ResearchAreaEntry {
   id: string;
-  number: string;
   name: string;
   keywords: string;
   title: string;

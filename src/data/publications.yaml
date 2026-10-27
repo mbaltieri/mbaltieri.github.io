@@ -1,5 +1,6 @@
 # Publications, shown on /research/publications/ (src/pages/research/publications.astro) and,
-# picked by title, under the questions of the Research page (src/pages/research/index.astro).
+# picked by title, under the questions of the Research vision page
+# (src/pages/research/index.astro).
 #
 # The page groups the entries by year in the order they are listed here: newest year first,
 # and within a year the selected papers first.
