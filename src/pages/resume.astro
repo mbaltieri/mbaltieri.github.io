@@ -12,9 +12,9 @@ import { escapeHtml, inlineMarkdown } from '~/utils/markdown';
 // A resume built from AstroWind's own pieces: its banner for the header, its Timeline for the
 // positions, and the entries of the Publications page for the papers. Everything comes from
 // src/data/resume.yaml, except the selected publications, which come from
-// src/data/publications.yaml. The full CV is the PDF linked under the profile. The contact details
-// and the location are left off. They stay in the data, so they are still in /assets/resume.json
-// and in the profile links of the home page.
+// src/data/publications.yaml. The full CV is the button beside the heading of the profile. The
+// contact details, the location, the service roles, the languages and the interests are left off
+// the page. They stay in the data, so they are still in /assets/resume.json.
 
 const metadata = {
   title: 'Resume',
@@ -22,7 +22,7 @@ const metadata = {
   openGraph: { images: [{ url: '~/assets/images/social/resume.jpg' }] },
 };
 
-const { basics, work = [], volunteer = [], education = [], skills = [], languages = [], interests = [] } = resume;
+const { basics, work = [], education = [], skills = [] } = resume;
 
 // The summary is a list of short statements in the data, shown side by side.
 const statementIcons = ['tabler:atom-2', 'tabler:math-function', 'tabler:code'];
@@ -50,12 +50,14 @@ const selected = publications.filter((entry) => entry.selected);
 
 const section =
   'scroll-mt-24 pt-12 md:pt-16 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade';
-const heading =
-  'mb-6 flex items-center gap-4 font-heading text-2xl font-semibold text-heading after:h-px after:flex-1 after:bg-gray-200 dark:after:bg-slate-800';
+// A section's heading, with a rule to the end of the line.
+const rule =
+  'flex items-center gap-4 font-heading text-2xl font-semibold text-heading after:h-px after:flex-1 after:bg-gray-200 dark:after:bg-slate-800';
+const heading = `mb-6 ${rule}`;
 ---
 
 <Layout metadata={metadata}>
-  <HeroText tagline="Resume" title={basics.name}>
+  <HeroText title="Resume">
     <Fragment slot="subtitle">
       <span class="block text-xl md:text-2xl text-heading">{basics.label}</span>
     </Fragment>
@@ -63,7 +65,16 @@ const heading =
 
   <div class="mx-auto max-w-4xl px-4 pb-16 md:px-6 md:pb-20">
     <section id="profile" class={section}>
-      <h2 class={heading}>Profile</h2>
+      <div class="mb-6 flex items-center gap-4">
+        <h2 class={`flex-1 ${rule}`}>Profile</h2>
+        <a
+          class="inline-flex items-center gap-1.5 rounded-full bg-primary px-4 py-1.5 text-sm font-semibold text-white transition hover:bg-secondary dark:text-[var(--aw-color-bg-page)]"
+          href="/assets/Academic_CV.pdf"
+        >
+          Full CV
+          <Icon name="tabler:file-type-pdf" class="h-4 w-4" />
+        </a>
+      </div>
       <ul class="grid gap-6 md:grid-cols-3">
         {
           statements.map((statement, index) => (
@@ -74,9 +85,6 @@ const heading =
           ))
         }
       </ul>
-      <p class="mt-4">
-        <a class="font-medium text-primary hover:underline" href="/assets/Academic_CV.pdf">Full CV</a>
-      </p>
     </section>
 
     <section id="experience" class={section}>
@@ -136,42 +144,6 @@ const heading =
       </p>
     </section>
 
-    <section id="service" class={section}>
-      <h2 class={heading}>Service</h2>
-      <div class="overflow-x-auto">
-        <table class="w-full text-left text-sm">
-          <thead>
-            <tr class="border-b border-gray-200 text-xs uppercase tracking-wide text-muted dark:border-slate-800">
-              <th scope="col" class="py-2 pr-4 font-semibold">Role</th>
-              <th scope="col" class="py-2 pr-4 font-semibold">For</th>
-              <th scope="col" class="py-2 font-semibold whitespace-nowrap">Year</th>
-            </tr>
-          </thead>
-          <tbody class="divide-y divide-gray-200 dark:divide-slate-800">
-            {
-              volunteer.map((role) => (
-                <tr>
-                  <td class="py-3 pr-4 font-semibold text-heading">{role.position}</td>
-                  <td class="py-3 pr-4 text-default">
-                    {role.url ? (
-                      <a class="hover:text-primary hover:underline" href={role.url}>
-                        {role.organization}
-                      </a>
-                    ) : (
-                      role.organization
-                    )}
-                  </td>
-                  <td class="py-3 whitespace-nowrap tabular-nums text-muted">
-                    {new Date(role.startDate).getUTCFullYear()}
-                  </td>
-                </tr>
-              ))
-            }
-          </tbody>
-        </table>
-      </div>
-    </section>
-
     <section id="skills" class={section}>
       <h2 class={heading}>Skills</h2>
       <dl class="grid gap-x-10 gap-y-6 sm:grid-cols-2">
@@ -191,35 +163,5 @@ const heading =
         }
       </dl>
     </section>
-
-    <section id="languages" class={section}>
-      <h2 class={heading}>Languages and interests</h2>
-      <div class="grid gap-x-10 gap-y-8 md:grid-cols-2">
-        <dl class="grid grid-cols-2 gap-x-6 gap-y-3">
-          {
-            languages.map((entry) => (
-              <div>
-                <dt class="font-semibold text-heading">{entry.language}</dt>
-                <dd class="text-sm text-muted">{entry.fluency}</dd>
-              </div>
-            ))
-          }
-        </dl>
-        <dl class="grid gap-y-3">
-          {
-            interests.map((entry) => (
-              <div>
-                <dt class="font-semibold text-heading">{entry.name}</dt>
-                <dd class="text-sm text-muted">{(entry.keywords ?? []).join(', ')}</dd>
-              </div>
-            ))
-          }
-        </dl>
-      </div>
-    </section>
-
-    <p class="mt-16 text-sm text-muted">
-      The same resume, as data in the <a class="text-primary hover:underline" href="/assets/resume.json">JSON Resume</a> format.
-    </p>
   </div>
 </Layout>
