@@ -2,6 +2,10 @@
 import { ANALYTICS } from 'astrowind:config';
 
 const id = ANALYTICS?.vendors?.googleAnalytics?.id ? String(ANALYTICS.vendors.googleAnalytics.id) : '';
+// GoatCounter, when its code is set in src/config.yaml. The site changes pages without reloading
+// them (Astro's ClientRouter), so each page is counted on astro:page-load instead of by the
+// script's own count on load.
+const goatcounter = ANALYTICS?.vendors?.goatcounter?.code ? String(ANALYTICS.vendors.goatcounter.code) : '';
 const partytown = !!ANALYTICS?.vendors?.googleAnalytics?.partytown;
 const scriptType = partytown ? 'text/partytown' : undefined;
 ---
@@ -17,5 +21,30 @@ const scriptType = partytown ? 'text/partytown' : undefined;
     };
     window.gtag('js', new Date());
     window.gtag('config', d);
+  }
+</script>
+
+{
+  goatcounter && (
+    <script
+      is:inline
+      async
+      data-goatcounter={`https://${goatcounter}.goatcounter.com/count`}
+      data-goatcounter-settings='{"no_onload": true}'
+      src="https://gc.zgo.at/count.js"
+    />
+  )
+}
+
+<script is:inline id="goatcounter-init" data-code={goatcounter}>
+  if (document.getElementById('goatcounter-init').dataset.code) {
+    document.addEventListener('astro:page-load', function () {
+      var path = location.pathname + location.search;
+      var send = function () {
+        window.goatcounter.count({ path: path });
+      };
+      if (window.goatcounter && window.goatcounter.count) send();
+      else document.querySelector('script[data-goatcounter]').addEventListener('load', send, { once: true });
+    });
   }
 </script>

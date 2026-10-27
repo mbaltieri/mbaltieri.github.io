@@ -75,6 +75,9 @@ export interface AnalyticsConfig {
       id?: string;
       partytown?: boolean;
     };
+    goatcounter?: {
+      code?: string;
+    };
   };
 }
 

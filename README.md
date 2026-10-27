@@ -50,6 +50,7 @@ LC_ALL=en_US.UTF-8 ruby .scripts/check-built-site.rb dist
 | Page images                            | `src/assets/images/`, optimised at build time                            |
 | Pages of the papers in Selected work   | `src/assets/papers/`, made from the PDFs by `.scripts/render-papers.sh`  |
 | Redirects from old addresses           | `astro.config.ts`                                                        |
+| Visit counts (off until set)           | `analytics.vendors.goatcounter.code` in `src/config.yaml`                |
 
 The addresses of the Jekyll site are kept. News, the projects and Vision are retired, and their addresses redirect to where their content now is (`astro.config.ts`).
 

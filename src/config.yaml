@@ -71,6 +71,11 @@ analytics:
   vendors:
     googleAnalytics:
       id: null # or "G-XXXXXXXXXX"
+    # GoatCounter (https://www.goatcounter.com) counts visits without cookies or personal data,
+    # free for a personal site. Make an account, then put its code here: "manuelbaltieri" for
+    # https://manuelbaltieri.goatcounter.com. Left empty, nothing is loaded.
+    goatcounter:
+      code: null
 
 ui:
   theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
