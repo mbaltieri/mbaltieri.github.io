@@ -1,6 +1,6 @@
 ---
 // A year of a list of papers or talks: the year on the left on wide screens, above its entries on
-// phones.
+// phones. Each year fades in as it comes into view, as the sections of the resume do.
 
 export interface Props {
   year: number;
@@ -9,7 +9,9 @@ export interface Props {
 const { year } = Astro.props;
 ---
 
-<div class="grid gap-x-6 border-t border-gray-200 md:grid-cols-[4rem_1fr] dark:border-slate-800">
+<div
+  class="grid gap-x-6 border-t border-gray-200 md:grid-cols-[4rem_1fr] dark:border-slate-800 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+>
   <p class="pt-3 font-heading text-lg font-semibold tabular-nums text-heading md:sticky md:top-20 md:self-start">
     {year}
   </p>
