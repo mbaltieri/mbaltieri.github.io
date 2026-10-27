@@ -49,6 +49,7 @@ LC_ALL=en_US.UTF-8 ruby .scripts/check-built-site.rb dist
 | PDFs and images linked by address      | `public/assets/`, served at `/assets/...`                                |
 | Page images                            | `src/assets/images/`, optimised at build time                            |
 | Pages of the papers in Selected work   | `src/assets/papers/`, made from the PDFs by `.scripts/render-papers.sh`  |
+| Share previews of the main pages       | `src/assets/images/social/`, made by `.scripts/render-social-cards.sh`   |
 | Redirects from old addresses           | `astro.config.ts`                                                        |
 | Visit counts (off until set)           | `analytics.vendors.goatcounter.code` in `src/config.yaml`                |
 

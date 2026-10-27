@@ -1,0 +1,228 @@
+---
+import { Image } from 'astro:assets';
+import Layout from '~/layouts/Layout.astro';
+import AgentEnvironment from '~/components/widgets/AgentEnvironment.astro';
+import FieldGraphic from '~/components/graphics/FieldGraphic.astro';
+import { paperPages } from '~/utils/papers';
+import portrait from '~/assets/images/observer-face.jpg';
+import oxford from '~/assets/images/talks/youtube--wuzt7JgRuM.jpg';
+import slidesMilan from '~/assets/images/talks/slides-mathematise-agency.jpg';
+import slidesTokyo from '~/assets/images/talks/slides-proving-ai-safety.jpg';
+
+// The share previews of the main pages (Open Graph images, 1200 by 630): the page's title and a
+// line about it beside a piece of the site. These pages exist only on the dev server (`npm run
+// dev`, then /cards/home/ and so on), where .scripts/render-social-cards.sh photographs them into
+// src/assets/images/social/. The site itself never shows them.
+
+export const getStaticPaths = () =>
+  import.meta.env.DEV
+    ? [
+        {
+          name: 'home',
+          title: 'What does an agent model?',
+          line: 'Mathematical theories for understanding agency: how agents are distinguished from their environments, what they model and how they pursue goals.',
+          path: '',
+        },
+        {
+          name: 'research',
+          title: 'Research',
+          line: 'Studying how agents can be identified, modelled, and composed, and what those formal choices imply for cognition, living systems, and AI safety.',
+          path: '/research',
+        },
+        {
+          name: 'publications',
+          title: 'Publications',
+          line: 'Journal articles, conference papers, preprints, commentaries and edited issues.',
+          path: '/research/publications',
+        },
+        {
+          name: 'talks',
+          title: 'Talks',
+          line: 'Invited and contributed talks and podcasts, with slides and recordings shared whenever possible.',
+          path: '/research/talks',
+        },
+        {
+          name: 'resume',
+          title: 'Resume',
+          line: 'Cybernetics and ALife/AI researcher. Mathematical modeller. Coder.',
+          path: '/resume',
+        },
+      ].map((card) => ({ params: { name: card.name }, props: card }))
+    : [];
+
+const { name, title, line, path } = Astro.props;
+const papers = [
+  paperPages('compositional-behavioral-semantics')[0],
+  paperPages('mathematical-approaches')[0],
+  paperPages('disentangled-representations')[0],
+];
+const fields = [
+  'mathematics-of-agents',
+  'cognition-and-control',
+  'artificial-life',
+  'agent-foundations-for-ai-safety',
+] as const;
+---
+
+<Layout metadata={{ title: `${title} (share preview)`, robots: { index: false, follow: false } }}>
+  <script is:inline>
+    document.documentElement.classList.add('dark');
+  </script>
+  <main class="card">
+    <div class="words">
+      <p class="site">Manuel Baltieri</p>
+      <div>
+        <h1 class="title">{title}</h1>
+        <p class="line">{line}</p>
+      </div>
+      <p class="address">manuelbaltieri.com{path}</p>
+    </div>
+    <div class="art">
+      {name === 'home' && <AgentEnvironment />}
+      {
+        name === 'research' && (
+          <div class="fields text-primary">
+            {fields.map((field) => (
+              <FieldGraphic field={field} class="field" />
+            ))}
+          </div>
+        )
+      }
+      {
+        name === 'publications' && (
+          <div class="papers">
+            {papers.map((page, index) => (
+              <img
+                src={page.src}
+                alt=""
+                class="paper"
+                style={`left: ${index * 104}px; top: ${index * 40}px; transform: rotate(${(index - 1) * 5}deg)`}
+              />
+            ))}
+          </div>
+        )
+      }
+      {
+        name === 'talks' && (
+          <div class="talks">
+            <Image loading="eager" decoding="sync" src={oxford} alt="" width={960} height={540} class="talk wide" />
+            <Image loading="eager" decoding="sync" src={slidesMilan} alt="" width={480} height={270} class="talk" />
+            <Image loading="eager" decoding="sync" src={slidesTokyo} alt="" width={480} height={270} class="talk" />
+          </div>
+        )
+      }
+      {
+        name === 'resume' && (
+          <Image loading="eager" decoding="sync" src={portrait} alt="" width={400} height={400} class="face" />
+        )
+      }
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 1200px;
+    height: 630px;
+    overflow: hidden;
+    background: var(--aw-color-bg-page);
+  }
+  .words {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 64px 32px 60px 64px;
+  }
+  .site {
+    font-family: var(--aw-font-heading, sans-serif);
+    font-size: 30px;
+    font-weight: 600;
+    color: var(--aw-color-text-heading);
+  }
+  .title {
+    font-family: var(--aw-font-heading, sans-serif);
+    font-size: 72px;
+    font-weight: 600;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--aw-color-text-heading);
+  }
+  .line {
+    margin-top: 24px;
+    font-size: 26px;
+    line-height: 1.38;
+    color: var(--aw-color-text-muted);
+  }
+  .address {
+    font-family: var(--aw-font-heading, sans-serif);
+    font-size: 24px;
+    color: var(--aw-color-primary);
+  }
+  .art {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 56px 40px 8px;
+  }
+  .fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px 44px;
+    width: 100%;
+  }
+  .fields :global(.field) {
+    width: 100%;
+    height: auto;
+  }
+  .papers {
+    position: relative;
+    width: 480px;
+    height: 470px;
+  }
+  .paper {
+    position: absolute;
+    width: 270px;
+    background: white;
+    border-radius: 3px;
+    box-shadow: 0 18px 40px rgb(0 0 0 / 45%);
+  }
+  .talks {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 520px;
+  }
+  .talks :global(.talk) {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  .talks :global(.wide) {
+    grid-column: span 2;
+  }
+  .art :global(.face) {
+    width: 340px;
+    height: 340px;
+    border-radius: 9999px;
+    object-fit: cover;
+    box-shadow:
+      0 0 0 10px var(--aw-color-bg-page),
+      0 0 0 14px var(--aw-color-primary);
+  }
+  /* The drawing fills its half of the card, and shows at once, without its entrance. */
+  .art :global(.agent-environment) {
+    width: 100%;
+    max-width: none;
+  }
+  .art :global(.step) {
+    animation: none !important;
+    opacity: 1 !important;
+  }
+  /* The dev server's toolbar stays out of the picture. */
+  :global(astro-dev-toolbar) {
+    display: none !important;
+  }
+</style>

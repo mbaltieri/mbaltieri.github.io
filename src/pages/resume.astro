@@ -20,6 +20,7 @@ import { escapeHtml, inlineMarkdown } from '~/utils/markdown';
 const metadata = {
   title: 'Resume',
   description: "Manuel Baltieri's resume: positions, education, selected publications and skills.",
+  openGraph: { images: [{ url: '~/assets/images/social/resume.jpg' }] },
 };
 
 const { basics, work = [], volunteer = [], education = [], skills = [], languages = [], interests = [] } = resume;
