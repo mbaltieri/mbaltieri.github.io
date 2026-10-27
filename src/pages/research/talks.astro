@@ -1,8 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import ListHeader from '~/components/research/ListHeader.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
 import TalkList from '~/components/talks/TalkList.astro';
-import { talks } from '~/utils/talks';
 
 // The entries are in src/data/talks.yaml. The page shares its design with the Publications page.
 
@@ -12,14 +11,10 @@ const metadata = {
     "Invited and contributed talks, lectures, podcasts, recordings, and slide decks from Manuel Baltieri's research.",
   openGraph: { images: [{ url: '~/assets/images/social/talks.jpg' }] },
 };
-const since = Math.min(...talks.map((talk) => Number(talk.date.slice(0, 4))));
 ---
 
 <Layout metadata={metadata}>
-  <ListHeader
-    title="Talks"
-    subtitle={`Invited and contributed talks and podcasts, since ${since}, with slides and recordings shared whenever possible.`}
-  />
+  <HeroText title="Talks" />
   <section class="mx-auto max-w-4xl px-4 pb-16 md:px-6 md:pb-20">
     <TalkList />
     <div class="mt-10 space-y-3 border-t border-gray-200 pt-6 text-sm text-muted dark:border-slate-800">

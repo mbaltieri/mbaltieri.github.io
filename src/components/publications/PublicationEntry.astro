@@ -3,9 +3,10 @@ import EntryLinks from '~/components/research/EntryLinks.astro';
 import type { Publication } from '~/utils/publications';
 import { publicationLinks, publicationType } from '~/utils/publications';
 
-// A publication on two lines: its title with its links, then the authors with Manuel in bold,
-// where it appeared and what it is. The same entry is used on the Publications page and the
-// resume.
+// A publication on two lines: its title, then the authors with Manuel in bold, where it appeared
+// and what it is. Its links keep a column of their own on wide screens, on the right and level
+// with the title, and follow the entry on phones, so that they are always in the same place. The
+// same entry is used on the Publications page and the resume.
 
 export interface Props {
   pub: Publication;
@@ -16,14 +17,18 @@ export interface Props {
 const { pub, id } = Astro.props;
 const me = 'Baltieri, M.';
 const authorParts = pub.authors.split(me);
+const links = publicationLinks(pub);
 ---
 
-<li id={id} class="scroll-mt-24 py-3">
-  <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-0.5">
-    <h3 class="font-medium leading-snug text-heading">{pub.title}</h3>
-    <EntryLinks links={publicationLinks(pub)} />
-  </div>
-  <p class="mt-0.5 text-sm text-muted">
+<li
+  id={id}
+  class:list={[
+    'grid scroll-mt-24 gap-x-6 gap-y-0.5 py-3 md:items-baseline',
+    links.length > 0 && 'md:grid-cols-[minmax(0,1fr)_auto]',
+  ]}
+>
+  <h3 class="font-medium leading-snug text-heading">{pub.title}</h3>
+  <p class="text-sm text-muted md:col-span-full">
     {
       authorParts.map((part, index) => (
         <>
@@ -44,4 +49,5 @@ const authorParts = pub.authors.split(me);
     {publicationType(pub)}
     {pub.note && `, ${pub.note}`}
   </p>
+  <EntryLinks links={links} class="mt-0.5 md:col-start-2 md:row-start-1 md:mt-0" />
 </li>

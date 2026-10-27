@@ -1,8 +1,7 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import ListHeader from '~/components/research/ListHeader.astro';
+import HeroText from '~/components/widgets/HeroText.astro';
 import PublicationList from '~/components/publications/PublicationList.astro';
-import { publications } from '~/utils/publications';
 
 // The entries are in src/data/publications.yaml. The page shares its design with the Talks page.
 //
@@ -17,14 +16,10 @@ const metadata = {
   description: 'Journal articles, conference papers, preprints, commentaries, and edited volumes by Manuel Baltieri.',
   openGraph: { images: [{ url: '~/assets/images/social/publications.jpg' }] },
 };
-const since = Math.min(...publications.map((pub) => pub.year));
 ---
 
 <Layout metadata={metadata}>
-  <ListHeader
-    title="Publications"
-    subtitle={`Journal articles, conference papers, preprints, commentaries and edited issues, since ${since}.`}
-  />
+  <HeroText title="Publications" />
   <section class="mx-auto max-w-4xl px-4 pb-16 md:px-6 md:pb-20">
     <PublicationList />
   </section>

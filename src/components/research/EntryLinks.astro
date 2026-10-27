@@ -11,7 +11,7 @@ const { links, class: className = '' } = Astro.props;
 
 {
   links.length > 0 && (
-    <span class:list={['shrink-0 whitespace-nowrap text-sm font-medium', className]}>
+    <span class:list={['whitespace-nowrap text-sm font-medium', className]}>
       {links.map(({ text, href }, index) => (
         <>
           {index > 0 && <span class="text-muted"> · </span>}
