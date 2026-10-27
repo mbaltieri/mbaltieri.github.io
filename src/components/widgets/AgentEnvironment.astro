@@ -1,5 +1,4 @@
 ---
-import { getImage } from 'astro:assets';
 import AgentScene from '~/components/graphics/parts/AgentScene.astro';
 import type { SceneAgent } from '~/components/graphics/parts/AgentScene.astro';
 import portrait from '~/assets/images/observer-face.jpg';
@@ -8,7 +7,7 @@ import portrait from '~/assets/images/observer-face.jpg';
 // each inside a dashed line that marks where it ends and its environment (the light, the other
 // agent) begins, and each with a thought labelled "model": a coarse picture of its world holding a
 // plain version of itself, the other agent and the light, blurred in one and a grid of cells in
-// the other. Manuel looks on from outside, his face in a circle, with a thought of his own labelled
+// the other. Manuel looks on from outside, his face in a rounded square, with a thought of his own labelled
 // "model": the whole patch in small, the agents and their thoughts included. Beside the patch on
 // wide screens, below it on phones.
 
@@ -187,8 +186,10 @@ const box = {
 const boxWidth = box.right - box.left;
 const boxHeight = box.bottom - box.top;
 
-// The observer: Manuel's face, from a photograph, in a circle.
-const face = await getImage({ src: portrait, width: 200, height: 200, format: 'webp' });
+// The observer: Manuel's face, from a photograph (a small file, used as it is, without the image
+// service), in a rounded square (`r` is half its side).
+const face = { src: portrait.src };
+const corner = (r: number) => f(r * 0.56);
 
 // Each layout places his face, his thought (and the patch inside it), his sight lines and the
 // labels. The patch is shrunk to fit inside the thought's ellipse, with a margin.
@@ -196,24 +197,24 @@ const layouts = [
   {
     name: 'wide',
     class: 'hidden md:block',
-    width: 640,
-    height: 250,
+    width: 680,
+    height: 286,
     type: 12.5,
-    face: { x: 562, y: 186, r: 30 },
-    idea: { x: 558, y: 76, rx: 68, ry: 46 },
-    sight: ['M530 176 L 483 64', 'M531 192 L 483 224'],
-    observer: { x: 562, y: 234 },
+    face: { x: 590, y: 198, r: 60 },
+    idea: { x: 585, y: 67, rx: 74, ry: 44 },
+    sight: ['M528 172 L 483 64', 'M529 226 L 483 228'],
+    observer: { x: 590, y: 278 },
   },
   {
     name: 'narrow',
     class: 'md:hidden',
     width: 480,
-    height: 424,
+    height: 454,
     type: 15,
-    face: { x: 414, y: 340, r: 36 },
-    idea: { x: 194, y: 346, rx: 150, ry: 64 },
-    sight: ['M401 306 L 332 246', 'M425 306 L 452 246'],
-    observer: { x: 414, y: 397 },
+    face: { x: 402, y: 358, r: 64 },
+    idea: { x: 178, y: 358, rx: 136, ry: 66 },
+    sight: ['M380 296 L 320 246', 'M424 296 L 452 246'],
+    observer: { x: 402, y: 442 },
   },
 ].map((layout) => {
   const { idea, face: at } = layout;
@@ -222,9 +223,11 @@ const layouts = [
   const half = 0.9 / Math.sqrt(1 / idea.rx ** 2 + 1 / (aspect * idea.ry) ** 2);
   const k = (2 * half) / boxWidth;
   const mini = `translate(${f(idea.x - k * (box.left + boxWidth / 2))} ${f(idea.y - k * (box.top + boxHeight / 2))}) scale(${+k.toFixed(4)})`;
-  // Two small bubbles from his face to the edge of his thought.
+  // Two small bubbles from the edge of his face (a square, so the edge is r over the larger of the
+  // direction's two parts away) to the edge of his thought.
   const away = unit(at, idea);
-  const from = { x: at.x + away.x * (at.r + 4), y: at.y + away.y * (at.r + 4) };
+  const edge = at.r / Math.max(Math.abs(away.x), Math.abs(away.y)) + 4;
+  const from = { x: at.x + away.x * edge, y: at.y + away.y * edge };
   const t = Math.atan2((from.y - idea.y) / idea.ry, (from.x - idea.x) / idea.rx);
   const to = { x: idea.x + idea.rx * Math.cos(t), y: idea.y + idea.ry * Math.sin(t) };
   const between = (s: number) => ({ x: f(from.x + (to.x - from.x) * s), y: f(from.y + (to.y - from.y) * s) });
@@ -259,7 +262,13 @@ const layouts = [
             </clipPath>
           ))}
           <clipPath id={`face-${layout.name}`}>
-            <circle cx={layout.face.x} cy={layout.face.y} r={layout.face.r} />
+            <rect
+              x={layout.face.x - layout.face.r}
+              y={layout.face.y - layout.face.r}
+              width={layout.face.r * 2}
+              height={layout.face.r * 2}
+              rx={corner(layout.face.r)}
+            />
           </clipPath>
           <filter id={`blur-near-${layout.name}`} x="-100%" y="-100%" width="300%" height="300%">
             <feGaussianBlur stdDeviation="3" />
@@ -286,7 +295,14 @@ const layouts = [
             clip-path={`url(#face-${layout.name})`}
             preserveAspectRatio="xMidYMid slice"
           />
-          <circle cx={layout.face.x} cy={layout.face.y} r={layout.face.r} stroke-width="1.5" />
+          <rect
+            x={layout.face.x - layout.face.r}
+            y={layout.face.y - layout.face.r}
+            width={layout.face.r * 2}
+            height={layout.face.r * 2}
+            rx={corner(layout.face.r)}
+            stroke-width="1.5"
+          />
         </g>
         <g class="step" style="--d: 400ms">
           {layout.puffs.map(({ x, y, r }) => (
