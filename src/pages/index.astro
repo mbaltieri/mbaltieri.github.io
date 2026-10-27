@@ -45,6 +45,9 @@ const structuredData = [
 
 const link = (text: string, href: string) => `<a class="text-primary hover:underline" href="${href}">${text}</a>`;
 
+// The current roles: the positions in src/data/resume.yaml without an end date, newest first.
+const roles = (resume.work ?? []).filter((job) => !job.endDate);
+
 // The questions of the research agenda.
 const questions = [
   'Where does a boundary come from?',
@@ -178,6 +181,28 @@ const selectedWork = [
     <div class="mt-14 md:mt-16">
       <AgentEnvironment />
     </div>
+  </WidgetWrapper>
+
+  <WidgetWrapper id="current-roles" containerClass="max-w-6xl">
+    <Headline title="Current roles" subtitle={link('Full resume', getPermalink('/resume'))} />
+    <ul class="grid gap-8 md:grid-cols-3 md:gap-10">
+      {
+        roles.map((job) => (
+          <li class="border-t border-gray-200 pt-5 dark:border-slate-800 intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
+            <p class="font-heading text-lg md:text-xl font-medium leading-snug text-heading">{job.position}</p>
+            <p class="mt-1 text-muted">
+              {job.website ? (
+                <a class="hover:text-primary hover:underline" href={job.website}>
+                  {job.company}
+                </a>
+              ) : (
+                job.company
+              )}
+            </p>
+          </li>
+        ))
+      }
+    </ul>
   </WidgetWrapper>
 
   <WidgetWrapper id="talks" containerClass="max-w-6xl">
