@@ -1,0 +1,33 @@
+---
+import { Icon } from 'astro-icon/components';
+
+// A paper or a link under a question of the Research vision page: an icon, its title (a link when
+// there is an address) and, for a paper, where and when it appeared. Smaller than a question and
+// led by an icon, so that the two never look alike.
+
+export interface Props {
+  title: string;
+  href?: string;
+  /** Where and when a paper appeared. */
+  detail?: string;
+  icon: string;
+}
+
+const { title, href, detail, icon } = Astro.props;
+---
+
+<li class="flex gap-2.5">
+  <Icon name={icon} class="mt-0.5 h-4 w-4 shrink-0 text-muted" />
+  <span class="text-sm">
+    {
+      href ? (
+        <a class="font-medium text-primary hover:underline" href={href}>
+          {title}
+        </a>
+      ) : (
+        <span class="font-medium text-heading">{title}</span>
+      )
+    }
+    {detail && <span class="block text-xs text-muted">{detail}</span>}
+  </span>
+</li>

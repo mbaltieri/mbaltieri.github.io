@@ -3,6 +3,7 @@ import { Icon } from 'astro-icon/components';
 import WidgetWrapper from '~/components/ui/WidgetWrapper.astro';
 import FieldGraphic from '~/components/graphics/FieldGraphic.astro';
 import VisionGraphic from '~/components/graphics/VisionGraphic.astro';
+import Reference from '~/components/research/Reference.astro';
 import type { Props as FieldGraphicProps } from '~/components/graphics/FieldGraphic.astro';
 import type { Props as VisionGraphicProps } from '~/components/graphics/VisionGraphic.astro';
 import type { Widget } from '~/types';
@@ -86,7 +87,9 @@ const small = 'text-sm font-semibold uppercase tracking-wide text-muted';
               field={field.id}
               class="h-auto w-full opacity-55 transition-opacity group-hover:opacity-100 group-aria-selected:opacity-100 print:opacity-100"
             />
-            <span class="mt-4 block font-heading text-lg md:text-xl font-medium text-heading">{field.name}</span>
+            <span class="mt-4 block font-heading text-lg md:text-xl font-medium text-heading transition group-aria-selected:text-primary">
+              {field.name}
+            </span>
             <span class="mt-1 block text-sm text-muted">{field.keywords}</span>
           </a>
         ))
@@ -102,7 +105,7 @@ const small = 'text-sm font-semibold uppercase tracking-wide text-muted';
             aria-labelledby={`${field.id}-title`}
             class="grid scroll-mt-24 gap-6 motion-safe:animate-fade md:grid-cols-12 md:gap-12"
           >
-            <div class="md:col-span-5">
+            <div class="md:sticky md:top-24 md:col-span-5 md:self-start">
               <p class="text-sm font-semibold uppercase tracking-wide text-primary">{field.name}</p>
               <h3
                 id={`${field.id}-title`}
@@ -110,15 +113,15 @@ const small = 'text-sm font-semibold uppercase tracking-wide text-muted';
               >
                 {field.title}
               </h3>
+              <p class="mt-5 text-lg text-muted">{field.text}</p>
             </div>
             <div class="md:col-span-7">
-              <p class="text-lg text-muted">{field.text}</p>
-              <h4 class:list={[small, 'mt-8']}>Questions</h4>
+              <h4 class={small}>Questions</h4>
               <div class="mt-3 divide-y divide-gray-200 border-y border-gray-200 dark:divide-slate-800 dark:border-slate-800">
                 {field.questions.map((item) => (
                   <details id={item.id} class="group scroll-mt-28">
-                    <summary class="flex cursor-pointer list-none items-start justify-between gap-4 py-4 [&::-webkit-details-marker]:hidden">
-                      <span class="font-heading text-lg font-medium leading-snug text-heading transition group-hover:text-primary">
+                    <summary class="flex cursor-pointer list-none items-start justify-between gap-4 py-5 [&::-webkit-details-marker]:hidden">
+                      <span class="font-heading text-xl font-medium leading-snug text-heading transition group-hover:text-primary">
                         {item.question}
                       </span>
                       <Icon
@@ -127,52 +130,49 @@ const small = 'text-sm font-semibold uppercase tracking-wide text-muted';
                       />
                     </summary>
                     <div data-answer>
-                      <div class="flow-root pb-6 text-muted [&_p_a]:text-primary [&_p_a:hover]:underline">
-                        {item.drawing && (
-                          <figure class="mb-4 max-w-xs md:float-right md:mb-2 md:ml-6 md:w-52">
-                            <VisionGraphic name={item.drawing} class="h-auto w-full" />
-                          </figure>
-                        )}
-                        {item.answer.map((paragraph) => (
-                          <p class="mb-3" set:html={paragraph} />
-                        ))}
-                        {item.aside && (
-                          <p class="mb-3 border-l-2 border-accent pl-3 text-sm italic" set:html={item.aside} />
-                        )}
-                        {item.papers?.length ? (
-                          <>
-                            <h5 class:list={[small, 'mt-5 text-xs']}>Papers</h5>
-                            <ul class="mt-2 space-y-1.5">
-                              {item.papers.map((paper) => (
-                                <li>
-                                  {paper.href ? (
-                                    <a class="font-medium text-heading transition hover:text-primary" href={paper.href}>
-                                      {paper.title}
-                                    </a>
-                                  ) : (
-                                    <span class="font-medium text-heading">{paper.title}</span>
-                                  )}
-                                  <span class="text-sm"> · {[paper.venue, paper.year].filter(Boolean).join(', ')}</span>
-                                </li>
-                              ))}
-                            </ul>
-                          </>
-                        ) : null}
-                        {item.links?.length ? (
-                          <>
-                            <h5 class:list={[small, 'mt-5 text-xs']}>Links</h5>
-                            {item.linksNote && <p class="mt-1 text-sm">{item.linksNote}</p>}
-                            <ul class="mt-2 space-y-1.5">
-                              {item.links.map((link) => (
-                                <li>
-                                  <a class="text-primary hover:underline" href={link.href}>
-                                    {link.text}
-                                  </a>
-                                </li>
-                              ))}
-                            </ul>
-                          </>
-                        ) : null}
+                      <div class="pb-6">
+                        <div class="flow-root border-l-2 border-primary/30 pl-5 text-default [&_p_a]:text-primary [&_p_a:hover]:underline">
+                          {item.drawing && (
+                            <figure class="mb-4 max-w-xs md:float-right md:mb-2 md:ml-6 md:w-52">
+                              <VisionGraphic name={item.drawing} class="h-auto w-full" />
+                            </figure>
+                          )}
+                          {item.answer.map((paragraph) => (
+                            <p class="mb-3" set:html={paragraph} />
+                          ))}
+                          {item.aside && (
+                            <p
+                              class="mb-3 border-l-2 border-accent pl-3 text-sm italic text-muted"
+                              set:html={item.aside}
+                            />
+                          )}
+                          {item.papers?.length ? (
+                            <>
+                              <h5 class:list={[small, 'mt-5 text-xs']}>Papers</h5>
+                              <ul class="mt-2.5 space-y-2.5">
+                                {item.papers.map((paper) => (
+                                  <Reference
+                                    icon="tabler:file-text"
+                                    title={paper.title}
+                                    href={paper.href}
+                                    detail={[paper.venue, paper.year].filter(Boolean).join(', ')}
+                                  />
+                                ))}
+                              </ul>
+                            </>
+                          ) : null}
+                          {item.links?.length ? (
+                            <>
+                              <h5 class:list={[small, 'mt-5 text-xs']}>Links</h5>
+                              {item.linksNote && <p class="mt-1 text-sm text-muted">{item.linksNote}</p>}
+                              <ul class="mt-2.5 space-y-2.5">
+                                {item.links.map((link) => (
+                                  <Reference icon="tabler:link" title={link.text} href={link.href} />
+                                ))}
+                              </ul>
+                            </>
+                          ) : null}
+                        </div>
                       </div>
                     </div>
                   </details>
@@ -180,18 +180,15 @@ const small = 'text-sm font-semibold uppercase tracking-wide text-muted';
               </div>
               {field.papers?.length ? (
                 <>
-                  <h4 class:list={[small, 'mt-8']}>Other papers</h4>
-                  <ul class="mt-3 divide-y divide-gray-200 border-y border-gray-200 dark:divide-slate-800 dark:border-slate-800">
+                  <h4 class:list={[small, 'mt-10']}>Other papers</h4>
+                  <ul class="mt-3 space-y-2.5">
                     {field.papers.map((paper) => (
-                      <li class="py-3">
-                        <a class="font-medium text-heading transition hover:text-primary" href={paper.href}>
-                          {paper.title}
-                        </a>
-                        <span class="text-sm text-muted">
-                          {' '}
-                          · {[paper.venue, paper.year].filter(Boolean).join(', ')}
-                        </span>
-                      </li>
+                      <Reference
+                        icon="tabler:file-text"
+                        title={paper.title}
+                        href={paper.href}
+                        detail={[paper.venue, paper.year].filter(Boolean).join(', ')}
+                      />
                     ))}
                   </ul>
                 </>
