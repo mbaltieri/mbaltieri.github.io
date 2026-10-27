@@ -48,7 +48,7 @@
   questions:
     - id: theories-of-agency
       label: Theories of agency
-      question: How do we go from simple physics to agency?
+      question: When does a physical system count as an agent, and where do its goals come from?
       answer:
         - >-
           Agency is central to biology, cognitive science and AI, yet no widely accepted formal
@@ -74,18 +74,6 @@
       linksNote: >-
         Lectures for the CHAIN Winter School on Minimal Cognition and Agency, Hokkaido University,
         February 2023.
-    - id: agents-life-and-cognition
-      label: Agents, life and cognition
-      question: >-
-        Are there sharp lines between agents and non-agents, the living and the non-living, the
-        cognitive and the non-cognitive?
-      answer:
-        - >-
-          Formal definitions of agency, life and cognition come down to what separates agentic from
-          non-agentic systems, living from non-living organisms, and cognitive from non-cognitive
-          architectures. Do sharp distinctions between these classes exist, and are they meaningful?
-          If there are none, why are some systems perceived to be qualitatively different? And what
-          mathematical theories can bring out such apparent diversity?
       drawing: fundamental-questions
     - id: agents-and-observers
       label: Agents and observers
@@ -210,9 +198,17 @@
         - text: The Hybrid Life special sessions
           href: https://sites.google.com/view/hybridlife
     - id: origins-of-life
-      label: Origins of life
-      question: Is homeostasis enough to tell the living from the non-living?
+      label: Living and non-living
+      question: >-
+        Are there sharp lines between the living and the non-living, the cognitive and the
+        non-cognitive, and is homeostasis enough to draw them?
       answer:
+        - >-
+          Formal definitions of agency, life and cognition come down to what separates agentic from
+          non-agentic systems, living from non-living organisms, and cognitive from non-cognitive
+          architectures. Do sharp distinctions between these classes exist, and are they meaningful?
+          If there are none, why are some systems perceived to be qualitatively different? And what
+          mathematical theories can bring out such apparent diversity?
         - >-
           A short stay at EON, the ELSI Origins of Life Network at Tokyo Tech, led to work on
           theories of the origins of life, especially those linking them to information and control
@@ -240,7 +236,7 @@
   questions:
     - id: physical-and-intentional-stance
       label: Physical and intentional stance
-      question: When can a dynamical system be understood as a goal-directed agent?
+      question: How can we check that an AI system's behaviour fits its intended purpose?
       answer:
         - >-
           A formal link is being developed between the physical behaviour of a system and an
@@ -258,7 +254,7 @@
             https://aria.org.uk/opportunity-spaces/trust-everything-everywhere/opportunity-seeds?tabId=nora-portfolio&cardId=combining-physical-intentional-stance-safe-ai
     - id: world-models
       label: World models
-      question: What do world models need to contain, and what are they models of?
+      question: What should the world models of AI agents contain, and what are they models of?
       answer:
         - >-
           World models are central to model-based reinforcement learning, and have been proposed as
