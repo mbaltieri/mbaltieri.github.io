@@ -4,9 +4,10 @@ import type { CallToAction } from '~/types';
 
 // Hero over a live drawing: small vehicles whose light sensors are wired to the wheel on the
 // opposite side, so that each turns towards the light, which follows the pointer (or drifts
-// on its own, and carries on drifting from wherever the pointer leaves it). The colours come from
-// the site palette, so the drawing follows the light and dark themes. It stops while out of view,
-// and visitors who ask for less motion get a still frame.
+// on its own, and carries on drifting from wherever the pointer leaves it). Where the drawing passes
+// behind the words, it fades, so that it never gets in the way of reading them. The colours come
+// from the site palette, so the drawing follows the light and dark themes. It stops while out of
+// view, and visitors who ask for less motion get a still frame.
 
 export interface Props {
   title?: string;
@@ -90,6 +91,8 @@ const {
     private pointerHeading = { x: 0, y: 0 };
     private drift = swings();
     private lastTime?: number;
+    /** The boxes of the words over the drawing, in canvas pixels. */
+    private words: Array<{ left: number; top: number; right: number; bottom: number }> = [];
     private frame = 0;
     private running = false;
     private colours = { background: '#081a22', line: '#4fb1ba', light: '#f2c46b' };
@@ -107,6 +110,11 @@ const {
       this.target = this.parentElement ?? this;
       this.readColours();
       this.resize();
+      // The words move once the site's fonts have loaded.
+      document.fonts?.ready.then(() => {
+        this.measureWords();
+        if (this.still) this.renderStill();
+      });
       this.target.addEventListener('pointermove', this.onMove);
       this.target.addEventListener('pointerleave', this.onLeave);
       this.resizeObserver = new ResizeObserver(() => this.resize());
@@ -153,9 +161,46 @@ const {
       this.canvas.width = Math.round(this.width * dpr);
       this.canvas.height = Math.round(this.height * dpr);
       this.ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      this.measureWords();
       if (!this.vehicles.length && this.width > 10) this.seed();
       // Resizing clears the canvas: the animation redraws on its next frame, a still frame is redrawn now.
       if (this.still && this.width > 10) this.renderStill();
+    }
+
+    /** Each line of the title and the text, and each button, as a box. */
+    private measureWords() {
+      const origin = this.canvas.getBoundingClientRect();
+      const boxes: Array<DOMRect> = [];
+      this.target.querySelectorAll<HTMLElement>('h1, p, a').forEach((element) => {
+        if (element.tagName === 'A') {
+          boxes.push(element.getBoundingClientRect());
+          return;
+        }
+        const range = document.createRange();
+        range.selectNodeContents(element);
+        boxes.push(...Array.from(range.getClientRects()));
+      });
+      this.words = boxes
+        .filter((box) => box.width > 0 && box.height > 0)
+        .map((box) => ({
+          left: box.left - origin.left,
+          top: box.top - origin.top,
+          right: box.right - origin.left,
+          bottom: box.bottom - origin.top,
+        }));
+    }
+
+    /** How far a point is behind the words: 1 on them, easing to 0 at 40 pixels from them. */
+    private veil(x: number, y: number) {
+      let nearest = Infinity;
+      for (const word of this.words) {
+        const dx = Math.max(word.left - x, 0, x - word.right);
+        const dy = Math.max(word.top - y, 0, y - word.bottom);
+        nearest = Math.min(nearest, Math.hypot(dx, dy));
+        if (nearest === 0) break;
+      }
+      const t = Math.max(0, 1 - Math.max(0, nearest - 6) / 34);
+      return t * t * (3 - 2 * t);
     }
 
     private seed() {
@@ -284,7 +329,7 @@ const {
       ctx.strokeStyle = this.colours.line;
       ctx.lineWidth = 1;
       for (let i = 1; i < n; i++) {
-        ctx.globalAlpha = 0.45 * (i / n);
+        ctx.globalAlpha = 0.45 * (i / n) * (1 - 0.85 * this.veil(v.trail[2 * i], v.trail[2 * i + 1]));
         ctx.beginPath();
         ctx.moveTo(v.trail[2 * i - 2], v.trail[2 * i - 1]);
         ctx.lineTo(v.trail[2 * i], v.trail[2 * i + 1]);
@@ -297,6 +342,7 @@ const {
       const { ctx } = this;
       const s = v.size;
       ctx.save();
+      ctx.globalAlpha = 1 - 0.8 * this.veil(v.x, v.y);
       ctx.translate(v.x, v.y);
       ctx.rotate(v.heading);
       ctx.lineWidth = 1.2;
@@ -326,21 +372,23 @@ const {
 
     private drawLight(l: { x: number; y: number }) {
       const { ctx } = this;
+      const strength = 1 - 0.6 * this.veil(l.x, l.y);
       ctx.fillStyle = this.colours.light;
       for (const [radius, alpha] of [
         [46, 0.05],
         [24, 0.1],
         [10, 0.22],
       ]) {
-        ctx.globalAlpha = alpha;
+        ctx.globalAlpha = alpha * strength;
         ctx.beginPath();
         ctx.arc(l.x, l.y, radius, 0, Math.PI * 2);
         ctx.fill();
       }
-      ctx.globalAlpha = 1;
+      ctx.globalAlpha = strength;
       ctx.beginPath();
       ctx.arc(l.x, l.y, 4, 0, Math.PI * 2);
       ctx.fill();
+      ctx.globalAlpha = 1;
     }
 
     private render(t: number) {
