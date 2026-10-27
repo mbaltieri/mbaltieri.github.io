@@ -3,7 +3,6 @@ import { Icon } from 'astro-icon/components';
 import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import Timeline from '~/components/ui/Timeline.astro';
-import Button from '~/components/ui/Button.astro';
 import PublicationEntry from '~/components/publications/PublicationEntry.astro';
 import { resume, resumeDates } from '~/utils/resume';
 import { publications } from '~/utils/publications';
@@ -13,9 +12,9 @@ import { escapeHtml, inlineMarkdown } from '~/utils/markdown';
 // A resume built from AstroWind's own pieces: its banner for the header, its Timeline for the
 // positions, and the entries of the Publications page for the papers. Everything comes from
 // src/data/resume.yaml, except the selected publications, which come from
-// src/data/publications.yaml. The full CV is the PDF linked at the top. As on the Jekyll site, the
-// contact details are left off and only the location is shown. They stay in the data, so they are
-// still in /assets/resume.json and in the profile links of the home page.
+// src/data/publications.yaml. The full CV is the PDF linked under the profile. The contact details
+// and the location are left off. They stay in the data, so they are still in /assets/resume.json
+// and in the profile links of the home page.
 
 const metadata = {
   title: 'Resume',
@@ -24,11 +23,6 @@ const metadata = {
 };
 
 const { basics, work = [], volunteer = [], education = [], skills = [], languages = [], interests = [] } = resume;
-
-const countries: Record<string, string> = { JP: 'Japan' };
-const location = [basics.location?.city, countries[basics.location?.countryCode ?? ''] ?? basics.location?.countryCode]
-  .filter(Boolean)
-  .join(', ');
 
 // The summary is a list of short statements in the data, shown side by side.
 const statementIcons = ['tabler:atom-2', 'tabler:math-function', 'tabler:code'];
@@ -64,18 +58,7 @@ const heading =
   <HeroText tagline="Resume" title={basics.name}>
     <Fragment slot="subtitle">
       <span class="block text-xl md:text-2xl text-heading">{basics.label}</span>
-      {
-        location && (
-          <span class="mt-3 inline-flex items-center gap-1.5 text-lg">
-            <Icon name="tabler:map-pin" class="h-5 w-5" />
-            {location}
-          </span>
-        )
-      }
     </Fragment>
-    <div slot="content" class="mt-2 flex justify-center">
-      <Button variant="primary" text="Full CV" href="/assets/Academic_CV.pdf" icon="tabler:file-type-pdf" />
-    </div>
   </HeroText>
 
   <div class="mx-auto max-w-4xl px-4 pb-16 md:px-6 md:pb-20">
@@ -91,6 +74,9 @@ const heading =
           ))
         }
       </ul>
+      <p class="mt-4">
+        <a class="font-medium text-primary hover:underline" href="/assets/Academic_CV.pdf">Full CV</a>
+      </p>
     </section>
 
     <section id="experience" class={section}>
