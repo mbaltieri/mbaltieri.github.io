@@ -178,7 +178,7 @@ const heading =
       <ol
         class="divide-y divide-gray-200 dark:divide-slate-800 print:[&_h3]:text-sm print:[&_p]:mt-0 print:[&_p]:text-xs print:[&_[data-links]]:hidden print:[&>li]:break-inside-avoid print:[&>li]:py-1"
       >
-        {selected.map((pub) => <PublicationEntry pub={pub} noMark />)}
+        {selected.map((pub) => <PublicationEntry pub={pub} />)}
       </ol>
       <p class="mt-4 print:hidden">
         <a class="font-medium text-primary hover:underline" href={getPermalink('/research/publications')}>

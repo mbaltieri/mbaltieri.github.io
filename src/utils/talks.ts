@@ -61,11 +61,3 @@ export const talksByYear = (): Array<{ year: number; items: Array<Talk> }> => {
   });
   return [...years].map(([year, items]) => ({ year, items }));
 };
-
-/** The filter buttons of the Talks page. The podcasts' filter is #podcasts, which old addresses use. */
-export const talkFilters = (): Array<{ id: string; label: string }> => [
-  { id: 'all', label: 'All' },
-  { id: 'invited', label: 'Invited' },
-  { id: 'contributed', label: 'Contributed' },
-  { id: 'podcasts', label: 'Podcasts' },
-];

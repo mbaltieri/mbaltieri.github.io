@@ -1,33 +1,35 @@
 ---
-import LinkPills from '~/components/research/LinkPills.astro';
+import EntryLinks from '~/components/research/EntryLinks.astro';
 import type { Talk } from '~/utils/talks';
 import { talkDate, talkLinks, talkType } from '~/utils/talks';
 
-// A talk, laid out like a publication: its title (with a note, if any), where it was given, when
-// and what it was, other times it was given, its parts (lectures) with their own links, and its
-// links.
+// A talk on two lines, laid out like a publication: its title (and a note) with its links, then
+// where it was given, when and what it was, with "Invited talk" in bold so that invited talks stand
+// out. Other times it was given, and the parts of a series (lectures, with their own links), follow
+// on lines of their own.
 
 export interface Props {
   talk: Talk;
+  /** An id, so that an address can point to the entry. */
+  id?: string;
 }
 
-const { talk } = Astro.props;
+const { talk, id } = Astro.props;
 const where = (event: string, place?: string) => [event, place].filter(Boolean).join(', ');
 ---
 
-<li class="py-5" data-kinds={talk.kind === 'podcast' ? 'podcasts' : talk.kind}>
-  <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-    <h3 class="text-lg font-semibold leading-snug text-heading">{talk.title ?? talk.event}</h3>
-    {
-      talk.note && (
-        <span class="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary dark:bg-primary/25">
-          {talk.note}
-        </span>
-      )
-    }
+<li id={id} class="scroll-mt-24 py-3">
+  <div class="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-0.5">
+    <h3 class="font-medium leading-snug text-heading">
+      {talk.title ?? talk.event}
+      {talk.note && <span class="text-sm font-normal text-muted">{` (${talk.note})`}</span>}
+    </h3>
+    <EntryLinks links={talkLinks(talk, talk.kind)} />
   </div>
-  <p class="mt-1 text-muted">{talk.title ? where(talk.event, talk.place) : talk.place}</p>
-  <p class="text-sm text-muted">{talkDate(talk.date)} · {talkType(talk)}</p>
+  <p class="mt-0.5 text-sm text-muted">
+    {talk.title ? where(talk.event, talk.place) : talk.place} · {talkDate(talk.date)} ·{' '}
+    <span class:list={[talk.kind === 'invited' && 'font-semibold text-heading']}>{talkType(talk)}</span>
+  </p>
   {
     talk.occasions?.map((occasion) => (
       <p class="text-sm text-muted">
@@ -37,15 +39,14 @@ const where = (event: string, place?: string) => [event, place].filter(Boolean).
   }
   {
     talk.parts && (
-      <ul class="mt-3 space-y-2 border-l-2 border-gray-200 pl-4 dark:border-slate-700">
+      <ul class="mt-1.5 space-y-1 border-l-2 border-gray-200 pl-3 dark:border-slate-700">
         {talk.parts.map((part) => (
-          <li class="flex flex-wrap items-center justify-between gap-x-4 gap-y-1.5">
+          <li class="flex flex-wrap items-baseline justify-between gap-x-6 text-sm">
             <span class="text-default">{part.title}</span>
-            <LinkPills links={talkLinks(part)} />
+            <EntryLinks links={talkLinks(part)} />
           </li>
         ))}
       </ul>
     )
   }
-  <LinkPills links={talkLinks(talk, talk.kind)} class="mt-3" />
 </li>

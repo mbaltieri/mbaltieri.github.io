@@ -1,27 +1,20 @@
 ---
-import DatedList from '~/components/research/DatedList.astro';
 import YearGroup from '~/components/research/YearGroup.astro';
 import PublicationEntry from '~/components/publications/PublicationEntry.astro';
-import { publications, publicationFilters, publicationsByYear } from '~/utils/publications';
+import { publications, publicationsByYear } from '~/utils/publications';
 
-// Every entry of src/data/publications.yaml, grouped by year, with a filter for each kind that has
-// entries.
+// Every entry of src/data/publications.yaml, grouped by year. The first edited issue is #editing,
+// where the old /research/editing/ address leads.
 
-const filters = publicationFilters.filter(
-  ({ id }) =>
-    id === 'all' ||
-    (id === 'selected' ? publications.some((pub) => pub.selected) : publications.some((pub) => pub.kind === id))
-);
+const firstEditing = publications.find((pub) => pub.kind === 'editing');
 ---
 
-<DatedList label="Show publications by kind" filters={filters}>
-  {
-    publicationsByYear().map(({ year, items }) => (
-      <YearGroup year={year}>
-        {items.map((pub) => (
-          <PublicationEntry pub={pub} />
-        ))}
-      </YearGroup>
-    ))
-  }
-</DatedList>
+{
+  publicationsByYear().map(({ year, items }) => (
+    <YearGroup year={year}>
+      {items.map((pub) => (
+        <PublicationEntry pub={pub} id={pub === firstEditing ? 'editing' : undefined} />
+      ))}
+    </YearGroup>
+  ))
+}

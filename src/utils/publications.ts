@@ -21,18 +21,6 @@ export interface Publication {
 
 export const publications = yaml.load(raw) as Array<Publication>;
 
-/** The filter buttons of the Publications page, in order. `all` and `selected` are not kinds. */
-export const publicationFilters: Array<{ id: 'all' | 'selected' | PublicationKind; label: string }> = [
-  { id: 'all', label: 'All' },
-  { id: 'selected', label: 'Selected' },
-  { id: 'journal', label: 'Journal' },
-  { id: 'conference', label: 'Conference' },
-  { id: 'preprint', label: 'Preprint' },
-  { id: 'commentary', label: 'Commentary' },
-  { id: 'editing', label: 'Editing' },
-  { id: 'other', label: 'Other' },
-];
-
 const kindNames: Record<PublicationKind, string> = {
   journal: 'Journal article',
   conference: 'Conference paper',

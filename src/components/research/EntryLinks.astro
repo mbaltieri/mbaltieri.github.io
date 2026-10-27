@@ -1,0 +1,26 @@
+---
+// The links of an entry (a paper, a talk, a lecture), under fixed names, separated by dots. The
+// resume hides them on paper (data-links).
+
+export interface Props {
+  links: Array<{ text: string; href: string }>;
+  class?: string;
+}
+
+const { links, class: className = '' } = Astro.props;
+---
+
+{
+  links.length > 0 && (
+    <span data-links class:list={['shrink-0 whitespace-nowrap text-sm font-medium', className]}>
+      {links.map(({ text, href }, index) => (
+        <>
+          {index > 0 && <span class="text-muted"> · </span>}
+          <a class="text-primary hover:underline" href={href}>
+            {text}
+          </a>
+        </>
+      ))}
+    </span>
+  )
+}

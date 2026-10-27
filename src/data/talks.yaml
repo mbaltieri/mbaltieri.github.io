@@ -7,7 +7,7 @@
 #   event      where it was given: the event, and the institution if there is one
 #   place      optional, the city and the country
 #   date       the year and the month, as "2026-02"
-#   kind       invited | contributed | podcast (the filter buttons on the page use it)
+#   kind       invited | contributed | podcast
 #   note       optional, printed after the title, e.g. "panel discussion"
 #   parts      optional, the parts of a series (lectures), each with a title and its own links
 #   occasions  optional, other times the same talk was given, each with an event, a place and a date

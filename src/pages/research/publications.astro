@@ -14,8 +14,7 @@ import { publications } from '~/utils/publications';
 
 const metadata = {
   title: 'Publications',
-  description:
-    'Selected publications, conference papers, journal articles, preprints, commentaries, and edited volumes by Manuel Baltieri.',
+  description: 'Journal articles, conference papers, preprints, commentaries, and edited volumes by Manuel Baltieri.',
   openGraph: { images: [{ url: '~/assets/images/social/publications.jpg' }] },
 };
 const since = Math.min(...publications.map((pub) => pub.year));
@@ -25,7 +24,6 @@ const since = Math.min(...publications.map((pub) => pub.year));
   <ListHeader
     title="Publications"
     subtitle={`Journal articles, conference papers, preprints, commentaries and edited issues, since ${since}.`}
-    current="publications"
   />
   <section class="mx-auto max-w-4xl px-4 pb-16 md:px-6 md:pb-20">
     <PublicationList />

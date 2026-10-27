@@ -7,10 +7,11 @@
 #   title, authors, year   as they should be printed
 #   venue                  optional, printed in italics
 #   kind                   journal | conference | preprint | commentary | editing | other
-#                          (the filter buttons on the page use it)
+#                          (its usual name, as "Journal article", is printed after the venue)
 #   type                   optional, printed instead of the kind's usual name
 #   note                   optional, printed after the type, e.g. "to appear"
-#   selected               optional, true for the "Selected" filter
+#   selected               optional, true for the papers under "Selected publications" on the
+#                          resume
 #
 # An entry has up to three links, and no others:
 #

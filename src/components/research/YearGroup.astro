@@ -1,5 +1,6 @@
 ---
-// A year of a dated list: the year on the left on wide screens, above its entries on phones.
+// A year of a list of papers or talks: the year on the left on wide screens, above its entries on
+// phones.
 
 export interface Props {
   year: number;
@@ -8,17 +9,11 @@ export interface Props {
 const { year } = Astro.props;
 ---
 
-<section
-  data-year
-  class="grid gap-x-10 gap-y-1 border-t border-gray-200 pt-6 md:grid-cols-[5rem_1fr] dark:border-slate-800 print:break-inside-auto"
->
-  <h2
-    id={`y-${year}`}
-    class="scroll-mt-24 font-heading text-2xl font-semibold tabular-nums text-heading md:sticky md:top-24 md:self-start"
-  >
+<div class="grid gap-x-6 border-t border-gray-200 md:grid-cols-[4rem_1fr] dark:border-slate-800">
+  <p class="pt-3 font-heading text-lg font-semibold tabular-nums text-heading md:sticky md:top-20 md:self-start">
     {year}
-  </h2>
-  <ul class="mb-6 divide-y divide-gray-200 dark:divide-slate-800 [&>li:first-child]:pt-1">
+  </p>
+  <ul class="divide-y divide-gray-100 dark:divide-slate-800/60">
     <slot />
   </ul>
-</section>
+</div>

@@ -19,7 +19,6 @@ const since = Math.min(...talks.map((talk) => Number(talk.date.slice(0, 4))));
   <ListHeader
     title="Talks"
     subtitle={`Invited and contributed talks and podcasts, since ${since}, with slides and recordings shared whenever possible.`}
-    current="talks"
   />
   <section class="mx-auto max-w-4xl px-4 pb-16 md:px-6 md:pb-20">
     <TalkList />
