@@ -9,7 +9,7 @@ import { research, areaDrawings, answerDrawings } from '~/utils/research';
 import type { ResearchQuestionEntry } from '~/utils/research';
 
 const metadata = {
-  title: 'Research vision',
+  title: 'Research programme',
   description:
     "Manuel Baltieri's research on control, cognition, artificial life, and AI safety in agent-environment systems.",
   openGraph: { images: [{ url: '~/assets/images/social/research.jpg' }] },
@@ -60,7 +60,7 @@ const fields: Array<ResearchField> = await Promise.all(
 ---
 
 <Layout metadata={metadata}>
-  <HeroText title="Research vision">
+  <HeroText title="Research programme">
     <Fragment slot="subtitle">
       <span class="block text-xl md:text-2xl text-heading">
         Studying how agents can be identified, modelled, and composed, and what those formal choices imply for

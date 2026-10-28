@@ -48,7 +48,7 @@ const link = (text: string, href: string) => `<a class="text-primary hover:under
 // The current roles: the positions in src/data/resume.yaml without an end date, newest first.
 const roles = (resume.work ?? []).filter((job) => !job.endDate);
 
-// The questions of the research agenda.
+// The questions of the big picture.
 const questions = [
   'Where does a boundary come from?',
   'What counts as a model or a goal?',
@@ -149,8 +149,8 @@ const selectedWork = [
     subtitle="Manuel develops mathematical theories for understanding agency: how agents are distinguished from their environments, what they model and how they pursue goals, and how these ideas can support safer AI."
   />
 
-  <WidgetWrapper id="research-agenda" containerClass="max-w-6xl">
-    <Headline title="Research agenda" subtitle={link('Research vision', getPermalink('/research'))} />
+  <WidgetWrapper id="big-picture" containerClass="max-w-6xl">
+    <Headline title="The big picture" subtitle={link('Research programme', getPermalink('/research'))} />
     <div class="grid gap-10 md:grid-cols-2 md:gap-16">
       <div class="intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
         <p class="font-heading text-2xl md:text-3xl font-medium leading-snug text-heading">

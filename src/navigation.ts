@@ -3,7 +3,7 @@ import { getPermalink } from './utils/permalinks';
 // The four pages people come for.
 export const headerData = {
   links: [
-    { text: 'Research vision', href: getPermalink('/research') },
+    { text: 'Research programme', href: getPermalink('/research') },
     { text: 'Publications', href: getPermalink('/research/publications') },
     { text: 'Talks', href: getPermalink('/research/talks') },
     { text: 'Resume', href: getPermalink('/resume') },
@@ -16,7 +16,7 @@ export const footerData = {
     {
       title: 'Site',
       links: [
-        { text: 'Research vision', href: getPermalink('/research') },
+        { text: 'Research programme', href: getPermalink('/research') },
         { text: 'Publications', href: getPermalink('/research/publications') },
         { text: 'Talks', href: getPermalink('/research/talks') },
         { text: 'Resume', href: getPermalink('/resume') },
