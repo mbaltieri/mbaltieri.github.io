@@ -337,6 +337,12 @@
   kind: commentary
   publisher: "https://doi.org/10.1016/j.plrev.2026.05.002"
   pdf: "/assets/pdf/EcologicalDisentanglement.pdf"
+- title: "Ciphers of Life: ALIFE 2025 Editors’ Note"
+  authors: "Witkowski, O., Adams, A. M., Sinapayen, L., Baltieri, M., & Khosravy, M."
+  venue: "Artificial Life Conference (ALIFE)"
+  published: "2025-10-06"
+  kind: editorial
+  publisher: "https://doi.org/10.1162/isal.a.928"
 - title: "Editorial Introduction to the 2023 Conference on Artificial Life Special Issue"
   authors: "Iizuka, H., Suzuki, K., Suzuki, R., Izquierdo, E. J. & Baltieri, M."
   venue: "Artificial Life"
