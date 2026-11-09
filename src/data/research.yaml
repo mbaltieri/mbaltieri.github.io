@@ -344,3 +344,4 @@
           for.
       papers:
         - "From monoliths to modules: Decomposing transducers for efficient world modelling"
+        - "Beliefs in feedback: Factored representations of interacting agents in transformers"
