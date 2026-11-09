@@ -17,7 +17,7 @@
 #
 # A question:
 #
-#   id          its address, as /research/#boundaries. Old addresses redirect to some of these
+#   id          its address, as /research/#causality. Old addresses redirect to some of these
 #               (astro.config.ts), so a renamed id needs its redirects changed too.
 #   label       a short name for the question, used only in links to it
 #   question    the question as it is shown
@@ -49,19 +49,17 @@
       answer:
         - >-
           Conant and Ashby claimed that “every good regulator of a system must be a model of that
-          system”, an idea taken up in control theory as the internal model principle. When can a
-          system that regulates its environment be said to model it, and how do such models relate
-          to the Bayesian models of cognitive science?
+          system”, an idea taken up in control theory as the internal model principle. Artificial
+          life has produced many examples of systems that perform tasks with apparently no model in
+          sight. When can a system that regulates its environment be said to model it?
         - >-
-          A Bayesian interpretation of the internal model principle formulates it in categorical
-          systems theory and shows that its notion of model is a special case of possibilistic
-          Bayesian filtering. A “good regulator theorem” for embodied agents shows that whenever an
-          agent can perform a regulation task, an observer can interpret it as having beliefs about
-          its environment, updated in response to sensory input. The universal property of
-          possibilistic belief updating shows that the agent’s ability to perform the task and the
-          map from its states to beliefs are the same thing.
+          A “good regulator theorem” for embodied agents shows that whenever an agent can perform a
+          regulation task, an observer can interpret it as having beliefs about its environment,
+          updated in response to sensory input. The model is then not a mere property of the
+          system, but is imposed on it from outside. The universal property of possibilistic belief
+          updating shows that the agent’s ability to perform the task and the map from its states
+          to beliefs are the same thing.
       papers:
-        - A Bayesian Interpretation of the Internal Model Principle
         - A "good regulator theorem" for embodied agents
         - The Universal Property of Possibilistic Belief Updating
     - id: uncertainty
@@ -82,6 +80,29 @@
         - A Bayesian perspective on classical control
         - PID control as a process of active inference with linear generative models
         - A probabilistic interpretation of PID control
+    - id: bayesian-models
+      label: Internal and Bayesian models
+      question: >-
+        Do the internal models of control theory and the Bayesian models of cognitive science
+        describe the same thing?
+      answer:
+        - >-
+          The internal model principle claims that, under suitable assumptions, a controller that
+          can regulate against a class of external inputs does so because it contains a model of
+          the system causing them. Similar claims appear in cognitive science, especially in
+          Bayesian treatments of cognitive agents, which often suggest that an agent models its
+          environment to adapt against disturbances and perform goal-directed behaviour. It is
+          unclear, however, whether these Bayesian models bear any formal relation to the internal
+          models of control theory.
+        - >-
+          A Bayesian interpretation of the internal model principle formulates the principle with
+          concepts inspired by categorical systems theory, which leads to a formal definition of
+          model that generalises its use in the principle. This notion of model is not a priori
+          related to Bayesian reasoning, yet it can be seen as a special case of possibilistic
+          Bayesian filtering, based on a line of work that uses Markov categories to describe when
+          a system can be interpreted as performing Bayesian filtering on an outside world.
+      papers:
+        - A Bayesian Interpretation of the Internal Model Principle
 - id: cognition
   name: Cognition
   keywords: Inference, causality, representations
@@ -107,21 +128,6 @@
         - >-
           Ecological causal cognition needs disentanglement: Reply to comments on "Disentangled
           representations for causal cognition"
-    - id: origins-of-cognition
-      label: Origins of cognition
-      question: Where does cognition come from, and what is its evolutionary role?
-      answer:
-        - >-
-          Models of minimal cognition, and of action and perception in coupled agent–environment
-          systems, are the usual setting. Earlier work combined the uncertainty of information and
-          estimation theory with time-evolving trajectories and the geometry of phase spaces in
-          dynamical systems. More recent work looks at models of policy selection and decision
-          making inspired by time-reversal symmetry in stochastic thermodynamics (detailed balance,
-          zero entropy production).
-      aside: >-
-        Generally: somewhat unsure about (but attracted by the idea of) a life–mind continuity
-        thesis.
-      drawing: origins-of-cognition
     - id: agents-and-observers
       label: Agents and observers
       question: What is the difference between an observer and an agent?
@@ -145,6 +151,26 @@
       papers:
         - A Braitenberg vehicle’s habitat
       drawing: agents-and-observers
+    - id: temporal-continuity
+      label: Temporal continuity
+      question: Can an artificial system keep an identity through time?
+      answer:
+        - >-
+          Despite their progress in reasoning and language, current AI systems exist only within
+          isolated episodes of computation. What they lack is temporal continuity, the persistence
+          of internal dynamics that sustain an unbroken stream of computation, analogous to the
+          stream of consciousness.
+        - >-
+          A roadmap towards it is an architecture of persistent recursive inference, in which the
+          output of each cognitive cycle becomes the input to the next, with continual learning,
+          switching between inward and outward cognition, and sleep-like phases that separate
+          learning from inference. Systems built this way would be lifelong agents, whose
+          individuality and identity arise from the continuity of their own computational
+          existence.
+      papers:
+        - >-
+          The Stream of Computation: Temporal Continuity as a Missing Ingredient for Artificial
+          Consciousness
 - id: artificial-life
   name: Artificial Life
   keywords: Autonomy, regulation, hybrid systems
@@ -153,56 +179,6 @@
     Research on living, artificial and hybrid agents sharpens questions about autonomy,
     individuality and regulation. The focus is on whether concepts from cybernetics, information and
     control theory can explain what separates living from non-living systems.
-  questions:
-    - id: hybrid-life
-      label: Hybrid life
-      question: How can biological, artificial and cognitive systems be studied together?
-      answer:
-        - >-
-          Hybrid Life, a special session of the annual ALIFE conference since 2018, looks at
-          artificial life from three perspectives: unified formal languages for living, artificial
-          and cognitive systems (control theory, Bayesian inference, dynamical systems), biological
-          systems enhanced with artificial parts to probe the moving boundaries between living and
-          non-living (bio-inspired robotics, human augmentation, synthetic biology), and coupled
-          heterogeneous systems, from human–computer interaction to virtual and augmented reality.
-      papers:
-        - "Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems"
-      links:
-        - text: The Hybrid Life special sessions
-          href: https://sites.google.com/view/hybridlife
-    - id: origins-of-life
-      label: Living and non-living
-      question: >-
-        Are there sharp lines between the living and the non-living, the cognitive and the
-        non-cognitive, and is homeostasis enough to draw them?
-      answer:
-        - >-
-          Formal definitions of agency, life and cognition come down to what separates agentic from
-          non-agentic systems, living from non-living organisms, and cognitive from non-cognitive
-          architectures. Do sharp distinctions between these classes exist, and are they meaningful?
-          If there are none, why are some systems perceived to be qualitatively different? And what
-          mathematical theories can bring out such apparent diversity?
-        - >-
-          A short stay at EON, the ELSI Origins of Life Network at Tokyo Tech, led to work on
-          theories of the origins of life, especially those linking them to information and control
-          theory. Does control theory provide the right language for homeostasis? Can information
-          theory give a useful, intrinsic notion of information for living systems, one that
-          captures autopoiesis beyond simple homeostasis? Can these ideas be grounded in
-          thermodynamics, towards a statistical mechanics of living systems?
-      links:
-        - text: Information and regulation at the origins of life, for EON
-          href: >-
-            https://web.archive.org/web/20230117062811/https://eon.elsi.jp/information-and-regulation-at-the-origins-of-life/
-      drawing: origins-of-life
-- id: agent-foundations-for-ai-safety
-  name: AI safety
-  keywords: Agent foundations, abstractions, capabilities
-  title: Agent foundations
-  text: >-
-    Formal foundations are being developed for identifying AI agents in and among modern AI systems,
-    together with their boundaries, goals and models, in order to estimate their capabilities and
-    improve interpretability. The aim is to make safety questions precise enough to analyse and
-    test.
   questions:
     - id: theories-of-agency
       label: Theories of agency
@@ -233,9 +209,88 @@
         Lectures for the CHAIN Winter School on Minimal Cognition and Agency, Hokkaido University,
         February 2023.
       drawing: fundamental-questions
-    - id: physical-and-intentional-stance
-      label: Physical and intentional stance
-      question: How can we check that an AI system's behaviour fits its intended purpose?
+    - id: integration
+      label: From interaction to integration
+      question: >-
+        How do interacting systems become one integrated system, and where does its boundary come
+        from?
+      answer:
+        - >-
+          Hybrid Life, a special session of the annual ALIFE conference since 2018, looks at ways to
+          integrate biological, artificial and cognitive systems: unified formal languages for all
+          three (control theory, Bayesian inference, dynamical systems), biological systems
+          enhanced with artificial parts, which probe the moving boundaries between living and
+          non-living (bio-inspired robotics, human augmentation, synthetic biology), and coupled
+          heterogeneous systems, from human–computer interaction to virtual and augmented reality.
+        - >-
+          Integration raises the question of boundaries.
+          In categorical systems theory an agent and its environment interact through a fixed
+          interface. When boundaries change, interfaces change with them, and it becomes unclear how
+          an agent’s identity is preserved. A critique of Markov blankets looked at how they came to
+          be used to define the boundary between an agent and its environment. Boundaries are also a
+          direction for AI safety research, with workshops on conceptual and on mathematical models
+          of boundaries.
+      papers:
+        - "Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems"
+        - The Emperor’s New Markov Blankets
+        - "The Emperor is Naked: Replies to the commentaries on the target article."
+      links:
+        - text: The Hybrid Life special sessions
+          href: https://sites.google.com/view/hybridlife
+        - text: Conceptual Boundaries Workshop, Austin, February 2024
+          href: https://formalizingboundaries.ai
+        - text: Mathematical Boundaries Workshop, Berkeley, April 2024 (a retrospective)
+          href: >-
+            https://www.lesswrong.com/posts/NitP3AsMeuycJQbfa/retrospective-on-mathematical-boundaries-workshop
+    - id: origins-of-life
+      label: Agency and life
+      question: >-
+        Is agency a precursor of life, and are there sharp lines between the living and the
+        non-living?
+      answer:
+        - >-
+          Formal definitions of agency, life and cognition come down to what separates agentic from
+          non-agentic systems, living from non-living organisms, and cognitive from non-cognitive
+          architectures. Do sharp distinctions between these classes exist, and are they meaningful?
+          If there are none, why are some systems perceived to be qualitatively different? And what
+          mathematical theories can bring out such apparent diversity?
+        - >-
+          Agency can be seen as a relative of life, or as one of its precursors. Definitions of life
+          usually rest on two pillars, Darwinian evolution and self-maintenance in chemical systems.
+          Evolution has been abstracted and modelled mathematically, while self-sustaining systems
+          have resisted a comparable formalisation, and recasting them as agents, goal-directed
+          systems acting in an environment, gives them a more abstract setting.
+        - >-
+          A short stay at EON, the ELSI Origins of Life Network at Tokyo Tech, led to work on
+          theories of the origins of life, especially those linking them to information and control
+          theory. Does control theory provide the right language for homeostasis? Can information
+          theory give a useful, intrinsic notion of information for living systems, one that
+          captures autopoiesis beyond simple homeostasis? Can these ideas be grounded in
+          thermodynamics, towards a statistical mechanics of living systems?
+      papers:
+        - Mathematical approaches to the study of agents
+      links:
+        - text: Life and its relatives, a talk for Breakthrough Initiatives, Oxford, April 2025 (recording)
+          href: https://www.youtube.com/watch?v=-wuzt7JgRuM
+        - text: Information and regulation at the origins of life, for EON
+          href: >-
+            https://web.archive.org/web/20230117062811/https://eon.elsi.jp/information-and-regulation-at-the-origins-of-life/
+      drawing: origins-of-life
+- id: agent-foundations-for-ai-safety
+  name: AI safety
+  keywords: Agent foundations, abstractions, capabilities
+  title: Agent foundations
+  text: >-
+    Formal foundations are being developed for identifying AI agents in and among modern AI systems,
+    together with their boundaries, goals and models, in order to estimate their capabilities and
+    improve interpretability. The aim is to make safety questions precise enough to analyse and
+    test.
+  questions:
+    - id: world-models
+      label: World models and purpose
+      question: >-
+        What does an AI agent model, and how can we check that its behaviour fits its intended
+        purpose?
       answer:
         - >-
           A formal link is being developed between the physical behaviour of a system and an
@@ -244,50 +299,48 @@
           support tools for checking whether AI behaviour is consistent with its intended purpose.
           The project (2025–2027) is supported by ARIA’s *Trust Everything, Everywhere* opportunity
           space.
+        - >-
+          World models are central to model-based reinforcement learning, and have been proposed as
+          sandboxes in which AI agents can be tested before deployment. There is a fundamental
+          trade-off between their efficiency and their interpretability, and world models can be
+          told apart by the channel they model: the environment, the agent, or their joint process.
       papers:
         - Bayesian updates from coalgebraic determinisation
         - The Universal Property of Possibilistic Belief Updating
+        - World models of environment, agent and joint agent-environment systems
+        - >-
+          AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and
+          interpretability
       links:
         - text: Combining Physical and Intentional Stance for Safe AI, at ARIA
           href: >-
             https://aria.org.uk/opportunity-spaces/trust-everything-everywhere/opportunity-seeds?tabId=nora-portfolio&cardId=combining-physical-intentional-stance-safe-ai
-    - id: world-models
-      label: World models
-      question: What should the world models of AI agents contain, and what are they models of?
+    - id: abstraction
+      label: Abstraction
+      question: Which behaviours survive when a system is abstracted?
       answer:
         - >-
-          World models are central to model-based reinforcement learning, and have been proposed as
-          sandboxes in which AI agents can be tested before deployment. There is a fundamental
-          trade-off between their efficiency and their interpretability. A large world model,
-          represented as a transducer, can be decomposed into interacting modules for
-          parallelisable, interpretable and distributed inference. Behavioural structures can be
-          specified compositionally, from local, one-step descriptions of dynamics, and transferred
-          safely between abstract and concrete systems. And world models can be told apart by the
-          channel they model: the environment, the agent, or their joint process.
+          State abstraction is key to scaling reinforcement learning to complex but structured
+          systems, where many behavioural structures have been studied, from value functions and
+          invariants to bisimulation relations and behavioural metrics. A general principle for
+          which of them are provably preserved under abstraction is still lacking. Compositional
+          behavioural semantics specify such structures from local, one-step descriptions of a
+          system’s dynamics, show how they can be safely transferred between abstract and concrete
+          systems, and build quantitative metrics from logical semantics with soundness guarantees.
       papers:
-        - >-
-          AI in a vat: Fundamental limits of efficient world modelling for agent sandboxing and
-          interpretability
-        - "From monoliths to modules: Decomposing transducers for efficient world modelling"
         - Compositional Behavioral Semantics for State Abstraction in Reinforcement Learning
-        - World models of environment, agent and joint agent-environment systems
-    - id: boundaries
-      label: Boundaries
-      question: Where does a boundary come from?
+    - id: modules
+      label: Modular world models
+      question: Can a large world model be split into interpretable modules?
       answer:
         - >-
-          In categorical systems theory an agent and its environment interact through a fixed
-          interface. When boundaries change, interfaces change with them, and it becomes unclear how
-          an agent’s identity is preserved. A critique of Markov blankets looked at how they came to
-          be used to define the boundary between an agent and its environment. Boundaries are also a
-          direction for AI safety research, with workshops on conceptual and on mathematical models
-          of boundaries.
+          Realistic world models often have high computational demands, which can be eased because
+          real-world scenarios tend to involve subcomponents that interact in a modular manner. A
+          complex world model represented as a transducer, a class of models that generalises
+          POMDPs, can be decomposed into sub-transducers acting on distinct input and output
+          subspaces. These give parallelisable and interpretable alternatives to monolithic world
+          models that can support distributed inference, bridging the computational efficiency
+          that real-world inference requires and the structural transparency that AI safety asks
+          for.
       papers:
-        - The Emperor’s New Markov Blankets
-        - "The Emperor is Naked: Replies to the commentaries on the target article."
-      links:
-        - text: Conceptual Boundaries Workshop, Austin, February 2024
-          href: https://formalizingboundaries.ai
-        - text: Mathematical Boundaries Workshop, Berkeley, April 2024 (a retrospective)
-          href: >-
-            https://www.lesswrong.com/posts/NitP3AsMeuycJQbfa/retrospective-on-mathematical-boundaries-workshop
+        - "From monoliths to modules: Decomposing transducers for efficient world modelling"
