@@ -4,11 +4,11 @@
 #
 # The page lists the entries newest first, each by the date it was published, or, until it is
 # published, by the date its preprint was released. Adding a publication date to a preprint moves
-# it to that date. Two kinds of writing are listed apart, after the rest: commentaries, replies to
+# it to that date. Three kinds of entry are listed apart, after the papers: commentaries, replies to
 # commentaries and editorials (kinds commentary and editorial), under "Commentaries and
-# editorials", and writing that was neither refereed nor given a DOI (an essay, a talk proposal),
-# under "Other writing". This file keeps the same order, with each year marked, but the page does
-# not depend on it.
+# editorials", edited proceedings and special issues (kind editing), under "Editing", and writing
+# that was neither refereed nor given a DOI (an essay, a talk proposal), under "Other writing".
+# This file keeps the same order, with each year marked, but the page does not depend on it.
 #
 #   title, authors         as they should be printed
 #   venue                  optional, printed in italics
@@ -127,12 +127,6 @@
   selected: true
   publisher: "https://direct.mit.edu/isal/proceedings/isal2025/37/46/134036"
   preprint: "https://arxiv.org/abs/2508.06326"
-- title: "ALIFE 2025: Ciphers of Life: Proceedings of the Artificial Life Conference 2025"
-  authors: "Witkowski, O., Adams, A. M., Sinapayen, L., Baltieri, M., & Khosravy, M."
-  venue: "MIT Press"
-  published: "2025-10-06"
-  kind: editing
-  publisher: "https://direct.mit.edu/isal/isal/volume/37"
 - title: "A coalgebraic perspective on predictive processing"
   authors: "Baltieri, M., Torresan, F., & Nakai, T."
   venue: "arXiv:2508.16877"
@@ -160,12 +154,6 @@
   preprint: "https://arxiv.org/abs/2407.00744"
 
 # 2023
-- title: "ALIFE 2023 - Ghost in the Machine: Proceedings of the 2023 Artificial Life Conference"
-  authors: "Iizuka, H., Suzuki, K., Uno, R., Damiano, L., Spychala, N., Aguilera, M., Izquierdo, E., Suzuki, R., & Baltieri, M."
-  venue: "MIT Press"
-  published: "2023-09-20"
-  kind: editing
-  publisher: "https://direct.mit.edu/isal/isal/volume/35"
 - title: "Hybrid Life: Integrating Biological, Artificial, and Cognitive Systems"
   authors: "Baltieri, M., Iizuka, H., Witkowski, O., Sinapayen, L., & Suzuki, K."
   venue: "WIREs Cognitive Science"
@@ -185,13 +173,6 @@
   kind: journal
   publisher: "https://doi.org/10.1017/S0140525X22000656"
   pdf: "/assets/pdf/EmperorNaked.pdf"
-- title: "Special Issue - Emerging Methods in Active Inference"
-  authors: "Parr, T., Baltieri, M., van de Laar, T., Ueltzhöffer, K., Cialfi, D., & Friston, K. J."
-  venue: "Entropy, MDPI"
-  published: "2022"
-  kind: editing
-  type: "Guest editing"
-  publisher: "https://www.mdpi.com/journal/entropy/special_issues/active_inference"
 
 # 2021
 - title: "Kalman filters as the steady-state solution of gradient descent on variational free energy"
@@ -358,6 +339,27 @@
   kind: commentary
   publisher: "https://doi.org/10.1017/S0140525X19001353"
   preprint: "https://arxiv.org/abs/1904.12937"
+
+# Editing
+- title: "ALIFE 2025: Ciphers of Life: Proceedings of the Artificial Life Conference 2025"
+  authors: "Witkowski, O., Adams, A. M., Sinapayen, L., Baltieri, M., & Khosravy, M."
+  venue: "MIT Press"
+  published: "2025-10-06"
+  kind: editing
+  publisher: "https://direct.mit.edu/isal/isal/volume/37"
+- title: "ALIFE 2023 - Ghost in the Machine: Proceedings of the 2023 Artificial Life Conference"
+  authors: "Iizuka, H., Suzuki, K., Uno, R., Damiano, L., Spychala, N., Aguilera, M., Izquierdo, E., Suzuki, R., & Baltieri, M."
+  venue: "MIT Press"
+  published: "2023-09-20"
+  kind: editing
+  publisher: "https://direct.mit.edu/isal/isal/volume/35"
+- title: "Special Issue - Emerging Methods in Active Inference"
+  authors: "Parr, T., Baltieri, M., van de Laar, T., Ueltzhöffer, K., Cialfi, D., & Friston, K. J."
+  venue: "Entropy, MDPI"
+  published: "2022"
+  kind: editing
+  type: "Guest editing"
+  publisher: "https://www.mdpi.com/journal/entropy/special_issues/active_inference"
 
 # Other writing
 - title: "The Universal Property of Possibilistic Belief Updating"

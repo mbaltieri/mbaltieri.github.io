@@ -3,9 +3,10 @@ import YearGroup from '~/components/research/YearGroup.astro';
 import PublicationEntry from '~/components/publications/PublicationEntry.astro';
 import { publicationList, publications, publicationsByYear } from '~/utils/publications';
 
-// Every entry of src/data/publications.yaml, newest first and grouped by year, in three lists: the
-// papers, then the commentaries and editorials, then the writing that was neither refereed nor
-// given a DOI. The first edited issue is #editing, where the old /research/editing/ address leads.
+// Every entry of src/data/publications.yaml, newest first and grouped by year, in four lists: the
+// papers, then the commentaries and editorials, the edited proceedings and special issues, and the
+// writing that was neither refereed nor given a DOI. The old /research/editing/ address leads to
+// the heading of the editing list, #editing.
 
 const lists = [
   { id: undefined, title: undefined, items: publications.filter((pub) => publicationList(pub) === 'papers') },
@@ -14,13 +15,13 @@ const lists = [
     title: 'Commentaries and editorials',
     items: publications.filter((pub) => publicationList(pub) === 'commentaries'),
   },
+  { id: 'editing', title: 'Editing', items: publications.filter((pub) => publicationList(pub) === 'editing') },
   {
     id: 'other-writing',
     title: 'Other writing',
     items: publications.filter((pub) => publicationList(pub) === 'other'),
   },
 ].filter((list) => list.items.length > 0);
-const firstEditing = publications.find((pub) => pub.kind === 'editing');
 ---
 
 {
@@ -37,7 +38,7 @@ const firstEditing = publications.find((pub) => pub.kind === 'editing');
       {publicationsByYear(items).map(({ year, items: inYear }) => (
         <YearGroup year={year}>
           {inYear.map((pub) => (
-            <PublicationEntry pub={pub} id={pub === firstEditing ? 'editing' : undefined} />
+            <PublicationEntry pub={pub} />
           ))}
         </YearGroup>
       ))}

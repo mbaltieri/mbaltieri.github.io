@@ -65,10 +65,16 @@ export const publicationLinks = (pub: Publication): Array<{ text: string; href: 
     .filter(([key]) => pub[key])
     .map(([key, text]) => ({ text, href: pub[key] as string }));
 
-/** The list an entry belongs to on the page: the papers, the commentaries and editorials, or the
- *  writing that was neither refereed nor given a DOI. */
-export const publicationList = (pub: Publication): 'papers' | 'commentaries' | 'other' =>
-  pub.informal ? 'other' : pub.kind === 'commentary' || pub.kind === 'editorial' ? 'commentaries' : 'papers';
+/** The list an entry belongs to on the page: the papers, the commentaries and editorials, the
+ *  edited proceedings and special issues, or the writing that was neither refereed nor given a DOI. */
+export const publicationList = (pub: Publication): 'papers' | 'commentaries' | 'editing' | 'other' =>
+  pub.informal
+    ? 'other'
+    : pub.kind === 'commentary' || pub.kind === 'editorial'
+      ? 'commentaries'
+      : pub.kind === 'editing'
+        ? 'editing'
+        : 'papers';
 
 /** Entries, newest first, grouped by year. */
 export const publicationsByYear = (items: Array<Publication>): Array<{ year: number; items: Array<Publication> }> => {
