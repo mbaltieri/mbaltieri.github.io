@@ -3,18 +3,40 @@ import YearGroup from '~/components/research/YearGroup.astro';
 import PublicationEntry from '~/components/publications/PublicationEntry.astro';
 import { publications, publicationsByYear } from '~/utils/publications';
 
-// Every entry of src/data/publications.yaml, grouped by year. The first edited issue is #editing,
-// where the old /research/editing/ address leads.
+// Every entry of src/data/publications.yaml, newest first and grouped by year, and after them,
+// under "Other writing", what was neither refereed nor given a DOI. The first edited issue is
+// #editing, where the old /research/editing/ address leads.
 
-const firstEditing = publications.find((pub) => pub.kind === 'editing');
+const formal = publications.filter((pub) => !pub.informal);
+const informal = publications.filter((pub) => pub.informal);
+const firstEditing = formal.find((pub) => pub.kind === 'editing');
 ---
 
 {
-  publicationsByYear().map(({ year, items }) => (
+  publicationsByYear(formal).map(({ year, items }) => (
     <YearGroup year={year}>
       {items.map((pub) => (
         <PublicationEntry pub={pub} id={pub === firstEditing ? 'editing' : undefined} />
       ))}
     </YearGroup>
   ))
+}
+{
+  informal.length > 0 && (
+    <section aria-labelledby="other-writing" class="mt-14">
+      <h2
+        id="other-writing"
+        class="mb-3 font-heading text-xl font-semibold text-heading intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+      >
+        Other writing
+      </h2>
+      {publicationsByYear(informal).map(({ year, items }) => (
+        <YearGroup year={year}>
+          {items.map((pub) => (
+            <PublicationEntry pub={pub} />
+          ))}
+        </YearGroup>
+      ))}
+    </section>
+  )
 }

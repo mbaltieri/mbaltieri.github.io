@@ -9,17 +9,36 @@ export interface Publication {
   title: string;
   authors: string;
   venue?: string;
-  year: number;
+  published?: string;
+  released?: string;
   kind: PublicationKind;
   type?: string;
   note?: string;
   selected?: boolean;
+  informal?: boolean;
   publisher?: string;
   pdf?: string;
   preprint?: string;
+  /** The date it is listed by: when it was published, or else when its preprint came out. */
+  date: string;
+  /** The year of that date. */
+  year: number;
 }
 
-export const publications = yaml.load(raw) as Array<Publication>;
+// A date as the file has it. Without quotes, YAML reads 2026-07-07 as a date and 2026 as a number.
+const dateText = (value: unknown): string | undefined =>
+  value instanceof Date ? value.toISOString().slice(0, 10) : value == null ? undefined : String(value);
+
+/** Every entry, newest first. Entries of the same date keep the order of the file. */
+export const publications: Array<Publication> = (yaml.load(raw) as Array<Record<string, unknown>>)
+  .map((entry) => {
+    const published = dateText(entry.published);
+    const released = dateText(entry.released);
+    const date = published ?? released;
+    if (!date) throw new Error(`src/data/publications.yaml: "${entry.title}" has neither published nor released`);
+    return { ...entry, published, released, date, year: Number(date.slice(0, 4)) } as Publication;
+  })
+  .sort((a, b) => b.date.localeCompare(a.date));
 
 const kindNames: Record<PublicationKind, string> = {
   journal: 'Journal article',
@@ -45,10 +64,10 @@ export const publicationLinks = (pub: Publication): Array<{ text: string; href: 
     .filter(([key]) => pub[key])
     .map(([key, text]) => ({ text, href: pub[key] as string }));
 
-/** The entries grouped by year, in the order they are listed in the file. */
-export const publicationsByYear = (): Array<{ year: number; items: Array<Publication> }> => {
+/** Entries, newest first, grouped by year. */
+export const publicationsByYear = (items: Array<Publication>): Array<{ year: number; items: Array<Publication> }> => {
   const groups: Array<{ year: number; items: Array<Publication> }> = [];
-  for (const pub of publications) {
+  for (const pub of items) {
     const last = groups[groups.length - 1];
     if (last && last.year === pub.year) last.items.push(pub);
     else groups.push({ year: pub.year, items: [pub] });
