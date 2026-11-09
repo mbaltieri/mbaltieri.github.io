@@ -341,12 +341,6 @@
   preprint: "https://arxiv.org/abs/1904.12937"
 
 # Editing
-- title: "ALIFE 2025: Ciphers of Life: Proceedings of the Artificial Life Conference 2025"
-  authors: "Witkowski, O., Adams, A. M., Sinapayen, L., Baltieri, M., & Khosravy, M."
-  venue: "MIT Press"
-  published: "2025-10-06"
-  kind: editing
-  publisher: "https://direct.mit.edu/isal/isal/volume/37"
 - title: "ALIFE 2023 - Ghost in the Machine: Proceedings of the 2023 Artificial Life Conference"
   authors: "Iizuka, H., Suzuki, K., Uno, R., Damiano, L., Spychala, N., Aguilera, M., Izquierdo, E., Suzuki, R., & Baltieri, M."
   venue: "MIT Press"
