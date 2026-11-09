@@ -4,9 +4,11 @@
 #
 # The page lists the entries newest first, each by the date it was published, or, until it is
 # published, by the date its preprint was released. Adding a publication date to a preprint moves
-# it to that date. Writing that was neither refereed nor given a DOI (an essay, a talk proposal)
-# is listed apart, after the rest, under "Other writing". This file keeps the same order, with
-# each year marked, but the page does not depend on it.
+# it to that date. Two kinds of writing are listed apart, after the rest: commentaries, replies to
+# commentaries and editorials (kinds commentary and editorial), under "Commentaries and
+# editorials", and writing that was neither refereed nor given a DOI (an essay, a talk proposal),
+# under "Other writing". This file keeps the same order, with each year marked, but the page does
+# not depend on it.
 #
 #   title, authors         as they should be printed
 #   venue                  optional, printed in italics
@@ -15,8 +17,8 @@
 #   released               the date its preprint first came out, as "2025-08-16"
 #                          (an entry needs at least one of the two, and its year is the year of
 #                          the date it is listed by)
-#   kind                   journal | conference | preprint | commentary | editing | other
-#                          (its usual name, as "Journal article", is printed after the venue)
+#   kind                   journal | conference | preprint | commentary | editorial | editing |
+#                          other (its usual name, as "Journal article", is printed after the venue)
 #   type                   optional, printed instead of the kind's usual name
 #   note                   optional, printed after the type, e.g. "to appear"
 #   selected               optional, true for the papers under "Selected publications" on the
@@ -47,15 +49,6 @@
   publisher: "https://proceedings.mlr.press/v306/zhang26dy.html"
   pdf: "https://raw.githubusercontent.com/mlresearch/v306/main/assets/zhang26dy/zhang26dy.pdf"
   preprint: "https://arxiv.org/abs/2606.25357"
-- title: "Steam-engine naturalism"
-  authors: "Baltieri, M., & Kanai, R."
-  venue: "Behavioral and Brain Sciences, 49"
-  published: "2026-09-17"
-  released: "2025-10-24"
-  kind: commentary
-  publisher: "https://doi.org/10.1017/S0140525X25103531"
-  pdf: "/assets/pdf/SteamEngineNaturalism.pdf"
-  preprint: "https://doi.org/10.31234/osf.io/m4gk3_v1"
 - title: "A Braitenberg vehicle’s habitat"
   authors: "Baltieri, M., Rosas, F. E., & Torresan, F."
   venue: "Artificial Life Conference (ALIFE)"
@@ -93,13 +86,6 @@
   kind: preprint
   selected: true
   preprint: "https://arxiv.org/abs/2607.00034"
-- title: "Ecological causal cognition needs disentanglement: Reply to comments on \"Disentangled representations for causal cognition\""
-  authors: "Torresan, F., & Baltieri, M."
-  venue: "Physics of Life Reviews 58, 7-9"
-  published: "2026-05-23"
-  kind: commentary
-  publisher: "https://doi.org/10.1016/j.plrev.2026.05.002"
-  pdf: "/assets/pdf/EcologicalDisentanglement.pdf"
 
 # 2025
 - title: "Prior preferences in active inference agents: soft, hard, and goal shaping"
@@ -153,13 +139,6 @@
   released: "2025-08-23"
   kind: preprint
   preprint: "https://arxiv.org/abs/2508.16877"
-- title: "Editorial Introduction to the 2023 Conference on Artificial Life Special Issue"
-  authors: "Iizuka, H., Suzuki, K., Suzuki, R., Izquierdo, E. J. & Baltieri, M."
-  venue: "Artificial Life"
-  published: "2025-05-01"
-  kind: journal
-  publisher: "https://doi.org/10.1162/artl_e_00474"
-  pdf: "/assets/pdf/EditorialALIFE2023.pdf"
 - title: "A Bayesian Interpretation of the Internal Model Principle"
   authors: "Baltieri, M., Biehl, M., Capucci, M., & Virgo, N."
   venue: "arXiv:2503.00511"
@@ -278,14 +257,6 @@
   preprint: "https://arxiv.org/abs/2005.06269"
 
 # 2019
-- title: "Generative models as parsimonious descriptions of sensorimotor loops"
-  authors: "Baltieri, M., & Buckley, C. L."
-  venue: "Behavioral and Brain Sciences 42, 218"
-  published: "2019-11-28"
-  released: "2019-04-29"
-  kind: commentary
-  publisher: "https://doi.org/10.1017/S0140525X19001353"
-  preprint: "https://arxiv.org/abs/1904.12937"
 - title: "Active Inference: Computational Models of Motor Control without Efference Copy"
   authors: "Baltieri, M., & Buckley, C. L."
   venue: "Cognitive Computational Neuroscience Conference (CCN)"
@@ -348,6 +319,39 @@
   released: "2015-03-13"
   kind: preprint
   preprint: "https://arxiv.org/pdf/1503.04187.pdf"
+
+# Commentaries and editorials
+- title: "Steam-engine naturalism"
+  authors: "Baltieri, M., & Kanai, R."
+  venue: "Behavioral and Brain Sciences, 49"
+  published: "2026-09-17"
+  released: "2025-10-24"
+  kind: commentary
+  publisher: "https://doi.org/10.1017/S0140525X25103531"
+  pdf: "/assets/pdf/SteamEngineNaturalism.pdf"
+  preprint: "https://doi.org/10.31234/osf.io/m4gk3_v1"
+- title: "Ecological causal cognition needs disentanglement: Reply to comments on \"Disentangled representations for causal cognition\""
+  authors: "Torresan, F., & Baltieri, M."
+  venue: "Physics of Life Reviews 58, 7-9"
+  published: "2026-05-23"
+  kind: commentary
+  publisher: "https://doi.org/10.1016/j.plrev.2026.05.002"
+  pdf: "/assets/pdf/EcologicalDisentanglement.pdf"
+- title: "Editorial Introduction to the 2023 Conference on Artificial Life Special Issue"
+  authors: "Iizuka, H., Suzuki, K., Suzuki, R., Izquierdo, E. J. & Baltieri, M."
+  venue: "Artificial Life"
+  published: "2025-05-01"
+  kind: editorial
+  publisher: "https://doi.org/10.1162/artl_e_00474"
+  pdf: "/assets/pdf/EditorialALIFE2023.pdf"
+- title: "Generative models as parsimonious descriptions of sensorimotor loops"
+  authors: "Baltieri, M., & Buckley, C. L."
+  venue: "Behavioral and Brain Sciences 42, 218"
+  published: "2019-11-28"
+  released: "2019-04-29"
+  kind: commentary
+  publisher: "https://doi.org/10.1017/S0140525X19001353"
+  preprint: "https://arxiv.org/abs/1904.12937"
 
 # Other writing
 - title: "The Universal Property of Possibilistic Belief Updating"

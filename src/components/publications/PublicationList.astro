@@ -1,42 +1,46 @@
 ---
 import YearGroup from '~/components/research/YearGroup.astro';
 import PublicationEntry from '~/components/publications/PublicationEntry.astro';
-import { publications, publicationsByYear } from '~/utils/publications';
+import { publicationList, publications, publicationsByYear } from '~/utils/publications';
 
-// Every entry of src/data/publications.yaml, newest first and grouped by year, and after them,
-// under "Other writing", what was neither refereed nor given a DOI. The first edited issue is
-// #editing, where the old /research/editing/ address leads.
+// Every entry of src/data/publications.yaml, newest first and grouped by year, in three lists: the
+// papers, then the commentaries and editorials, then the writing that was neither refereed nor
+// given a DOI. The first edited issue is #editing, where the old /research/editing/ address leads.
 
-const formal = publications.filter((pub) => !pub.informal);
-const informal = publications.filter((pub) => pub.informal);
-const firstEditing = formal.find((pub) => pub.kind === 'editing');
+const lists = [
+  { id: undefined, title: undefined, items: publications.filter((pub) => publicationList(pub) === 'papers') },
+  {
+    id: 'commentaries',
+    title: 'Commentaries and editorials',
+    items: publications.filter((pub) => publicationList(pub) === 'commentaries'),
+  },
+  {
+    id: 'other-writing',
+    title: 'Other writing',
+    items: publications.filter((pub) => publicationList(pub) === 'other'),
+  },
+].filter((list) => list.items.length > 0);
+const firstEditing = publications.find((pub) => pub.kind === 'editing');
 ---
 
 {
-  publicationsByYear(formal).map(({ year, items }) => (
-    <YearGroup year={year}>
-      {items.map((pub) => (
-        <PublicationEntry pub={pub} id={pub === firstEditing ? 'editing' : undefined} />
-      ))}
-    </YearGroup>
-  ))
-}
-{
-  informal.length > 0 && (
-    <section aria-labelledby="other-writing" class="mt-14">
-      <h2
-        id="other-writing"
-        class="mb-3 font-heading text-xl font-semibold text-heading intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
-      >
-        Other writing
-      </h2>
-      {publicationsByYear(informal).map(({ year, items }) => (
+  lists.map(({ id, title, items }) => (
+    <section aria-labelledby={id} class:list={[title && 'mt-14']}>
+      {title && (
+        <h2
+          id={id}
+          class="mb-3 font-heading text-xl font-semibold text-heading intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade"
+        >
+          {title}
+        </h2>
+      )}
+      {publicationsByYear(items).map(({ year, items: inYear }) => (
         <YearGroup year={year}>
-          {items.map((pub) => (
-            <PublicationEntry pub={pub} />
+          {inYear.map((pub) => (
+            <PublicationEntry pub={pub} id={pub === firstEditing ? 'editing' : undefined} />
           ))}
         </YearGroup>
       ))}
     </section>
-  )
+  ))
 }

@@ -2,7 +2,7 @@ import yaml from 'js-yaml';
 
 import raw from '~/data/publications.yaml?raw';
 
-export type PublicationKind = 'journal' | 'conference' | 'preprint' | 'commentary' | 'editing' | 'other';
+export type PublicationKind = 'journal' | 'conference' | 'preprint' | 'commentary' | 'editorial' | 'editing' | 'other';
 
 /** One entry of src/data/publications.yaml (the file describes each field). */
 export interface Publication {
@@ -45,6 +45,7 @@ const kindNames: Record<PublicationKind, string> = {
   conference: 'Conference paper',
   preprint: 'Preprint',
   commentary: 'Commentary',
+  editorial: 'Editorial',
   editing: 'Edited volume',
   other: 'Other',
 };
@@ -63,6 +64,11 @@ export const publicationLinks = (pub: Publication): Array<{ text: string; href: 
   )
     .filter(([key]) => pub[key])
     .map(([key, text]) => ({ text, href: pub[key] as string }));
+
+/** The list an entry belongs to on the page: the papers, the commentaries and editorials, or the
+ *  writing that was neither refereed nor given a DOI. */
+export const publicationList = (pub: Publication): 'papers' | 'commentaries' | 'other' =>
+  pub.informal ? 'other' : pub.kind === 'commentary' || pub.kind === 'editorial' ? 'commentaries' : 'papers';
 
 /** Entries, newest first, grouped by year. */
 export const publicationsByYear = (items: Array<Publication>): Array<{ year: number; items: Array<Publication> }> => {
