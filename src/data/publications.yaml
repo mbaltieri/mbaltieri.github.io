@@ -52,6 +52,12 @@
   note: "to appear"
   selected: true
   preprint: "https://osf.io/rqu7s_v2"
+- title: "Beliefs in feedback: Factored representations of interacting agents in transformers"
+  authors: "Ehrlich, D. A., Baltieri, M., Rosas, F. E., & Boyd, A. B."
+  venue: "arXiv:2611.02047"
+  year: 2026
+  kind: preprint
+  preprint: "https://arxiv.org/abs/2611.02047"
 - title: "A Braitenberg vehicle’s habitat"
   authors: "Baltieri, M., Rosas, F. E., & Torresan, F."
   venue: "Artificial Life Conference (ALIFE)"
