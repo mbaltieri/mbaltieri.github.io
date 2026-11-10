@@ -3,9 +3,10 @@ import Button from '~/components/ui/Button.astro';
 import type { CallToAction } from '~/types';
 
 // Hero over a live drawing: small vehicles whose light sensors are wired to the wheel on the
-// opposite side, so that each turns towards the light, which follows the pointer (or drifts
-// on its own, and carries on drifting from wherever the pointer leaves it). Where the drawing passes
-// behind the words, it fades, so that it never gets in the way of reading them. The colours come
+// opposite side, so that each turns towards the light. The light is a vehicle too, which steers for
+// the pointer in curves and comes to rest under it (or drifts on its own, and carries on drifting
+// from wherever it is when the pointer leaves). Where the drawing passes behind the words, it fades, so that it never gets in the way of
+// reading them. The colours come
 // from the site palette, so the drawing follows the light and dark themes. It stops while out of
 // view, and visitors who ask for less motion get a still frame.
 
@@ -79,6 +80,17 @@ const {
     { centre: 0.45, amplitude: 0.3, speed: 0.00047, phase: 1.3, reach: 0.3 },
   ];
 
+  // How the light steers for the pointer, as a vehicle itself. Two sensors on either side of its
+  // front, `spread` radians from its heading, see the pointer from all round the light but straight
+  // behind it: each responds (1 + cos(a/2))/2 to the angle a between its axis and the pointer. The
+  // more one sensor sees than the other, the faster the wheel on the other side turns and the slower
+  // the one on its own side (`turn` radians a millisecond for the whole difference), so the light
+  // turns towards the pointer while it moves, which makes it go in curves. The nearer the pointer,
+  // the slower both wheels: at a distance d the light makes for `speed`·d/(d + `ease`) pixels a
+  // millisecond, which it reaches with a lag of `lag` milliseconds, so it comes to rest under the
+  // pointer. It turns fast enough near the pointer never to circle it.
+  const CHASE = { spread: 0.55, turn: 0.033, speed: 0.5, ease: 120, lag: 50 };
+
   class VehicleField extends HTMLElement {
     private canvas!: HTMLCanvasElement;
     private ctx!: CanvasRenderingContext2D;
@@ -87,8 +99,12 @@ const {
     private width = 0;
     private height = 0;
     private pointer: { x: number; y: number } | null = null;
-    /** Which way the pointer was going, smoothed over its last moves. */
-    private pointerHeading = { x: 0, y: 0 };
+    /** Where the light is, and how fast it is going, in pixels a millisecond. */
+    private lightAt: { x: number; y: number } | null = null;
+    private lightVelocity = { x: 0, y: 0 };
+    /** Its heading and speed as a vehicle, while the pointer is over the drawing. */
+    private lightHeading: number | null = null;
+    private lightSpeed = 0;
     private drift = swings();
     private lastTime?: number;
     /** The boxes of the words over the drawing, in canvas pixels. */
@@ -206,6 +222,10 @@ const {
     private seed() {
       this.drift = swings();
       this.lastTime = undefined;
+      this.lightAt = null;
+      this.lightVelocity = { x: 0, y: 0 };
+      this.lightHeading = null;
+      this.lightSpeed = 0;
       const count = Math.max(4, Math.min(9, Math.round(this.width / 170)));
       this.vehicles = Array.from({ length: count }, () => ({
         x: Math.random() * this.width,
@@ -239,48 +259,98 @@ const {
 
     private onMove = (event: PointerEvent) => {
       const rect = this.canvas.getBoundingClientRect();
-      const x = event.clientX - rect.left;
-      const y = event.clientY - rect.top;
-      if (this.pointer) {
-        this.pointerHeading = {
-          x: 0.7 * this.pointerHeading.x + 0.3 * (x - this.pointer.x),
-          y: 0.7 * this.pointerHeading.y + 0.3 * (y - this.pointer.y),
-        };
-      }
-      this.pointer = { x, y };
+      this.pointer = { x: event.clientX - rect.left, y: event.clientY - rect.top };
     };
 
-    // The drift starts again where the pointer left the light, heading the way the pointer went.
+    // The drift starts again where the light is, heading the way it was going, whether or not it
+    // had reached the pointer.
     private onLeave = () => {
-      if (this.pointer) {
+      if (this.lightAt) {
         const [across, down] = this.drift;
-        this.restart(across, this.pointer.x / this.width, this.pointerHeading.x);
-        this.restart(down, this.pointer.y / this.height, this.pointerHeading.y);
+        this.restart(across, this.lightAt.x / this.width, this.lightVelocity.x);
+        this.restart(down, this.lightAt.y / this.height, this.lightVelocity.y);
       }
       this.pointer = null;
-      this.pointerHeading = { x: 0, y: 0 };
+      this.lightHeading = null;
     };
 
-    /** Puts a swing at `at`, moving the way of `heading` (towards its centre if there is none). */
+    /** Puts a swing at `at`, moving the way of `heading`, a speed in pixels a millisecond (towards
+     *  its centre if the light is barely moving). */
     private restart(swing: Swing, at: number, heading: number) {
       const offset = at - swing.centre;
       swing.reach = Math.max(swing.amplitude, Math.abs(offset));
       const sine = Math.asin(Math.max(-1, Math.min(1, offset / swing.reach)));
-      const direction = Math.abs(heading) > 0.5 ? heading : -offset;
+      const direction = Math.abs(heading) > 0.02 ? heading : -offset;
       swing.phase = direction >= 0 ? sine : Math.PI - sine;
     }
 
-    /** The light: the pointer, or else the drift, moved on by `dt` milliseconds. */
-    private light(dt: number) {
-      if (this.pointer) return this.pointer;
-      for (const swing of this.drift) {
-        swing.phase += swing.speed * (swing.amplitude / swing.reach) * dt;
-        swing.reach += (swing.amplitude - swing.reach) * (1 - Math.exp(-dt / 8000));
-      }
+    /** Where the drift puts the light. */
+    private driftPoint() {
       const [across, down] = this.drift;
       return {
         x: this.width * (across.centre + across.reach * Math.sin(across.phase)),
         y: this.height * (down.centre + down.reach * Math.sin(down.phase)),
+      };
+    }
+
+    /** The light, moved on by `dt` milliseconds: steering for the pointer while there is one, and
+     *  drifting while there is not. */
+    private light(dt: number) {
+      const from = this.lightAt ?? this.driftPoint();
+      if (this.pointer) {
+        this.lightAt = this.chase(from, this.pointer, dt);
+        return this.lightAt;
+      }
+      for (const swing of this.drift) {
+        swing.phase += swing.speed * (swing.amplitude / swing.reach) * dt;
+        swing.reach += (swing.amplitude - swing.reach) * (1 - Math.exp(-dt / 8000));
+      }
+      const to = this.driftPoint();
+      // Its speed, smoothed, so that it can set off from it when the pointer comes back.
+      if (dt > 0) {
+        this.lightVelocity = {
+          x: 0.7 * this.lightVelocity.x + 0.3 * ((to.x - from.x) / dt),
+          y: 0.7 * this.lightVelocity.y + 0.3 * ((to.y - from.y) / dt),
+        };
+      }
+      this.lightAt = to;
+      return to;
+    }
+
+    /** The light one step on as a vehicle steering for the pointer (see CHASE). */
+    private chase(from: { x: number; y: number }, pointer: { x: number; y: number }, dt: number) {
+      if (this.lightHeading === null) {
+        // It sets off the way it was drifting, as fast as it was drifting.
+        this.lightSpeed = Math.hypot(this.lightVelocity.x, this.lightVelocity.y);
+        this.lightHeading =
+          this.lightSpeed > 0.001
+            ? Math.atan2(this.lightVelocity.y, this.lightVelocity.x)
+            : Math.atan2(pointer.y - from.y, pointer.x - from.x);
+      }
+      const dx = pointer.x - from.x;
+      const dy = pointer.y - from.y;
+      const distance = Math.hypot(dx, dy);
+      if (distance < 0.5) {
+        this.lightSpeed = 0;
+        this.lightVelocity = { x: 0, y: 0 };
+        return { x: pointer.x, y: pointer.y };
+      }
+      // The pointer's bearing from the light's heading, clockwise on the screen, in (-π, π].
+      const turned = Math.atan2(dy, dx) - this.lightHeading;
+      const bearing = Math.atan2(Math.sin(turned), Math.cos(turned));
+      const left = (1 + Math.cos((bearing + CHASE.spread) / 2)) / 2;
+      const right = (1 + Math.cos((bearing - CHASE.spread) / 2)) / 2;
+      this.lightHeading += CHASE.turn * (right - left) * dt;
+      this.lightSpeed +=
+        (CHASE.speed * (distance / (distance + CHASE.ease)) - this.lightSpeed) * (1 - Math.exp(-dt / CHASE.lag));
+      this.lightVelocity = {
+        x: Math.cos(this.lightHeading) * this.lightSpeed,
+        y: Math.sin(this.lightHeading) * this.lightSpeed,
+      };
+      // It stays on the drawing.
+      return {
+        x: Math.min(this.width, Math.max(0, from.x + this.lightVelocity.x * dt)),
+        y: Math.min(this.height, Math.max(0, from.y + this.lightVelocity.y * dt)),
       };
     }
 
