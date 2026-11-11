@@ -4,7 +4,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import Timeline from '~/components/ui/Timeline.astro';
 import PublicationEntry from '~/components/publications/PublicationEntry.astro';
-import { resume, resumeDates } from '~/utils/resume';
+import { resume, resumeDates, type ResumeWork } from '~/utils/resume';
 import { publications } from '~/utils/publications';
 import { getPermalink } from '~/utils/permalinks';
 import { escapeHtml, inlineMarkdown } from '~/utils/markdown';
@@ -35,15 +35,40 @@ const statements = await Promise.all(
 );
 
 // Each position: the role and its dates on one line, the organisation under it, then what it was.
+// Where several positions were held at one organisation, only the first of them listed (the latest)
+// has an entry of its own, at its place in the data. The earlier ones follow inside it, under
+// "Previously", as a smaller timeline.
 const organisation = (name: string, href?: string) =>
   href
     ? `<a class="hover:text-primary hover:underline" href="${escapeHtml(href)}">${escapeHtml(name)}</a>`
     : escapeHtml(name);
+// A line with dates at its right end.
+const dated = (text: string, dates: string) =>
+  `<span class="flex flex-wrap items-baseline justify-between gap-x-4"><span>${text}</span><span class="text-sm font-normal tabular-nums text-muted">${dates}</span></span>`;
+const role = async (job: ResumeWork) => ({
+  title: dated(escapeHtml(job.position), resumeDates(job.startDate, job.endDate)),
+  description: job.summary ? await inlineMarkdown(job.summary) : undefined,
+});
+
+// The positions by organisation, in the order of the data.
+const held = work.reduce<ResumeWork[][]>((list, job) => {
+  const same = list.find(([first]) => first.company === job.company);
+  if (same) same.push(job);
+  else list.push([job]);
+  return list;
+}, []);
+
 const positions = await Promise.all(
-  work.map(async (job) => ({
-    title: `<span class="flex flex-wrap items-baseline justify-between gap-x-4"><span>${escapeHtml(job.position)}</span><span class="text-sm font-normal tabular-nums text-muted">${resumeDates(job.startDate, job.endDate)}</span></span><span class="mt-0.5 block text-base font-normal text-muted">${organisation(job.company, job.website)}</span>`,
-    description: job.summary ? await inlineMarkdown(job.summary) : undefined,
-  }))
+  held.map(async ([job, ...earlier]) => {
+    const { title, description = '' } = await role(job);
+    return {
+      title: `${title}<span class="mt-0.5 block text-base font-normal text-muted">${organisation(job.company, job.website)}</span>`,
+      description: earlier.length
+        ? `${description}<span class="mt-4 block text-xs font-semibold uppercase tracking-wide text-muted">Previously</span>`
+        : description || undefined,
+      items: await Promise.all(earlier.map(role)),
+    };
+  })
 );
 
 const selected = publications.filter((entry) => entry.selected);
@@ -98,6 +123,15 @@ const heading = `mb-6 ${rule}`;
           icon: 'h-6 w-6 p-1 border text-primary border-primary/40 dark:border-primary/60',
           // The text column fills the line, so that the dates sit at its right end.
           panel: '[&>div:last-child]:flex-1',
+        }}
+        subClasses={{
+          // The earlier positions at one organisation: the same timeline inside the entry, smaller.
+          container: 'mt-2',
+          title: 'text-base font-semibold text-heading',
+          description: 'mt-1 text-sm',
+          icon: 'mt-1 h-4 w-4 p-0.5 border text-primary border-primary/40 dark:border-primary/60',
+          panel: '[&>div:last-child]:flex-1',
+          step: 'pb-4',
         }}
       />
     </section>
