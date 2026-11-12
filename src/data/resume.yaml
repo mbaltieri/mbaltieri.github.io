@@ -3,7 +3,7 @@
 # search engines read on the home page (src/pages/index.astro).
 basics:
   name: "Manuel Baltieri"
-  label: "Cybernetics and ALife/AI researcher. Mathematical modeller. Coder."
+  label: "Cybernetics | ALife | AI safety researcher. Mathematical modeller. Coder."
   picture: "/assets/img/manuel-baltieri-512.jpg"
   email: "manuel_baltieri@araya.org"
   phone: ""
@@ -51,19 +51,26 @@ work:
   # The positions held at one organisation go newest first. On the Resume page, the first of them
   # listed has an entry, and the earlier ones are shown inside it.
   - company: "Araya Inc."
+    position: "Lead Researcher | ARIA R&D Creator"
+    website: "https://research.araya.org/"
+    startDate: "2026-10-01"
+    endDate: ""
+    # summary: >
+      # Leading research in ALife, AI safety, Interpretability and Agent Foundations.
+  - company: "Araya Inc."
     position: "Research Team Leader | ARIA R&D Creator"
     website: "https://research.araya.org/"
     startDate: "2025-10-01"
-    endDate: ""
-    summary: >
-      Leading basic science unit, with a focus on Agent Foundations research.
+    endDate: "2026-09-30"
+    # summary: >
+      # Leading the basic science team, with a focus on Agent Foundations research.
   - company: "Araya Inc."
     position: "Chief Researcher"
     website: "https://research.araya.org/"
     startDate: "2022-10-01"
     endDate: "2025-09-30"
-    summary: >
-      Creating string diagrams of dynamical and control systems in applied category theory, for models of decision making, reinforcement learning and agent-environment interactions.
+    # summary: >
+      # Creating string diagrams of dynamical and control systems in applied category theory, for models of decision making, reinforcement learning and agent-environment interactions.
 #      (OLD) Studying agency and agent-environment interactions. Building string diagrams of dynamical systems and control systems in applied category theory.
 #      Araya's mission is 1. to understand the biological functions and mathematical basis of consciousness and intelligence, and to apply this knowledge to develop conscious, intelligent machines, and
 #      2. to develop brain-machine interfaces to connect the brain to the Internet, AI, and other brains.
@@ -77,8 +84,8 @@ work:
     website: "https://research.araya.org/"
     startDate: "2021-11-01"
     endDate: "2022-09-30"
-    summary: >
-      Working on large language models for program synthesis and understanding: architecture optimisation, fine-tuning, prompt engineering and performance metrics.
+    # summary: >
+      # Working on large language models for program synthesis and understanding: architecture optimisation, fine-tuning, prompt engineering and performance metrics.
   - company: "International Society for Artificial Life"
     position: "Board of Directors"
     website: "https://alife.org/"
@@ -86,10 +93,15 @@ work:
     endDate: ""
     # summary: >
   - company: "University of Sussex"
+    position: "Senior Visiting Research Fellow"
+    website: "https://www.sussex.ac.uk/informatics/"
+    startDate: "2023-01-01"
+    endDate: ""
+  - company: "University of Sussex"
     position: "Visiting Research Fellow"
     website: "https://www.sussex.ac.uk/informatics/"
     startDate: "2020-01-01"
-    endDate: ""
+    endDate: "2022-12-31"
     # summary: >
     #   Working on models on psychophysics experiments for uncertainty estimation and decision making. Supervising Master students in neuroscience and machine learning.
   - company: "University of Sussex"
@@ -107,24 +119,24 @@ work:
     endDate: "2019-06-30"
     # summary: >
     #   Teaching courses in Neural Networks and Fundamentals of Machine Learning.
-  - company: "Center for Human Nature, Artificial Intelligence, and Neuroscience (CHAIN) - Hokkaido University, JP"
+  - company: "Center for Human Nature, Artificial Intelligence, and Neuroscience (CHAIN), Hokkaido University"
     position:
-      Lecturer (part-time)
+      Lecturer in Agent Foundations (Fixed term)
     website: "https://www.chain.hokudai.ac.jp/"
     startDate: "2022-12-01"
     endDate: "2023-02-28"
-    summary: >
-      Teaching a course on formal approaches to the study of agency for the [CHAIN 2023 Winter Graduate School: Minimal Cognition and Agency](https://www.chain.hokudai.ac.jp/en/events/3101/).
+    # summary: >
+    #   Teaching a course on formal approaches to the study of agency for the [CHAIN 2023 Winter Graduate School: Minimal Cognition and Agency](https://www.chain.hokudai.ac.jp/en/events/3101/).
   - company: "Nested Minds Network Ltd."
     position: "Research Consultant and Developer"
     website: "https://nestedminds.pubpub.org"
-    startDate: "2021-09-01"
+    startDate: "2021-10-01"
     endDate: "2021-10-31"
     # summary: >
     #   Writing Jax and (Num)Pyro code to support python development of active inference models. 
     #   Applying active inference to machine learning, robotics, economics and finance.
   - company: "RIKEN Centre for Brain Science"
-    position: "JSPS/Royal Society Postdoctoral Research Fellow"
+    position: "JSPS | Royal Society Postdoctoral Research Fellow"
     website: "https://cbs.riken.jp/en/"
     startDate: "2019-11-15"
     endDate: "2021-10-31"
@@ -152,7 +164,7 @@ volunteer:
     position: "Co-organiser"
     url: "https://2023.alife.org"
     startDate: "2023-07-24"
-  - organization: "International Conference on Artificial Life (ALIFE 2022), online"
+  - organization: "International Conference on Artificial Life (ALIFE 2022), Trento (online)"
     position: "Co-organiser"
     url: "https://2022.alife.org"
     startDate: "2022-07-18"
