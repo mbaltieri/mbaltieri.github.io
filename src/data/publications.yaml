@@ -21,6 +21,8 @@
 #                          other (its usual name, as "Journal article", is printed after the venue)
 #   type                   optional, printed instead of the kind's usual name
 #   note                   optional, printed after the type, e.g. "to appear"
+#   invited                optional, true for an invited paper, which then reads "Invited
+#                          submission", in bold, instead of its type
 #   selected               optional, true for the papers under "Selected publications" on the
 #                          resume
 #   informal               optional, true for writing that was neither refereed nor given a DOI,
@@ -115,6 +117,7 @@
   venue: "Philosophical Transactions of the Royal Society B"
   released: "2025-11-21"
   kind: journal
+  invited: true
   note: "to appear"
   selected: true
   preprint: "https://osf.io/rqu7s_v2"
@@ -160,6 +163,7 @@
   published: "2023-07-05"
   released: "2022-12-01"
   kind: journal
+  invited: true
   selected: true
   publisher: "https://doi.org/10.1002/wcs.1662"
   pdf: "/assets/pdf/HybridLifeWIREs.pdf"

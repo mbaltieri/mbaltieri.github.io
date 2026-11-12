@@ -14,6 +14,7 @@ export interface Publication {
   kind: PublicationKind;
   type?: string;
   note?: string;
+  invited?: boolean;
   selected?: boolean;
   informal?: boolean;
   publisher?: string;
@@ -50,8 +51,10 @@ const kindNames: Record<PublicationKind, string> = {
   other: 'Other',
 };
 
-/** What is printed after the venue: the entry's own `type`, or the usual name of its kind. */
-export const publicationType = (pub: Publication): string => pub.type ?? kindNames[pub.kind] ?? kindNames.other;
+/** What is printed after the venue: "Invited submission" for an invited paper, as "Invited talk"
+ *  for a talk, and otherwise the entry's own `type` or the usual name of its kind. */
+export const publicationType = (pub: Publication): string =>
+  pub.invited ? 'Invited submission' : (pub.type ?? kindNames[pub.kind] ?? kindNames.other);
 
 /** An entry has up to three links, always in this order and under these names. */
 export const publicationLinks = (pub: Publication): Array<{ text: string; href: string }> =>

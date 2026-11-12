@@ -4,9 +4,10 @@ import type { Publication } from '~/utils/publications';
 import { publicationLinks, publicationType } from '~/utils/publications';
 
 // A publication on two lines: its title, then the authors with Manuel in bold, where it appeared
-// and what it is. Its links keep a column of their own on wide screens, on the right and level
-// with the title, and follow the entry on phones, so that they are always in the same place. The
-// same entry is used on the Publications page and the resume.
+// and what it is (in bold when it was invited, as for talks). Its links keep a column of their own
+// on wide screens, on the right and level with the title, and follow the entry on phones, so that
+// they are always in the same place. The same entry is used on the Publications page and the
+// resume.
 
 export interface Props {
   pub: Publication;
@@ -46,7 +47,7 @@ const links = publicationLinks(pub);
       )
     }
     {' · '}
-    {publicationType(pub)}
+    <span class:list={[pub.invited && 'font-semibold text-heading']}>{publicationType(pub)}</span>
     {pub.note && `, ${pub.note}`}
   </p>
   <EntryLinks links={links} class="mt-0.5 md:col-start-2 md:row-start-1 md:mt-0" />
