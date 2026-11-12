@@ -10,16 +10,9 @@ import Protocell from '~/components/graphics/parts/Protocell.astro';
 //   agents-without-observers  the same agent drawing its own boundary and keeping a cycle going
 //                             inside it, with no eye needed
 //   origins-of-life           a U-skate of the Gray-Scott model, stylised, gliding among spots
-//   origins-of-cognition      a trajectory in a joint agent and environment space, and the same
-//                             loop run backwards in time
 
 export interface Props {
-  name:
-    | 'fundamental-questions'
-    | 'agents-and-observers'
-    | 'agents-without-observers'
-    | 'origins-of-life'
-    | 'origins-of-cognition';
+  name: 'fundamental-questions' | 'agents-and-observers' | 'agents-without-observers' | 'origins-of-life';
   class?: string;
 }
 
@@ -115,24 +108,6 @@ const spots = [
   [302, 98, 3.5],
   [212, 184, 3],
 ];
-
-// Cognition: an irregular orbit in the joint space, and a smaller one run backwards.
-const forwardOrbit = blob(178, 98, 96, 54, (t) => 1 + 0.16 * Math.sin(2 * t + 0.7) + 0.08 * Math.cos(3 * t - 0.4));
-const backwardOrbit = blob(
-  176,
-  100,
-  58,
-  30,
-  (t) => 1 + 0.14 * Math.sin(2 * t + 2.1) + 0.1 * Math.cos(3 * t + 1)
-).reverse();
-const thirds = [
-  [0, 16],
-  [20, 36],
-  [40, 56],
-];
-const forward = thirds.map(([from, to]) => curve(forwardOrbit, from, to));
-const backward = thirds.map(([from, to]) => curve(backwardOrbit, from, to));
-const [stateX, stateY] = forwardOrbit[8];
 ---
 
 <svg
@@ -229,35 +204,6 @@ const [stateX, stateY] = forwardOrbit[8];
         <path d={uSkate(200, 100)} class="fill-current" fill-opacity="0.16" />
         <path d={ridge(200, 100)} class="stroke-accent" stroke-width="1.2" stroke-dasharray="2 4" />
         <line x1="246" y1="100" x2="286" y2="100" marker-end={`url(#${marker})`} />
-      </>
-    )
-  }
-  {
-    name === 'origins-of-cognition' && (
-      <>
-        <line x1="48" y1="168" x2="48" y2="26" class="stroke-muted" stroke-width="1" />
-        <line x1="48" y1="168" x2="300" y2="168" class="stroke-muted" stroke-width="1" />
-        <g class="fill-muted" stroke="none" font-size="12">
-          <text x="56" y="34">
-            agent
-          </text>
-          <text x="300" y="186" text-anchor="end">
-            environment
-          </text>
-        </g>
-        {backward.map((d) => (
-          <path
-            d={d}
-            class="stroke-muted"
-            stroke-width="1.2"
-            stroke-dasharray="3 4"
-            marker-end={`url(#${mutedMarker})`}
-          />
-        ))}
-        {forward.map((d) => (
-          <path d={d} marker-end={`url(#${marker})`} />
-        ))}
-        <circle cx={stateX} cy={stateY} r="5" class="fill-accent" stroke="none" />
       </>
     )
   }

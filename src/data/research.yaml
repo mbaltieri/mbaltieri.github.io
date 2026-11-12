@@ -28,8 +28,8 @@
 #   links       optional, other links, each a text and an href
 #   linksNote   optional, a line over the links, saying what they are
 #   drawing     optional, a drawing beside the answer, one of fundamental-questions |
-#               agents-and-observers | agents-without-observers | origins-of-life |
-#               origins-of-cognition (src/components/graphics/VisionGraphic.astro)
+#               agents-and-observers | agents-without-observers | origins-of-life
+#               (src/components/graphics/VisionGraphic.astro)
 #
 # A long text starts with ">-" and goes on, indented, over the next lines, which are joined into
 # one paragraph. Quote a short text that has a colon followed by a space in it.

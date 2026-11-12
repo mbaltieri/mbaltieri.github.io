@@ -36,5 +36,4 @@ export const answerDrawings = [
   'agents-and-observers',
   'agents-without-observers',
   'origins-of-life',
-  'origins-of-cognition',
 ] as const;
