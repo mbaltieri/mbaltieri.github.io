@@ -32,6 +32,13 @@
   date: "2025-11"
   kind: invited
   slides: "/assets/pdf/presentations/AISafety2025.pdf"
+- title: "“What is it like to be a Braitenberg vehicle?”?"
+  note: "selected as a Showcase Talk"
+  event: "Models of Consciousness, Hokkaido University"
+  place: "Sapporo, Japan"
+  date: "2025-10"
+  kind: invited
+  slides: "/assets/pdf/presentations/BraitenbergMoC2025.pdf"
 - title: "Life and its relatives"
   event: "Breakthrough Initiatives"
   place: "Oxford, UK"
@@ -146,7 +153,7 @@
   kind: invited
 
 # Contributed talks
-- title: "A Braitenberg vehicles' habitat"
+- title: "A Braitenberg vehicle's habitat"
   event: "International Conference on Artificial Life (ALIFE) 2026"
   place: "Waterloo, Canada"
   date: "2026-08"
@@ -158,13 +165,6 @@
   date: "2026-08"
   kind: contributed
   slides: "/assets/pdf/presentations/ILIAD2026.pdf"
-- title: "“What is it like to be a Braitenberg vehicle?”?"
-  note: "selected as a Showcase Talk"
-  event: "Models of Consciousness, Hokkaido University"
-  place: "Sapporo, Japan"
-  date: "2025-10"
-  kind: contributed
-  slides: "/assets/pdf/presentations/BraitenbergMoC2025.pdf"
 - title: "A structural view of predictive coding"
   event: "Development and validation of a unified theory of prediction and action, Institute of Science"
   place: "Tokyo, Japan"
