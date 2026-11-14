@@ -7,9 +7,12 @@ import portrait from '~/assets/images/observer-face.jpg';
 // each inside a dashed line that marks where it ends and its environment (the light, the other
 // agent) begins, and each with a thought labelled "model": a coarse picture of its world holding a
 // plain version of itself, the other agent and the light, blurred in one and a grid of cells in
-// the other. Manuel looks on from outside, his whole face in a circle, with a thought of his own labelled
-// "model": the whole patch in small, the agents and their thoughts included, but not quite as they
-// are, since a model can be wrong: he puts the agents a little off, makes them the same size, has
+// the other. A dashed arrow labelled "goal" curves from each agent to the light. The whole patch,
+// agents and environment together, is labelled "autonomous system". Manuel looks on from outside,
+// his whole face in a circle, joined to the patch by two dotted lines labelled "observation", with
+// a thought of his own labelled "model": the whole patch in small, the agents and their thoughts
+// included, but not quite as they are, since a model can be wrong: he puts the agents a little off,
+// makes them the same size, has
 // them head straight for the light and gives them neat boundaries. Beside the patch on wide screens,
 // below it on phones.
 
@@ -230,6 +233,42 @@ const modelled = scene(guessed);
 // Each agent's label "model", as far above the top of its thought as "agent" is below its boundary.
 const thoughtLabels = actual.map(({ bubble }) => f(cloudTop(bubble.x, bubble.y, bubble.rx, bubble.ry) - 8));
 
+// Each agent's goal: a curved arrow from the front of its boundary to its light. It leaves along the
+// agent's heading, which is a little off the light, and bends in to end pointing at the light, inside
+// its faint outer halo. The middle of the curve and the way out from its bend place its label.
+const goals = agents.map(({ index, x, y, s, heading }) => {
+  const light = lights[actual[index].light];
+  const a = (heading * Math.PI) / 180;
+  const ahead = { x: Math.cos(a), y: Math.sin(a) };
+  const start = { x: x + ahead.x * (24 * s + 3), y: y + ahead.y * (24 * s + 3) };
+  const reach = Math.hypot(light.x - start.x, light.y - start.y) / 2;
+  const control = { x: start.x + ahead.x * reach, y: start.y + ahead.y * reach };
+  const into = unit(control, light);
+  const end = { x: light.x - into.x * 16, y: light.y - into.y * 16 };
+  const middle = { x: (start.x + 2 * control.x + end.x) / 4, y: (start.y + 2 * control.y + end.y) / 4 };
+  const chord = unit(start, end);
+  const side = Math.sign(chord.y * (control.x - middle.x) - chord.x * (control.y - middle.y));
+  return {
+    path: `M${f(start.x)} ${f(start.y)} Q ${f(control.x)} ${f(control.y)}, ${f(end.x)} ${f(end.y)}`,
+    middle,
+    out: { x: chord.y * side, y: -chord.x * side },
+  };
+});
+// A goal's label "goal", outside the bend of its arrow, just far enough out that no corner of the
+// word, of the given type size, comes nearer the curve than a third of that size. The word's box,
+// around the middle of its baseline, is taken in units of the type size.
+const goalLabel = ({ middle, out }: (typeof goals)[number], size: number) => {
+  const corners = [
+    [-1.1, 0.25],
+    [1.1, 0.25],
+    [-1.1, -0.75],
+    [1.1, -0.75],
+  ];
+  const inward = Math.min(...corners.map(([cx, cy]) => out.x * cx + out.y * cy));
+  const distance = (0.35 - inward) * size;
+  return { x: f(middle.x + out.x * distance), y: f(middle.y + out.y * distance) };
+};
+
 // The patch as it appears in his model, its agents' thoughts enlarged: its box.
 const box = {
   left: Math.min(0, ...actual.map((a) => a.bubble.x - a.bubble.rx * enlarge)),
@@ -244,33 +283,50 @@ const boxHeight = box.bottom - box.top;
 // service), in a circle of radius `r`.
 const face = { src: portrait.src };
 
-// Each layout places his face, his thought (and the patch inside it), his sight lines and the
-// labels. The patch is shrunk to fit inside the thought's ellipse, with a margin.
+// Each layout places his face, his thought (and the patch inside it), the points of the patch his
+// observations come from, and the labels. The patch is shrunk to fit inside the thought's ellipse,
+// with a margin.
 const layouts = [
   {
     name: 'wide',
     class: 'hidden md:block',
-    width: 680,
+    width: 720,
     height: 290,
     type: 12.5,
-    face: { x: 590, y: 208, r: 54 },
-    idea: { x: 585, y: 81, rx: 74, ry: 44 },
-    sight: ['M534 188 L 483 64', 'M536 230 L 483 228'],
-    observer: { x: 590, y: 282 },
+    face: { x: 640, y: 208, r: 54 },
+    idea: { x: 635, y: 81, rx: 74, ry: 44 },
+    seen: [
+      { x: 483, y: 64 },
+      { x: 483, y: 228 },
+    ],
+    observation: { x: 533, y: 178 },
+    observer: { x: 640, y: 282 },
+    system: { x: 10, y: 257.5 },
   },
   {
     name: 'narrow',
     class: 'md:hidden',
     width: 480,
-    height: 450,
+    height: 480,
     type: 15,
-    face: { x: 402, y: 358, r: 60 },
-    idea: { x: 178, y: 358, rx: 136, ry: 66 },
-    sight: ['M386 302 L 320 246', 'M420 300 L 452 246'],
-    observer: { x: 402, y: 438 },
+    face: { x: 408, y: 388, r: 60 },
+    idea: { x: 178, y: 388, rx: 136, ry: 66 },
+    seen: [
+      { x: 310, y: 246 },
+      { x: 466, y: 246 },
+    ],
+    observation: { x: 392, y: 286 },
+    observer: { x: 408, y: 468 },
+    system: { x: 10, y: 260 },
   },
 ].map((layout) => {
   const { idea, face: at } = layout;
+  // His observations: dotted lines from points of the patch to the edge of his face.
+  const sight = layout.seen.map((point) => {
+    const toward = unit(at, point);
+    const edge = { x: at.x + toward.x * (at.r + 5), y: at.y + toward.y * (at.r + 5) };
+    return `M${f(point.x)} ${f(point.y)} L ${f(edge.x)} ${f(edge.y)}`;
+  });
   // The largest patch of the box's shape that fits the ellipse, less a tenth.
   const aspect = boxWidth / boxHeight;
   const half = 0.9 / Math.sqrt(1 / idea.rx ** 2 + 1 / (aspect * idea.ry) ** 2);
@@ -285,6 +341,8 @@ const layouts = [
   return {
     ...layout,
     mini,
+    sight,
+    goalLabels: goals.map((goal) => goalLabel(goal, layout.type)),
     ideaPath: cloud(idea.x, idea.y, idea.rx, idea.ry, 13),
     ideaLabel: f(cloudTop(idea.x, idea.y, idea.rx, idea.ry, 13) - 8),
     puffs: [
@@ -322,13 +380,36 @@ const layouts = [
           <filter id={`blur-far-${layout.name}`} x="-100%" y="-100%" width="300%" height="300%">
             <feGaussianBlur stdDeviation="6" />
           </filter>
+          <marker
+            id={`arrow-${layout.name}`}
+            viewBox="0 0 10 10"
+            refX="8"
+            refY="5"
+            markerWidth="6"
+            markerHeight="6"
+            orient="auto"
+          >
+            <path d="M0 0 L10 5 L0 10 z" class="fill-muted" stroke="none" />
+          </marker>
         </defs>
 
         <AgentScene world={world} lights={lights} agents={agents} ids={layout.name} steps />
 
+        <g class="step" style="--d: 200ms">
+          {goals.map(({ path }) => (
+            <path
+              d={path}
+              class="stroke-muted"
+              stroke-width="1"
+              stroke-dasharray="3 5"
+              marker-end={`url(#arrow-${layout.name})`}
+            />
+          ))}
+        </g>
+
         <g class="step" style="--d: 300ms">
           {layout.sight.map((d) => (
-            <path d={d} class="stroke-muted" stroke-width="1" stroke-dasharray="3 5" />
+            <path d={d} class="stroke-muted" stroke-width="1.4" stroke-dasharray="0 4" />
           ))}
         </g>
         <g class="step" style="--d: 300ms">
@@ -362,13 +443,28 @@ const layouts = [
               <text class="step" style="--d: 200ms" x={bubble.x} y={thoughtLabels[index]} text-anchor="middle">
                 model
               </text>
+              <text
+                class="step"
+                style="--d: 200ms"
+                x={layout.goalLabels[index].x}
+                y={layout.goalLabels[index].y}
+                text-anchor="middle"
+              >
+                goal
+              </text>
             </>
           ))}
           <text class="step" x="10" y="21">
             environment
           </text>
+          <text class="step" x={layout.system.x} y={layout.system.y}>
+            autonomous system
+          </text>
           <text class="step" style="--d: 300ms" x={layout.observer.x} y={layout.observer.y} text-anchor="middle">
             observer
+          </text>
+          <text class="step" style="--d: 300ms" x={layout.observation.x} y={layout.observation.y} text-anchor="middle">
+            observation
           </text>
           <text class="step" style="--d: 400ms" x={layout.idea.x} y={layout.ideaLabel} text-anchor="middle">
             model
@@ -380,16 +476,18 @@ const layouts = [
   <figcaption class="sr-only">
     Two vehicles that steer towards a light, each inside a dashed line that separates the agent from its environment,
     and each with a thought labelled model: a coarse picture of itself, the other agent and the light, blurred in one
-    and a grid of cells in the other. Manuel looks on from outside, with a thought of his own labelled model: the whole
-    scene in small, the two agents and their thoughts included, but not quite as they are, the agents nearer the light,
-    of one size and in neat boundaries.
+    and a grid of cells in the other. A dashed arrow labelled goal curves from each agent to the light. The whole scene,
+    agents and environment together, is labelled autonomous system. Manuel looks on from outside, joined to the scene by
+    two dotted lines labelled observation, with a thought of his own labelled model: the whole scene in small, the two
+    agents and their thoughts included, but not quite as they are, the agents nearer the light, of one size and in neat
+    boundaries.
   </figcaption>
 </figure>
 
 <style>
   /* The first time the drawing comes into view (the layout's reveal-on-scroll removes no-intersect
      from it), its parts fade in with the site's own fade, in waves: the world and its light, the
-     agents, their models, the observer, then his model. Visitors who ask for less motion, and
+     agents, their models and goals, the observer, then his model. Visitors who ask for less motion, and
      paper, get the drawing as it is. A part that moves carries no SVG transform of its own, since
      the animation's transform would replace it. */
   @media (prefers-reduced-motion: no-preference) {
@@ -418,10 +516,11 @@ const layouts = [
   .agent-environment {
     max-width: 30rem;
   }
+  /* On wide screens, as wide as keeps one unit of the drawing (720 across) near one pixel. */
   @media (width >= 48rem) {
     .agent-environment {
       max-width: none;
-      width: 42rem;
+      width: 44.5rem;
     }
   }
   .fill-page {
