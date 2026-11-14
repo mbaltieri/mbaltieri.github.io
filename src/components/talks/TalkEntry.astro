@@ -6,7 +6,13 @@ import { talkDate, talkLinks, talkType } from '~/utils/talks';
 // A talk on two lines, laid out like a publication: its title (and a note), then where it was
 // given, when and what it was, with "Invited talk" in bold so that invited talks stand out. Its
 // links keep the same place as a publication's. Other times it was given, and the parts of a series
-// (lectures, with their own links in the same column), follow on lines of their own.
+// (lectures, with their own links in the same column), follow on lines of their own. On wide
+// screens the title, where it was given and the other times share a column that ends where the
+// links begin. Every entry keeps room for links as wide as "Slides · Recording" (7.25rem), whether
+// or not it has any, so that all its lines end at the same place and none runs under the links. The
+// links' column widens for an entry whose links need more.
+// "Invited talk" and "Contributed talk" are kept whole, and so are dates, so that a line that wraps
+// never leaves "talk" or a year on its own.
 
 export interface Props {
   talk: Talk;
@@ -17,27 +23,27 @@ export interface Props {
 const { talk, id } = Astro.props;
 const where = (event: string, place?: string) => [event, place].filter(Boolean).join(', ');
 const links = talkLinks(talk, talk.kind);
+const invited = talk.kind === 'invited';
 ---
 
 <li
   id={id}
-  class:list={[
-    'grid scroll-mt-24 gap-x-6 gap-y-0.5 py-3 md:items-baseline',
-    links.length > 0 && 'md:grid-cols-[minmax(0,1fr)_auto]',
-  ]}
+  class="grid scroll-mt-24 gap-x-6 gap-y-0.5 py-3 md:grid-cols-[minmax(0,1fr)_minmax(7.25rem,auto)] md:items-baseline"
 >
   <h3 class="font-medium leading-snug text-heading">
     {talk.title ?? talk.event}
     {talk.note && <span class="text-sm font-normal text-muted">{` (${talk.note})`}</span>}
   </h3>
-  <p class="text-sm text-muted md:col-span-full">
-    {talk.title ? where(talk.event, talk.place) : talk.place} · {talkDate(talk.date)} ·{' '}
-    <span class:list={[talk.kind === 'invited' && 'font-semibold text-heading']}>{talkType(talk)}</span>
+  <p class="text-sm text-muted md:col-start-1">
+    {talk.title ? where(talk.event, talk.place) : talk.place} ·{' '}
+    <span class="whitespace-nowrap">{talkDate(talk.date)}</span> ·{' '}
+    <span class:list={['whitespace-nowrap', invited && 'font-semibold text-heading']}>{talkType(talk)}</span>
   </p>
   {
     talk.occasions?.map((occasion) => (
-      <p class="text-sm text-muted md:col-span-full">
-        Also at {where(occasion.event, occasion.place)} · {talkDate(occasion.date)}
+      <p class="text-sm text-muted md:col-start-1">
+        Also at {where(occasion.event, occasion.place)} ·{' '}
+        <span class="whitespace-nowrap">{talkDate(occasion.date)}</span>
       </p>
     ))
   }
