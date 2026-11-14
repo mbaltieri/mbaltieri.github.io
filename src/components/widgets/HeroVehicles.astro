@@ -32,7 +32,7 @@ const {
   <vehicle-field class="absolute inset-0 block" aria-hidden="true">
     <canvas class="block h-full w-full"></canvas>
   </vehicle-field>
-  <div class="relative max-w-6xl mx-auto px-4 sm:px-6 pointer-events-none">
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
     <div class="pt-0 md:pt-[76px]"></div>
     <div class="flex min-h-[520px] md:min-h-[600px] flex-col justify-end pt-16 pb-16 md:pb-20">
       <h1
@@ -42,7 +42,7 @@ const {
       {subtitle && <p class="mt-7 max-w-xl text-lg md:text-xl text-muted" set:html={subtitle} />}
       {
         actions.length > 0 && (
-          <div class="mt-8 flex flex-wrap gap-3 pointer-events-auto">
+          <div class="mt-8 flex flex-wrap gap-3">
             {actions.map((action) => (
               <Button {...action} />
             ))}
