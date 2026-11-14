@@ -1,13 +1,16 @@
 ---
 import EntryLinks from '~/components/research/EntryLinks.astro';
 import type { Publication } from '~/utils/publications';
-import { publicationLinks, publicationType } from '~/utils/publications';
+import { publicationLinks } from '~/utils/publications';
 
-// A publication on two lines: its title, then the authors with Manuel in bold, where it appeared
-// and what it is (in bold when it was invited, as for talks). Its links keep a column of their own
-// on wide screens, on the right and level with the title, and follow the entry on phones, so that
-// they are always in the same place. The same entry is used on the Publications page and the
-// resume.
+// A publication on two lines: its title, then the authors with Manuel in bold and where it
+// appeared, with "Invited submission" in bold for an invited paper, as "Invited talk" is for talks.
+// The kind of paper (journal article, preprint and so on) is not shown. Its links keep a column of
+// their own on wide screens, on the right and level with the title, and follow the entry on phones,
+// so that they are always in the same place. Every entry keeps room in that column for links as
+// wide as "Publisher · PDF · Preprint" (10rem), whether or not it has any, so that the lines of all
+// entries end at the same place and none runs under the links. The same entry is used on the
+// Publications page and the resume.
 
 export interface Props {
   pub: Publication;
@@ -23,13 +26,10 @@ const links = publicationLinks(pub);
 
 <li
   id={id}
-  class:list={[
-    'grid scroll-mt-24 gap-x-6 gap-y-0.5 py-3 md:items-baseline',
-    links.length > 0 && 'md:grid-cols-[minmax(0,1fr)_auto]',
-  ]}
+  class="grid scroll-mt-24 gap-x-6 gap-y-0.5 py-3 md:grid-cols-[minmax(0,1fr)_minmax(10rem,auto)] md:items-baseline"
 >
   <h3 class="font-medium leading-snug text-heading">{pub.title}</h3>
-  <p class="text-sm text-muted md:col-span-full">
+  <p class="text-sm text-muted md:col-start-1">
     {
       authorParts.map((part, index) => (
         <>
@@ -46,8 +46,14 @@ const links = publicationLinks(pub);
         </>
       )
     }
-    {' · '}
-    <span class:list={[pub.invited && 'font-semibold text-heading']}>{publicationType(pub)}</span>
+    {
+      pub.invited && (
+        <>
+          {' · '}
+          <span class="whitespace-nowrap font-semibold text-heading">Invited submission</span>
+        </>
+      )
+    }
     {pub.note && `, ${pub.note}`}
   </p>
   <EntryLinks links={links} class="mt-0.5 md:col-start-2 md:row-start-1 md:mt-0" />

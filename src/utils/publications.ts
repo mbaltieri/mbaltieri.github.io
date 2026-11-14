@@ -41,21 +41,6 @@ export const publications: Array<Publication> = (yaml.load(raw) as Array<Record<
   })
   .sort((a, b) => b.date.localeCompare(a.date));
 
-const kindNames: Record<PublicationKind, string> = {
-  journal: 'Journal article',
-  conference: 'Conference paper',
-  preprint: 'Preprint',
-  commentary: 'Commentary',
-  editorial: 'Editorial',
-  editing: 'Edited volume',
-  other: 'Other',
-};
-
-/** What is printed after the venue: "Invited submission" for an invited paper, as "Invited talk"
- *  for a talk, and otherwise the entry's own `type` or the usual name of its kind. */
-export const publicationType = (pub: Publication): string =>
-  pub.invited ? 'Invited submission' : (pub.type ?? kindNames[pub.kind] ?? kindNames.other);
-
 /** An entry has up to three links, always in this order and under these names. */
 export const publicationLinks = (pub: Publication): Array<{ text: string; href: string }> =>
   (
