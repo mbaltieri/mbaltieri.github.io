@@ -87,9 +87,10 @@ const {
   // the one on its own side (`turn` radians a millisecond for the whole difference), so the light
   // turns towards the pointer while it moves, which makes it go in curves. The nearer the pointer,
   // the slower both wheels: at a distance d the light makes for `speed`·d/(d + `ease`) pixels a
-  // millisecond, which it reaches with a lag of `lag` milliseconds, so it comes to rest under the
-  // pointer. It turns fast enough near the pointer never to circle it.
-  const CHASE = { spread: 0.55, turn: 0.033, speed: 0.5, ease: 120, lag: 50 };
+  // millisecond. It gathers speed with a lag of `rise` milliseconds, so that it sets off gently, and
+  // sheds it with a lag of `lag`, so that it comes to rest under the pointer. Near the pointer it
+  // turns fast enough that it seldom circles it.
+  const CHASE = { spread: 0.55, turn: 0.033, speed: 0.28, ease: 120, rise: 200, lag: 50 };
 
   class VehicleField extends HTMLElement {
     private canvas!: HTMLCanvasElement;
@@ -341,8 +342,9 @@ const {
       const left = (1 + Math.cos((bearing + CHASE.spread) / 2)) / 2;
       const right = (1 + Math.cos((bearing - CHASE.spread) / 2)) / 2;
       this.lightHeading += CHASE.turn * (right - left) * dt;
-      this.lightSpeed +=
-        (CHASE.speed * (distance / (distance + CHASE.ease)) - this.lightSpeed) * (1 - Math.exp(-dt / CHASE.lag));
+      const wanted = CHASE.speed * (distance / (distance + CHASE.ease));
+      const lag = wanted > this.lightSpeed ? CHASE.rise : CHASE.lag;
+      this.lightSpeed += (wanted - this.lightSpeed) * (1 - Math.exp(-dt / lag));
       this.lightVelocity = {
         x: Math.cos(this.lightHeading) * this.lightSpeed,
         y: Math.sin(this.lightHeading) * this.lightSpeed,
