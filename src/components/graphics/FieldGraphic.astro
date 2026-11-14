@@ -5,9 +5,12 @@
 //
 //   control                          a string diagram: f and g in parallel, then h
 //   cognition                        a bacterium running and tumbling up a sugar gradient
-//   artificial-life                  a hybrid agent: half a living cell (a membrane, a nucleus and
-//                                    a flagellum) and half a machine (wheels, and two light sensors
-//                                    wired across to them), stitched together
+//   artificial-life                  a cyborg beetle, seen from above. Its upper side is machine: an
+//                                    armour plate with rivets, gears, lights and circuits over the
+//                                    wing case, vents on the thorax, a visor with two sensors, and
+//                                    mechanical legs and antenna on jointed struts. Its lower side is its own:
+//                                    legs, antenna and eye. A chip on its back is wired into all of
+//                                    them, with electrodes in its own legs and antenna.
 //   agent-foundations-for-ai-safety  a probability simplex, a prior moved to a posterior, and
 //                                    Bayes' theorem
 
@@ -129,26 +132,102 @@ const grid = [1 / 3, 2 / 3].flatMap((s) => [
     field === 'artificial-life' && (
       <>
         <path
-          d="M184 44 C 142 42, 108 66, 108 100 C 108 134, 142 158, 184 156 Z"
+          d="M184.2 85.2 L 194.2 67.2 L 189.8 64.8 L 179.8 82.8 Z M164.4 77.3 L 158.4 55.3 L 153.6 56.7 L 159.6 78.7 Z M139.8 72.2 L 119.8 52.2 L 116.2 55.8 L 136.2 75.8 Z"
+          class="fill-page"
+          stroke-width="1.2"
+        />
+        <path d="M192 66 L 208 60 M156 56 L 168 42 M118 54 L 102 46" stroke-width="2.2" />
+        <path
+          d="M208 60 l 4 -4 M208 60 l 5 1 M168 42 l 2 -5 M168 42 l 5 -1 M102 46 l -2 -5 M102 46 l -5 1"
+          stroke-width="1.2"
+        />
+        <path d="M210 94 L 222 84 L 233 77 L 243 71.5" stroke-width="2" />
+        <g stroke-width="1.1">
+          <path d="M182 116 L 192 134 L 208 140 M162 122 L 156 144 L 168 158 M138 126 L 118 146 L 102 154" />
+          <path d="M210 106 C 222 114, 230 126, 244 132" />
+        </g>
+        <path d="M78 100 A 48 31 0 0 0 174 100 Z" class="fill-current" fill-opacity="0.08" stroke="none" />
+        <path d="M78 100 A 48 31 0 0 0 174 100" />
+        <path
+          d="M78 100 L 88 80 L 108 70 L 146 70 L 166 80 L 174 100 Z"
           class="fill-current"
-          fill-opacity="0.08"
+          fill-opacity="0.16"
           stroke="none"
         />
-        <path d="M184 44 C 142 42, 108 66, 108 100 C 108 134, 142 158, 184 156" />
-        <circle cx="149" cy="100" r="15" stroke-width="1.2" />
-        <circle cx="153" cy="96" r="3.6" class="fill-current" stroke="none" opacity="0.5" />
-        <ellipse cx="137" cy="66" rx="7" ry="3" stroke-width="1" opacity="0.5" transform="rotate(-25 137 66)" />
-        <ellipse cx="160" cy="136" rx="7" ry="3" stroke-width="1" opacity="0.5" transform="rotate(15 160 136)" />
-        <path d="M108 100 q -7 -8 -14 0 t -14 0 t -14 0" stroke-width="1" />
-        <path d="M184 44 H 244 a 8 8 0 0 1 8 8 V 148 a 8 8 0 0 1 -8 8 H 184 Z" />
-        <rect x="194" y="35" width="28" height="7" fill="currentColor" stroke="none" />
-        <rect x="194" y="158" width="28" height="7" fill="currentColor" stroke="none" />
-        <path d="M248 84 L 208 154 M248 116 L 208 46" stroke-width="1" />
-        <circle cx="252" cy="82" r="4.5" class="fill-accent" stroke="none" />
-        <circle cx="252" cy="118" r="4.5" class="fill-accent" stroke="none" />
-        {[60, 80, 100, 120, 140].map((y) => (
-          <line x1="179" y1={y} x2="189" y2={y} stroke-width="1" opacity="0.6" />
-        ))}
+        <path d="M78 100 L 88 80 L 108 70 L 146 70 L 166 80 L 174 100" />
+        <path d="M78 100 H 174 M108 72 V 99" stroke-width="1" opacity="0.7" />
+        <g class="fill-current" stroke="none">
+          <circle cx="88" cy="94" r="1.3" />
+          <circle cx="92" cy="83" r="1.3" />
+          <circle cx="160" cy="82" r="1.3" />
+          <circle cx="94" cy="92" r="1.2" />
+          <circle cx="102.6" cy="81.6" r="0.9" />
+          <rect x="116" y="73.6" width="2.6" height="2.6" rx="0.4" />
+          <rect x="121.5" y="73.6" width="2.6" height="2.6" rx="0.4" />
+          <rect x="127" y="73.6" width="2.6" height="2.6" rx="0.4" />
+        </g>
+        <circle cx="94" cy="92" r="4.6" stroke-width="1.1" />
+        <path
+          d="M94 85 V 87.4 M94 96.6 V 99 M87 92 H 89.4 M98.6 92 H 101 M89 87 l 1.7 1.7 M97.3 95.3 l 1.7 1.7 M89 97 l 1.7 -1.7 M97.3 88.7 l 1.7 -1.7"
+          stroke-width="1.5"
+        />
+        <circle cx="102.6" cy="81.6" r="2.9" stroke-width="1" />
+        <path
+          d="M102.6 77.2 V 78.7 M102.6 84.5 V 86 M98.2 81.6 H 99.7 M105.5 81.6 H 107 M99.5 78.5 l 1 1 M104.7 83.7 l 1 1 M99.5 84.7 l 1 -1 M104.7 79.5 l 1 -1"
+          stroke-width="1.2"
+        />
+        <g stroke-width="1">
+          <path d="M152 93 H 140 L 134 87 H 118 M152 97 H 128 L 123 92.5 H 116 M146 93 V 79" />
+          <circle cx="115.5" cy="87" r="2.3" />
+          <circle cx="146" cy="76.6" r="2.3" />
+        </g>
+        <path
+          d="M169 100 A 15 20 0 0 0 199 100 Z M169 100 L 172 86 L 180 80 L 190 80 L 197 87 L 199 100 Z"
+          class="fill-page"
+        />
+        <path d="M182 86 H 193 M182 89.5 H 194 M182 93 H 195" stroke-width="1" opacity="0.7" />
+        <path d="M197 100 A 8 10 0 0 0 213 100 Z M197 100 L 199 91 L 205 88.5 L 211 91 L 213 100 Z" class="fill-page" />
+        <circle cx="208.5" cy="105" r="1.4" class="fill-current" stroke="none" />
+        <path
+          d="M157 115 C 150 119, 144 123, 138 126 M165 115 C 164 118, 163 120, 162 122 M173 115 L 182 116 M173 85 L 182 84 M165 85 C 164 82, 163 80, 162 78 M157 85 C 150 82, 144 78, 138 74"
+          stroke-width="0.9"
+        />
+        <g class="fill-current" stroke="none">
+          <circle cx="138" cy="126" r="2" />
+          <circle cx="162" cy="122" r="2" />
+          <circle cx="182" cy="116" r="2" />
+        </g>
+        <path d="M176 95 C 190 92, 198 92, 205 94 M176 105 C 190 108, 198 108, 210 106" stroke-width="1" />
+        <rect x="152" y="89" width="26" height="22" rx="2" class="fill-page" stroke-width="1.3" />
+        <path
+          d="M157 85 V 89 M165 85 V 89 M173 85 V 89 M157 111 V 115 M165 111 V 115 M173 111 V 115"
+          stroke-width="1"
+        />
+        <circle cx="165" cy="100" r="2.6" class="fill-accent" stroke="none" />
+        <circle cx="210" cy="106" r="2.4" class="fill-accent" stroke="none" />
+        <circle cx="206" cy="94.5" r="4.6" class="fill-page" stroke-width="1.2" />
+        <circle cx="206" cy="94.5" r="2.6" stroke-width="0.8" opacity="0.7" />
+        <circle cx="206.4" cy="94.2" r="1.5" class="fill-accent" stroke="none" />
+        <circle cx="200.2" cy="93.4" r="1.3" class="fill-current" stroke="none" />
+        <g class="fill-page" stroke-width="1.2">
+          <circle cx="182" cy="84" r="3.2" />
+          <circle cx="162" cy="78" r="3.2" />
+          <circle cx="138" cy="74" r="3.2" />
+          <circle cx="192" cy="66" r="3.2" />
+          <circle cx="156" cy="56" r="3.2" />
+          <circle cx="118" cy="54" r="3.2" />
+          <circle cx="222" cy="84" r="2.4" />
+          <circle cx="233" cy="77" r="2.4" />
+        </g>
+        <g class="fill-current" stroke="none">
+          <circle cx="182" cy="84" r="1" />
+          <circle cx="162" cy="78" r="1" />
+          <circle cx="138" cy="74" r="1" />
+          <circle cx="192" cy="66" r="1" />
+          <circle cx="156" cy="56" r="1" />
+          <circle cx="118" cy="54" r="1" />
+        </g>
+        <circle cx="246" cy="70" r="3.2" class="fill-accent" stroke="none" />
       </>
     )
   }
@@ -186,3 +265,11 @@ const grid = [1 / 3, 2 / 3].flatMap((s) => [
     )
   }
 </svg>
+
+<style>
+  /* Shapes that hide what lies under them (the beetle's chip, head, thorax, struts and joints) take
+     the page's colour. */
+  .fill-page {
+    fill: var(--aw-color-bg-page);
+  }
+</style>
