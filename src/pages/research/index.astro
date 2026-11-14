@@ -3,7 +3,7 @@ import Layout from '~/layouts/PageLayout.astro';
 import HeroText from '~/components/widgets/HeroText.astro';
 import ResearchFields from '~/components/widgets/ResearchFields.astro';
 import type { ResearchField, ResearchQuestion } from '~/components/widgets/ResearchFields.astro';
-import { findPublication, publicationLinks } from '~/utils/publications';
+import { findPublication, publicationLinks, publications } from '~/utils/publications';
 import { inlineMarkdown } from '~/utils/markdown';
 import { research, areaDrawings, answerDrawings } from '~/utils/research';
 import type { ResearchQuestionEntry } from '~/utils/research';
@@ -15,14 +15,18 @@ const metadata = {
   openGraph: { images: [{ url: '~/assets/images/social/research.jpg' }] },
 };
 
-// The papers of a question, by their titles in src/data/publications.yaml. A title that is not
-// there stops the build.
+// The papers of a question (or an area's other papers), by their titles in
+// src/data/publications.yaml, newest first in the order of the Publications page, whatever the order
+// they are listed in. A title that is not there stops the build.
 const papers = (titles: Array<string>) =>
-  titles.map((title) => {
-    const pub = findPublication(title);
-    if (!pub) throw new Error(`Not in src/data/publications.yaml: "${title}"`);
-    return { title: pub.title, href: publicationLinks(pub)[0]?.href, venue: pub.venue, year: pub.year };
-  });
+  titles
+    .map((title) => {
+      const pub = findPublication(title);
+      if (!pub) throw new Error(`Not in src/data/publications.yaml: "${title}"`);
+      return pub;
+    })
+    .sort((a, b) => publications.indexOf(a) - publications.indexOf(b))
+    .map((pub) => ({ title: pub.title, href: publicationLinks(pub)[0]?.href, venue: pub.venue, year: pub.year }));
 
 // A question of an area, as written in src/data/research.yaml: its answer and aside are Markdown,
 // its papers are titles, and its drawing is one of VisionGraphic's.

@@ -13,7 +13,8 @@ import type { Widget } from '~/types';
 // and links. Each answer opens and closes on its own, so that opening one never moves the question
 // pressed. The first area is shown at first, or the one named in the address: an area
 // (#artificial-life) or a question (#causality), which then opens. Areas fade in with the site's
-// fade, after the one shown has faded out, and answers fade in as they slide open.
+// fade, after the one shown has faded out, and answers fade in as they slide open. Leaving an area
+// closes its open questions, so that it is shut again when it is chosen next.
 // The address follows the selected area. Without scripts every area is shown and the questions
 // still open, and on paper every area and every answer is printed.
 
@@ -275,9 +276,25 @@ const small = 'text-sm font-semibold uppercase tracking-wide text-muted';
       });
     }
 
-    /** Shows the area `id` and hides the others (the one shown fades in, see the panels' classes). */
+    /** Shows the area `id` and hides the others (the one shown fades in, see the panels' classes),
+     *  closing the questions of the hidden ones. */
     show(id: string) {
-      this.tabs().forEach((tab) => this.panel(tab)?.toggleAttribute('data-open', tab.dataset.field === id));
+      this.tabs().forEach((tab) => {
+        const panel = this.panel(tab);
+        const on = tab.dataset.field === id;
+        panel?.toggleAttribute('data-open', on);
+        if (panel && !on) this.shut(panel);
+      });
+    }
+
+    /** Closes the open questions of an area at once, stopping any answer that is sliding. */
+    shut(panel: HTMLElement) {
+      panel.querySelectorAll<HTMLDetailsElement>('details[open]').forEach((question) => {
+        const answer = question.querySelector<HTMLElement>('[data-answer]');
+        answer?.getAnimations().forEach((animation) => animation.cancel());
+        if (answer) answer.style.overflow = '';
+        question.open = false;
+      });
     }
 
     select(id: string) {
