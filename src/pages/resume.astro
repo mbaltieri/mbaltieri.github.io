@@ -13,16 +13,16 @@ import { escapeHtml, inlineMarkdown } from '~/utils/markdown';
 // positions, and the entries of the Publications page for the papers. Everything comes from
 // src/data/resume.yaml, except the selected publications, which come from
 // src/data/publications.yaml. The full CV is the button beside the heading of the profile. The
-// contact details, the location, the service roles, the languages and the interests are left off
-// the page. They stay in the data, so they are still in /assets/resume.json.
+// contact details, the location, the service roles, the skills, the languages and the interests
+// are left off the page. They stay in the data, so they are still in /assets/resume.json.
 
 const metadata = {
   title: 'Resume',
-  description: "Manuel Baltieri's resume: positions, education, selected publications and skills.",
+  description: "Manuel Baltieri's resume: positions, education and selected publications.",
   openGraph: { images: [{ url: '~/assets/images/social/resume.jpg' }] },
 };
 
-const { basics, work = [], education = [], skills = [] } = resume;
+const { basics, work = [], education = [] } = resume;
 
 // The summary is a list of short statements in the data, shown side by side.
 const statementIcons = ['tabler:atom-2', 'tabler:math-function', 'tabler:code'];
@@ -176,26 +176,6 @@ const heading = `mb-6 ${rule}`;
           All publications
         </a>
       </p>
-    </section>
-
-    <section id="skills" class={section}>
-      <h2 class={heading}>Skills</h2>
-      <dl class="grid gap-x-10 gap-y-6 sm:grid-cols-2">
-        {
-          skills.map((skill) => (
-            <div>
-              <dt class="font-heading text-lg font-semibold text-heading">{skill.name}</dt>
-              <dd class="mt-2 flex flex-wrap gap-1.5">
-                {(skill.keywords ?? []).map((keyword) => (
-                  <span class="rounded-full bg-primary/10 px-2.5 py-0.5 text-sm text-default dark:bg-primary/15">
-                    {keyword}
-                  </span>
-                ))}
-              </dd>
-            </div>
-          ))
-        }
-      </dl>
     </section>
   </div>
 </Layout>
