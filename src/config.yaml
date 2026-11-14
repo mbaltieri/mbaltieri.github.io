@@ -75,7 +75,7 @@ analytics:
     # free for a personal site. Make an account, then put its code here: "manuelbaltieri" for
     # https://manuelbaltieri.goatcounter.com. Left empty, nothing is loaded.
     goatcounter:
-      code: null
+      code: 'manuelbaltieri'
 
 ui:
   theme: 'system' # Values: "system" | "light" | "dark" | "light:only" | "dark:only"
