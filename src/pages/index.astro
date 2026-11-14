@@ -52,7 +52,7 @@ const roles = (resume.work ?? []).filter((job) => !job.endDate);
 const questions = [
   'Where does a boundary come from?',
   'What counts as a model or a goal for the agent?',
-  'Which properties belong to a system rather than to the observer describing it?',
+  'Which properties are just observer-dependent?',
 ];
 
 // A few talks, the newest first after the one in Oxford, which leads. Each has a preview: the
@@ -147,7 +147,7 @@ const selectedWork = [
 
   <HeroVehicles
     title="What does an agent<br />model?"
-    subtitle="Manuel develops mathematical theories for agents, to understand how they are distinguished from their environments, what they model and how they pursue goals, and how these ideas can support safer AI."
+    subtitle="Manuel develops mathematical theories for agents, to understand how they are distinguished from their environments, what they model and how they pursue goals, and how these ideas help us make AI safer."
   />
 
   <WidgetWrapper id="big-picture" containerClass="max-w-6xl">
@@ -165,8 +165,8 @@ const selectedWork = [
       </div>
       <div class="intersect-once intersect-quarter motion-safe:md:opacity-0 motion-safe:md:intersect:animate-fade">
         <p class="text-lg text-muted">
-          Starting with a pair of open dynamical systems, agent and environment, coupled to form an autonomous system,
-          we ask:
+          If we start from a pair of open dynamical systems, agent and environment, coupled to form an autonomous
+          system:
         </p>
         <ul
           class="mt-4 divide-y divide-gray-200 border-y border-gray-200 dark:divide-slate-700 dark:border-slate-700 font-heading text-lg md:text-xl font-medium text-heading"
