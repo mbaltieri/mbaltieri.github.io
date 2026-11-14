@@ -31,7 +31,6 @@ export const footerData = {
       icon: 'tabler:school',
       href: 'https://scholar.google.com/citations?user=v6v1A_YAAAAJ',
     },
-    { ariaLabel: 'GitHub', icon: 'tabler:brand-github', href: 'https://github.com/mbaltieri' },
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/manuelbaltieri/' },
     { ariaLabel: 'Bluesky', icon: 'tabler:brand-bluesky', href: 'https://bsky.app/profile/manuelbaltieri.bsky.social' },
     { ariaLabel: 'Mastodon', icon: 'tabler:brand-mastodon', href: 'https://mathstodon.xyz/@manuelbaltieri' },
