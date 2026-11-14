@@ -35,6 +35,9 @@ const statements = await Promise.all(
 );
 
 // Each position: the role and its dates on one line, the organisation under it, then what it was.
+// On wide screens the organisation and what the role was stop 11.5rem short of the right edge, where
+// the lines of the selected publications stop (their 10rem of links and the gap before them), so
+// that they never run under the dates.
 // Where several positions were held at one organisation, only the first of them listed (the latest)
 // has an entry of its own, at its place in the data. The earlier ones follow inside it, under
 // "Previously", as a smaller timeline.
@@ -62,7 +65,7 @@ const positions = await Promise.all(
   held.map(async ([job, ...earlier]) => {
     const { title, description = '' } = await role(job);
     return {
-      title: `${title}<span class="mt-0.5 block text-base font-normal text-muted">${organisation(job.company, job.website)}</span>`,
+      title: `${title}<span class="mt-0.5 block text-base font-normal text-muted md:pr-[11.5rem]">${organisation(job.company, job.website)}</span>`,
       description: earlier.length
         ? `${description}<span class="mt-4 block text-xs font-semibold uppercase tracking-wide text-muted">Previously</span>`
         : description || undefined,
@@ -119,7 +122,7 @@ const heading = `mb-6 ${rule}`;
         defaultIcon="tabler:point-filled"
         classes={{
           title: 'text-lg font-semibold text-heading',
-          description: 'mt-1.5 text-sm',
+          description: 'mt-1.5 text-sm md:pr-[11.5rem]',
           icon: 'h-6 w-6 p-1 border text-primary border-primary/40 dark:border-primary/60',
           // The text column fills the line, so that the dates sit at its right end.
           panel: '[&>div:last-child]:flex-1',
@@ -128,7 +131,7 @@ const heading = `mb-6 ${rule}`;
           // The earlier positions at one organisation: the same timeline inside the entry, smaller.
           container: 'mt-2',
           title: 'text-base font-semibold text-heading',
-          description: 'mt-1 text-sm',
+          description: 'mt-1 text-sm md:pr-[11.5rem]',
           icon: 'mt-1 h-4 w-4 p-0.5 border text-primary border-primary/40 dark:border-primary/60',
           panel: '[&>div:last-child]:flex-1',
           step: 'pb-4',
