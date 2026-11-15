@@ -49,7 +49,7 @@
   kind: conference
   selected: true
   publisher: "https://proceedings.mlr.press/v306/zhang26dy.html"
-  pdf: "https://raw.githubusercontent.com/mlresearch/v306/main/assets/zhang26dy/zhang26dy.pdf"
+  # pdf: "https://raw.githubusercontent.com/mlresearch/v306/main/assets/zhang26dy/zhang26dy.pdf"
   preprint: "https://arxiv.org/abs/2606.25357"
 - title: "A Braitenberg vehicle’s habitat"
   authors: "Baltieri, M., Rosas, F. E., & Torresan, F."
